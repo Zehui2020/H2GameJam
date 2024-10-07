@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b637278d1970daa4c851e5c72a825ffe, type: 3}
-  m_Name: Meats
+  m_Name: Lamb
   m_EditorClassIdentifier: 
   ingredientType: 2
   ingrendientSprite: {fileID: 0}
-  ingredientCost: 15
+  ingredientCost: 0

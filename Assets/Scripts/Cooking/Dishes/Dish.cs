@@ -15,7 +15,13 @@ public class Dish : ScriptableObject
         NasiLemak
     }
 
+    [System.Serializable]
+    public struct DishCombinations
+    {
+        public List<Ingredient.IngredientType> ingredients;
+    }
+
     public DishType dishType;
-    public List<Ingredient.IngredientType> ingredients = new();
+    public List<DishCombinations> dishCombinations = new();
     public int dishCost;
 }

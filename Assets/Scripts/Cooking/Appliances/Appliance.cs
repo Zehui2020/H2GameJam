@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class Appliance : MonoBehaviour
@@ -53,11 +52,11 @@ public class Appliance : MonoBehaviour
         }
     }
 
-    private bool CanPutIngredient(Ingredient.IngredientType ingredient)
+    private bool CanPutIngredient(Ingredient.IngredientType newIngredient)
     {
-        foreach (Dish dish in applianceData.allowedDishes)
+        foreach (Ingredient ingredient in applianceData.allowedIngredients)
         {
-            if (dish.ingredients.Contains(ingredient))
+            if (ingredient.Equals(newIngredient))
                 return true;
         }
 

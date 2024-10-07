@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: BakKutTeh
   m_EditorClassIdentifier: 
   dishType: 0
-  ingredients:
-  - {fileID: 11400000, guid: 8b91143a3cd692541b0cc11045170696, type: 2}
-  - {fileID: 11400000, guid: 948422bd1684dc04ba7987ea15b0ca98, type: 2}
-  - {fileID: 11400000, guid: 9957ad0ea78c54f45ac15bbce370e088, type: 2}
+  dishCombinations:
+  - ingredients: 000000000500000003000000
+  - ingredients: 0000000005000000
   dishCost: 0

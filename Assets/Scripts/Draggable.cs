@@ -11,17 +11,17 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         mainCamera = Camera.main;
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
+    public virtual void OnBeginDrag(PointerEventData eventData)
     {
         offset = transform.position - GetWorldPositionFromMouse(eventData);
     }
 
-    public void OnDrag(PointerEventData eventData)
+    public virtual void OnDrag(PointerEventData eventData)
     {
         transform.position = GetWorldPositionFromMouse(eventData) + offset;
     }
 
-    public void OnEndDrag(PointerEventData eventData)
+    public virtual void OnEndDrag(PointerEventData eventData)
     {
         transform.position = GetWorldPositionFromMouse(eventData) + offset;
     }

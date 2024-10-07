@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "ApplianceData")]
 public class ApplianceData : ScriptableObject
 {
     public enum ApplianceType
@@ -13,7 +14,7 @@ public class ApplianceData : ScriptableObject
         Pan
     }
 
-    public List<Dish> allowedDishes = new();
+    public List<Ingredient> allowedIngredients = new();
     public ApplianceType type;
     public float cookDuration;
     public float burnDuration;
