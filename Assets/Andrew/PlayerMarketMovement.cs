@@ -58,10 +58,10 @@ public class PlayerMarketMovement : MonoBehaviour
         playerRB.AddForce(new Vector2(horizontalValue * playerSpeed, 0), ForceMode2D.Force);
 
         //clamp the velocity of the player
-        //if (playerRB.velocity.magnitude > maxVelocity)
-        //{
-        //    playerRB.velocity = playerRB.velocity.normalized * maxVelocity;
-        //}
+        if (playerRB.velocity.magnitude > maxVelocity)
+        {
+            playerRB.velocity = playerRB.velocity.normalized * maxVelocity;
+        }
     }
 
 }
