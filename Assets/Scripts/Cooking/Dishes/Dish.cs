@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "Dish")]
 public class Dish : ScriptableObject
 {
     public enum DishType
@@ -15,6 +16,6 @@ public class Dish : ScriptableObject
     }
 
     public DishType dishType;
-    public List<Ingredient> ingredients = new();
+    public List<Ingredient.IngredientType> ingredients = new();
     public int dishCost;
 }

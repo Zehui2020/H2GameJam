@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "Ingredient")]
 public class Ingredient : ScriptableObject
 {
     public enum IngredientType
@@ -8,7 +9,8 @@ public class Ingredient : ScriptableObject
         Spices,
         Meats,
         Seafood,
-        Dairy
+        Dairy,
+        Sauces
     }
 
     public IngredientType ingredientType;
