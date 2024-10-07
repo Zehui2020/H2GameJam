@@ -8,11 +8,16 @@ public class MarketBooth : MonoBehaviour
 
     [SerializeField] private List<Ingredient> ingredientsToSet;
 
+    [SerializeField] private List<MarketBoothButton> marketBoothButtons;
+
+    [SerializeField] private GameObject marketBoothBtnHolder;
+
     private void Awake()
     {
         boothCanvas.alpha = 0;
         boothCanvas.interactable = false;
         boothCanvas.blocksRaycasts = false;
+        SetUpButtons();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -23,6 +28,15 @@ public class MarketBooth : MonoBehaviour
             boothCanvas.alpha = 1;
             boothCanvas.interactable = true;
             boothCanvas.blocksRaycasts = true;
+        }
+    }
+
+    private void SetUpButtons()
+    {
+        marketBoothButtons.AddRange(marketBoothBtnHolder.GetComponentsInChildren<MarketBoothButton>());
+        foreach (var button in marketBoothButtons)
+        {
+            button.SetUpButton(ingredientsToSet[0], 2);
         }
     }
 
