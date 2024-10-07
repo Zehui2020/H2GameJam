@@ -14,8 +14,16 @@ public class ApplianceData : ScriptableObject
         Pan
     }
 
-    public List<Ingredient> allowedIngredients = new();
+    public Dish cookedDish;
+    public Sprite cookedSprite;
+    public Sprite burntSprite;
+
+    public List<Ingredient.IngredientType> allowedIngredients = new();
     public ApplianceType type;
+    public float cookSpeed;
     public float cookDuration;
     public float burnDuration;
+    public float burnGracePeriod;
+
+    public int maxIngredients;
 }

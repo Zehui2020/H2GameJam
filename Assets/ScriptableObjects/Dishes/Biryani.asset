@@ -15,5 +15,4 @@ MonoBehaviour:
   dishType: 5
   dishCombinations:
   - ingredients: 020000000600000003000000
-  - ingredients: 020000000600000003000000
   dishCost: 0
