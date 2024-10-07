@@ -31,10 +31,10 @@ public class PlayerMarketMovement : MonoBehaviour
         }
 
 
-        //if (GamePlatformChecker.gamePlatformInstance.deviceType == GamePlatformChecker.DeviceType.WebGL)
-        //{
+        if (GamePlatformChecker.gamePlatformInstance.deviceType == GamePlatformChecker.DeviceType.WebGL)
+        {
             HandlePCInput();
-        //}
+        }
     }
 
     private void HandlePCInput()

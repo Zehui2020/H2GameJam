@@ -47,7 +47,7 @@ public class GamePlatformChecker : MonoBehaviour
         else
         {
             Debug.Log("Running on another platform");
-            deviceType = DeviceType.Other;
+            deviceType = DeviceType.WebGL;
         }
     }
 
