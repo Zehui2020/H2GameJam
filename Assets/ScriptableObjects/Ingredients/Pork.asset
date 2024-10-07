@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Pork
   m_EditorClassIdentifier: 
   ingredientType: 0
-  ingrendientSprite: {fileID: 0}
+  ingrendientSprite: {fileID: 21300000, guid: 49c735a18dc92fe42b71bbeb297e50fa, type: 3}
   ingredientCost: 0
