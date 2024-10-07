@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: NasiLemak
   m_EditorClassIdentifier: 
   dishType: 6
-  ingredients:
-  - {fileID: 11400000, guid: 8b91143a3cd692541b0cc11045170696, type: 2}
-  - {fileID: 11400000, guid: 0ac65f03c878f1443be0fb94876996d3, type: 2}
-  - {fileID: 11400000, guid: 9957ad0ea78c54f45ac15bbce370e088, type: 2}
+  dishCombinations:
+  - ingredients: 010000000a00000003000000
   dishCost: 0

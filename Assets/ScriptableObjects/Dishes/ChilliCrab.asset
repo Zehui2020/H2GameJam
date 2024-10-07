@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: ChilliCrab
   m_EditorClassIdentifier: 
   dishType: 4
-  ingredients:
-  - {fileID: 11400000, guid: 7b0f880478ea320439f30a9fd6ffdbbc, type: 2}
-  - {fileID: 11400000, guid: 14d631c02abb97148a9d6e1084812a5f, type: 2}
-  - {fileID: 11400000, guid: 0ac65f03c878f1443be0fb94876996d3, type: 2}
+  dishCombinations:
+  - ingredients: 0b000000090000000a00000003000000
+  - ingredients: 0b000000090000000a000000
   dishCost: 0

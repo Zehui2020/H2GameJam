@@ -5,12 +5,24 @@ public class Ingredient : ScriptableObject
 {
     public enum IngredientType
     {
-        Grains,
-        Spices,
-        Meats,
-        Seafood,
-        Dairy,
-        Sauces
+        // Meats
+        Pork,
+        Chicken,
+        Lamb,
+        // Grains
+        Rice,
+        Dough,
+        // Spices
+        ChineseSpices,
+        IndianSpices,
+        // Sauces
+        SataySauce,
+        CurrySauce,
+        ChilliSauce,
+        // Dairy
+        Egg,
+        // Seafood
+        Crab
     }
 
     public IngredientType ingredientType;
