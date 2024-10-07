@@ -15,6 +15,10 @@ public class PlayerMarketMovement : MonoBehaviour
 
     [SerializeField] private float maxVelocity;
 
+    [Header("PlayerMarketMovement")]
+    private Vector2 startTouchPosition;
+    private bool isTouching;
+
     private void Awake()
     {
         playerRB ??= GetComponent<Rigidbody2D>();
@@ -45,6 +49,31 @@ public class PlayerMarketMovement : MonoBehaviour
 
     private void HandleMobileInput()
     {
+        if (Input.touchCount <= 0)
+            return;
+
+        Touch touch = Input.touches[0]; // Get the first touch
+
+        if (touch.phase == TouchPhase.Began)
+        {
+            //Record the starting touch position
+            startTouchPosition = touch.position;
+            isTouching = true;
+        }
+        else if (touch.phase == TouchPhase.Moved && isTouching)
+        {
+            //Calculate the horizontal movement direction
+            float horizontalDelta = touch.position.x - startTouchPosition.x;
+            //Move the object left or right based on horizontalDelta
+            transform.Translate(horizontalDelta * playerSpeed * Time.deltaTime, 0, 0);
+            //Update the starting touch position for continuous movement
+            startTouchPosition = touch.position;
+        }
+        else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
+        {
+            //Reset the flag when the touch ends
+            isTouching = false;
+        }
 
     }
     private void FixedUpdate()
