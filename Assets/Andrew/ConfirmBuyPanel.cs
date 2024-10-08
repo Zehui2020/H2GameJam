@@ -1,120 +1,63 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+
 public class ConfirmBuyPanel : MonoBehaviour
 {
-    [SerializeField] private Slider buySlider;
+    [SerializeField] protected TextMeshProUGUI numOfItemsBox;
+    [SerializeField] protected TextMeshProUGUI itemCostBox;
+    [SerializeField] protected Animator fadeTranslucent;
 
-    [SerializeField] private TextMeshProUGUI ingredientToBuyName;
+    protected int numOfItemsToBuy;
+    protected int itemCosts;
+    protected bool isAffordable = false;
 
-    [SerializeField] private TextMeshProUGUI descriptionOfItem;
-
-    [SerializeField] private Image imageItemToBuy;
-
-    [SerializeField] private TextMeshProUGUI numOfItemsBox;
-
-    [SerializeField] private int numOfItemsToBuy;
-
-    [SerializeField] private Ingredient storedIngredient;
-
-    [SerializeField] private Appliance storedAppliance;
-
-    [SerializeField] private BoothButton storedButton;
-
-    [SerializeField] private TextMeshProUGUI itemCostBox;
-
-    [SerializeField] private int itemCosts;
-    [SerializeField] private bool isAffordable = false;
-    [Header("Booths")]
-    [SerializeField] private MarketBooth marketBooth;
-    [SerializeField] private ApplianceBooth applianceBooth;
-    [SerializeField] private Animator fadeTranslucent;
-
-    private void ClearPanel()
+    // Shared initialization for the panel
+    protected virtual void InitPanel(int numberOfItems)
     {
-        storedIngredient = null;
-        numOfItemsBox.text = null;
-        imageItemToBuy.sprite = null;
-        ingredientToBuyName.text = null;
-        buySlider.maxValue = 0;
-        buySlider.value = 0;
-        itemCostBox.text = null;
+        numOfItemsBox.text = numberOfItems.ToString();
+    }
+
+    // Handle fade out and close the panel
+    public void Close()
+    {
+        StartCoroutine(FadeOutAndClear());
+    }
+
+    private IEnumerator FadeOutAndClear()
+    {
+        fadeTranslucent.Play("FadeFromTranslucentToClear");
+        yield return new WaitForSeconds(1);
+        ClearPanel();
+        gameObject.SetActive(false);
+        fadeTranslucent.gameObject.GetComponent<Image>().raycastTarget = false;
+    }
+
+    // Method to clear UI elements
+    protected virtual void ClearPanel()
+    {
+        numOfItemsBox.text = "";
+        itemCostBox.text = "";
         itemCosts = 0;
     }
-    public void InitNewItemToBuy(Ingredient ingredient, int numberOfItems, BoothButton button)
-    {
-        ClearPanel();
-        storedIngredient = ingredient;
-        numOfItemsBox.text = numberOfItems.ToString();
-        imageItemToBuy.sprite = ingredient.ingrendientSprite;
-        ingredientToBuyName.text = ingredient.ingredientType.ToString();
-        buySlider.maxValue = numberOfItems;
-        buySlider.value = numberOfItems;
-        storedButton = button;
-    }
 
-    public void InitNewItemToBuy(ApplianceData ingredient, int numberOfItems, BoothButton button)
-    {
-        ClearPanel();
-        //storedIngredient = ingredient;
-        //numOfItemsBox.text = numberOfItems.ToString();
-        //imageItemToBuy.sprite = ingredient.ingrendientSprite;
-        //ingredientToBuyName.text = ingredient.ingredientType.ToString();
-        //buySlider.maxValue = numberOfItems;
-        //buySlider.value = numberOfItems;
-        //storedButton = button;
-    }
-    public void OnBuySliderChanged()
-    {
-        if (storedIngredient == null)
-        {
-            Debug.LogWarning("Stored ingredient is null. Slider change event ignored.");
-            return;
-        }
+    // To be implemented in derived classes for specific purchasing logic
+    public virtual void Buy() { }
 
-        numOfItemsToBuy = Mathf.RoundToInt(buySlider.value);
-        Debug.Log("Selected Amount: " + numOfItemsToBuy);
-        itemCosts = numOfItemsToBuy * storedIngredient.ingredientCost;
-        Debug.Log($"Cost of items {itemCosts}");
-        itemCostBox.text = itemCosts.ToString();
-
-        //check if player has enough money
-        if (PlayerStats.playerStatsInstance.currenctMoney >= itemCosts)
+    // Check if the player has enough money and update UI accordingly
+    protected void UpdateAffordability(int cost)
+    {
+        if (PlayerStats.playerStatsInstance.currenctMoney >= cost)
         {
             isAffordable = true;
-            itemCostBox.text = $"<color=white>${itemCosts}</color>";
+            itemCostBox.text = $"<color=white>${cost}</color>";
         }
         else
         {
             isAffordable = false;
-            itemCostBox.text = $"<color=red>${itemCosts}</color>";
+            itemCostBox.text = $"<color=red>${cost}</color>";
         }
-    }
-    public void Buy()
-    {
-        if (!isAffordable)
-        {
-            Debug.Log("Not enough money");
-            return;
-        }
-        PlayerStats.playerStatsInstance.AddToPlayerInventory(numOfItemsToBuy, storedIngredient);
-        PlayerStats.playerStatsInstance.RemoveMoney(itemCosts);
-        Close();
-        storedButton.UpdateButton(numOfItemsToBuy);
-    }
-    public void Close()
-    {
-        StartCoroutine(Fade());
-    }
-
-    IEnumerator Fade()
-    {
-        gameObject.SetActive(false);
-        ClearPanel();
-        fadeTranslucent.gameObject.GetComponent<Image>().raycastTarget = false;
-        fadeTranslucent.Play("FadeFromTranslucentToClear");
-        yield return new WaitForSeconds(1);
     }
 }
+
