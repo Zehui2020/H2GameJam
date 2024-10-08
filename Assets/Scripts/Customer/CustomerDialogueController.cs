@@ -15,6 +15,8 @@ public class CustomerDialogueController : MonoBehaviour
         ImpatientRemarks,
         PosReviewRemarks,
         NegReviewRemarks,
+        WrongItemRemarks,
+        NormalGreetingRemarks,
         TotalTypes
     }
 
@@ -23,6 +25,12 @@ public class CustomerDialogueController : MonoBehaviour
     {
         public DialogueTypes type;
         public string text;
+
+
+        public bool bindToGeneration;
+        public bool bindToGen1;
+        public bool bindToGen2;
+        public bool bindToGen3;
     }
 
     public static CustomerDialogueController Instance { get; private set; }
