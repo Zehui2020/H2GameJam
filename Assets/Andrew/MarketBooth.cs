@@ -9,7 +9,6 @@ public class MarketBooth : MonoBehaviour
     [SerializeField] private List<Ingredient> ingredientsToSet = new();
     [SerializeField] private List<BoothButton> marketBoothButtons = new();
     [SerializeField] private GameObject marketBoothBtnHolder;
-    [SerializeField] private Button exitButton;
     [SerializeField] private Animator fadeOpaque;
     
 
