@@ -9,6 +9,8 @@ using UnityEngine.UI;
 
 public class CustomerController : MonoBehaviour
 {
+    public static CustomerController Instance;  
+
     [SerializeField] private GameObject customerEntityPrefab;
     [SerializeField] private GameObject foodReqPrefab;
     [SerializeField] private Transform customerSpawnPos;
@@ -22,6 +24,11 @@ public class CustomerController : MonoBehaviour
     private float spawnEntityCounter;
 
     private bool storeClosed;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -64,7 +71,7 @@ public class CustomerController : MonoBehaviour
                     //TODO: Check if have enough ingredients for that food
                     //Random between 1 or 2 foods
                     int maxFoodNo = Random.Range(1, 3);
-                    for (int foodNo = 0; foodNo < maxFoodNo; foodNo++)
+                    for (int foodNo = 0; foodNo < 1; foodNo++)
                     {
                         //Random Food types
                         Dish.DishType reqDishType = (Dish.DishType)Random.Range(0, (int)Dish.DishType.TotalDishes);

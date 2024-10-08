@@ -100,6 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df1054538d775846a7497a7392166c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDraggable: 0
+  returnSpeed: 10
   applianceData: {fileID: 11400000, guid: aecebe209249496499e3ae77810941fe, type: 2}
   ingredients: 
   cookingSpeedModifier:
@@ -159,7 +161,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.0454545, y: 7.0454545}
+    oldSize: {x: 3.6904762, y: 3.6904762}
     newSize: {x: 3.82, y: 3.82}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -179,6 +181,10 @@ PrefabInstance:
     - target: {fileID: 265777896917770461, guid: cfb8f794be6998b41bcfd56b7a81782e, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 587134737296632059, guid: cfb8f794be6998b41bcfd56b7a81782e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -253
       objectReference: {fileID: 0}
     - target: {fileID: 3760043357191586522, guid: cfb8f794be6998b41bcfd56b7a81782e, type: 3}
       propertyPath: m_Pivot.x
@@ -270,7 +276,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7942311017080045701, guid: cfb8f794be6998b41bcfd56b7a81782e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 350
+      value: 207.00002
       objectReference: {fileID: 0}
     - target: {fileID: 8537878586400559441, guid: cfb8f794be6998b41bcfd56b7a81782e, type: 3}
       propertyPath: m_PresetInfoIsWorld

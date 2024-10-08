@@ -13,6 +13,11 @@ public class Fan : Draggable
 
     private Appliance targetGrill;
 
+    private void Start()
+    {
+        InitDraggable();
+    }
+
     private void Update()
     {
         if (!startDragging)
