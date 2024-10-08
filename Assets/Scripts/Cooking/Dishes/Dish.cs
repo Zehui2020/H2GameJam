@@ -12,7 +12,8 @@ public class Dish : ScriptableObject
         KatsuDon,
         ChilliCrab,
         Biryani,
-        NasiLemak
+        NasiLemak,
+        TotalDishes
     }
 
     [System.Serializable]
