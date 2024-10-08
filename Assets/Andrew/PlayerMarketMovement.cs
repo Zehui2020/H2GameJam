@@ -28,7 +28,6 @@ public class PlayerMarketMovement : MonoBehaviour
     private void Awake()
     {
         playerRB ??= GetComponent<Rigidbody2D>();
-        //playerAnim ??= GetComponent<Animator>();
     }
     public float horizontalValue;
 

@@ -24,6 +24,7 @@ public class BaseNPC : MonoBehaviour
     public void OnInteract()
     {
         InteractEvent?.Invoke();
+        PlayerStats.playerStatsInstance.playerMarketState = PlayerStats.PlayerMarketState.InMenu;
         dialogueUIAnimator.SetBool("isTalking", true);
         dialogueManager.SetTalkingNPC(this);
     }
@@ -31,6 +32,7 @@ public class BaseNPC : MonoBehaviour
     public void OnLeaveRange()
     {
         interactButtonAnimator.SetBool("inRange", false);
+        PlayerStats.playerStatsInstance.playerMarketState = PlayerStats.PlayerMarketState.Walk;
     }
 
     public void OnEndDialogue()
