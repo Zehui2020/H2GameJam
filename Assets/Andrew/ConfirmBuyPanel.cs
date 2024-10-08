@@ -27,6 +27,10 @@ public class ConfirmBuyPanel : MonoBehaviour
 
     [SerializeField] private bool isAffordable = false;
 
+    [SerializeField] private MarketBooth marketBooth;
+
+    [SerializeField] private ApplianceBooth applianceBooth;
+
     private void ClearPanel()
     {
         storedIngredient = null;

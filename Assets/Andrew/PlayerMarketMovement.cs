@@ -19,6 +19,8 @@ public class PlayerMarketMovement : MonoBehaviour
 
     [SerializeField] private ApplianceBooth applianceBooth;
 
+    [SerializeField] private Animator fade;
+
     private enum PlayerMarketState
     {
         Walk,
@@ -116,6 +118,7 @@ public class PlayerMarketMovement : MonoBehaviour
                 break;
         }
     }
+
     private void FixedUpdate()
     {
         Move(horizontalValue);
