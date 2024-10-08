@@ -6,13 +6,16 @@ using UnityEngine.UI;
 
 public class ApplianceUIManager : MonoBehaviour
 {
+    [SerializeField] private Animator cookingSliderAnimator;
     [SerializeField] private Slider cookingSlider;
+
     [SerializeField] private RectTransform ingredientUIParent;
 
     [SerializeField] private IngredientUI addIngredientUI;
     private List<IngredientUI> ingredientUIs = new();
 
     [SerializeField] private Animator burnWarningAnimator;
+    [SerializeField] private Animator cookedNotification;
 
     public void SetCookingSlider(float currentValue, float maxValue)
     {
@@ -55,5 +58,15 @@ public class ApplianceUIManager : MonoBehaviour
     public void StopBurning()
     {
         burnWarningAnimator.SetBool("isBurning", false);
+    }
+
+    public void SetCookingSliderActive(bool active)
+    {
+        cookingSliderAnimator.SetBool("isCooking", active);
+    }
+
+    public void OnFoodCooked()
+    {
+        cookedNotification.SetTrigger("show");
     }
 }

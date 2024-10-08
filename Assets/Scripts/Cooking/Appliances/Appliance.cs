@@ -11,6 +11,8 @@ public class Appliance : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     private float cookingTimer = 0;
+    public StatModifier cookingSpeedModifier;
+
     private Coroutine cookingRoutine;
     private Coroutine burnRoutine;
     private bool canServe = false;
@@ -88,11 +90,13 @@ public class Appliance : MonoBehaviour
     {
         while (true)
         {
-            cookingTimer += Time.deltaTime * applianceData.cookSpeed;
+            cookingTimer += Time.deltaTime * (applianceData.cookSpeed + cookingSpeedModifier.GetTotalModifier());
             applianceUIManager.SetCookingSlider(cookingTimer, applianceData.cookDuration);
+            applianceUIManager.SetCookingSliderActive(true);
 
             if (cookingTimer >= applianceData.cookDuration)
             {
+                applianceUIManager.SetCookingSliderActive(false);
                 CookFood();
                 burnRoutine = StartCoroutine(BurnRoutine());
                 cookingRoutine = null;
@@ -136,6 +140,7 @@ public class Appliance : MonoBehaviour
 
             spriteRenderer.sprite = applianceData.cookedSprite;
             canServe = true;
+            applianceUIManager.OnFoodCooked();
 
             break;
         }
