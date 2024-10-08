@@ -11,6 +11,7 @@ public class CustomerEntity : MonoBehaviour
     [SerializeField] private GameObject orderUI;
     [SerializeField] private Image patienceMeter;
     [SerializeField] private RectTransform requestContainer;
+    [SerializeField] private CustomerDialogueHandler customerDialogueHandler;
 
     public enum CustomerState
     {
@@ -71,6 +72,8 @@ public class CustomerEntity : MonoBehaviour
                     SetOrderLayer(3);
                     //Show food choices and patience
                     orderUI.SetActive(true);
+                    //dialogue
+                    customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.NormalGreetingRemarks);
                 }
                 break;
 
