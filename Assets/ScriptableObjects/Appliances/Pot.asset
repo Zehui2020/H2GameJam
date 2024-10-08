@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Pot
   m_EditorClassIdentifier: 
   cookedDish: {fileID: 11400000, guid: 65d231de138de7c46bf675fe9c107168, type: 2}
+  sprite: {fileID: 0}
   cookedSprite: {fileID: 21300000, guid: fc6a422c5536b0d42bd47cf01ce44cc8, type: 3}
   burntSprite: {fileID: 21300000, guid: b17f2271f9956ac4c9ea9d57958e09f9, type: 3}
+  applianceName: Pot
+  applianceDescription: Used to boil some delicious meals
   allowedIngredients: 000000000500000003000000
   type: 0
   cookSpeed: 1

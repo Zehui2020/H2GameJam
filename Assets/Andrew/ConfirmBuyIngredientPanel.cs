@@ -6,11 +6,11 @@ public class ConfirmBuyIngredientPanel : ConfirmBuyPanel
 {
     [SerializeField] private Slider buySlider;
     [SerializeField] private Ingredient storedIngredient;
-    [SerializeField] private BoothButton storedButton;
 
     protected override void InitPanel(int numberOfItems)
     {
         base.InitPanel(numberOfItems);
+        numOfItemsBox.text = numberOfItems.ToString();
         buySlider.maxValue = numberOfItems;
         buySlider.value = numberOfItems;
     }
@@ -54,6 +54,7 @@ public class ConfirmBuyIngredientPanel : ConfirmBuyPanel
     protected override void ClearPanel()
     {
         base.ClearPanel();
+        numOfItemsBox.text = "";
         buySlider.value = 0;
         buySlider.maxValue = 0;
         // Clear ingredient-specific UI elements

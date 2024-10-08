@@ -11,6 +11,7 @@ public class ConfirmBuyPanel : MonoBehaviour
     [SerializeField] protected Animator fadeTranslucent;
     [SerializeField] protected TextMeshProUGUI itemToBuyName;
     [SerializeField] protected TextMeshProUGUI descriptionOfItem;
+    [SerializeField] protected BoothButton storedButton;
 
     protected int numOfItemsToBuy;
     protected int itemCosts;
@@ -19,7 +20,7 @@ public class ConfirmBuyPanel : MonoBehaviour
     // Shared initialization for the panel
     protected virtual void InitPanel(int numberOfItems)
     {
-        numOfItemsBox.text = numberOfItems.ToString();
+        
     }
 
     // Handle fade out and close the panel
@@ -40,7 +41,6 @@ public class ConfirmBuyPanel : MonoBehaviour
     // Method to clear UI elements
     protected virtual void ClearPanel()
     {
-        numOfItemsBox.text = "";
         itemCostBox.text = "";
         itemCosts = 0;
     }
@@ -51,7 +51,7 @@ public class ConfirmBuyPanel : MonoBehaviour
     // Check if the player has enough money and update UI accordingly
     protected void UpdateAffordability(int cost)
     {
-        if (PlayerStats.playerStatsInstance.currenctMoney >= cost)
+        if (PlayerStats.playerStatsInstance.currentMoney >= cost)
         {
             isAffordable = true;
             itemCostBox.text = $"<color=white>${cost}</color>";

@@ -25,6 +25,7 @@ public class BoothButton : MonoBehaviour
     }
     public void SetUpButton(ScriptableObject itemData, int numOfIngredients)
     {
+        Debug.Log($"Item to set {itemData}");
         itemToStore = itemData;
         if (itemData is Ingredient)
         {
@@ -54,7 +55,7 @@ public class BoothButton : MonoBehaviour
         }
         if  (itemToStore is ApplianceData)
         {
-            //confirmBuyAppliancePanel.InitNewItemToBuy((ApplianceData)itemToStore, numberOfIngredients, this);
+            confirmBuyAppliancePanel.InitNewItemToBuy((ApplianceData)itemToStore, numberOfIngredients, this);
             confirmBuyAppliancePanel.gameObject.SetActive(true);
         }
         fadeTranslucent.gameObject.GetComponent<Image>().raycastTarget = true;
