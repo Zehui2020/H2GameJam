@@ -107,7 +107,21 @@ public class PlayerMarketMovement : MonoBehaviour
 
     private void EnableStore()
     {
-       switch (shopMenuInRange)
+        StartCoroutine(FadeToBlack());
+    }
+
+    private IEnumerator FadeToBlack()
+    {
+        fade.Play("FadeToBlack");
+        yield return new WaitForSeconds(3);
+        StartCoroutine(FadeToClear());
+    }
+
+    private IEnumerator FadeToClear()
+    {
+        fade.Play("FadeToClear");
+        yield return new WaitForSeconds(3);
+        switch (shopMenuInRange)
         {
             case ShopMenuInRange.Ingredient:
                 marketBooth.EnableShop();
@@ -118,7 +132,6 @@ public class PlayerMarketMovement : MonoBehaviour
                 break;
         }
     }
-
     private void FixedUpdate()
     {
         Move(horizontalValue);
