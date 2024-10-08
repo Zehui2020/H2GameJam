@@ -405,6 +405,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 871861060}
   - {fileID: 826336315}
   - {fileID: 1599901762}
   - {fileID: 14527680}
@@ -1823,7 +1824,7 @@ GameObject:
   - component: {fileID: 826336317}
   - component: {fileID: 826336316}
   m_Layer: 0
-  m_Name: Image
+  m_Name: BuyShopBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1886,6 +1887,90 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 826336314}
   m_CullTransparentMesh: 1
+--- !u!1 &871861059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 871861060}
+  - component: {fileID: 871861061}
+  m_Layer: 0
+  m_Name: BoothImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &871861060
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871861059}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -965.2257, y: -539.6188, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 163479390}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &871861061
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871861059}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &874002683
 GameObject:
   m_ObjectHideFlags: 0
@@ -4062,14 +4147,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MarketButtonGroup (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 4963665402747723676, guid: a0953acb545683b419ec4d6cea867be9, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1872754321}
-    - target: {fileID: 4963665402747723676, guid: a0953acb545683b419ec4d6cea867be9, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AttemptToPurchase
-      objectReference: {fileID: 0}
     - target: {fileID: 7465018652947187536, guid: a0953acb545683b419ec4d6cea867be9, type: 3}
       propertyPath: confirmBuyPanel
       value: 
@@ -4084,17 +4161,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 924793037333651261, guid: a0953acb545683b419ec4d6cea867be9, type: 3}
   m_PrefabInstance: {fileID: 1872754319}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1872754321 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7465018652947187536, guid: a0953acb545683b419ec4d6cea867be9, type: 3}
-  m_PrefabInstance: {fileID: 1872754319}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 001696fb80392634aba8045ea9f36893, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1910449217
 GameObject:
   m_ObjectHideFlags: 0
@@ -4979,7 +5045,7 @@ GameObject:
   - component: {fileID: 2092141559}
   - component: {fileID: 2092141560}
   m_Layer: 0
-  m_Name: MarketBooth
+  m_Name: IngredientMarketBooth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4994,7 +5060,7 @@ Transform:
   m_GameObject: {fileID: 2092141556}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5061,6 +5127,17 @@ MonoBehaviour:
   boothCanvas: {fileID: 163479394}
   ingredientsToSet:
   - {fileID: 11400000, guid: a8960cf98b811e64eb22197cf024115b, type: 2}
+  - {fileID: 11400000, guid: cb3f63bb43873a34682c8742cfb33392, type: 2}
+  - {fileID: 11400000, guid: 72ea37ba3fae43441b4e732ec5750bac, type: 2}
+  - {fileID: 11400000, guid: cbdb7ed22b04bb248a36a7c1b1c674df, type: 2}
+  - {fileID: 11400000, guid: 39d21fdaf42c64e40b22fbb9836c6786, type: 2}
+  - {fileID: 11400000, guid: c5be69cf6c61c6b45a190da34192e45e, type: 2}
+  - {fileID: 11400000, guid: c52c17f884e9e2043a70bcce42b563fb, type: 2}
+  - {fileID: 11400000, guid: 961ac73e287bab747893d369fc58d617, type: 2}
+  - {fileID: 11400000, guid: ff34fa316d4ece34ebfab17d395fc1e7, type: 2}
+  - {fileID: 11400000, guid: 139a0b0c77781244f98e10c517b05f1b, type: 2}
+  - {fileID: 11400000, guid: c6dad518aaa64c04c8331b9823f6fb4d, type: 2}
+  - {fileID: 11400000, guid: 482f9e8416e30fb4ea766da2116e4b99, type: 2}
   marketBoothButtons: []
   marketBoothBtnHolder: {fileID: 1599901761}
 --- !u!212 &2092141560
@@ -5104,7 +5181,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5164,7 +5241,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c6752a195ddb4804c9ad0cf033cd2e50, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

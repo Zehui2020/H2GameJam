@@ -1,19 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using UnityEngine.UI;
 public class MarketBooth : MonoBehaviour
 {
     [SerializeField] private CanvasGroup boothCanvas;
 
-    [SerializeField] private List<Ingredient> ingredientsToSet;
+    [SerializeField] private List<Ingredient> ingredientsToSet = new();
 
-    [SerializeField] private List<MarketBoothButton> marketBoothButtons;
+    [SerializeField] private List<MarketBoothButton> marketBoothButtons = new();
 
     [SerializeField] private GameObject marketBoothBtnHolder;
 
     private void Awake()
     {
+        //ingredientsToSet = Resources.LoadAll<Ingredient>("Assets/ScriptableObjects/Ingredients").ToList();
         boothCanvas.alpha = 0;
         boothCanvas.interactable = false;
         boothCanvas.blocksRaycasts = false;
@@ -22,7 +24,18 @@ public class MarketBooth : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Contact");
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("Contact");
+            boothCanvas.alpha = 1;
+            boothCanvas.interactable = true;
+            boothCanvas.blocksRaycasts = true;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("Contact");
             boothCanvas.alpha = 1;
@@ -34,10 +47,12 @@ public class MarketBooth : MonoBehaviour
     private void SetUpButtons()
     {
         marketBoothButtons.AddRange(marketBoothBtnHolder.GetComponentsInChildren<MarketBoothButton>());
-        foreach (var button in marketBoothButtons)
+        for (int i = 0; i < ingredientsToSet.Count; i++)
         {
-            button.SetUpButton(ingredientsToSet[0], 2);
+            marketBoothButtons[i].SetUpButton(ingredientsToSet[i], 2);
         }
+
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
