@@ -54,18 +54,19 @@ public class ConfirmBuyPanel : MonoBehaviour
         numOfItemsToBuy = Mathf.RoundToInt(buySlider.value);
         Debug.Log("Selected Amount: " + numOfItemsToBuy);
         itemCosts = numOfItemsToBuy * storedIngredient.ingredientCost;
+        Debug.Log($"Cost of items {itemCosts}");
         itemCostBox.text = itemCosts.ToString();
 
         //check if player has enough money
         if (PlayerStats.playerStatsInstance.currenctMoney >= itemCosts)
         {
             isAffordable = true;
-            itemCostBox.text = $"<color=white>{itemCosts}</color>";
+            itemCostBox.text = $"<color=white>${itemCosts}</color>";
         }
         else
         {
             isAffordable = false;
-            itemCostBox.text = $"<color=red>{itemCosts}</color>";
+            itemCostBox.text = $"<color=red>${itemCosts}</color>";
         }
     }
     public void Buy()
