@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Appliance : MonoBehaviour
+public class Appliance : Draggable
 {
     [Header("Appliance Stats")]
     [SerializeField] private ApplianceData applianceData;
@@ -19,6 +19,12 @@ public class Appliance : MonoBehaviour
 
     private void Start()
     {
+        InitDraggable();
+    }
+
+    public override void InitDraggable()
+    {
+        base.InitDraggable();
         applianceUIManager = GetComponent<ApplianceUIManager>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }

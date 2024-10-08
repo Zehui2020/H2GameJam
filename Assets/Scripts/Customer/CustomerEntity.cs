@@ -49,8 +49,8 @@ public class CustomerEntity : MonoBehaviour
         SetOrderLayer(2);
         imageItemsIndexList = new List<int>();
 
-        patienceCounter = 1;
-        maxPatience = 1;
+        patienceCounter = 100;
+        maxPatience = patienceCounter;
 
         orderUI.SetActive(false);
     }

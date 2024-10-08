@@ -1,4 +1,5 @@
 using DesignPatterns.ObjectPool;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 
@@ -9,15 +10,23 @@ public class IngredientPickup : PooledObject
     [SerializeField] private SpriteRenderer ingredientSR;
     private Camera mainCamera;
 
+    private Vector3 startDragPos;
+    [SerializeField] private float returnSpeed;
+    private bool isReleased = false;
+
     public void InitPickup(Ingredient ingredient)
     {
         mainCamera = Camera.main;
         this.ingredient = ingredient;
         ingredientSR.sprite = ingredient.ingrendientSprite;
+        startDragPos = transform.position;
     }
 
     private void Update()
     {
+        if (isReleased)
+            return;
+
         if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
         {
             if (Input.touches.Count() > 0)
@@ -42,6 +51,7 @@ public class IngredientPickup : PooledObject
 
     public void OnRelease()
     {
+        isReleased = true;
         Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, ingredientSR.size.x);
         foreach (Collider2D col in cols)
         {
@@ -49,7 +59,19 @@ public class IngredientPickup : PooledObject
                 continue;
 
             appliance.AddIngredient(ingredient);
+            Destroy(gameObject);
             break;
+        }
+
+        StartCoroutine(ReturnToStartPos());
+    }
+
+    private IEnumerator ReturnToStartPos()
+    {
+        while (Vector3.Distance(transform.position, startDragPos) > 0.1f)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, startDragPos, Time.deltaTime * returnSpeed);
+            yield return null;
         }
 
         Destroy(gameObject);
