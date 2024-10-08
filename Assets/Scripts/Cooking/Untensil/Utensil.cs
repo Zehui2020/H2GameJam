@@ -13,7 +13,7 @@ public class Utensil : Draggable
         InitDraggable();
     }
 
-    public void InitUtensil(Dish.DishType dishType)
+    public void SetDish(Dish.DishType dishType)
     {
         dish = dishType;
     }

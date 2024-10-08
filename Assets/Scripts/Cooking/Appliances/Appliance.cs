@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Appliance : Draggable
+public class Appliance : MonoBehaviour
 {
     [Header("Appliance Stats")]
     [SerializeField] private ApplianceData applianceData;
@@ -15,16 +15,17 @@ public class Appliance : Draggable
 
     private Coroutine cookingRoutine;
     private Coroutine burnRoutine;
-    private bool canServe = false;
+    protected bool canServe = false;
+
+    protected Dish.DishType dishType = Dish.DishType.EmptyDish;
 
     private void Start()
     {
-        InitDraggable();
+        InitAppliance();
     }
 
-    public override void InitDraggable()
+    public virtual void InitAppliance()
     {
-        base.InitDraggable();
         applianceUIManager = GetComponent<ApplianceUIManager>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -84,6 +85,10 @@ public class Appliance : Draggable
 
         cookingTimer = 0;
         canServe = false;
+        StopCooking();
+        ingredients.Clear();
+        applianceUIManager.ClearIngredientUI();
+        spriteRenderer.sprite = applianceData.sprite;
     }
 
     public void DumpIngredients()
@@ -147,6 +152,7 @@ public class Appliance : Draggable
             spriteRenderer.sprite = applianceData.cookedSprite;
             canServe = true;
             applianceUIManager.OnFoodCooked();
+            dishType = applianceData.cookedDish.dishType;
 
             break;
         }
