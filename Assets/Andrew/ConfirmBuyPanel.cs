@@ -31,6 +31,8 @@ public class ConfirmBuyPanel : MonoBehaviour
 
     [SerializeField] private ApplianceBooth applianceBooth;
 
+    [SerializeField] private Animator fadeTranslucent;
+
     private void ClearPanel()
     {
         storedIngredient = null;
@@ -55,6 +57,12 @@ public class ConfirmBuyPanel : MonoBehaviour
     }
     public void OnBuySliderChanged()
     {
+        if (storedIngredient == null)
+        {
+            Debug.LogWarning("Stored ingredient is null. Slider change event ignored.");
+            return;
+        }
+
         numOfItemsToBuy = Mathf.RoundToInt(buySlider.value);
         Debug.Log("Selected Amount: " + numOfItemsToBuy);
         itemCosts = numOfItemsToBuy * storedIngredient.ingredientCost;
@@ -82,12 +90,20 @@ public class ConfirmBuyPanel : MonoBehaviour
         }
         PlayerStats.playerStatsInstance.AddToPlayerInventory(numOfItemsToBuy, storedIngredient);
         PlayerStats.playerStatsInstance.RemoveMoney(itemCosts);
-        gameObject.SetActive(false);
+        Close();
         storedButton.UpdateButton(numOfItemsToBuy);
     }
     public void Close()
     {
-        ClearPanel();
+        StartCoroutine(Fade());
+    }
+
+    IEnumerator Fade()
+    {
         gameObject.SetActive(false);
+        ClearPanel();
+        fadeTranslucent.gameObject.GetComponent<Image>().raycastTarget = false;
+        fadeTranslucent.Play("FadeFromTranslucentToClear");
+        yield return new WaitForSeconds(1);
     }
 }

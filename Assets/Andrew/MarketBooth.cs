@@ -15,6 +15,7 @@ public class MarketBooth : MonoBehaviour
 
     [SerializeField] private Button exitButton;
 
+    [SerializeField] private Animator fadeOpaque;
     
 
     //[SerializeField] private MarketBooth marketBooth
