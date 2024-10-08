@@ -8,7 +8,7 @@ public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats playerStatsInstance;
     [Header("Money")]
-    public int currency;
+    public int currenctMoney;
 
     [Header("Meat Count")]
     public int porkCount; public int chickenCount; public int lambCount; public int beefCount;
@@ -90,5 +90,15 @@ public class PlayerStats : MonoBehaviour
                 Debug.LogError("Ingredient not found, register the ingredient inside the Ingredient script.");
                 break;
         }
+    }
+
+    public void AddMoney(int moneyToGain)
+    {
+        currenctMoney += moneyToGain;
+    }
+
+    public void RemoveMoney(int moneyToLose)
+    {
+        currenctMoney -= moneyToLose;
     }
 }
