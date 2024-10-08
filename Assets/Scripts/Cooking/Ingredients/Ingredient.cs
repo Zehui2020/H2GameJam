@@ -22,8 +22,12 @@ public class Ingredient : ScriptableObject
         // Dairy
         Egg,
         // Seafood
-        Crab
+        Crab,
+        Fish
     }
+
+    public string ingredientName;
+    [TextArea(3, 10)] public string ingredientDescription;
 
     public IngredientType ingredientType;
     public Sprite ingrendientSprite;

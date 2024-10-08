@@ -100,6 +100,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDraggable: 0
   returnSpeed: 10
+  releaseRadius: 0.5
+  customerLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  dish: 8
 --- !u!61 &1520704309886745141
 BoxCollider2D:
   m_ObjectHideFlags: 0
