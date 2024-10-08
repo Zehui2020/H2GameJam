@@ -19,18 +19,17 @@ public class ConfirmBuyPanel : MonoBehaviour
 
     [SerializeField] private Ingredient storedIngredient;
 
+    [SerializeField] private Appliance storedAppliance;
+
     [SerializeField] private BoothButton storedButton;
 
     [SerializeField] private TextMeshProUGUI itemCostBox;
 
     [SerializeField] private int itemCosts;
-
     [SerializeField] private bool isAffordable = false;
-
+    [Header("Booths")]
     [SerializeField] private MarketBooth marketBooth;
-
     [SerializeField] private ApplianceBooth applianceBooth;
-
     [SerializeField] private Animator fadeTranslucent;
 
     private void ClearPanel()
@@ -54,6 +53,18 @@ public class ConfirmBuyPanel : MonoBehaviour
         buySlider.maxValue = numberOfItems;
         buySlider.value = numberOfItems;
         storedButton = button;
+    }
+
+    public void InitNewItemToBuy(ApplianceData ingredient, int numberOfItems, BoothButton button)
+    {
+        ClearPanel();
+        //storedIngredient = ingredient;
+        //numOfItemsBox.text = numberOfItems.ToString();
+        //imageItemToBuy.sprite = ingredient.ingrendientSprite;
+        //ingredientToBuyName.text = ingredient.ingredientType.ToString();
+        //buySlider.maxValue = numberOfItems;
+        //buySlider.value = numberOfItems;
+        //storedButton = button;
     }
     public void OnBuySliderChanged()
     {
