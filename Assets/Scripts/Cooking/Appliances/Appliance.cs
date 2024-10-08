@@ -4,6 +4,42 @@ using UnityEngine;
 
 public class Appliance : MonoBehaviour
 {
+    public struct CookedDish
+    {
+        public Dish dish;
+        private int combinationIndex;
+
+        public CookedDish(Dish dish, int index)
+        {
+            this.dish = dish;
+            combinationIndex = index;
+        }
+
+        public static bool operator ==(CookedDish a, CookedDish b)
+        {
+            return a.dish == b.dish && a.combinationIndex == b.combinationIndex;
+        }
+
+        public static bool operator !=(CookedDish a, CookedDish b)
+        {
+            return !(a == b);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (!(obj is CookedDish))
+                return false;
+
+            CookedDish other = (CookedDish)obj;
+            return this == other;
+        }
+
+        public override int GetHashCode()
+        {
+            return dish.GetHashCode() ^ combinationIndex.GetHashCode();
+        }
+    }
+
     [Header("Appliance Stats")]
     [SerializeField] private ApplianceData applianceData;
     [SerializeField] private List<Ingredient.IngredientType> ingredients;
@@ -17,7 +53,7 @@ public class Appliance : MonoBehaviour
     private Coroutine burnRoutine;
     protected bool canServe = false;
 
-    protected Dish.DishType dishType = Dish.DishType.EmptyDish;
+    protected CookedDish cookedDish;
 
     private void Start()
     {
@@ -30,10 +66,10 @@ public class Appliance : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public void AddIngredient(Ingredient ingredient)
+    public virtual bool AddIngredient(Ingredient ingredient)
     {
         if (!CanPutIngredient(ingredient.ingredientType) || ingredients.Count >= applianceData.maxIngredients)
-            return;
+            return false;
 
         ingredients.Add(ingredient.ingredientType);
         applianceUIManager.AddIngredientUI(ingredient);
@@ -60,6 +96,8 @@ public class Appliance : MonoBehaviour
 
         if (ingredients.Count >= applianceData.maxIngredients)
             applianceUIManager.HideAddIngredientUI();
+
+        return true;
     }
 
     public void StopCooking()
@@ -142,20 +180,23 @@ public class Appliance : MonoBehaviour
         burnRoutine = null;
     }
 
-    private void CookFood()
+    public virtual bool CookFood()
     {
-        foreach (Dish.DishCombinations combinations in applianceData.cookedDish.dishCombinations)
+        cookedDish = new CookedDish();
+
+        for (int i = 0; i < applianceData.cookedDish.dishCombinations.Count; i++)
         {
-            if (!Utility.AreListsEqualContent(combinations.ingredients, ingredients))
+            if (!Utility.AreListsEqualContent(applianceData.cookedDish.dishCombinations[i].ingredients, ingredients))
                 continue;
 
             spriteRenderer.sprite = applianceData.cookedSprite;
             canServe = true;
             applianceUIManager.OnFoodCooked();
-            dishType = applianceData.cookedDish.dishType;
-
-            break;
+            cookedDish = new CookedDish(applianceData.cookedDish, i);
+            return true;
         }
+
+        return false;
     }
 
     private void BurnFood()

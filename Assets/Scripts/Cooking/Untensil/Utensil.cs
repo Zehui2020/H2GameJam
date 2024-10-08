@@ -6,16 +6,16 @@ public class Utensil : Draggable
     [SerializeField] private float releaseRadius;
     [SerializeField] private LayerMask customerLayer;
 
-    [SerializeField] private Dish.DishType dish;
+    [SerializeField] private Appliance.CookedDish dish;
 
     private void Start()
     {
         InitDraggable();
     }
 
-    public void SetDish(Dish.DishType dishType)
+    public void SetDish(Appliance.CookedDish cookedDish)
     {
-        dish = dishType;
+        dish = cookedDish;
     }
 
     public override void OnBeginDrag(PointerEventData eventData)

@@ -25,7 +25,7 @@ public class DraggableAppliance : Appliance
             return;
 
         ServeFood();
-        utensil.SetDish(dishType);
+        utensil.SetDish(cookedDish);
     }
 
     private void OnDrawGizmos()

@@ -10,7 +10,7 @@ public class CustomerEntity : MonoBehaviour
 {
     [SerializeField] private GameObject orderUI;
     [SerializeField] private Image patienceMeter;
-    [SerializeField] private Transform requestContainer;
+    [SerializeField] private RectTransform requestContainer;
 
     public enum CustomerState
     {
@@ -29,12 +29,12 @@ public class CustomerEntity : MonoBehaviour
     private CustomerState customerState;
     private float patienceCounter;
     private float maxPatience;
-    private List<Dish.DishType> requestedDishes;
+    private List<Appliance.CookedDish> requestedDishes;
 
     //to change image correct and wrong
     private List<int> imageItemsIndexList;
 
-    public void Init(Vector3 _placementPos, Vector3 _exitPos, List<Dish.DishType> _requestedDishes)
+    public void Init(Vector3 _placementPos, Vector3 _exitPos, List<Appliance.CookedDish> _requestedDishes)
     {
         //Set Positions
         placementPos = _placementPos;
@@ -143,14 +143,19 @@ public class CustomerEntity : MonoBehaviour
         return requestContainer;
     }
 
-    public void PassFood(Dish.DishType _type)
+    public void ForceRebuildRequestContainer()
     {
-        if (requestedDishes.Contains(_type))
+        LayoutRebuilder.ForceRebuildLayoutImmediate(requestContainer);
+    }
+
+    public void PassFood(Appliance.CookedDish cookedDish)
+    {
+        if (requestedDishes.Contains(cookedDish))
         {
-            int index = requestedDishes.IndexOf(_type);
+            int index = requestedDishes.IndexOf(cookedDish);
 
             //Remove requested Dish
-            requestedDishes.Remove(_type);
+            requestedDishes.Remove(cookedDish);
 
             //check if finish all dishes
             if (requestedDishes.Count == 0)
@@ -164,7 +169,7 @@ public class CustomerEntity : MonoBehaviour
             {
                 //check if correct type and not changed
                 RequestImageHandler requestImageHandler = reqImage.GetComponent<RequestImageHandler>();
-                if (requestImageHandler.GetDishType() == _type && !requestImageHandler.HasChanged())
+                if (requestImageHandler.GetDishType() == cookedDish && !requestImageHandler.HasChanged())
                 {
                     requestImageHandler.SetObjectIsCorrect(true);
                     return;

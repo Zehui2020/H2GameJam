@@ -15,6 +15,9 @@ MonoBehaviour:
   dishType: 4
   dishCombinations:
   - ingredients: 0b000000090000000a00000003000000
+    requirementSprites: []
   - ingredients: 0b000000090000000a000000
+    requirementSprites:
+    - {fileID: 21300000, guid: 08c7fcb307c94d04ca2bee59b7fc3e2c, type: 3}
   dishSprite: {fileID: 21300000, guid: 687e9d64e073c354f95285577a9b9ecd, type: 3}
   dishCost: 0

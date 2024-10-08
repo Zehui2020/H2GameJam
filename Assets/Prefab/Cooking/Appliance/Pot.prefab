@@ -109,7 +109,7 @@ MonoBehaviour:
   detectRadius: 1.9
   utensilLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
 --- !u!114 &8809669750933394363
 MonoBehaviour:
   m_ObjectHideFlags: 0
