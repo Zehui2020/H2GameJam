@@ -53,6 +53,14 @@ public class PlayerMarketMovement : MonoBehaviour
         if (playerMarketState != PlayerMarketState.Walk)
             return;
 
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            fade.Play("FadeToBlack");
+        }
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            fade.Play("FadeToClear");
+        }
         if (GamePlatformChecker.gamePlatformInstance.deviceType == GamePlatformChecker.DeviceType.Mobile)
         {
             HandleMobileInput();
@@ -107,31 +115,33 @@ public class PlayerMarketMovement : MonoBehaviour
 
     private void EnableStore()
     {
-        StartCoroutine(FadeToBlack());
+        StartCoroutine(Interact());
     }
 
-    private IEnumerator FadeToBlack()
+    private IEnumerator Interact()
     {
-        fade.Play("FadeToBlack");
-        yield return new WaitForSeconds(3);
-        StartCoroutine(FadeToClear());
-    }
 
-    private IEnumerator FadeToClear()
-    {
-        fade.Play("FadeToClear");
-        yield return new WaitForSeconds(3);
         switch (shopMenuInRange)
         {
             case ShopMenuInRange.Ingredient:
+                fade.Play("FadeToBlack");
+                yield return new WaitForSeconds(1);
                 marketBooth.EnableShop();
+                fade.Play("FadeToClear");
+                yield return new WaitForSeconds(1);
                 break;
 
             case ShopMenuInRange.Appliance:
+                fade.Play("FadeToBlack");
+                yield return new WaitForSeconds(1);
                 applianceBooth.EnableShop();
+                fade.Play("FadeToClear");
+                yield return new WaitForSeconds(1);
                 break;
         }
     }
+
+
     private void FixedUpdate()
     {
         Move(horizontalValue);

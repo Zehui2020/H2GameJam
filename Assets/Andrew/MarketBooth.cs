@@ -38,12 +38,18 @@ public class MarketBooth : MonoBehaviour
 
     public void ExitShop()
     {
-        StartCoroutine(FadeOut());
+        //StartCoroutine(FadeOut());
+        boothCanvas.alpha = 0;
+        boothCanvas.interactable = false;
+        boothCanvas.blocksRaycasts = false;
     }
 
     public void EnableShop()
     {
-        StartCoroutine(FadeIn());
+        //StartCoroutine(FadeIn());
+        boothCanvas.alpha = 1;
+        boothCanvas.interactable = true;
+        boothCanvas.blocksRaycasts = true;
     }
 
     public void GetItem()
