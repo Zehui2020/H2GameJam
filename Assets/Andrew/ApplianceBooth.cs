@@ -1,15 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
-using UnityEngine.UI;
-public class MarketBooth : MonoBehaviour
+
+public class ApplianceBooth : MonoBehaviour
 {
     [SerializeField] private CanvasGroup boothCanvas;
 
-    [SerializeField] private List<Ingredient> ingredientsToSet = new();
+    [SerializeField] private List<Appliance> applianceToSet = new();
 
-    [SerializeField] private List<BoothButton> marketBoothButtons = new();
+    [SerializeField] private List<BoothButton> applianceBoothButtons = new();
 
     [SerializeField] private GameObject marketBoothBtnHolder;
 
@@ -22,10 +21,10 @@ public class MarketBooth : MonoBehaviour
 
     private void SetUpButtons()
     {
-        marketBoothButtons.AddRange(marketBoothBtnHolder.GetComponentsInChildren<BoothButton>());
-        for (int i = 0; i < ingredientsToSet.Count; i++)
+        applianceBoothButtons.AddRange(marketBoothBtnHolder.GetComponentsInChildren<BoothButton>());
+        for (int i = 0; i < applianceToSet.Count; i++)
         {
-            marketBoothButtons[i].SetUpButton(ingredientsToSet[i], 2);
+            //applianceBoothButtons[i].SetUpButton(ingredientsToSet[i], 2);
         }
     }
 

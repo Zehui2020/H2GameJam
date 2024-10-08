@@ -15,6 +15,26 @@ public class PlayerMarketMovement : MonoBehaviour
 
     [SerializeField] private float maxVelocity;
 
+    [SerializeField] private MarketBooth marketBooth;
+
+    [SerializeField] private ApplianceBooth applianceBooth;
+
+    private enum PlayerMarketState
+    {
+        Walk,
+        InMenu,
+    }
+
+    private enum ShopMenuInRange
+    {
+        None = 0,
+        Ingredient,
+        Appliance,
+    }
+
+    private PlayerMarketState playerMarketState;
+    private ShopMenuInRange shopMenuInRange = 0;
+
     [Header("PlayerMarketMovement")]
     private Vector2 startTouchPosition;
     private bool isTouching;
@@ -28,6 +48,8 @@ public class PlayerMarketMovement : MonoBehaviour
 
     private void Update()
     {
+        if (playerMarketState != PlayerMarketState.Walk)
+            return;
 
         if (GamePlatformChecker.gamePlatformInstance.deviceType == GamePlatformChecker.DeviceType.Mobile)
         {
@@ -45,6 +67,11 @@ public class PlayerMarketMovement : MonoBehaviour
     {
         Debug.Log("PC Input");
         horizontalValue = Input.GetAxis("Horizontal");
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            EnableStore();
+        }
     }
 
     private void HandleMobileInput()
@@ -74,7 +101,20 @@ public class PlayerMarketMovement : MonoBehaviour
             //Reset the flag when the touch ends
             isTouching = false;
         }
+    }
 
+    private void EnableStore()
+    {
+       switch (shopMenuInRange)
+        {
+            case ShopMenuInRange.Ingredient:
+                marketBooth.EnableShop();
+                break;
+
+            case ShopMenuInRange.Appliance:
+                applianceBooth.EnableShop();
+                break;
+        }
     }
     private void FixedUpdate()
     {
@@ -90,6 +130,32 @@ public class PlayerMarketMovement : MonoBehaviour
         if (playerRB.velocity.magnitude > maxVelocity)
         {
             playerRB.velocity = playerRB.velocity.normalized * maxVelocity;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<MarketBooth>())
+        {
+            shopMenuInRange = ShopMenuInRange.Ingredient;
+        }
+
+        if (collision.gameObject.GetComponent<MarketBooth>())
+        {
+            shopMenuInRange = ShopMenuInRange.Ingredient;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<MarketBooth>())
+        {
+            collision.gameObject.GetComponent<MarketBooth>().ExitShop();
+        }
+
+        if (collision.gameObject.GetComponent<ApplianceBooth>())
+        {
+            collision.gameObject.GetComponent<ApplianceBooth>().ExitShop();
         }
     }
 

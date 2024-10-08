@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-public class MarketBoothButton : MonoBehaviour
+public class BoothButton : MonoBehaviour
 {
     private Ingredient ingredientToDisplay;
 
