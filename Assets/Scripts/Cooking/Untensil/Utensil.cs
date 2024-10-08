@@ -21,7 +21,7 @@ public class Utensil : Draggable
         base.OnEndDrag(eventData);
         if (Physics2D.OverlapCircle(transform.position, releaseRadius, serveAreaLayer))
         {
-            CustomerController.Instance.
+            //CustomerController.Instance.
             Destroy(gameObject);
         }
     }
