@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectsToPool:
   - {fileID: 7265545820102581776, guid: 3097d53645223b543a10e40710ada5d2, type: 3}
+  - {fileID: 4766340441575598200, guid: eb6c07f384bf6fc4197bed35f53fa139, type: 3}
