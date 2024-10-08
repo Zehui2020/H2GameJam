@@ -10,7 +10,7 @@ public class Dish : ScriptableObject
         BakKutTeh,
         Satay,
         RotiPrata,
-        KatsuDon,
+        ChickenRice,
         ChilliCrab,
         Biryani,
         NasiLemak,

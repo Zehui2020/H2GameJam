@@ -7,6 +7,21 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats playerStatsInstance;
+
+    [System.Serializable]
+    public struct GenerationDishes
+    {
+        public enum Generation
+        {
+            Origins,
+            Renaissance,
+            Morden
+        }
+
+        public Generation generation;
+        public List<Dish> dishes;
+    }
+
     [Header("Money")]
     public int currentMoney;
 
@@ -27,6 +42,10 @@ public class PlayerStats : MonoBehaviour
 
     [Header("Sauces Count")]
     public int chilliSauceCount; public int currySauceCount; public int sataySauceCount;
+
+    [Header("Generation Dishes")]
+    public GenerationDishes.Generation currentGeneration;
+    public List<GenerationDishes> generationDishes;
 
     [Header("Appliances")]
     public int potLevel = 1; public int grillLevel = 1; public int hotPlateLevel = 1; public int wokLevel = 1; public int steamerLevel = 1; public int panLevel = 1;
@@ -172,5 +191,16 @@ public class PlayerStats : MonoBehaviour
     public void RemoveMoney(int moneyToLose)
     {
         currentMoney -= moneyToLose;
+    }
+
+    public List<Dish> GetDishesOfThisGeneration()
+    {
+        foreach (GenerationDishes generationDish in generationDishes)
+        {
+            if (generationDish.generation.Equals(currentGeneration))
+                return generationDish.dishes;
+        }
+
+        return null;
     }
 }
