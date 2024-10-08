@@ -46,6 +46,22 @@ public class PlayerStats : MonoBehaviour
 
     }
 
+    public enum PlayerMarketState
+    {
+        Walk,
+        InMenu,
+    }
+
+    public enum ShopMenuInRange
+    {
+        None = 0,
+        Ingredient,
+        Appliance,
+    }
+
+    public PlayerMarketState playerMarketState;
+    public ShopMenuInRange shopMenuInRange = 0;
+
     public void AddToPlayerInventory(int numOfItems, Ingredient ingredient)
     {
         switch (ingredient.ingredientType)
