@@ -5,16 +5,12 @@ using System.Collections;
 
 public class BoothButton : MonoBehaviour
 {
-    private Ingredient ingredientToDisplay;
-
+    private ScriptableObject itemToStore;
     public int numberOfIngredients;
 
     [SerializeField] private Image ingredientImage;
-
     [SerializeField] private TextMeshProUGUI ingredientText;
-
     [SerializeField] private TextMeshProUGUI numOfIngredientsText;
-
     [SerializeField] private Button button;
     [SerializeField] private ConfirmBuyPanel confirmBuyPanel;
 
@@ -26,11 +22,21 @@ public class BoothButton : MonoBehaviour
     {
         ingredientImage ??= GetComponentInChildren<Image>();
     }
-    public void SetUpButton(Ingredient ingredientData, int numOfIngredients)
+    public void SetUpButton(ScriptableObject itemData, int numOfIngredients)
     {
-        ingredientToDisplay = ingredientData;
-        ingredientImage.sprite = ingredientData.ingrendientSprite;
-        ingredientText.text = ingredientData.ingredientType.ToString();
+        itemToStore = itemData;
+        if (itemData is Ingredient)
+        {
+            Ingredient ingredient = (Ingredient)itemToStore;
+            ingredientImage.sprite = ingredient.ingrendientSprite;
+            ingredientText.text = ingredient.ingredientType.ToString();
+        }
+        else if (itemData is ApplianceData)
+        {
+            ApplianceData appliance = (ApplianceData)itemToStore;
+            //ingredientImage.sprite = appliance.sp;
+            ingredientText.text = appliance.ingredientType.ToString();
+        }
         numberOfIngredients = numOfIngredients;
         numOfIngredientsText.text = numberOfIngredients.ToString();
     }
