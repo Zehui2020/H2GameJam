@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
+
 public class BoothButton : MonoBehaviour
 {
     private Ingredient ingredientToDisplay;
@@ -18,6 +20,8 @@ public class BoothButton : MonoBehaviour
 
     [SerializeField] private MarketBooth marketBooth;
 
+    [SerializeField] private Animator fadeTranslucent;
+
     private void Awake()
     {
         ingredientImage ??= GetComponentInChildren<Image>();
@@ -33,10 +37,17 @@ public class BoothButton : MonoBehaviour
 
     public void AttemptToPurchase()
     {
-        confirmBuyPanel.InitNewItemToBuy(ingredientToDisplay, numberOfIngredients, this);
-        confirmBuyPanel.gameObject.SetActive(true);
+        StartCoroutine(Fade());
     }
 
+    IEnumerator Fade()
+    {
+        confirmBuyPanel.InitNewItemToBuy(ingredientToDisplay, numberOfIngredients, this);
+        confirmBuyPanel.gameObject.SetActive(true);
+        fadeTranslucent.gameObject.GetComponent<Image>().raycastTarget = true;
+        fadeTranslucent.Play("FadeToTranslucent");
+        yield return new WaitForSeconds(1);
+    }
     public void UpdateButton(int itemsToRemove)
     {
         numberOfIngredients -= itemsToRemove;

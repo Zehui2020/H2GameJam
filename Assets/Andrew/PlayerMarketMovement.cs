@@ -21,22 +21,6 @@ public class PlayerMarketMovement : MonoBehaviour
 
     [SerializeField] private Animator fade;
 
-    private enum PlayerMarketState
-    {
-        Walk,
-        InMenu,
-    }
-
-    private enum ShopMenuInRange
-    {
-        None = 0,
-        Ingredient,
-        Appliance,
-    }
-
-    private PlayerMarketState playerMarketState;
-    private ShopMenuInRange shopMenuInRange = 0;
-
     [Header("PlayerMarketMovement")]
     private Vector2 startTouchPosition;
     private bool isTouching;
@@ -44,13 +28,12 @@ public class PlayerMarketMovement : MonoBehaviour
     private void Awake()
     {
         playerRB ??= GetComponent<Rigidbody2D>();
-        //playerAnim ??= GetComponent<Animator>();
     }
     public float horizontalValue;
 
     private void Update()
     {
-        if (playerMarketState != PlayerMarketState.Walk)
+        if (PlayerStats.playerStatsInstance.playerMarketState != PlayerStats.PlayerMarketState.Walk)
             return;
 
         if (Input.GetKeyDown(KeyCode.C))
@@ -65,7 +48,6 @@ public class PlayerMarketMovement : MonoBehaviour
         {
             HandleMobileInput();
         }
-
 
         if (GamePlatformChecker.gamePlatformInstance.deviceType == GamePlatformChecker.DeviceType.WebGL)
         {
@@ -88,7 +70,6 @@ public class PlayerMarketMovement : MonoBehaviour
     {
         if (Input.touchCount <= 0)
             return;
-
         Touch touch = Input.touches[0]; // Get the first touch
 
         if (touch.phase == TouchPhase.Began)
@@ -120,10 +101,10 @@ public class PlayerMarketMovement : MonoBehaviour
 
     private IEnumerator Interact()
     {
-
-        switch (shopMenuInRange)
+        PlayerStats.playerStatsInstance.playerMarketState = PlayerStats.PlayerMarketState.InMenu;
+        switch (PlayerStats.playerStatsInstance.shopMenuInRange)
         {
-            case ShopMenuInRange.Ingredient:
+            case PlayerStats.ShopMenuInRange.Ingredient:
                 fade.Play("FadeToBlack");
                 yield return new WaitForSeconds(1);
                 marketBooth.EnableShop();
@@ -131,7 +112,7 @@ public class PlayerMarketMovement : MonoBehaviour
                 yield return new WaitForSeconds(1);
                 break;
 
-            case ShopMenuInRange.Appliance:
+            case PlayerStats.ShopMenuInRange.Appliance:
                 fade.Play("FadeToBlack");
                 yield return new WaitForSeconds(1);
                 applianceBooth.EnableShop();
@@ -163,12 +144,12 @@ public class PlayerMarketMovement : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<MarketBooth>())
         {
-            shopMenuInRange = ShopMenuInRange.Ingredient;
+            PlayerStats.playerStatsInstance.shopMenuInRange = PlayerStats.ShopMenuInRange.Ingredient;
         }
 
         if (collision.gameObject.GetComponent<MarketBooth>())
         {
-            shopMenuInRange = ShopMenuInRange.Ingredient;
+            PlayerStats.playerStatsInstance.shopMenuInRange = PlayerStats.ShopMenuInRange.Ingredient;
         }
     }
 
@@ -176,12 +157,12 @@ public class PlayerMarketMovement : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<MarketBooth>())
         {
-            collision.gameObject.GetComponent<MarketBooth>().ExitShop();
+            //collision.gameObject.GetComponent<MarketBooth>().ExitShop();
         }
 
         if (collision.gameObject.GetComponent<ApplianceBooth>())
         {
-            collision.gameObject.GetComponent<ApplianceBooth>().ExitShop();
+            //collision.gameObject.GetComponent<ApplianceBooth>().ExitShop();
         }
     }
 

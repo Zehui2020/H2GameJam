@@ -6,15 +6,11 @@ using UnityEngine.UI;
 public class MarketBooth : MonoBehaviour
 {
     [SerializeField] private CanvasGroup boothCanvas;
-
     [SerializeField] private List<Ingredient> ingredientsToSet = new();
-
     [SerializeField] private List<BoothButton> marketBoothButtons = new();
-
     [SerializeField] private GameObject marketBoothBtnHolder;
-
     [SerializeField] private Button exitButton;
-
+    [SerializeField] private Animator fadeOpaque;
     
 
     //[SerializeField] private MarketBooth marketBooth
@@ -22,7 +18,9 @@ public class MarketBooth : MonoBehaviour
     private void Awake()
     {
         //ingredientsToSet = Resources.LoadAll<Ingredient>("Assets/ScriptableObjects/Ingredients").ToList();
-        ExitShop();
+        boothCanvas.alpha = 0;
+        boothCanvas.interactable = false;
+        boothCanvas.blocksRaycasts = false;
         SetUpButtons();
     }
 
@@ -34,63 +32,26 @@ public class MarketBooth : MonoBehaviour
             marketBoothButtons[i].SetUpButton(ingredientsToSet[i], 2);
         }
     }
-
-
     public void ExitShop()
     {
-        //StartCoroutine(FadeOut());
+        StartCoroutine(FadeOut());
+    }
+    private IEnumerator FadeOut()
+    {
+        fadeOpaque.Play("FadeToBlack");
+        yield return new WaitForSeconds(1);
         boothCanvas.alpha = 0;
         boothCanvas.interactable = false;
         boothCanvas.blocksRaycasts = false;
+        fadeOpaque.Play("FadeToClear");
+        yield return new WaitForSeconds(1);
+        PlayerStats.playerStatsInstance.playerMarketState = PlayerStats.PlayerMarketState.Walk;
     }
-
     public void EnableShop()
     {
         //StartCoroutine(FadeIn());
         boothCanvas.alpha = 1;
         boothCanvas.interactable = true;
         boothCanvas.blocksRaycasts = true;
-    }
-
-    public void GetItem()
-    {
-
-    }
-
-
-    private IEnumerator FadeIn()
-    {
-        while (boothCanvas.alpha < 1)
-        {
-            boothCanvas.alpha += 0.5f;
-            // Introduce a short delay between increments
-            yield return new WaitForSeconds(0.05f); // Adjust the duration as needed
-        }
-        boothCanvas.alpha = 1;
-        boothCanvas.interactable = true;
-        boothCanvas.blocksRaycasts = true;
-    }
-
-    private IEnumerator FadeOut()
-    {
-        while (boothCanvas.alpha > 0)
-        {
-            boothCanvas.alpha -= 0.5f;
-            // Introduce a short delay between decrements
-            yield return new WaitForSeconds(0.05f); // Adjust the duration as needed
-        }
-        boothCanvas.alpha = 0;
-        boothCanvas.interactable = false;
-        boothCanvas.blocksRaycasts = false;
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        
     }
 }
