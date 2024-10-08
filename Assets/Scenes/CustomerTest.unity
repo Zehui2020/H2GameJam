@@ -679,12 +679,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customerEntityPrefab: {fileID: 3576473752959295000, guid: 5b3d2339fe6ed21499ee663e9f177ddc, type: 3}
+  foodReqPrefab: {fileID: 7960436559297784698, guid: 766fde8b31ce4fe4f9e11b5d42b14d5f, type: 3}
   customerSpawnPos: {fileID: 805761886}
   customerPlacementPos:
   - {fileID: 1216783313}
   - {fileID: 997430930}
   - {fileID: 1185684748}
   customerEndPos: {fileID: 1031006412}
+  dishList: {fileID: 11400000, guid: 831bdd205a8641f4a9c5bd0558cb68af, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

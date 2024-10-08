@@ -24,5 +24,6 @@ public class Dish : ScriptableObject
 
     public DishType dishType;
     public List<DishCombinations> dishCombinations = new();
+    public Sprite dishSprite;
     public int dishCost;
 }
