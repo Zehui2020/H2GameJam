@@ -5,9 +5,12 @@ using TMPro;
 
 public class ConfirmBuyPanel : MonoBehaviour
 {
+    [SerializeField] protected Image imageItemToBuy;
     [SerializeField] protected TextMeshProUGUI numOfItemsBox;
     [SerializeField] protected TextMeshProUGUI itemCostBox;
     [SerializeField] protected Animator fadeTranslucent;
+    [SerializeField] protected TextMeshProUGUI itemToBuyName;
+    [SerializeField] protected TextMeshProUGUI descriptionOfItem;
 
     protected int numOfItemsToBuy;
     protected int itemCosts;

@@ -5,9 +5,6 @@ using UnityEngine.UI;
 public class ConfirmBuyIngredientPanel : ConfirmBuyPanel
 {
     [SerializeField] private Slider buySlider;
-    [SerializeField] private TextMeshProUGUI ingredientToBuyName;
-    [SerializeField] private TextMeshProUGUI descriptionOfItem;
-    [SerializeField] private Image imageItemToBuy;
     [SerializeField] private Ingredient storedIngredient;
     [SerializeField] private BoothButton storedButton;
 
@@ -24,7 +21,7 @@ public class ConfirmBuyIngredientPanel : ConfirmBuyPanel
         storedIngredient = ingredient;
         storedButton = button;
         imageItemToBuy.sprite = ingredient.ingrendientSprite;
-        ingredientToBuyName.text = ingredient.ingredientType.ToString();
+        itemToBuyName.text = ingredient.ingredientType.ToString();
         descriptionOfItem.text = ingredient.ingredientDescription;
         OnBuySliderChanged();
     }
@@ -61,7 +58,7 @@ public class ConfirmBuyIngredientPanel : ConfirmBuyPanel
         buySlider.maxValue = 0;
         // Clear ingredient-specific UI elements
         storedIngredient = null;
-        ingredientToBuyName.text = "";
+        itemToBuyName.text = "";
         descriptionOfItem.text = "";
         imageItemToBuy.sprite = null;
     }
