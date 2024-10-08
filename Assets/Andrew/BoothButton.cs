@@ -16,6 +16,8 @@ public class BoothButton : MonoBehaviour
     [SerializeField] private Button button;
     [SerializeField] private ConfirmBuyPanel confirmBuyPanel;
 
+    [SerializeField] private MarketBooth marketBooth;
+
     private void Awake()
     {
         ingredientImage ??= GetComponentInChildren<Image>();

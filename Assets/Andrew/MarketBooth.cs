@@ -13,6 +13,12 @@ public class MarketBooth : MonoBehaviour
 
     [SerializeField] private GameObject marketBoothBtnHolder;
 
+    [SerializeField] private Button exitButton;
+
+    
+
+    //[SerializeField] private MarketBooth marketBooth
+
     private void Awake()
     {
         //ingredientsToSet = Resources.LoadAll<Ingredient>("Assets/ScriptableObjects/Ingredients").ToList();
@@ -32,6 +38,7 @@ public class MarketBooth : MonoBehaviour
 
     public void ExitShop()
     {
+        //StartCoroutine(FadeOut());
         boothCanvas.alpha = 0;
         boothCanvas.interactable = false;
         boothCanvas.blocksRaycasts = false;
@@ -39,6 +46,7 @@ public class MarketBooth : MonoBehaviour
 
     public void EnableShop()
     {
+        //StartCoroutine(FadeIn());
         boothCanvas.alpha = 1;
         boothCanvas.interactable = true;
         boothCanvas.blocksRaycasts = true;
@@ -47,5 +55,42 @@ public class MarketBooth : MonoBehaviour
     public void GetItem()
     {
 
+    }
+
+
+    private IEnumerator FadeIn()
+    {
+        while (boothCanvas.alpha < 1)
+        {
+            boothCanvas.alpha += 0.5f;
+            // Introduce a short delay between increments
+            yield return new WaitForSeconds(0.05f); // Adjust the duration as needed
+        }
+        boothCanvas.alpha = 1;
+        boothCanvas.interactable = true;
+        boothCanvas.blocksRaycasts = true;
+    }
+
+    private IEnumerator FadeOut()
+    {
+        while (boothCanvas.alpha > 0)
+        {
+            boothCanvas.alpha -= 0.5f;
+            // Introduce a short delay between decrements
+            yield return new WaitForSeconds(0.05f); // Adjust the duration as needed
+        }
+        boothCanvas.alpha = 0;
+        boothCanvas.interactable = false;
+        boothCanvas.blocksRaycasts = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        
     }
 }
