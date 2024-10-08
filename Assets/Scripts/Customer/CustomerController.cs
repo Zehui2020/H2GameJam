@@ -74,7 +74,7 @@ public class CustomerController : MonoBehaviour
                     for (int foodNo = 0; foodNo < 1; foodNo++)
                     {
                         //Random Dish
-                        Dish reqDish = dishList.listOfDishes[Random.Range(0, dishList.listOfDishes.Count)];
+                        Dish reqDish = PlayerStats.playerStatsInstance.GetDishesOfThisGeneration()[Random.Range(0,3)];
                         int reqCombinationIndex = Random.Range(0, reqDish.dishCombinations.Count);
                         Appliance.CookedDish reqCookedDish = new Appliance.CookedDish(reqDish, reqCombinationIndex);
 
