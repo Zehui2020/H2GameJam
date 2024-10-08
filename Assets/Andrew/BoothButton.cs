@@ -35,7 +35,7 @@ public class BoothButton : MonoBehaviour
         {
             ApplianceData appliance = (ApplianceData)itemToStore;
             //ingredientImage.sprite = appliance.sp;
-            ingredientText.text = appliance.ingredientType.ToString();
+            ingredientText.text = appliance.applianceName;
         }
         numberOfIngredients = numOfIngredients;
         numOfIngredientsText.text = numberOfIngredients.ToString();
@@ -48,7 +48,10 @@ public class BoothButton : MonoBehaviour
 
     IEnumerator Fade()
     {
-        confirmBuyPanel.InitNewItemToBuy(ingredientToDisplay, numberOfIngredients, this);
+        if (itemToStore is Ingredient)
+            confirmBuyPanel.InitNewItemToBuy((Ingredient)itemToStore, numberOfIngredients, this);
+        else if (itemToStore is ApplianceData)
+            confirmBuyPanel.InitNewItemToBuy((ApplianceData)itemToStore, numberOfIngredients, this);
         confirmBuyPanel.gameObject.SetActive(true);
         fadeTranslucent.gameObject.GetComponent<Image>().raycastTarget = true;
         fadeTranslucent.Play("FadeToTranslucent");
