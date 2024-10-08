@@ -5,7 +5,7 @@ using System.Collections;
 
 public class BoothButton : MonoBehaviour
 {
-    private ScriptableObject itemToStore;
+    [SerializeField] private ScriptableObject itemToStore;
     public int numberOfIngredients;
 
     [SerializeField] private Image ingredientImage;
@@ -25,6 +25,7 @@ public class BoothButton : MonoBehaviour
     }
     public void SetUpButton(ScriptableObject itemData, int numOfIngredients)
     {
+        Debug.Log($"Item to set {itemData}");
         itemToStore = itemData;
         if (itemData is Ingredient)
         {
@@ -41,12 +42,10 @@ public class BoothButton : MonoBehaviour
         numberOfIngredients = numOfIngredients;
         numOfIngredientsText.text = numberOfIngredients.ToString();
     }
-
     public void AttemptToPurchase()
     {
         StartCoroutine(Fade());
     }
-
     IEnumerator Fade()
     {
         if (itemToStore is Ingredient)
@@ -56,7 +55,7 @@ public class BoothButton : MonoBehaviour
         }
         if  (itemToStore is ApplianceData)
         {
-            //confirmBuyAppliancePanel.InitNewItemToBuy((ApplianceData)itemToStore, numberOfIngredients, this);
+            confirmBuyAppliancePanel.InitNewItemToBuy((ApplianceData)itemToStore, numberOfIngredients, this);
             confirmBuyAppliancePanel.gameObject.SetActive(true);
         }
         fadeTranslucent.gameObject.GetComponent<Image>().raycastTarget = true;

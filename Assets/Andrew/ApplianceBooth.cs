@@ -5,11 +5,10 @@ using UnityEngine;
 public class ApplianceBooth : MonoBehaviour
 {
     [SerializeField] private CanvasGroup boothCanvas;
-    [SerializeField] private List<Appliance> applianceToSet = new();
+    [SerializeField] private List<ApplianceData> applianceToSet = new();
     [SerializeField] private List<BoothButton> applianceBoothButtons = new();
     [SerializeField] private GameObject marketBoothBtnHolder;
     [SerializeField] private Animator fadeOpaque;
-
 
     private void Awake()
     {
@@ -25,7 +24,7 @@ public class ApplianceBooth : MonoBehaviour
         applianceBoothButtons.AddRange(marketBoothBtnHolder.GetComponentsInChildren<BoothButton>());
         for (int i = 0; i < applianceToSet.Count; i++)
         {
-            //applianceBoothButtons[i].SetUpButton(applianceToSet[i], 2);
+            applianceBoothButtons[i].SetUpButton(applianceToSet[i], 0);
         }
     }
     public void ExitShop()

@@ -23,7 +23,7 @@ public class MarketBooth : MonoBehaviour
     private void SetUpButtons()
     {
         marketBoothButtons.AddRange(marketBoothBtnHolder.GetComponentsInChildren<BoothButton>());
-        if (!isIngredient)
+        if (isIngredient)
         {
             for (int i = 0; i < ingredientsToSet.Count; i++)
             {
@@ -32,7 +32,7 @@ public class MarketBooth : MonoBehaviour
         }
         else
         {
-            for (int i = 0; i < ingredientsToSet.Count; i++)
+            for (int i = 0; i < appliancesToSet.Count; i++)
             {
                 marketBoothButtons[i].SetUpButton(appliancesToSet[i], 1);
             }

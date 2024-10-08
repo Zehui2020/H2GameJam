@@ -8,7 +8,7 @@ public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats playerStatsInstance;
     [Header("Money")]
-    public int currenctMoney;
+    public int currentMoney;
 
     [Header("Meat Count")]
     public int porkCount; public int chickenCount; public int lambCount; public int beefCount;
@@ -27,6 +27,9 @@ public class PlayerStats : MonoBehaviour
 
     [Header("Sauces Count")]
     public int chilliSauceCount; public int currySauceCount; public int sataySauceCount;
+
+    [Header("Appliances")]
+    public int potLevel = 1; public int grillLevel = 1; public int deepFryerLevel = 1; public int wokLevel = 1; public int steamerLevel = 1; public int panLevel = 1;
     private void Awake()
     {
         if (playerStatsInstance == null)
@@ -108,13 +111,66 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    public int GetApplianceLevel(ApplianceData applianceData)
+    {
+        switch (applianceData.type)
+        {
+            case ApplianceData.ApplianceType.Pot:
+                return potLevel;
+
+            case ApplianceData.ApplianceType.Grill:
+                return grillLevel;
+
+            case ApplianceData.ApplianceType.DeepFryer:
+                return deepFryerLevel;
+
+            case ApplianceData.ApplianceType.Wok:
+                return wokLevel;
+
+            case ApplianceData.ApplianceType.Steamer:
+                return steamerLevel;
+
+            case ApplianceData.ApplianceType.Pan:
+                return panLevel;
+     
+            default:
+                Debug.LogError("Not an appliance passed in");
+                return 0; 
+        }
+    }
+
+    public void UpgradeAppliances(ApplianceData applianceData)
+    {
+        switch (applianceData.type)
+        {
+            case ApplianceData.ApplianceType.Pot:
+                potLevel += 1;
+                break;
+            case ApplianceData.ApplianceType.Grill:
+                grillLevel += 1;
+                break;
+            case ApplianceData.ApplianceType.DeepFryer:
+                deepFryerLevel += 1;
+                break;
+            case ApplianceData.ApplianceType.Wok:
+                wokLevel += 1;
+                break;
+            case ApplianceData.ApplianceType.Steamer:
+                steamerLevel += 1;
+                break;
+            case ApplianceData.ApplianceType.Pan:
+                panLevel += 1;
+                break;
+        }
+    }
+
     public void AddMoney(int moneyToGain)
     {
-        currenctMoney += moneyToGain;
+        currentMoney += moneyToGain;
     }
 
     public void RemoveMoney(int moneyToLose)
     {
-        currenctMoney -= moneyToLose;
+        currentMoney -= moneyToLose;
     }
 }
