@@ -7,13 +7,11 @@ public class MarketBooth : MonoBehaviour
 {
     [SerializeField] private CanvasGroup boothCanvas;
     [SerializeField] private List<Ingredient> ingredientsToSet = new();
+    [SerializeField] private List<ApplianceData> appliancesToSet = new();
     [SerializeField] private List<BoothButton> marketBoothButtons = new();
     [SerializeField] private GameObject marketBoothBtnHolder;
     [SerializeField] private Animator fadeOpaque;
-    
-
-    //[SerializeField] private MarketBooth marketBooth
-
+    [SerializeField] private bool isIngredient;
     private void Awake()
     {
         //ingredientsToSet = Resources.LoadAll<Ingredient>("Assets/ScriptableObjects/Ingredients").ToList();
@@ -22,13 +20,22 @@ public class MarketBooth : MonoBehaviour
         boothCanvas.blocksRaycasts = false;
         SetUpButtons();
     }
-
     private void SetUpButtons()
     {
         marketBoothButtons.AddRange(marketBoothBtnHolder.GetComponentsInChildren<BoothButton>());
-        for (int i = 0; i < ingredientsToSet.Count; i++)
+        if (!isIngredient)
         {
-            marketBoothButtons[i].SetUpButton(ingredientsToSet[i], 2);
+            for (int i = 0; i < ingredientsToSet.Count; i++)
+            {
+                marketBoothButtons[i].SetUpButton(ingredientsToSet[i], 2);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < ingredientsToSet.Count; i++)
+            {
+                marketBoothButtons[i].SetUpButton(appliancesToSet[i], 1);
+            }
         }
     }
     public void ExitShop()

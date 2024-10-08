@@ -12,7 +12,8 @@ public class BoothButton : MonoBehaviour
     [SerializeField] private TextMeshProUGUI ingredientText;
     [SerializeField] private TextMeshProUGUI numOfIngredientsText;
     [SerializeField] private Button button;
-    [SerializeField] private ConfirmBuyPanel confirmBuyPanel;
+    [SerializeField] private ConfirmBuyIngredientPanel confirmBuyIngredientPanel;
+    [SerializeField] private ConfirmBuyAppliancePanel confirmBuyAppliancePanel;
 
     [SerializeField] private MarketBooth marketBooth;
 
@@ -49,10 +50,15 @@ public class BoothButton : MonoBehaviour
     IEnumerator Fade()
     {
         if (itemToStore is Ingredient)
-            confirmBuyPanel.InitNewItemToBuy((Ingredient)itemToStore, numberOfIngredients, this);
-        else if (itemToStore is ApplianceData)
-            confirmBuyPanel.InitNewItemToBuy((ApplianceData)itemToStore, numberOfIngredients, this);
-        confirmBuyPanel.gameObject.SetActive(true);
+        {
+            confirmBuyIngredientPanel.InitNewItemToBuy((Ingredient)itemToStore, numberOfIngredients, this);
+            confirmBuyIngredientPanel.gameObject.SetActive(true);
+        }
+        if  (itemToStore is ApplianceData)
+        {
+            //confirmBuyAppliancePanel.InitNewItemToBuy((ApplianceData)itemToStore, numberOfIngredients, this);
+            confirmBuyAppliancePanel.gameObject.SetActive(true);
+        }
         fadeTranslucent.gameObject.GetComponent<Image>().raycastTarget = true;
         fadeTranslucent.Play("FadeToTranslucent");
         yield return new WaitForSeconds(1);
