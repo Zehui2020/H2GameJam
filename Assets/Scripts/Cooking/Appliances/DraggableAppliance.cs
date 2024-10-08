@@ -21,7 +21,7 @@ public class DraggableAppliance : Appliance
             return;
 
         Collider2D col = Physics2D.OverlapCircle(transform.position, detectRadius, utensilLayer);
-        if (!col.TryGetComponent<Utensil>(out Utensil utensil))
+        if (col == null || !col.TryGetComponent<Utensil>(out Utensil utensil))
             return;
 
         ServeFood();

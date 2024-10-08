@@ -14,6 +14,8 @@ public class Dish : ScriptableObject
         ChilliCrab,
         Biryani,
         NasiLemak,
+        CurryBowl,
+        RiceBowl,
         TotalDishes,
         EmptyDish
     }

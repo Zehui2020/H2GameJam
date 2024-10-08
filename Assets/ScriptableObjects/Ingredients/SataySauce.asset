@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b637278d1970daa4c851e5c72a825ffe, type: 3}
   m_Name: SataySauce
   m_EditorClassIdentifier: 
+  ingredientName: 
+  ingredientDescription: 
   ingredientType: 7
-  ingrendientSprite: {fileID: 0}
+  ingrendientSprite: {fileID: 21300000, guid: bbff908e71852354fa024530fc960f67, type: 3}
   ingredientCost: 0

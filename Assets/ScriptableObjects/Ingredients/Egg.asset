@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b637278d1970daa4c851e5c72a825ffe, type: 3}
   m_Name: Egg
   m_EditorClassIdentifier: 
+  ingredientName: 
+  ingredientDescription: 
   ingredientType: 10
-  ingrendientSprite: {fileID: 0}
+  ingrendientSprite: {fileID: 21300000, guid: c71a154441d79cd4c8ca71e489e2905b, type: 3}
   ingredientCost: 0

@@ -8,7 +8,7 @@ public class ApplianceData : ScriptableObject
     {
         Pot,
         Grill,
-        DeepFryer,
+        HotPlate,
         Wok,
         Steamer,
         Pan
