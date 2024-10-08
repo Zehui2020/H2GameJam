@@ -1,5 +1,6 @@
 using DesignPatterns.ObjectPool;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -32,12 +33,6 @@ public class DialogueManager : MonoBehaviour
     [System.Serializable]
     public struct Dialogue
     {
-        public enum SpeakerType
-        {
-            Player,
-            NPC
-        }
-
         [System.Serializable]
         public struct DialogueChoice
         {
@@ -49,7 +44,6 @@ public class DialogueManager : MonoBehaviour
         public bool isLoopingDialogue;
         [HideInInspector] public bool isShown;
 
-        public SpeakerType speakerType;
         public string speakerName;
         public Sprite speakerIcon;
         public bool breakAfterDialogue;
@@ -86,6 +80,11 @@ public class DialogueManager : MonoBehaviour
     private Dialogue currentDialogue;
     private bool canShowNextDialogue;
 
+    private void Start()
+    {
+        npcDialogue.OnFinishTyping.AddListener(CheckShowChoices);
+    }
+
     public void SetTalkingNPC(BaseNPC npc)
     {
         currentNPC = npc;
@@ -93,15 +92,13 @@ public class DialogueManager : MonoBehaviour
         ShowDialogue(npc.GetCurrentDialogue());
     }
 
-    public void SetCanShowNextDialogue(bool canShow)
-    {
-        canShowNextDialogue = canShow;
-    }
-
     public void CheckShowChoices()
     {
         if (currentDialogue.playerChoices.Count == 0)
+        {
+            canShowNextDialogue = true;
             return;
+        }
 
         // Show player choices
         ShowDialogueChoices(currentDialogue);
@@ -125,7 +122,7 @@ public class DialogueManager : MonoBehaviour
             if (!currentDialogue.isLoopingDialogue)
                 currentNPC.IncrementIndex(1);
 
-            //PlayerController.Instance.LeaveNPC();
+            currentNPC.OnEndDialogue();
             return;
         }
 
@@ -139,24 +136,16 @@ public class DialogueManager : MonoBehaviour
         canShowNextDialogue = false;
         npcDialogue.SetSpeakerName(dialogue.speakerName);
 
-        // Show message
-        if (dialogue.speakerType != Dialogue.SpeakerType.Player)
+        if (dialogue.dialogue == string.Empty)
         {
-            if (dialogue.dialogue == string.Empty)
-            {
-                dialogueBox.SetActive(false);
-                return;
-            }
+            dialogueBox.SetActive(false);
+            return;
+        }
 
-            dialogueBox.SetActive(true);
-            npcDialogue.ShowMessage(dialogue.speakerName, dialogue.dialogue);
-            playerPortrait.color = hideColor;
-            npcPortrait.color = showColor;
-        }
-        else
-        {
-            CheckShowChoices();
-        }
+        dialogueBox.SetActive(true);
+        npcDialogue.ShowMessage(dialogue.speakerName, dialogue.dialogue);
+        playerPortrait.color = hideColor;
+        npcPortrait.color = showColor;
     }
 
     public void ShowDialogueChoices(Dialogue dialogue)
@@ -172,6 +161,7 @@ public class DialogueManager : MonoBehaviour
 
             dialogueChoice.OnSelectEvent += (currentChoice) => 
             {
+                canShowNextDialogue = true;
                 ShowDialogue(currentNPC.GetDialogueFromIndex(currentChoice.nextDialogueIndex)); 
                 foreach (DialogueChoice dialogue in dalogueChoices)
                     dialogue.ReturnToPool();
@@ -179,6 +169,15 @@ public class DialogueManager : MonoBehaviour
         }
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(dialogueChoiceParent);
+    }
+
+    private void Update()
+    {
+        if (npcDialogue.IsTyping())
+            return;
+
+        if (Input.GetMouseButtonDown(0) || Input.touches.Count() > 0)
+            ShowNextDialogue();
     }
 
     public void HideDialogue()

@@ -10,6 +10,7 @@ public class CustomerEntity : MonoBehaviour
 {
     [SerializeField] private GameObject orderUI;
     [SerializeField] private Image patienceMeter;
+    [SerializeField] private Transform requestContainer;
 
     public enum CustomerState
     {
@@ -28,17 +29,25 @@ public class CustomerEntity : MonoBehaviour
     private CustomerState customerState;
     private float patienceCounter;
     private float maxPatience;
+    private List<Dish.DishType> requestedDishes;
 
-    public void Init(Vector3 _placementPos, Vector3 _exitPos)
+    //to change image correct and wrong
+    private List<int> imageItemsIndexList;
+
+    public void Init(Vector3 _placementPos, Vector3 _exitPos, List<Dish.DishType> _requestedDishes)
     {
         //Set Positions
         placementPos = _placementPos;
         exitPos = _exitPos;
         
+        //Assign Requested Dishes
+        requestedDishes = _requestedDishes;
+
         //Init Variables
         counter = 0;
         customerState = CustomerState.Entering;
         SetOrderLayer(2);
+        imageItemsIndexList = new List<int>();
 
         patienceCounter = 1;
         maxPatience = 1;
@@ -92,6 +101,9 @@ public class CustomerEntity : MonoBehaviour
                     customerState = CustomerState.Leaving;
                     SetOrderLayer(2);
 
+                    //Mark all remaining requests as wrong
+                    SetRequestedItemsWrong();
+
                     //Angry Review
                 }
 
@@ -124,5 +136,58 @@ public class CustomerEntity : MonoBehaviour
 
         GetComponent<SpriteRenderer>().sortingOrder = layerNo;
         orderUI.GetComponent<Canvas>().sortingOrder = layerNo;
+    }
+
+    public Transform GetRequestContainerTransform()
+    {
+        return requestContainer;
+    }
+
+    public void PassFood(Dish.DishType _type)
+    {
+        if (requestedDishes.Contains(_type))
+        {
+            int index = requestedDishes.IndexOf(_type);
+
+            //Remove requested Dish
+            requestedDishes.Remove(_type);
+
+            //check if finish all dishes
+            if (requestedDishes.Count == 0)
+            {
+                //leave
+                customerState = CustomerState.Leaving;
+            }
+
+            //Change Image to tick or cross;
+            foreach (Transform reqImage in requestContainer)
+            {
+                //check if correct type and not changed
+                RequestImageHandler requestImageHandler = reqImage.GetComponent<RequestImageHandler>();
+                if (requestImageHandler.GetDishType() == _type && !requestImageHandler.HasChanged())
+                {
+                    requestImageHandler.SetObjectIsCorrect(true);
+                    return;
+                }
+            }
+        }
+        else
+        {
+            //give wrong food, minus 20% of total time
+            patienceCounter -= maxPatience * 0.2f;
+        }
+    }
+
+    private void SetRequestedItemsWrong()
+    {
+        foreach (Transform reqImage in requestContainer)
+        {
+            //check if correct type and not changed
+            RequestImageHandler requestImageHandler = reqImage.GetComponent<RequestImageHandler>();
+            if (!requestImageHandler.HasChanged())
+            {
+                requestImageHandler.SetObjectIsCorrect(false);
+            }
+        }
     }
 }

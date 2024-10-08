@@ -15,4 +15,5 @@ MonoBehaviour:
   dishType: 5
   dishCombinations:
   - ingredients: 020000000600000003000000
+  dishSprite: {fileID: 21300000, guid: cd8ffd2db73b2974cb2945d05d9c11aa, type: 3}
   dishCost: 0

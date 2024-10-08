@@ -34,6 +34,11 @@ public class TypewriterEffect : MonoBehaviour
         TypeRoutine = StartCoroutine(TypeWriterTMP(message));
     }
 
+    public bool IsTyping()
+    {
+        return TypeRoutine != null;
+    }
+
     private IEnumerator TypeWriterTMP(string message)
     {
         for (int i = 0; i < message.Length; i++)
@@ -61,6 +66,7 @@ public class TypewriterEffect : MonoBehaviour
         }
 
         OnFinishTyping?.Invoke();
+        TypeRoutine = null;
     }
 
     private string GetCompleteRichTextTag(ref int index, string message)

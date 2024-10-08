@@ -262,10 +262,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2053982617342102444}
   - component: {fileID: 254864383301963560}
+  - component: {fileID: 4914412140728071555}
   - component: {fileID: 9107709965314546868}
   - component: {fileID: 2624280553473216482}
   - component: {fileID: 8475406549590299636}
   - component: {fileID: 6637637308733380224}
+  - component: {fileID: 2664379741653749451}
   m_Layer: 6
   m_Name: DialogueCanvas
   m_TagString: Untagged
@@ -318,6 +320,27 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 11
   m_TargetDisplay: 0
+--- !u!95 &4914412140728071555
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453711945334054427}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 13cdd9dbad48e6748bf9ce43fa5ebe1d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &9107709965314546868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,6 +421,18 @@ MonoBehaviour:
   dialogueChoiceParent: {fileID: 1720580194307112854}
   dialogueBox: {fileID: 3246524351931404281}
   currentNPC: {fileID: 0}
+--- !u!225 &2664379741653749451
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453711945334054427}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1099927433812515906
 GameObject:
   m_ObjectHideFlags: 0
