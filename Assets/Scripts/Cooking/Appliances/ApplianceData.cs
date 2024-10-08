@@ -15,8 +15,13 @@ public class ApplianceData : ScriptableObject
     }
 
     public Dish cookedDish;
+
+    public Sprite sprite;
     public Sprite cookedSprite;
     public Sprite burntSprite;
+
+    public string applianceName;
+    [TextArea(3, 10)] public string applianceDescription;
 
     public List<Ingredient.IngredientType> allowedIngredients = new();
     public ApplianceType type;

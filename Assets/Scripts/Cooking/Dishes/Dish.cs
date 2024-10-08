@@ -13,7 +13,8 @@ public class Dish : ScriptableObject
         ChilliCrab,
         Biryani,
         NasiLemak,
-        TotalDishes
+        TotalDishes,
+        EmptyDish
     }
 
     [System.Serializable]
