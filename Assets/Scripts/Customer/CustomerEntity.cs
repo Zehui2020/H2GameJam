@@ -79,8 +79,36 @@ public class CustomerEntity : MonoBehaviour
                     SetOrderLayer(3);
                     //Show food choices and patience
                     orderUI.SetActive(true);
+
                     //dialogue
-                    customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.NormalGreetingRemarks);
+                    int chance = Random.Range(1, 101);
+                    int currentRep = PlayerStats.playerStatsInstance.currentReputation;
+                    //negative / positive remarks 35%
+                    if (chance >= 1 && chance <= 35 &&
+                        (currentRep <= -5 || currentRep >= 8))
+                    {
+                        //negative
+                        if (currentRep <= -5)
+                        {
+                            customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.NegPriceRemarks);
+                        }
+                        //positive
+                        else
+                        {
+                            customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.PosPriceRemarks);
+                        }
+                    }
+                    //commen on new facility
+                    else if (chance >= 36 && chance <= 70 && PlayerStats.playerStatsInstance.dayCounter == 1 && PlayerStats.playerStatsInstance.currentGeneration > 0)
+                    {
+                        customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.VenueRemarks);
+                    }
+                    //normal hellos
+                    else
+                    {
+                        customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.NormalGreetingRemarks);
+                    }
+                    
                 }
                 break;
 
