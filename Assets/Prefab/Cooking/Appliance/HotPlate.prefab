@@ -106,7 +106,7 @@ MonoBehaviour:
   cookingSpeedModifier:
     baseAmount: 0
     modifiers: []
-  detectRadius: 1.9
+  detectRadius: 1.2
   utensilLayer:
     serializedVersion: 2
     m_Bits: 256

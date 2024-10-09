@@ -3,9 +3,15 @@ using UnityEngine.EventSystems;
 
 public class Utensil : Draggable
 {
+    public enum UtensilType
+    {
+        Plate,
+        Bowl
+    }
+
+    public UtensilType utensilType;
     [SerializeField] private float releaseRadius;
     [SerializeField] private LayerMask customerLayer;
-
     [SerializeField] private Appliance.CookedDish dish;
 
     private void Start()

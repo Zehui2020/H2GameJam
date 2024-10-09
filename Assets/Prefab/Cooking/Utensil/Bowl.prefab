@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8365583924494516433}
   - component: {fileID: 1520704309886745141}
   m_Layer: 8
-  m_Name: Utensil
+  m_Name: Bowl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7666e460c03c75c42a2a0a21c7aac9c3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b66c76754db78384c8c5156489e3b36a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,11 +99,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   returnSpeed: 10
+  utensilType: 1
   releaseRadius: 0.5
   customerLayer:
     serializedVersion: 2
     m_Bits: 128
-  dish: 8
 --- !u!61 &1520704309886745141
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -140,7 +140,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9714286, y: 0.9714286}
+    oldSize: {x: 1.3316667, y: 1.3316667}
     newSize: {x: 6.8, y: 6.8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

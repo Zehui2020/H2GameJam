@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static Appliance;
 
 
 //Decription: Handle Customer Behaviours
@@ -29,7 +30,7 @@ public class CustomerEntity : MonoBehaviour
     private CustomerState customerState;
     private float patienceCounter;
     private float maxPatience;
-    private List<Appliance.CookedDish> requestedDishes;
+    [SerializeField] private List<Appliance.CookedDish> requestedDishes;
 
     //to change image correct and wrong
     private List<int> imageItemsIndexList;
@@ -148,39 +149,65 @@ public class CustomerEntity : MonoBehaviour
         LayoutRebuilder.ForceRebuildLayoutImmediate(requestContainer);
     }
 
-    public void PassFood(Appliance.CookedDish cookedDish)
+    public void PassFood(CookedDish cookedDish)
     {
-        if (requestedDishes.Contains(cookedDish))
+        foreach (CookedDish dish in requestedDishes)
         {
-            int index = requestedDishes.IndexOf(cookedDish);
-
-            //Remove requested Dish
-            requestedDishes.Remove(cookedDish);
-
-            //check if finish all dishes
-            if (requestedDishes.Count == 0)
+            if (CompareCookedDishes(dish, cookedDish))
             {
-                //leave
-                customerState = CustomerState.Leaving;
-            }
-
-            //Change Image to tick or cross;
-            foreach (Transform reqImage in requestContainer)
-            {
-                //check if correct type and not changed
-                RequestImageHandler requestImageHandler = reqImage.GetComponent<RequestImageHandler>();
-                if (requestImageHandler.GetDishType() == cookedDish && !requestImageHandler.HasChanged())
-                {
-                    requestImageHandler.SetObjectIsCorrect(true);
-                    return;
-                }
+                ServeFood(dish);
+                return;
             }
         }
-        else
+
+        patienceCounter -= maxPatience * 0.2f;
+    }
+
+    private void ServeFood(CookedDish cookedDish)
+    {
+        //Remove requested Dish
+        requestedDishes.Remove(cookedDish);
+
+        //check if finish all dishes
+        if (requestedDishes.Count == 0)
         {
-            //give wrong food, minus 20% of total time
-            patienceCounter -= maxPatience * 0.2f;
+            //leave
+            customerState = CustomerState.Leaving;
         }
+
+        //Change Image to tick or cross;
+        foreach (Transform reqImage in requestContainer)
+        {
+            //check if correct type and not changed
+            RequestImageHandler requestImageHandler = reqImage.GetComponent<RequestImageHandler>();
+            if (CompareCookedDishes(requestImageHandler.GetDishType(), cookedDish) && !requestImageHandler.HasChanged())
+            {
+                requestImageHandler.SetObjectIsCorrect(true);
+                return;
+            }
+        }
+    }
+
+    private bool CompareCookedDishes(CookedDish dish1, CookedDish dish2)
+    {
+        // Null checks
+        if (dish1 == null || dish2 == null)
+            return false;
+
+        // Check for different dish types
+        if (dish1.dish.dishType != dish2.dish.dishType)
+            return false;
+
+        // Check if combination index matters
+        if (!dish1.dish.doesCombinationIndexMatter || !dish2.dish.doesCombinationIndexMatter)
+            return true;
+
+        // Check if combination index is the same
+        if (dish1.combinationIndex != dish2.combinationIndex)
+            return false;
+
+        // Combination index is the same
+        return true;
     }
 
     private void SetRequestedItemsWrong()

@@ -25,8 +25,11 @@ public class Dish : ScriptableObject
     {
         public List<Ingredient.IngredientType> ingredients;
         public List<Sprite> requirementSprites;
+        public List<Dish> sideDishes;
     }
 
+    public bool doesCombinationIndexMatter;
+    public Utensil.UtensilType utensil;
     public DishType dishType;
     public List<DishCombinations> dishCombinations = new();
     public Sprite dishSprite;

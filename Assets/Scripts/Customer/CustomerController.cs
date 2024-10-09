@@ -77,7 +77,6 @@ public class CustomerController : MonoBehaviour
                         Dish reqDish = PlayerStats.playerStatsInstance.GetDishesOfThisGeneration()[Random.Range(0,3)];
                         int reqCombinationIndex = Random.Range(0, reqDish.dishCombinations.Count);
                         Appliance.CookedDish reqCookedDish = new Appliance.CookedDish(reqDish, reqCombinationIndex);
-
                         cookedDishes.Add(reqCookedDish);
 
                         //show image in player request container
@@ -85,6 +84,19 @@ public class CustomerController : MonoBehaviour
                         newFoodReq.sprite = GetDishImage(reqDish.dishType);
                         newFoodReq.GetComponent<RequestImageHandler>().Init(reqCookedDish);
 
+                        // Side dishes UI
+                        foreach (Dish sideDish in reqDish.dishCombinations[reqCombinationIndex].sideDishes)
+                        {
+                            Appliance.CookedDish cookedSideDish = new Appliance.CookedDish(sideDish, 0);
+                            cookedDishes.Add(cookedSideDish);
+
+                            //show image in player request container
+                            newFoodReq = Instantiate(foodReqPrefab, newCustomer.GetRequestContainerTransform()).GetComponent<Image>();
+                            newFoodReq.sprite = GetDishImage(sideDish.dishType);
+                            newFoodReq.GetComponent<RequestImageHandler>().Init(cookedSideDish);
+                        }
+
+                        // Check for requirement sprites
                         foreach (Sprite sprite in reqDish.dishCombinations[reqCombinationIndex].requirementSprites)
                         {
                             newFoodReq = Instantiate(foodReqPrefab, newCustomer.GetRequestContainerTransform()).GetComponent<Image>();

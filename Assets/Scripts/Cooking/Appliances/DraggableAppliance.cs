@@ -24,6 +24,12 @@ public class DraggableAppliance : Appliance
         if (col == null || !col.TryGetComponent<Utensil>(out Utensil utensil))
             return;
 
+        if (utensil.utensilType != cookedDish.dish.utensil)
+        {
+            Debug.Log("INCORRECT UTENSIL!");
+            return;
+        }
+
         ServeFood();
         utensil.SetDish(cookedDish);
     }

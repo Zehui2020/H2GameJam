@@ -10,19 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b68a01177ec58f41bb2119c7a29c5ac, type: 3}
-  m_Name: ChilliCrab
+  m_Name: CurryBowl
   m_EditorClassIdentifier: 
-  utensil: 0
-  dishType: 4
+  utensil: 1
+  dishType: 7
   dishCombinations:
-  - ingredients: 0b000000090000000a000000
-    requirementSprites: []
-    sideDishes:
-    - {fileID: 11400000, guid: 4df9d86dd3eff814faf01c07363c7df0, type: 2}
-    doesCombinationIndexMatter: 0
-  - ingredients: 0b000000090000000a000000
+  - ingredients: 08000000
     requirementSprites: []
     sideDishes: []
-    doesCombinationIndexMatter: 0
-  dishSprite: {fileID: 21300000, guid: 687e9d64e073c354f95285577a9b9ecd, type: 3}
+  dishSprite: {fileID: 21300000, guid: 7c073df33aa8ccd4597d6709f96fab68, type: 3}
   dishCost: 0

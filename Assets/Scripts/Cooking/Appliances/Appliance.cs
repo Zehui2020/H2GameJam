@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Appliance : MonoBehaviour
 {
+    [System.Serializable]
     public struct CookedDish
     {
         public Dish dish;
-        private int combinationIndex;
+        public int combinationIndex;
 
         public CookedDish(Dish dish, int index)
         {
@@ -182,11 +183,10 @@ public class Appliance : MonoBehaviour
 
     public virtual bool CookFood()
     {
-        cookedDish = new CookedDish();
-
         for (int i = 0; i < applianceData.cookedDish.dishCombinations.Count; i++)
         {
-            if (!Utility.AreListsEqualContent(applianceData.cookedDish.dishCombinations[i].ingredients, ingredients))
+            if (!Utility.AreListsEqualContent(applianceData.cookedDish.dishCombinations[i].ingredients, ingredients) ||
+                applianceData.cookedDish.dishCombinations[i].sideDishes.Count != 0)
                 continue;
 
             spriteRenderer.sprite = applianceData.cookedSprite;

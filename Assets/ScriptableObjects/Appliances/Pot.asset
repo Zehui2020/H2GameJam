@@ -18,7 +18,7 @@ MonoBehaviour:
   burntSprite: {fileID: 21300000, guid: b17f2271f9956ac4c9ea9d57958e09f9, type: 3}
   applianceName: 
   applianceDescription: 
-  allowedIngredients: 000000000500000003000000
+  allowedIngredients: 0000000005000000
   type: 0
   cookSpeed: 1
   cookDuration: 5
