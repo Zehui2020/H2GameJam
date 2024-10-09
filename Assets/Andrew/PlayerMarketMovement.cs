@@ -17,7 +17,7 @@ public class PlayerMarketMovement : MonoBehaviour
 
     [SerializeField] private MarketBooth marketBooth;
 
-    [SerializeField] private ApplianceBooth applianceBooth;
+    [SerializeField] private MarketBooth applianceBooth;
 
     [SerializeField] private Animator fade;
 

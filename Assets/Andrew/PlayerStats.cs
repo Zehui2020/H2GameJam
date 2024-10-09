@@ -182,12 +182,10 @@ public class PlayerStats : MonoBehaviour
                 break;
         }
     }
-
     public void AddMoney(int moneyToGain)
     {
         currentMoney += moneyToGain;
     }
-
     public void RemoveMoney(int moneyToLose)
     {
         currentMoney -= moneyToLose;
