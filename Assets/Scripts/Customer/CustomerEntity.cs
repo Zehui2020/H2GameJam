@@ -99,7 +99,7 @@ public class CustomerEntity : MonoBehaviour
                         }
                     }
                     //commen on new facility
-                    else if (chance >= 36 && chance <= 70 && PlayerStats.playerStatsInstance.dayCounter == 1 && PlayerStats.playerStatsInstance.currentGeneration > 0)
+                    else if (chance >= 36 && chance <= 70 && PlayerStats.playerStatsInstance.dayCounter == 1 && PlayerStats.playerStatsInstance.currentGeneration.generation > 0)
                     {
                         customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.VenueRemarks);
                     }

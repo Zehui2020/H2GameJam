@@ -147,66 +147,15 @@ public class PlayerStats : MonoBehaviour
                 }
             }
 
-            //check if not enough
-            switch (i)
+            foreach (IngredientCount ingredient in ingredientCountList)
             {
-                case Ingredient.IngredientType.Pork:
-                    if (total < porkCount)
-                        return false;
-                    break;
-                case Ingredient.IngredientType.Chicken:
-                    if (total < chickenCount)
-                        return false;
-                    break;
-                case Ingredient.IngredientType.Lamb:
-                    if (total < lambCount)
-                        return false;
-                    break;
-                case Ingredient.IngredientType.Rice:
-                    if (total < riceCount)
-                        return false;
-                    break;
-                case Ingredient.IngredientType.Dough:
-                    if (total < doughCount)
-                        return false;
-                    break;
-                case Ingredient.IngredientType.ChineseSpices:
-                    if (total < chineseSpicesCount)
-                        return false;
-                    break;
-                case Ingredient.IngredientType.IndianSpices:
-                    if (total < indianSpicesCount)
-                        return false;
-                    break;
-                case Ingredient.IngredientType.ChilliSauce:
-                    if (total < chilliSauceCount)
-                        return false;
-                    break;
-                case Ingredient.IngredientType.CurrySauce:
-                    if (total < currySauceCount)
-                        return false;
-                    break;
-                case Ingredient.IngredientType.SataySauce:
-                    if (total < sataySauceCount)
-                        return false;
-                    break;
-                case Ingredient.IngredientType.Egg:
-                    if (total < eggCount)
-                        return false;
-                    break;
-                case Ingredient.IngredientType.Crab:
-                    if (total < crabCount)
-                        return false;
-                    break;
-                default:
-                    Debug.LogError("Ingredient not found, register the ingredient inside the Ingredient script.");
-                    break;
+                if (i == ingredient.ingredient && total < ingredient.ingredientCount)
+                    return false;
             }
         }
 
-
         return true;
-}
+    }
 
     public int GetApplianceLevel(ApplianceData applianceData)
     {
