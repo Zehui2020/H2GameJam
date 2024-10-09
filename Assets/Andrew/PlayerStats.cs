@@ -50,6 +50,9 @@ public class PlayerStats : MonoBehaviour
     [Header("Reputation")]
     public int currentReputation;
 
+    [Header("Day Counter")]
+    public int dayCounter;
+
     [Header("Appliances")]
     public int potLevel = 1; public int grillLevel = 1; public int hotPlateLevel = 1; public int wokLevel = 1; public int steamerLevel = 1; public int panLevel = 1;
     private void Awake()
@@ -86,6 +89,7 @@ public class PlayerStats : MonoBehaviour
         sataySauceCount = 0;
 
         currentReputation = 0;
+        dayCounter = 1;
 
         potLevel = 1;
         grillLevel = 1;
@@ -237,5 +241,10 @@ public class PlayerStats : MonoBehaviour
     public void LoseRep(int repToLose)
     {
         currentReputation -= repToLose;
+    }
+
+    public void IncrementDay()
+    {
+        dayCounter++;
     }
 }
