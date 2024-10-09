@@ -32,6 +32,7 @@ public class CustomerEntity : MonoBehaviour
     private float patienceCounter;
     private float maxPatience;
     private float wrongFoodCounter;
+    private bool saidImpatientRemark;
     [SerializeField] private List<Appliance.CookedDish> requestedDishes;
 
     //to change image correct and wrong
@@ -56,6 +57,8 @@ public class CustomerEntity : MonoBehaviour
         maxPatience = patienceCounter;
 
         wrongFoodCounter = 0;
+
+        saidImpatientRemark = false;
 
         orderUI.SetActive(false);
     }
@@ -100,6 +103,13 @@ public class CustomerEntity : MonoBehaviour
                     patienceMeter.color = Color.Lerp(Color.yellow, Color.red, 1 - patienceCounter / (maxPatience / 2));
                 }
 
+                //if below 25% max patience and have not said remark yet
+                if (!saidImpatientRemark && patienceCounter <= maxPatience * 0.25f)
+                {
+                    saidImpatientRemark = true;
+                    //dialogue
+                    customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.ImpatientRemarks);
+                }
 
                 //Reach Patience Limit
                 if (patienceCounter <= 0)
@@ -112,7 +122,7 @@ public class CustomerEntity : MonoBehaviour
                     SetRequestedItemsWrong();
 
                     //Angry Review
-
+                    customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.NegReviewRemarks);
 
                     //Reputation Decrease
                     PlayerStats.playerStatsInstance.LoseRep(3);
@@ -179,7 +189,10 @@ public class CustomerEntity : MonoBehaviour
             PlayerStats.playerStatsInstance.LoseRep(1);
         }
         //reply
-
+        if (patienceCounter > 0)
+        {
+            customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.WrongItemRemarks);
+        }
 
     }
 
@@ -200,15 +213,18 @@ public class CustomerEntity : MonoBehaviour
             {
                 PlayerStats.playerStatsInstance.AddRep(2);
                 //Fast remark
+                customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.VeryPosReviewRemarks);
             }
             else if (patienceCounter >= maxPatience * 0.25f)
             {
                 PlayerStats.playerStatsInstance.AddRep(1);
                 //thanks remark
+                customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.PosReviewRemarks);
             }
             else
             {
                 //took them long enough remark
+                customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.AgitatedReviewRemarks);
             }
         }
 
