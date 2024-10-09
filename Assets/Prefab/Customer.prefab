@@ -314,6 +314,7 @@ MonoBehaviour:
   patienceMeter: {fileID: 8016196147720346685}
   requestContainer: {fileID: 2110125569029375190}
   customerDialogueHandler: {fileID: 7715698556333433696}
+  requestedDishes: []
 --- !u!61 &8820160085466602305
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -767,7 +768,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leadingChar: <
-  timeBtwChars: 0.2
+  timeBtwChars: 0.15
   dialogueText: {fileID: 3401657601661148382}
   speakerName: {fileID: 0}
   OnFinishTyping:
