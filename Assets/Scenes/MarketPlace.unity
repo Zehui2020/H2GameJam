@@ -834,6 +834,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1146699390 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2060328214285171338, guid: 4ee102956f26e9349b01d7bbedce88b3, type: 3}
+  m_PrefabInstance: {fileID: 48595072}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1342595474
 GameObject:
   m_ObjectHideFlags: 0
@@ -1251,6 +1256,8 @@ MonoBehaviour:
   sataySauceCount: 0
   currentGeneration: 0
   generationDishes: []
+  currentReputation: 0
+  dayCounter: 0
   potLevel: 1
   grillLevel: 1
   hotPlateLevel: 1
@@ -1495,6 +1502,7 @@ MonoBehaviour:
   marketBooth: {fileID: 315886991}
   applianceBooth: {fileID: 4286882319426305552}
   fade: {fileID: 0}
+  isInBoothRange: 0
   horizontalValue: 0
 --- !u!1001 &465189858384894564
 PrefabInstance:
@@ -1551,6 +1559,10 @@ PrefabInstance:
     - target: {fileID: 875133056079172858, guid: d0933bdadfe63804483852f96b7518a8, type: 3}
       propertyPath: m_Name
       value: ApplianceNPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 875133056079172858, guid: d0933bdadfe63804483852f96b7518a8, type: 3}
+      propertyPath: m_TagString
+      value: Appliances
       objectReference: {fileID: 0}
     - target: {fileID: 963761726838413122, guid: d0933bdadfe63804483852f96b7518a8, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1668,6 +1680,54 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4759561902344393334, guid: d0933bdadfe63804483852f96b7518a8, type: 3}
+      propertyPath: dialogues.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759561902344393334, guid: d0933bdadfe63804483852f96b7518a8, type: 3}
+      propertyPath: dialogues.Array.data[0].dialogue
+      value: Eat my ass.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759561902344393334, guid: d0933bdadfe63804483852f96b7518a8, type: 3}
+      propertyPath: dialogues.Array.data[0].speakerName
+      value: Ronan
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759561902344393334, guid: d0933bdadfe63804483852f96b7518a8, type: 3}
+      propertyPath: dialogues.Array.data[0].breakAfterDialogue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759561902344393334, guid: d0933bdadfe63804483852f96b7518a8, type: 3}
+      propertyPath: dialogues.Array.data[0].playerChoices.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759561902344393334, guid: d0933bdadfe63804483852f96b7518a8, type: 3}
+      propertyPath: dialogues.Array.data[0].onDialogueDone.onDialogueDone.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759561902344393334, guid: d0933bdadfe63804483852f96b7518a8, type: 3}
+      propertyPath: dialogues.Array.data[0].onDialogueDone.onDialogueDone.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759561902344393334, guid: d0933bdadfe63804483852f96b7518a8, type: 3}
+      propertyPath: dialogues.Array.data[0].onDialogueDone.onDialogueDone.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4286882319426305552}
+    - target: {fileID: 4759561902344393334, guid: d0933bdadfe63804483852f96b7518a8, type: 3}
+      propertyPath: dialogues.Array.data[0].onDialogueDone.onDialogueDone.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759561902344393334, guid: d0933bdadfe63804483852f96b7518a8, type: 3}
+      propertyPath: dialogues.Array.data[0].onDialogueDone.onDialogueDone.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EnableShop
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759561902344393334, guid: d0933bdadfe63804483852f96b7518a8, type: 3}
+      propertyPath: dialogues.Array.data[0].onDialogueDone.onDialogueDone.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MarketBooth, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4759561902344393334, guid: d0933bdadfe63804483852f96b7518a8, type: 3}
+      propertyPath: dialogues.Array.data[0].onDialogueDone.onDialogueDone.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4950233822537374257, guid: d0933bdadfe63804483852f96b7518a8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1743,7 +1803,7 @@ PrefabInstance:
     - target: {fileID: 5844238038512154423, guid: d0933bdadfe63804483852f96b7518a8, type: 3}
       propertyPath: fadeOpaque
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1146699390}
     - target: {fileID: 6626750980355948751, guid: d0933bdadfe63804483852f96b7518a8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2125,6 +2185,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: IngredientsNPC
       objectReference: {fileID: 0}
+    - target: {fileID: 3347020404037503958, guid: 845659c4e24cf864487eda2ee9c538ff, type: 3}
+      propertyPath: m_TagString
+      value: Ingredients
+      objectReference: {fileID: 0}
     - target: {fileID: 3427106968939055972, guid: 845659c4e24cf864487eda2ee9c538ff, type: 3}
       propertyPath: marketBooth
       value: 
@@ -2448,7 +2512,7 @@ PrefabInstance:
     - target: {fileID: 8235689729773812685, guid: 845659c4e24cf864487eda2ee9c538ff, type: 3}
       propertyPath: fadeOpaque
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1146699390}
     - target: {fileID: 8235689729773812685, guid: 845659c4e24cf864487eda2ee9c538ff, type: 3}
       propertyPath: isIngredient
       value: 1
