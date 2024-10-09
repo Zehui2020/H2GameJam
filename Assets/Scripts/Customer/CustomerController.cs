@@ -52,6 +52,20 @@ public class CustomerController : MonoBehaviour
         if (spawnEntityCounter > 0)
             spawnEntityCounter -= Time.deltaTime;
 
+        //check if all seats are empty
+        bool shopEmpty = true;
+        for (int i = 0; i < customerPlacementPos.Length; i++)
+        {
+            if (customerEntities[i] != null)
+                shopEmpty = false;
+        }
+
+        if (shopEmpty)
+        {
+            //spawn new customer
+            spawnEntityCounter = 0;
+        }
+
         //update customer entities
         for (int i = 0; i < customerPlacementPos.Length; i++)
         {
