@@ -7,6 +7,21 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats playerStatsInstance;
+
+    [System.Serializable]
+    public struct GenerationDishes
+    {
+        public enum Generation
+        {
+            Origins,
+            Renaissance,
+            Morden
+        }
+
+        public Generation generation;
+        public List<Dish> dishes;
+    }
+
     [Header("Money")]
     public int currentMoney;
 
@@ -39,7 +54,7 @@ public class PlayerStats : MonoBehaviour
     public int dayCounter;
 
     [Header("Appliances")]
-    public int potLevel = 1; public int grillLevel = 1; public int deepFryerLevel = 1; public int wokLevel = 1; public int steamerLevel = 1; public int panLevel = 1;
+    public int potLevel = 1; public int grillLevel = 1; public int hotPlateLevel = 1; public int wokLevel = 1; public int steamerLevel = 1; public int panLevel = 1;
     private void Awake()
     {
         if (playerStatsInstance == null)
@@ -156,8 +171,8 @@ public class PlayerStats : MonoBehaviour
             case ApplianceData.ApplianceType.Grill:
                 return grillLevel;
 
-            case ApplianceData.ApplianceType.DeepFryer:
-                return deepFryerLevel;
+            case ApplianceData.ApplianceType.HotPlate:
+                return hotPlateLevel;
 
             case ApplianceData.ApplianceType.Wok:
                 return wokLevel;
@@ -184,8 +199,8 @@ public class PlayerStats : MonoBehaviour
             case ApplianceData.ApplianceType.Grill:
                 grillLevel += 1;
                 break;
-            case ApplianceData.ApplianceType.DeepFryer:
-                deepFryerLevel += 1;
+            case ApplianceData.ApplianceType.HotPlate:
+                hotPlateLevel += 1;
                 break;
             case ApplianceData.ApplianceType.Wok:
                 wokLevel += 1;

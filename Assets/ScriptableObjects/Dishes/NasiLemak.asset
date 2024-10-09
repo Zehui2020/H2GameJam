@@ -12,8 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b68a01177ec58f41bb2119c7a29c5ac, type: 3}
   m_Name: NasiLemak
   m_EditorClassIdentifier: 
+  doesCombinationIndexMatter: 1
+  utensil: 0
   dishType: 6
   dishCombinations:
   - ingredients: 010000000a00000003000000
+    requirementSprites:
+    - {fileID: 21300000, guid: b61ca5a4ab464ea4db7f48dbf50d7a3e, type: 3}
+    sideDishes: []
+  - ingredients: 0c0000000a00000003000000
+    requirementSprites:
+    - {fileID: 21300000, guid: 04473938581494241be3aaef717e8678, type: 3}
+    sideDishes: []
   dishSprite: {fileID: 21300000, guid: 2d1256c39646a0c48be0aa741762b6c2, type: 3}
   dishCost: 0

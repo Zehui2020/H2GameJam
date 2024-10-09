@@ -21,7 +21,6 @@ public class PlayerMarketMovement : MonoBehaviour
 
     [SerializeField] private Animator fade;
 
-    [SerializeField] private bool isInBoothRange = false;
     [Header("PlayerMarketMovement")]
     private Vector2 startTouchPosition;
     private bool isTouching;
@@ -61,7 +60,7 @@ public class PlayerMarketMovement : MonoBehaviour
         Debug.Log("PC Input");
         horizontalValue = Input.GetAxis("Horizontal");
 
-        if (Input.GetKeyDown(KeyCode.E) && isInBoothRange)
+        if (Input.GetKeyDown(KeyCode.E))
         {
             EnableStore();
         }
@@ -97,35 +96,31 @@ public class PlayerMarketMovement : MonoBehaviour
 
     private void EnableStore()
     {
+        StartCoroutine(Interact());
+    }
+
+    private IEnumerator Interact()
+    {
         PlayerStats.playerStatsInstance.playerMarketState = PlayerStats.PlayerMarketState.InMenu;
-        Debug.Log($"Menu to open: {PlayerStats.playerStatsInstance.shopMenuInRange}");
         switch (PlayerStats.playerStatsInstance.shopMenuInRange)
         {
             case PlayerStats.ShopMenuInRange.Ingredient:
+                fade.Play("FadeToBlack");
+                yield return new WaitForSeconds(1);
                 marketBooth.EnableShop();
+                fade.Play("FadeToClear");
+                yield return new WaitForSeconds(1);
                 break;
 
             case PlayerStats.ShopMenuInRange.Appliance:
+                fade.Play("FadeToBlack");
+                yield return new WaitForSeconds(1);
                 applianceBooth.EnableShop();
+                fade.Play("FadeToClear");
+                yield return new WaitForSeconds(1);
                 break;
         }
     }
-
-    //private IEnumerator Interact()
-    //{
-    //    PlayerStats.playerStatsInstance.playerMarketState = PlayerStats.PlayerMarketState.InMenu;
-    //    Debug.Log($"Menu to open: {PlayerStats.playerStatsInstance.shopMenuInRange}");
-    //    switch (PlayerStats.playerStatsInstance.shopMenuInRange)
-    //    {
-    //        case PlayerStats.ShopMenuInRange.Ingredient:
-    //            marketBooth.EnableShop();
-    //            break;
-
-    //        case PlayerStats.ShopMenuInRange.Appliance:
-    //            applianceBooth.EnableShop();
-    //            break;
-    //    }
-    //}
 
 
     private void FixedUpdate()
@@ -147,28 +142,27 @@ public class PlayerMarketMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Ingredients"))
+        if (collision.gameObject.GetComponent<MarketBooth>())
         {
-            Debug.Log("ingredients");
-            isInBoothRange = true;
             PlayerStats.playerStatsInstance.shopMenuInRange = PlayerStats.ShopMenuInRange.Ingredient;
         }
 
-        if (collision.gameObject.CompareTag("Appliance"))
+        if (collision.gameObject.GetComponent<MarketBooth>())
         {
-            isInBoothRange = true;
-            Debug.Log("appliance");
-            PlayerStats.playerStatsInstance.shopMenuInRange = PlayerStats.ShopMenuInRange.Appliance;
+            PlayerStats.playerStatsInstance.shopMenuInRange = PlayerStats.ShopMenuInRange.Ingredient;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Ingredients") || collision.gameObject.CompareTag("Appliance"))
+        if (collision.gameObject.GetComponent<MarketBooth>())
         {
-            Debug.Log("leave");
-            PlayerStats.playerStatsInstance.shopMenuInRange = PlayerStats.ShopMenuInRange.None;
-            isInBoothRange = false;
+            //collision.gameObject.GetComponent<MarketBooth>().ExitShop();
+        }
+
+        if (collision.gameObject.GetComponent<ApplianceBooth>())
+        {
+            //collision.gameObject.GetComponent<ApplianceBooth>().ExitShop();
         }
     }
 

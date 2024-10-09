@@ -40,9 +40,9 @@ public class MarketBooth : MonoBehaviour
     }
     public void ExitShop()
     {
-        StartCoroutine(OnExitShop());
+        StartCoroutine(FadeOut());
     }
-    private IEnumerator OnExitShop()
+    private IEnumerator FadeOut()
     {
         fadeOpaque.Play("FadeToBlack");
         yield return new WaitForSeconds(1);
@@ -55,22 +55,9 @@ public class MarketBooth : MonoBehaviour
     }
     public void EnableShop()
     {
-        StartCoroutine(OnEnableShop());
-        //boothCanvas.alpha = 1;
-        //boothCanvas.interactable = true;
-        //boothCanvas.blocksRaycasts = true;
-    }
-
-    private IEnumerator OnEnableShop()
-    {
-        fadeOpaque.Play("FadeToBlack");
-        yield return new WaitForSeconds(1);
+        //StartCoroutine(FadeIn());
         boothCanvas.alpha = 1;
         boothCanvas.interactable = true;
         boothCanvas.blocksRaycasts = true;
-        fadeOpaque.Play("FadeToClear");
-        yield return new WaitForSeconds(1);
-        PlayerStats.playerStatsInstance.playerMarketState = PlayerStats.PlayerMarketState.Walk;
     }
-
 }

@@ -6,10 +6,13 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 {
     private Vector3 offset;
     private Camera mainCamera;
-    public bool isDraggable;
 
     private Vector3 startDragPos;
     [SerializeField] private float returnSpeed = 10f;
+
+    public event System.Action OnDragStart;
+    public event System.Action OnDragging;
+    public event System.Action OnDragFinish;
 
     public virtual void InitDraggable()
     {
@@ -20,17 +23,20 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     {
         offset = transform.position - GetWorldPositionFromMouse(eventData);
         startDragPos = transform.position;
+        OnDragStart?.Invoke();
     }
 
     public virtual void OnDrag(PointerEventData eventData)
     {
         transform.position = GetWorldPositionFromMouse(eventData) + offset;
+        OnDragging?.Invoke();
     }
 
     public virtual void OnEndDrag(PointerEventData eventData)
     {
         transform.position = GetWorldPositionFromMouse(eventData) + offset;
         StartCoroutine(OnDragEnd());
+        OnDragFinish?.Invoke();
     }
 
     private Vector3 GetWorldPositionFromMouse(PointerEventData eventData)
@@ -48,5 +54,12 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
             transform.position = Vector3.MoveTowards(transform.position, startDragPos, Time.deltaTime * returnSpeed);
             yield return null;
         }
+    }
+
+    private void OnDisable()
+    {
+        OnDragStart = null;
+        OnDragging = null;
+        OnDragFinish = null;
     }
 }

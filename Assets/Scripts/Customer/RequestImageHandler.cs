@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Appliance;
 
 public class RequestImageHandler : MonoBehaviour
 {
     private bool hasChanged;
-    private Dish.DishType dishType;
+    private CookedDish dish;
 
-    public void Init(Dish.DishType _type)
+    public void Init(CookedDish cookedDish)
     {
         foreach (Transform go in transform)
         {
@@ -15,7 +16,7 @@ public class RequestImageHandler : MonoBehaviour
         }
 
         hasChanged = false;
-        dishType = _type;
+        dish = cookedDish;
     }
 
     public void SetObjectIsCorrect(bool isCorrect)
@@ -36,8 +37,8 @@ public class RequestImageHandler : MonoBehaviour
         return hasChanged;
     }
 
-    public Dish.DishType GetDishType()
+    public CookedDish GetDishType()
     {
-        return dishType;
+        return dish;
     }
 }

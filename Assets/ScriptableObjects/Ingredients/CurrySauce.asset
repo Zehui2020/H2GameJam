@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b637278d1970daa4c851e5c72a825ffe, type: 3}
   m_Name: CurrySauce
   m_EditorClassIdentifier: 
+  ingredientName: 
+  ingredientDescription: 
   ingredientType: 8
-  ingrendientSprite: {fileID: 0}
+  ingrendientSprite: {fileID: 21300000, guid: 7c073df33aa8ccd4597d6709f96fab68, type: 3}
   ingredientCost: 0

@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1720307247716526924}
   - component: {fileID: 835070314190429888}
-  - component: {fileID: 6228441109316385210}
+  - component: {fileID: 6079205652215074033}
+  - component: {fileID: 8809669750933394363}
   - component: {fileID: 5491424440953409399}
   - component: {fileID: 133922869933031500}
   m_Layer: 0
@@ -88,7 +89,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6228441109316385210
+--- !u!114 &6079205652215074033
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,16 +98,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 4801306270365598406}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2df1054538d775846a7497a7392166c3, type: 3}
+  m_Script: {fileID: 11500000, guid: cd3f0a55d6f59a34a9f67ad9dab87115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDraggable: 0
-  returnSpeed: 10
   applianceData: {fileID: 11400000, guid: 1edba126b10449b4290cac5ae93dfecc, type: 2}
   ingredients: 
   cookingSpeedModifier:
     baseAmount: 0
     modifiers: []
+  detectRadius: 1.09
+  utensilLayer:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!114 &8809669750933394363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4801306270365598406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d07b9e445a87154dac8cacdfd2bdace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  returnSpeed: 10
 --- !u!114 &5491424440953409399
 MonoBehaviour:
   m_ObjectHideFlags: 0

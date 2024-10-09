@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b637278d1970daa4c851e5c72a825ffe, type: 3}
   m_Name: IndianSpices
   m_EditorClassIdentifier: 
+  ingredientName: 
+  ingredientDescription: 
   ingredientType: 6
-  ingrendientSprite: {fileID: 0}
+  ingrendientSprite: {fileID: 21300000, guid: b0864b643cc4597438448edd4d5b1db7, type: 3}
   ingredientCost: 0
