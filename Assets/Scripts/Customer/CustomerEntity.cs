@@ -193,7 +193,6 @@ public class CustomerEntity : MonoBehaviour
         {
             customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.WrongItemRemarks);
         }
-
     }
 
     private void ServeFood(CookedDish cookedDish)
