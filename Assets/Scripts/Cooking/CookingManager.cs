@@ -27,4 +27,9 @@ public class CookingManager : MonoBehaviour
         PlayerStats.playerStatsInstance.dayCounter++;
         SceneLoader.Instance.LoadScene("MarketPlace");
     }
+
+    public bool IsRushHour()
+    {
+        return timer >= (maxTimer / 3) && timer <= (maxTimer / 3 * 2);
+    }
 }

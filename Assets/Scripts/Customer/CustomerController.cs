@@ -17,6 +17,8 @@ public class CustomerController : MonoBehaviour
     [SerializeField] private Transform[] customerPlacementPos;
     [SerializeField] private Transform customerEndPos;
     [SerializeField] private DishList dishList;
+    [SerializeField] private CookingManager cookingManager;
+    [SerializeField] private List<CustomerScriptableObject> customerDatas;
 
     //store all customers
     private List<CustomerEntity> customerEntities;
@@ -24,6 +26,8 @@ public class CustomerController : MonoBehaviour
     private float spawnEntityCounter;
 
     private bool storeClosed;
+
+    private int dayDifficulty;
 
     private void Awake()
     {
@@ -41,9 +45,12 @@ public class CustomerController : MonoBehaviour
             customerEntities.Add(null);
         }
 
-        spawnEntityCounter = 5f;
+        //spawnEntityCounter = 5f;
+        HandleSpawnTimer();
 
         storeClosed = false;
+
+        dayDifficulty = PlayerStats.playerStatsInstance.dayCounter;
     }
 
     // Update is called once per frame
@@ -51,6 +58,20 @@ public class CustomerController : MonoBehaviour
     {
         if (spawnEntityCounter > 0)
             spawnEntityCounter -= Time.deltaTime;
+
+        //check if all seats are empty
+        bool shopEmpty = true;
+        for (int i = 0; i < customerPlacementPos.Length; i++)
+        {
+            if (customerEntities[i] != null)
+                shopEmpty = false;
+        }
+
+        if (shopEmpty)
+        {
+            //spawn new customer
+            spawnEntityCounter = 0;
+        }
 
         //update customer entities
         for (int i = 0; i < customerPlacementPos.Length; i++)
@@ -61,7 +82,6 @@ public class CustomerController : MonoBehaviour
             {
                 if (spawnEntityCounter <= 0 && !storeClosed)
                 {
-                    //Debug.Log("Spawn");
                     //spawn entity
                     CustomerEntity newCustomer = Instantiate(customerEntityPrefab, customerSpawnPos).GetComponent<CustomerEntity>();
 
@@ -69,50 +89,67 @@ public class CustomerController : MonoBehaviour
                     List<Appliance.CookedDish> cookedDishes = new();
 
                     //TODO: Check if have enough ingredients for that food
-                    //Random between 1 or 2 foods
-                    int maxFoodNo = Random.Range(1, 3);
-                    for (int foodNo = 0; foodNo < 1; foodNo++)
+                    //1 or 2 foods
+                    //rate is based on day difficulty and reputation
+                    int chance = Random.Range(1, 11);
+                    int repInc = (PlayerStats.playerStatsInstance.currentReputation <= -5 ? -2 : (PlayerStats.playerStatsInstance.currentReputation >= 8 ? 2 : 0));
+                    int maxFoodNo = 1 + ((dayDifficulty == 2 && chance < 5 + repInc) || (dayDifficulty == 3 && chance < 9 + repInc) ? 1 : 0);
+                    for (int foodNo = 0; foodNo < maxFoodNo; foodNo++)
                     {
                         //Random Dish
                         Dish reqDish = PlayerStats.playerStatsInstance.GetDishesOfThisGeneration()[Random.Range(0,3)];
                         int reqCombinationIndex = Random.Range(0, reqDish.dishCombinations.Count);
                         Appliance.CookedDish reqCookedDish = new Appliance.CookedDish(reqDish, reqCombinationIndex);
-                        cookedDishes.Add(reqCookedDish);
-
-                        //show image in player request container
-                        Image newFoodReq = Instantiate(foodReqPrefab, newCustomer.GetRequestContainerTransform()).GetComponent<Image>();
-                        newFoodReq.sprite = GetDishImage(reqDish.dishType);
-                        newFoodReq.GetComponent<RequestImageHandler>().Init(reqCookedDish);
-
-                        // Side dishes UI
-                        foreach (Dish sideDish in reqDish.dishCombinations[reqCombinationIndex].sideDishes)
+                        //check if enough ingredients
+                        if (CanCookDish(reqCookedDish))
                         {
-                            Appliance.CookedDish cookedSideDish = new Appliance.CookedDish(sideDish, 0);
-                            cookedDishes.Add(cookedSideDish);
+                            cookedDishes.Add(reqCookedDish);
 
                             //show image in player request container
-                            newFoodReq = Instantiate(foodReqPrefab, newCustomer.GetRequestContainerTransform()).GetComponent<Image>();
-                            newFoodReq.sprite = GetDishImage(sideDish.dishType);
-                            newFoodReq.GetComponent<RequestImageHandler>().Init(cookedSideDish);
-                        }
+                            Image newFoodReq = Instantiate(foodReqPrefab, newCustomer.GetRequestContainerTransform()).GetComponent<Image>();
+                            newFoodReq.sprite = GetDishImage(reqDish.dishType);
+                            newFoodReq.GetComponent<RequestImageHandler>().Init(reqCookedDish);
 
-                        // Check for requirement sprites
-                        foreach (Sprite sprite in reqDish.dishCombinations[reqCombinationIndex].requirementSprites)
-                        {
-                            newFoodReq = Instantiate(foodReqPrefab, newCustomer.GetRequestContainerTransform()).GetComponent<Image>();
-                            newFoodReq.sprite = sprite;
-                        }
+                            // Side dishes UI
+                            foreach (Dish sideDish in reqDish.dishCombinations[reqCombinationIndex].sideDishes)
+                            {
+                                Appliance.CookedDish cookedSideDish = new Appliance.CookedDish(sideDish, 0);
+                                cookedDishes.Add(cookedSideDish);
 
-                        newCustomer.ForceRebuildRequestContainer();
+                                //show image in player request container
+                                newFoodReq = Instantiate(foodReqPrefab, newCustomer.GetRequestContainerTransform()).GetComponent<Image>();
+                                newFoodReq.sprite = GetDishImage(sideDish.dishType);
+                                newFoodReq.GetComponent<RequestImageHandler>().Init(cookedSideDish);
+                            }
+
+                            // Check for requirement sprites
+                            foreach (Sprite sprite in reqDish.dishCombinations[reqCombinationIndex].requirementSprites)
+                            {
+                                newFoodReq = Instantiate(foodReqPrefab, newCustomer.GetRequestContainerTransform()).GetComponent<Image>();
+                                newFoodReq.sprite = sprite;
+                            }
+
+                            newCustomer.ForceRebuildRequestContainer();
+                        }
                     }
 
-                    //Give customer new placement position
-                    newCustomer.Init(customerPlacementPos[i].position, customerEndPos.position, cookedDishes);
+                    //if have dishes to give this customer
+                    if (cookedDishes.Count == 0)
+                    {
+                        //Give customer new placement position
+                        newCustomer.Init(customerPlacementPos[i].position, customerEndPos.position, cookedDishes, customerDatas[Random.Range(0, customerDatas.Count)]);
 
-                    //add customer entity to list
-                    customerEntities[i] = newCustomer;
-                    //reset timer
-                    spawnEntityCounter = 6;
+                        //add customer entity to list
+                        customerEntities[i] = newCustomer;
+                        //reset timer
+                        //spawnEntityCounter = 6;
+                        HandleSpawnTimer();
+                    } 
+                    else
+                    {
+                        //delete customer
+                        Destroy(newCustomer.gameObject);
+                    }
                 }
                 else
                     continue;
@@ -127,6 +164,7 @@ public class CustomerController : MonoBehaviour
                     //can remove customer
                     Destroy(customerEntities[i].gameObject);
                     customerEntities[i] = null;
+                    HandleSpawnTimer();
                 }
             }
         }
@@ -148,5 +186,32 @@ public class CustomerController : MonoBehaviour
         }
 
         return null;
+    }
+
+    private void HandleSpawnTimer()
+    {
+        //Default Value
+        spawnEntityCounter = 5;
+
+        //Rush Hour
+        if (cookingManager.IsRushHour())
+        {
+            spawnEntityCounter -= 3;
+        }
+        //Reputation
+        int rep = PlayerStats.playerStatsInstance.currentReputation;
+        if (rep <= -5)
+        {
+            spawnEntityCounter += 2;
+        }
+        else if (rep >= 8)
+        {
+            spawnEntityCounter -= 1;
+        }
+    }
+
+    private bool CanCookDish(Appliance.CookedDish _reqDish)
+    {
+        return PlayerStats.playerStatsInstance.CheckEnoughIngredients(_reqDish);
     }
 }
