@@ -117,7 +117,7 @@ MonoBehaviour:
     bindToGen1: 0
     bindToGen2: 0
     bindToGen3: 0
-  - type: 4
+  - type: 8
     text: Wow! That's really quick!
     bindToGeneration: 0
     bindToGen1: 0
@@ -209,6 +209,42 @@ MonoBehaviour:
     bindToGen3: 0
   - type: 7
     text: Hows the family?
+    bindToGeneration: 0
+    bindToGen1: 0
+    bindToGen2: 0
+    bindToGen3: 0
+  - type: 8
+    text: Already? Wow!
+    bindToGeneration: 0
+    bindToGen1: 0
+    bindToGen2: 0
+    bindToGen3: 0
+  - type: 8
+    text: Now I can quickly enjoy the food!
+    bindToGeneration: 0
+    bindToGen1: 0
+    bindToGen2: 0
+    bindToGen3: 0
+  - type: 8
+    text: Will definitely recommend this place!
+    bindToGeneration: 0
+    bindToGen1: 0
+    bindToGen2: 0
+    bindToGen3: 0
+  - type: 9
+    text: Took you long enough
+    bindToGeneration: 0
+    bindToGen1: 0
+    bindToGen2: 0
+    bindToGen3: 0
+  - type: 9
+    text: I hope it was worth the wait.
+    bindToGeneration: 0
+    bindToGen1: 0
+    bindToGen2: 0
+    bindToGen3: 0
+  - type: 9
+    text: Maybe I will try another store next time.
     bindToGeneration: 0
     bindToGen1: 0
     bindToGen2: 0
