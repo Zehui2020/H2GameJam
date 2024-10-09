@@ -64,7 +64,7 @@ public class CustomerDialogueController : MonoBehaviour
             //check if same dialogue type
             if (d.type == _type)
             {
-                if (d.bindToGeneration ||
+                if (!d.bindToGeneration ||
                     (d.bindToGen1 && gen == 0) ||
                     (d.bindToGen2 && gen == 1) ||
                     (d.bindToGen3 && gen == 2))
