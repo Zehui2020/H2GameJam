@@ -17,6 +17,7 @@ public class CustomerController : MonoBehaviour
     [SerializeField] private Transform[] customerPlacementPos;
     [SerializeField] private Transform customerEndPos;
     [SerializeField] private DishList dishList;
+    [SerializeField] private CookingManager cookingManager;
 
     //store all customers
     private List<CustomerEntity> customerEntities;
@@ -41,7 +42,8 @@ public class CustomerController : MonoBehaviour
             customerEntities.Add(null);
         }
 
-        spawnEntityCounter = 5f;
+        //spawnEntityCounter = 5f;
+        HandleSpawnTimer();
 
         storeClosed = false;
     }
@@ -126,7 +128,8 @@ public class CustomerController : MonoBehaviour
                     //add customer entity to list
                     customerEntities[i] = newCustomer;
                     //reset timer
-                    spawnEntityCounter = 6;
+                    //spawnEntityCounter = 6;
+                    HandleSpawnTimer();
                 }
                 else
                     continue;
@@ -141,6 +144,7 @@ public class CustomerController : MonoBehaviour
                     //can remove customer
                     Destroy(customerEntities[i].gameObject);
                     customerEntities[i] = null;
+                    HandleSpawnTimer();
                 }
             }
         }
@@ -162,5 +166,27 @@ public class CustomerController : MonoBehaviour
         }
 
         return null;
+    }
+
+    private void HandleSpawnTimer()
+    {
+        //Default Value
+        spawnEntityCounter = 5;
+
+        //Rush Hour
+        if (cookingManager.IsRushHour())
+        {
+            spawnEntityCounter -= 3;
+        }
+        //Reputation
+        int rep = PlayerStats.playerStatsInstance.currentReputation;
+        if (rep <= -5)
+        {
+            spawnEntityCounter += 2;
+        }
+        else if (rep >= 8)
+        {
+            spawnEntityCounter -= 1;
+        }
     }
 }
