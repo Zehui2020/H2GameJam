@@ -58,7 +58,7 @@ public class CustomerDialogueController : MonoBehaviour
     public string GetDialogue(DialogueType _type)
     {
         //get current generation
-        int gen = (int)PlayerStats.playerStatsInstance.currentGeneration;
+        int gen = (int)PlayerStats.playerStatsInstance.currentGeneration.generation;
 
         List<string> typeDialogue = new List<string>();
         foreach (CustomerDialogue d in customerDialogues)

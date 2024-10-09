@@ -2,65 +2,105 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 
 public class ConfirmBuyPanel : MonoBehaviour
 {
-    [SerializeField] protected Image imageItemToBuy;
-    [SerializeField] protected TextMeshProUGUI numOfItemsBox;
-    [SerializeField] protected TextMeshProUGUI itemCostBox;
-    [SerializeField] protected Animator fadeTranslucent;
-    [SerializeField] protected TextMeshProUGUI itemToBuyName;
-    [SerializeField] protected TextMeshProUGUI descriptionOfItem;
-    [SerializeField] protected BoothButton storedButton;
+    protected ShopItemData itemToBuy;
 
+    [SerializeField] protected Image imageItemToBuy;
+    [SerializeField] protected TextMeshProUGUI itemName;
+    [SerializeField] protected TextMeshProUGUI itemDescription;
+    [SerializeField] protected TextMeshProUGUI itemCost;
+    [SerializeField] protected Animator pannelAnimator;
+
+    [SerializeField] protected Slider sliderAmount;
+    [SerializeField] private TextMeshProUGUI purchaseAmountCount;
+    [SerializeField] private TextMeshProUGUI maxPurchaseAmountCount;
+    [SerializeField] protected Button purchaseButton;
+
+    [SerializeField] private List<RectTransform> rebuildRects;
+
+    private BoothButton boothButton;
     protected int numOfItemsToBuy;
     protected int itemCosts;
     protected bool isAffordable = false;
 
-    // Shared initialization for the panel
-    protected virtual void InitPanel(int numberOfItems)
+    public virtual void ShowPannel(BoothButton boothButton, ShopItemData itemToBuy)
     {
-        
+        this.itemToBuy = itemToBuy;
+        this.boothButton = boothButton;
+        purchaseButton.interactable = true;
+
+        imageItemToBuy.sprite = itemToBuy.itemSprite;
+        itemName.text = itemToBuy.shopItemName;
+        itemDescription.text = itemToBuy.shopDescription;
+        itemCost.text = PlayerStats.playerStatsInstance.currentMoney + "/" + itemToBuy.GetCost() * sliderAmount.value;
+
+        int maxToBuy = Mathf.FloorToInt(PlayerStats.playerStatsInstance.currentMoney / itemToBuy.GetCost());
+        int maxPurchasable = Mathf.FloorToInt(boothButton.purchasesLeft * itemToBuy.GetCost());
+
+        if (maxToBuy <= 0)
+        {
+            maxToBuy = 1;
+            purchaseButton.interactable = false;
+        }
+        else if (maxToBuy > maxPurchasable)
+            maxToBuy = boothButton.purchasesLeft;
+
+        if (maxToBuy > itemToBuy.maximumPurchases)
+            maxToBuy = itemToBuy.maximumPurchases;
+
+        sliderAmount.minValue = 1;
+        sliderAmount.value = 1;
+        sliderAmount.maxValue = maxToBuy;
+
+        purchaseAmountCount.text = sliderAmount.value.ToString();
+        maxPurchaseAmountCount.text = sliderAmount.maxValue.ToString();
+
+        pannelAnimator.SetBool("isShowing", true);
+
+        foreach (RectTransform rect in rebuildRects)
+            LayoutRebuilder.ForceRebuildLayoutImmediate(rect);
     }
 
-    // Handle fade out and close the panel
     public void Close()
     {
-        StartCoroutine(FadeOutAndClear());
+        pannelAnimator.SetBool("isShowing", false);
     }
 
-    private IEnumerator FadeOutAndClear()
+    public void Buy()
     {
-        fadeTranslucent.Play("FadeFromTranslucentToClear");
-        yield return new WaitForSeconds(1);
-        ClearPanel();
-        gameObject.SetActive(false);
-        fadeTranslucent.gameObject.GetComponent<Image>().raycastTarget = false;
+        if (itemToBuy is Ingredient ingredient)
+            PlayerStats.playerStatsInstance.AddToPlayerInventory(Mathf.CeilToInt(sliderAmount.value), ingredient);
+        else if (itemToBuy is ApplianceData appliance)
+            PlayerStats.playerStatsInstance.UpgradeAppliances(appliance);
+
+        PlayerStats.playerStatsInstance.currentMoney -= itemToBuy.GetCost() * (int)sliderAmount.value;
+        boothButton.UpdateButton((int)sliderAmount.value);
+        Close();
     }
 
-    // Method to clear UI elements
-    protected virtual void ClearPanel()
+    public void AddItemToBuy()
     {
-        itemCostBox.text = "";
-        itemCosts = 0;
+        sliderAmount.value += 1;
     }
 
-    // To be implemented in derived classes for specific purchasing logic
-    public virtual void Buy() { }
-
-    // Check if the player has enough money and update UI accordingly
-    protected void UpdateAffordability(int cost)
+    public void RemoveItemToBuy()
     {
-        if (PlayerStats.playerStatsInstance.currentMoney >= cost)
-        {
-            isAffordable = true;
-            itemCostBox.text = $"<color=white>${cost}</color>";
-        }
+        sliderAmount.value -= 1;
+    }
+
+    public void OnSliderValueChanged()
+    {
+        purchaseAmountCount.text = sliderAmount.value.ToString();
+
+        int totalCost = itemToBuy.GetCost() * (int)sliderAmount.value;
+        itemCost.text = PlayerStats.playerStatsInstance.currentMoney + "/" + itemToBuy.GetCost() * sliderAmount.value;
+
+        if (PlayerStats.playerStatsInstance.currentMoney < totalCost)
+            purchaseButton.interactable = false;
         else
-        {
-            isAffordable = false;
-            itemCostBox.text = $"<color=red>${cost}</color>";
-        }
+            purchaseButton.interactable = true;
     }
 }
-

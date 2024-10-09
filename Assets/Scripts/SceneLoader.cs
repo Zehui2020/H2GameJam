@@ -21,6 +21,20 @@ public class SceneLoader : MonoBehaviour
         fadeTransition.SetTrigger("transition");
     }
 
+    public void LoadCookingSceneBasedOnGeneration()
+    {
+        switch (PlayerStats.playerStatsInstance.currentGeneration.generation)
+        {
+            case GenerationData.Generation.Origins:
+                LoadScene("OriginScene");
+                break;
+            case GenerationData.Generation.Renaissance:
+                break;
+            case GenerationData.Generation.Morden:
+                break;
+        }
+    }
+
     public void LoadScene(string sceneName)
     {
         Time.timeScale = 1.0f;

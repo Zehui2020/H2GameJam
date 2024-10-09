@@ -14,12 +14,15 @@ public class IngredientPickup : PooledObject
     [SerializeField] private float returnSpeed;
     private bool isReleased = false;
 
-    public void InitPickup(Ingredient ingredient)
+    private IngredientSpawner ingredientSpawner;
+
+    public void InitPickup(Ingredient ingredient, IngredientSpawner ingredientSpawner)
     {
         mainCamera = Camera.main;
         this.ingredient = ingredient;
         ingredientSR.sprite = ingredient.ingrendientSprite;
         startDragPos = transform.position;
+        this.ingredientSpawner = ingredientSpawner;
     }
 
     private void Update()
@@ -55,7 +58,7 @@ public class IngredientPickup : PooledObject
         Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, ingredientSR.size.x);
         foreach (Collider2D col in cols)
         {
-            if (!col.TryGetComponent<Appliance>(out Appliance appliance))
+            if (!col.TryGetComponent<IAbleToAddIngredient>(out IAbleToAddIngredient appliance))
                 continue;
 
             if (appliance.AddIngredient(ingredient))
@@ -76,6 +79,7 @@ public class IngredientPickup : PooledObject
             yield return null;
         }
 
+        ingredientSpawner.AddIngredientBack();
         Destroy(gameObject);
     }
 }

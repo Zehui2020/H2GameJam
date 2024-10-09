@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Appliance : MonoBehaviour
+public class Appliance : MonoBehaviour, IAbleToAddIngredient
 {
     [System.Serializable]
     public struct CookedDish
@@ -43,7 +43,7 @@ public class Appliance : MonoBehaviour
 
     [Header("Appliance Stats")]
     [SerializeField] private ApplianceData applianceData;
-    [SerializeField] private List<Ingredient.IngredientType> ingredients;
+    [SerializeField] protected List<Ingredient.IngredientType> ingredients;
     private ApplianceUIManager applianceUIManager;
     private SpriteRenderer spriteRenderer;
 
@@ -117,23 +117,28 @@ public class Appliance : MonoBehaviour
         }
     }
 
+    public void ResumeCooking()
+    {
+        cookingRoutine = StartCoroutine(StartCooking());
+    }
+
     public void ServeFood()
     {
         if (!canServe)
             return;
 
+        DumpIngredients();
+    }
+
+    public void DumpIngredients()
+    {
         cookingTimer = 0;
         canServe = false;
         StopCooking();
         ingredients.Clear();
         applianceUIManager.ClearIngredientUI();
+        applianceUIManager.SetCookingSliderActive(false);
         spriteRenderer.sprite = applianceData.sprite;
-    }
-
-    public void DumpIngredients()
-    {
-        ingredients.Clear();
-        applianceUIManager.StopBurning();
     }
 
     private IEnumerator StartCooking()
@@ -185,8 +190,7 @@ public class Appliance : MonoBehaviour
     {
         for (int i = 0; i < applianceData.cookedDish.dishCombinations.Count; i++)
         {
-            if (!Utility.AreListsEqualContent(applianceData.cookedDish.dishCombinations[i].ingredients, ingredients) ||
-                applianceData.cookedDish.dishCombinations[i].sideDishes.Count != 0)
+            if (!Utility.AreListsEqualContent(applianceData.cookedDish.dishCombinations[i].ingredients, ingredients))
                 continue;
 
             spriteRenderer.sprite = applianceData.cookedSprite;

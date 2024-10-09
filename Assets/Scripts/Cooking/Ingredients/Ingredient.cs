@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Ingredient")]
-public class Ingredient : ScriptableObject
+public class Ingredient : ShopItemData
 {
     public enum IngredientType
     {
@@ -23,13 +23,12 @@ public class Ingredient : ScriptableObject
         Egg,
         // Seafood
         Crab,
-        Fish
+        Fish,
+        TotalIngredients
     }
 
-    public string ingredientName;
-    [TextArea(3, 10)] public string ingredientDescription;
-
+    [Header("Appliance Stats")]
+    public Dish dishOnPlate;
     public IngredientType ingredientType;
     public Sprite ingrendientSprite;
-    public int ingredientCost;
 }

@@ -15,11 +15,7 @@ public class PlayerMarketMovement : MonoBehaviour
 
     [SerializeField] private float maxVelocity;
 
-    [SerializeField] private MarketBooth marketBooth;
-
-    [SerializeField] private MarketBooth applianceBooth;
-
-    [SerializeField] private Animator fade;
+    private Camera mainCamera;
 
     [Header("PlayerMarketMovement")]
     private Vector2 startTouchPosition;
@@ -28,6 +24,7 @@ public class PlayerMarketMovement : MonoBehaviour
     private void Awake()
     {
         playerRB ??= GetComponent<Rigidbody2D>();
+        mainCamera = Camera.main;
     }
     public float horizontalValue;
 
@@ -36,20 +33,11 @@ public class PlayerMarketMovement : MonoBehaviour
         if (PlayerStats.playerStatsInstance.playerMarketState != PlayerStats.PlayerMarketState.Walk)
             return;
 
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            fade.Play("FadeToBlack");
-        }
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            fade.Play("FadeToClear");
-        }
         if (GamePlatformChecker.gamePlatformInstance.deviceType == GamePlatformChecker.DeviceType.Mobile)
         {
             HandleMobileInput();
         }
-
-        if (GamePlatformChecker.gamePlatformInstance.deviceType == GamePlatformChecker.DeviceType.WebGL)
+        else if (GamePlatformChecker.gamePlatformInstance.deviceType == GamePlatformChecker.DeviceType.WebGL)
         {
             HandlePCInput();
         }
@@ -57,71 +45,25 @@ public class PlayerMarketMovement : MonoBehaviour
 
     private void HandlePCInput()
     {
-        Debug.Log("PC Input");
         horizontalValue = Input.GetAxis("Horizontal");
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            EnableStore();
-        }
+        if (horizontalValue == 0)
+            playerRB.velocity = Vector2.zero;
     }
 
     private void HandleMobileInput()
     {
         if (Input.touchCount <= 0)
+        {
+            horizontalValue = 0;
             return;
-        Touch touch = Input.touches[0]; // Get the first touch
+        }
 
-        if (touch.phase == TouchPhase.Began)
-        {
-            //Record the starting touch position
-            startTouchPosition = touch.position;
-            isTouching = true;
-        }
-        else if (touch.phase == TouchPhase.Moved && isTouching)
-        {
-            //Calculate the horizontal movement direction
-            float horizontalDelta = touch.position.x - startTouchPosition.x;
-            //Move the object left or right based on horizontalDelta
-            transform.Translate(horizontalDelta * playerSpeed * Time.deltaTime, 0, 0);
-            //Update the starting touch position for continuous movement
-            startTouchPosition = touch.position;
-        }
-        else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
-        {
-            //Reset the flag when the touch ends
-            isTouching = false;
-        }
+        Touch touch = Input.touches[0];
+        if (mainCamera.ScreenToWorldPoint(touch.position).x < transform.position.x)
+            horizontalValue = -1;
+        else
+            horizontalValue = 1;
     }
-
-    private void EnableStore()
-    {
-        StartCoroutine(Interact());
-    }
-
-    private IEnumerator Interact()
-    {
-        PlayerStats.playerStatsInstance.playerMarketState = PlayerStats.PlayerMarketState.InMenu;
-        switch (PlayerStats.playerStatsInstance.shopMenuInRange)
-        {
-            case PlayerStats.ShopMenuInRange.Ingredient:
-                fade.Play("FadeToBlack");
-                yield return new WaitForSeconds(1);
-                marketBooth.EnableShop();
-                fade.Play("FadeToClear");
-                yield return new WaitForSeconds(1);
-                break;
-
-            case PlayerStats.ShopMenuInRange.Appliance:
-                fade.Play("FadeToBlack");
-                yield return new WaitForSeconds(1);
-                applianceBooth.EnableShop();
-                fade.Play("FadeToClear");
-                yield return new WaitForSeconds(1);
-                break;
-        }
-    }
-
 
     private void FixedUpdate()
     {
@@ -131,6 +73,9 @@ public class PlayerMarketMovement : MonoBehaviour
     //move the player
     private void Move(float horizontalValue)
     {
+        if (horizontalValue == 0 || PlayerStats.playerStatsInstance.playerMarketState == PlayerStats.PlayerMarketState.InMenu)
+            return;
+
         playerRB.AddForce(new Vector2(horizontalValue * playerSpeed, 0), ForceMode2D.Force);
 
         //clamp the velocity of the player

@@ -13,6 +13,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public event System.Action OnDragStart;
     public event System.Action OnDragging;
     public event System.Action OnDragFinish;
+    public event System.Action OnReachOriginalPosition;
 
     public virtual void InitDraggable()
     {
@@ -54,6 +55,8 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
             transform.position = Vector3.MoveTowards(transform.position, startDragPos, Time.deltaTime * returnSpeed);
             yield return null;
         }
+
+        OnReachOriginalPosition?.Invoke();
     }
 
     private void OnDisable()
@@ -61,5 +64,6 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         OnDragStart = null;
         OnDragging = null;
         OnDragFinish = null;
+        OnReachOriginalPosition = null;
     }
 }

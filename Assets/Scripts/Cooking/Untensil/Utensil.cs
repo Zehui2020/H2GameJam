@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Utensil : Draggable
+public class Utensil : Draggable, IAbleToAddIngredient
 {
     public enum UtensilType
     {
@@ -22,6 +22,15 @@ public class Utensil : Draggable
     public void SetDish(Appliance.CookedDish cookedDish)
     {
         dish = cookedDish;
+    }
+
+    public bool AddIngredient(Ingredient ingredient)
+    {
+        if (ingredient.dishOnPlate == null)
+            return false;
+
+        dish = new Appliance.CookedDish(ingredient.dishOnPlate, 0);
+        return true;
     }
 
     public override void OnBeginDrag(PointerEventData eventData)

@@ -12,16 +12,30 @@ public class DraggableAppliance : Appliance
         base.InitAppliance();
         draggable = GetComponent<Draggable>();
         draggable.InitDraggable();
+
+        draggable.OnDragStart += StopCooking;
         draggable.OnDragFinish += OnDragEnd;
+        draggable.OnReachOriginalPosition += OnReachOriginalPos;
     }
 
     public void OnDragEnd()
     {
-        if (!canServe)
+        Collider2D col = Physics2D.OverlapCircle(transform.position, detectRadius, utensilLayer);
+
+        if (col == null)
             return;
 
-        Collider2D col = Physics2D.OverlapCircle(transform.position, detectRadius, utensilLayer);
-        if (col == null || !col.TryGetComponent<Utensil>(out Utensil utensil))
+        if (col.CompareTag("Trash"))
+        {
+            StopCooking();
+            DumpIngredients();
+            return;
+        }
+
+        if (!col.TryGetComponent<Utensil>(out Utensil utensil))
+            return;
+
+        if (!canServe)
             return;
 
         if (utensil.utensilType != cookedDish.dish.utensil)
@@ -32,6 +46,12 @@ public class DraggableAppliance : Appliance
 
         ServeFood();
         utensil.SetDish(cookedDish);
+    }
+
+    public void OnReachOriginalPos()
+    {
+        if (ingredients.Count > 0)
+            ResumeCooking();
     }
 
     private void OnDrawGizmos()

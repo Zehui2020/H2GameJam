@@ -1,52 +1,22 @@
-using System.Collections;
+using DesignPatterns.ObjectPool;
 using System.Collections.Generic;
-using UnityEngine;
+using UnityEngine.UI;
 
-public class ApplianceBooth : MonoBehaviour
+public class ApplianceBooth : MarketBooth
 {
-    [SerializeField] private CanvasGroup boothCanvas;
-    [SerializeField] private List<ApplianceData> applianceToSet = new();
-    [SerializeField] private List<BoothButton> applianceBoothButtons = new();
-    [SerializeField] private GameObject marketBoothBtnHolder;
-    [SerializeField] private Animator fadeOpaque;
-
-    private void Awake()
+    public override void InitBooth()
     {
-        //ingredientsToSet = Resources.LoadAll<Ingredient>("Assets/ScriptableObjects/Ingredients").ToList();
-        boothCanvas.alpha = 0;
-        boothCanvas.interactable = false;
-        boothCanvas.blocksRaycasts = false;
-        SetUpButtons();
-    }
+        base.InitBooth();
 
-    private void SetUpButtons()
-    {
-        applianceBoothButtons.AddRange(marketBoothBtnHolder.GetComponentsInChildren<BoothButton>());
-        for (int i = 0; i < applianceToSet.Count; i++)
+        List<ApplianceData> appliances = PlayerStats.playerStatsInstance.currentGeneration.applaincesToUpgrade;
+        foreach (ApplianceData appliance in appliances)
         {
-            applianceBoothButtons[i].SetUpButton(applianceToSet[i], 0);
+            BoothButton button = ObjectPool.Instance.GetPooledObject("BoothButton", true) as BoothButton;
+            button.SetUpButton(appliance);
+            button.OnSelectButton += (item) => { confirmBuyPanel.ShowPannel(button, item); };
+            button.transform.SetParent(buttonParent);
         }
-    }
-    public void ExitShop()
-    {
-        StartCoroutine(FadeOut());
-    }
-    private IEnumerator FadeOut()
-    {
-        fadeOpaque.Play("FadeToBlack");
-        yield return new WaitForSeconds(1);
-        boothCanvas.alpha = 0;
-        boothCanvas.interactable = false;
-        boothCanvas.blocksRaycasts = false;
-        fadeOpaque.Play("FadeToClear");
-        yield return new WaitForSeconds(1);
-        PlayerStats.playerStatsInstance.playerMarketState = PlayerStats.PlayerMarketState.Walk;
-    }
-    public void EnableShop()
-    {
-        //StartCoroutine(FadeIn());
-        boothCanvas.alpha = 1;
-        boothCanvas.interactable = true;
-        boothCanvas.blocksRaycasts = true;
+
+        LayoutRebuilder.ForceRebuildLayoutImmediate(buttonParent);
     }
 }

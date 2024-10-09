@@ -176,6 +176,7 @@ GameObject:
   - component: {fileID: 119732376717261979}
   - component: {fileID: 1406466612237003833}
   - component: {fileID: 8214515949177068569}
+  - component: {fileID: 8092502196978129145}
   m_Layer: 0
   m_Name: ConfirmBuyPanel
   m_TagString: Untagged
@@ -253,17 +254,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da27a20cbc1797e428df69f8e769534b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buySlider: {fileID: 5269560291230766837}
-  ingredientToBuyName: {fileID: 2674563316729437462}
-  descriptionOfItem: {fileID: 2509929232812724120}
-  imageItemToBuy: {fileID: 2629288114048211667}
-  numOfItemsBox: {fileID: 6767527758689096025}
-  numOfItemsToBuy: 0
-  storedIngredient: {fileID: 0}
-  storedButton: {fileID: 0}
-  itemCostBox: {fileID: 4689763233568675321}
-  itemCosts: 0
-  isAffordable: 0
+--- !u!95 &8092502196978129145
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478669969310645581}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dae23be561a2cdb4cbbb43d10093e3b9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2082960099643224614
 GameObject:
   m_ObjectHideFlags: 0

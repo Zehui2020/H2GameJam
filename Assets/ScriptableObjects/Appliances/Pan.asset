@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3299b0059eb540342a461ac0c56f3801, type: 3}
   m_Name: Pan
   m_EditorClassIdentifier: 
+  shopItemName: Pan
+  shopDescription: 
+  itemSprite: {fileID: 21300000, guid: 122cfd49049546544888fc3a65f08624, type: 3}
+  maximumPurchases: 3
+  cost: 50
   cookedDish: {fileID: 11400000, guid: 8896e031d945fe04284091ef944ea9b2, type: 2}
   sprite: {fileID: 21300000, guid: 122cfd49049546544888fc3a65f08624, type: 3}
   cookedSprite: {fileID: 21300000, guid: 122cfd49049546544888fc3a65f08624, type: 3}

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ApplianceData")]
-public class ApplianceData : ScriptableObject
+public class ApplianceData : ShopItemData
 {
     public enum ApplianceType
     {
@@ -11,9 +11,11 @@ public class ApplianceData : ScriptableObject
         HotPlate,
         Wok,
         Steamer,
-        Pan
+        Pan,
+        TotalAppliances
     }
 
+    [Header("Appliance Stats")]
     public Dish cookedDish;
 
     public Sprite sprite;
