@@ -579,6 +579,10 @@ MonoBehaviour:
   customerEndPos: {fileID: 1040664558}
   dishList: {fileID: 11400000, guid: 831bdd205a8641f4a9c5bd0558cb68af, type: 2}
   cookingManager: {fileID: 1774712878}
+  customerDatas:
+  - {fileID: 11400000, guid: 6454b8f197f04f748bf4a899c1e45c52, type: 2}
+  - {fileID: 11400000, guid: 34e6da2d688300f4ea6f16debaa44a9d, type: 2}
+  - {fileID: 11400000, guid: 26333468e34d22e44bc59ddcb9da3b7d, type: 2}
 --- !u!4 &799906603
 Transform:
   m_ObjectHideFlags: 0

@@ -38,7 +38,7 @@ public class CustomerEntity : MonoBehaviour
     //to change image correct and wrong
     private List<int> imageItemsIndexList;
 
-    public void Init(Vector3 _placementPos, Vector3 _exitPos, List<Appliance.CookedDish> _requestedDishes)
+    public void Init(Vector3 _placementPos, Vector3 _exitPos, List<Appliance.CookedDish> _requestedDishes, CustomerScriptableObject _customerData)
     {
         //Set Positions
         placementPos = _placementPos;
@@ -53,14 +53,14 @@ public class CustomerEntity : MonoBehaviour
         SetOrderLayer(2);
         imageItemsIndexList = new List<int>();
 
-        patienceCounter = 100;
-        maxPatience = patienceCounter;
-
-        wrongFoodCounter = 0;
-
         saidImpatientRemark = false;
 
         orderUI.SetActive(false);
+
+        //assign customer data
+        patienceCounter = _customerData.currentPatienceLevel;
+        maxPatience = 100;
+        wrongFoodCounter = _customerData.wrongOrderLeeway;
     }
 
     // Update is called once per frame

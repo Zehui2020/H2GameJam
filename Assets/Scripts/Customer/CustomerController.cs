@@ -18,6 +18,7 @@ public class CustomerController : MonoBehaviour
     [SerializeField] private Transform customerEndPos;
     [SerializeField] private DishList dishList;
     [SerializeField] private CookingManager cookingManager;
+    [SerializeField] private List<CustomerScriptableObject> customerDatas;
 
     //store all customers
     private List<CustomerEntity> customerEntities;
@@ -136,7 +137,7 @@ public class CustomerController : MonoBehaviour
                     if (cookedDishes.Count == 0)
                     {
                         //Give customer new placement position
-                        newCustomer.Init(customerPlacementPos[i].position, customerEndPos.position, cookedDishes);
+                        newCustomer.Init(customerPlacementPos[i].position, customerEndPos.position, cookedDishes, customerDatas[Random.Range(0, customerDatas.Count)]);
 
                         //add customer entity to list
                         customerEntities[i] = newCustomer;
