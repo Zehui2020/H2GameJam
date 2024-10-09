@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static Appliance;
 
 
 //Decription: Handle Customer Behaviours
@@ -11,8 +10,7 @@ public class CustomerEntity : MonoBehaviour
 {
     [SerializeField] private GameObject orderUI;
     [SerializeField] private Image patienceMeter;
-    [SerializeField] private RectTransform requestContainer;
-    [SerializeField] private CustomerDialogueHandler customerDialogueHandler;
+    [SerializeField] private Transform requestContainer;
 
     public enum CustomerState
     {
@@ -38,7 +36,7 @@ public class CustomerEntity : MonoBehaviour
     //to change image correct and wrong
     private List<int> imageItemsIndexList;
 
-    public void Init(Vector3 _placementPos, Vector3 _exitPos, List<Appliance.CookedDish> _requestedDishes)
+    public void Init(Vector3 _placementPos, Vector3 _exitPos, List<Dish.DishType> _requestedDishes)
     {
         //Set Positions
         placementPos = _placementPos;
@@ -79,8 +77,6 @@ public class CustomerEntity : MonoBehaviour
                     SetOrderLayer(3);
                     //Show food choices and patience
                     orderUI.SetActive(true);
-                    //dialogue
-                    customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.NormalGreetingRemarks);
                 }
                 break;
 
@@ -149,7 +145,6 @@ public class CustomerEntity : MonoBehaviour
         return true;
     }
 
-
     private void SetOrderLayer(int layerNo)
     {
         //2 when moving
@@ -164,21 +159,35 @@ public class CustomerEntity : MonoBehaviour
         return requestContainer;
     }
 
-    public void ForceRebuildRequestContainer()
+    public void PassFood(Dish.DishType _type)
     {
-        LayoutRebuilder.ForceRebuildLayoutImmediate(requestContainer);
-    }
-
-    public void PassFood(CookedDish cookedDish)
-    {
-        foreach (CookedDish dish in requestedDishes)
+        if (requestedDishes.Contains(_type))
         {
-            if (CompareCookedDishes(dish, cookedDish))
+            int index = requestedDishes.IndexOf(_type);
+
+            //Remove requested Dish
+            requestedDishes.Remove(_type);
+
+            //check if finish all dishes
+            if (requestedDishes.Count == 0)
             {
-                ServeFood(dish);
-                return;
+                //leave
+                customerState = CustomerState.Leaving;
+            }
+
+            //Change Image to tick or cross;
+            foreach (Transform reqImage in requestContainer)
+            {
+                //check if correct type and not changed
+                RequestImageHandler requestImageHandler = reqImage.GetComponent<RequestImageHandler>();
+                if (requestImageHandler.GetDishType() == _type && !requestImageHandler.HasChanged())
+                {
+                    requestImageHandler.SetObjectIsCorrect(true);
+                    return;
+                }
             }
         }
+
         //Serve wrong food
         wrongFoodCounter += 1;
         //Patience decreaase
@@ -193,7 +202,6 @@ public class CustomerEntity : MonoBehaviour
         {
             customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.WrongItemRemarks);
         }
-
     }
 
     private void ServeFood(CookedDish cookedDish)

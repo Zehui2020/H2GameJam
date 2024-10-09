@@ -47,16 +47,8 @@ MonoBehaviour:
   customerDialogues:
   - type: 0
     text: Wow, the food herre is so cheap!
-    bindToGeneration: 0
-    bindToGen1: 0
-    bindToGen2: 0
-    bindToGen3: 0
   - type: 0
     text: Definitely worth for its price!
-    bindToGeneration: 0
-    bindToGen1: 0
-    bindToGen2: 0
-    bindToGen3: 0
   - type: 1
     text: What!!! It's so expensive!
     bindToGeneration: 0

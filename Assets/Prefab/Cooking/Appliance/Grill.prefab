@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3892453887884813087}
   - component: {fileID: 5042834754736357138}
-  - component: {fileID: 2537471087682142869}
+  - component: {fileID: 6424548993932393444}
   - component: {fileID: 7599440520550888880}
   - component: {fileID: 5925069890633167828}
   m_Layer: 6
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2537471087682142869
+--- !u!114 &6424548993932393444
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,17 +97,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 4806339228846338674}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a2dc5bcfbe02fa42b7f6c49cbf7ca5d, type: 3}
+  m_Script: {fileID: 11500000, guid: 2df1054538d775846a7497a7392166c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDraggable: 0
+  returnSpeed: 10
   applianceData: {fileID: 11400000, guid: aecebe209249496499e3ae77810941fe, type: 2}
   ingredients: 
   cookingSpeedModifier:
     baseAmount: 0
     modifiers: []
-  foodSpawnPos: []
-  dishPickup: {fileID: 9210417971068851916, guid: c65f65626e2d1004d8c8fab440bfbc38, type: 3}
-  satayDish: {fileID: 11400000, guid: a62233160a90ca84baebe70ae3e3d4dc, type: 2}
 --- !u!114 &7599440520550888880
 MonoBehaviour:
   m_ObjectHideFlags: 0

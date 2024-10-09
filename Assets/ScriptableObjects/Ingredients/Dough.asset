@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b637278d1970daa4c851e5c72a825ffe, type: 3}
   m_Name: Dough
   m_EditorClassIdentifier: 
-  ingredientName: 
-  ingredientDescription: 
   ingredientType: 4
-  ingrendientSprite: {fileID: 21300000, guid: e84ceb7eb56bc244890923f38948bbfb, type: 3}
+  ingrendientSprite: {fileID: 0}
   ingredientCost: 0

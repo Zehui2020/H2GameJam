@@ -58,11 +58,9 @@ public class IngredientPickup : PooledObject
             if (!col.TryGetComponent<Appliance>(out Appliance appliance))
                 continue;
 
-            if (appliance.AddIngredient(ingredient))
-            {
-                Destroy(gameObject);
-                break;
-            }
+            appliance.AddIngredient(ingredient);
+            Destroy(gameObject);
+            break;
         }
 
         StartCoroutine(ReturnToStartPos());
