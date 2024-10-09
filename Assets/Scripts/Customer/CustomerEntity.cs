@@ -38,7 +38,7 @@ public class CustomerEntity : MonoBehaviour
     //to change image correct and wrong
     private List<int> imageItemsIndexList;
 
-    public void Init(Vector3 _placementPos, Vector3 _exitPos, List<Appliance.CookedDish> _requestedDishes, CustomerScriptableObject _customerData)
+    public void Init(Vector3 _placementPos, Vector3 _exitPos, List<Appliance.CookedDish> _requestedDishes)
     {
         //Set Positions
         placementPos = _placementPos;
@@ -53,14 +53,14 @@ public class CustomerEntity : MonoBehaviour
         SetOrderLayer(2);
         imageItemsIndexList = new List<int>();
 
+        patienceCounter = 100;
+        maxPatience = patienceCounter;
+
+        wrongFoodCounter = 0;
+
         saidImpatientRemark = false;
 
         orderUI.SetActive(false);
-
-        //assign customer data
-        patienceCounter = _customerData.currentPatienceLevel;
-        maxPatience = 100;
-        wrongFoodCounter = _customerData.wrongOrderLeeway;
     }
 
     // Update is called once per frame
@@ -79,36 +79,8 @@ public class CustomerEntity : MonoBehaviour
                     SetOrderLayer(3);
                     //Show food choices and patience
                     orderUI.SetActive(true);
-
                     //dialogue
-                    int chance = Random.Range(1, 101);
-                    int currentRep = PlayerStats.playerStatsInstance.currentReputation;
-                    //negative / positive remarks 35%
-                    if (chance >= 1 && chance <= 35 &&
-                        (currentRep <= -5 || currentRep >= 8))
-                    {
-                        //negative
-                        if (currentRep <= -5)
-                        {
-                            customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.NegPriceRemarks);
-                        }
-                        //positive
-                        else
-                        {
-                            customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.PosPriceRemarks);
-                        }
-                    }
-                    //commen on new facility
-                    else if (chance >= 36 && chance <= 70 && PlayerStats.playerStatsInstance.dayCounter == 1 && PlayerStats.playerStatsInstance.currentGeneration > 0)
-                    {
-                        customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.VenueRemarks);
-                    }
-                    //normal hellos
-                    else
-                    {
-                        customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.NormalGreetingRemarks);
-                    }
-                    
+                    customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.NormalGreetingRemarks);
                 }
                 break;
 
