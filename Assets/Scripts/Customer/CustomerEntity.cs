@@ -13,6 +13,7 @@ public class CustomerEntity : MonoBehaviour
     [SerializeField] private Image patienceMeter;
     [SerializeField] private RectTransform requestContainer;
     [SerializeField] private CustomerDialogueHandler customerDialogueHandler;
+    [SerializeField] private Animator emoterAnimator;
 
     public enum CustomerState
     {
@@ -61,6 +62,11 @@ public class CustomerEntity : MonoBehaviour
         patienceCounter = _customerData.currentPatienceLevel;
         maxPatience = 100;
         wrongFoodCounter = _customerData.wrongOrderLeeway;
+
+        //show emotion
+        PingEmotion((_customerData.customerType == CustomerScriptableObject.CustomerType.Positive) ? CustomerController.CustomerEmotion.Positive :
+            ((_customerData.customerType == CustomerScriptableObject.CustomerType.Negative) ? CustomerController.CustomerEmotion.Upset : 
+            CustomerController.CustomerEmotion.Agitated));
     }
 
     // Update is called once per frame
@@ -137,6 +143,8 @@ public class CustomerEntity : MonoBehaviour
                     saidImpatientRemark = true;
                     //dialogue
                     customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.ImpatientRemarks);
+
+                    PingEmotion(CustomerController.CustomerEmotion.Agitated);
                 }
 
                 //Reach Patience Limit
@@ -154,6 +162,9 @@ public class CustomerEntity : MonoBehaviour
 
                     //Reputation Decrease
                     PlayerStats.playerStatsInstance.LoseRep(3);
+
+
+                    PingEmotion(CustomerController.CustomerEmotion.Angry);
                 }
 
                 break;
@@ -219,6 +230,7 @@ public class CustomerEntity : MonoBehaviour
         //reply
         if (patienceCounter > 0)
         {
+            PingEmotion(CustomerController.CustomerEmotion.Upset);
             customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.WrongItemRemarks);
         }
     }
@@ -241,17 +253,21 @@ public class CustomerEntity : MonoBehaviour
                 PlayerStats.playerStatsInstance.AddRep(2);
                 //Fast remark
                 customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.VeryPosReviewRemarks);
+
+                PingEmotion(CustomerController.CustomerEmotion.VeryPositive);
             }
             else if (patienceCounter >= maxPatience * 0.25f)
             {
                 PlayerStats.playerStatsInstance.AddRep(1);
                 //thanks remark
                 customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.PosReviewRemarks);
+                PingEmotion(CustomerController.CustomerEmotion.Positive);
             }
             else
             {
                 //took them long enough remark
                 customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.AgitatedReviewRemarks);
+                PingEmotion(CustomerController.CustomerEmotion.Upset);
             }
         }
 
@@ -301,5 +317,13 @@ public class CustomerEntity : MonoBehaviour
                 requestImageHandler.SetObjectIsCorrect(false);
             }
         }
+    }
+
+    public void PingEmotion(CustomerController.CustomerEmotion _emotion)
+    {
+        //Get new emotion
+        emoterAnimator.gameObject.GetComponentInChildren<SpriteRenderer>().sprite = CustomerController.Instance.GetEmojiSprite(_emotion);
+
+        emoterAnimator.Play("Ping");
     }
 }
