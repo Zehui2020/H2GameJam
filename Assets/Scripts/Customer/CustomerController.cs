@@ -26,6 +26,8 @@ public class CustomerController : MonoBehaviour
 
     private bool storeClosed;
 
+    private int dayDifficulty;
+
     private void Awake()
     {
         Instance = this;
@@ -46,6 +48,8 @@ public class CustomerController : MonoBehaviour
         HandleSpawnTimer();
 
         storeClosed = false;
+
+        dayDifficulty = PlayerStats.playerStatsInstance.dayCounter;
     }
 
     // Update is called once per frame
@@ -85,8 +89,11 @@ public class CustomerController : MonoBehaviour
                     List<Appliance.CookedDish> cookedDishes = new();
 
                     //TODO: Check if have enough ingredients for that food
-                    //Random between 1 or 2 foods
-                    int maxFoodNo = Random.Range(1, 3);
+                    //1 or 2 foods
+                    //rate is based on day difficulty and reputation
+                    int chance = Random.Range(1, 11);
+                    int repInc = (PlayerStats.playerStatsInstance.currentReputation <= -5 ? -2 : (PlayerStats.playerStatsInstance.currentReputation >= 8 ? 2 : 0));
+                    int maxFoodNo = 1 + ((dayDifficulty == 2 && chance < 5 + repInc) || (dayDifficulty == 3 && chance < 9 + repInc) ? 1 : 0);
                     for (int foodNo = 0; foodNo < 1; foodNo++)
                     {
                         //Random Dish
