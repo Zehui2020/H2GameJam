@@ -17,6 +17,8 @@ public class CustomerDialogueController : MonoBehaviour
         NegReviewRemarks,
         WrongItemRemarks,
         NormalGreetingRemarks,
+        VeryPosReviewRemarks,
+        AgitatedReviewRemarks,
         TotalTypes
     }
 

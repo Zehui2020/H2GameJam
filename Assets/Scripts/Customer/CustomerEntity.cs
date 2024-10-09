@@ -31,6 +31,7 @@ public class CustomerEntity : MonoBehaviour
     private CustomerState customerState;
     private float patienceCounter;
     private float maxPatience;
+    private float wrongFoodCounter;
     [SerializeField] private List<Appliance.CookedDish> requestedDishes;
 
     //to change image correct and wrong
@@ -53,6 +54,8 @@ public class CustomerEntity : MonoBehaviour
 
         patienceCounter = 100;
         maxPatience = patienceCounter;
+
+        wrongFoodCounter = 0;
 
         orderUI.SetActive(false);
     }
@@ -109,6 +112,10 @@ public class CustomerEntity : MonoBehaviour
                     SetRequestedItemsWrong();
 
                     //Angry Review
+
+
+                    //Reputation Decrease
+                    PlayerStats.playerStatsInstance.LoseRep(3);
                 }
 
                 break;
@@ -162,8 +169,18 @@ public class CustomerEntity : MonoBehaviour
                 return;
             }
         }
-
+        //Serve wrong food
+        wrongFoodCounter += 1;
+        //Patience decreaase
         patienceCounter -= maxPatience * 0.2f;
+        //rep go down if go down twice
+        if (wrongFoodCounter >= 2) 
+        {
+            PlayerStats.playerStatsInstance.LoseRep(1);
+        }
+        //reply
+
+
     }
 
     private void ServeFood(CookedDish cookedDish)
@@ -176,6 +193,23 @@ public class CustomerEntity : MonoBehaviour
         {
             //leave
             customerState = CustomerState.Leaving;
+
+            //up reputation
+            //super fast
+            if (patienceCounter >= maxPatience * 0.75f)
+            {
+                PlayerStats.playerStatsInstance.AddRep(2);
+                //Fast remark
+            }
+            else if (patienceCounter >= maxPatience * 0.25f)
+            {
+                PlayerStats.playerStatsInstance.AddRep(1);
+                //thanks remark
+            }
+            else
+            {
+                //took them long enough remark
+            }
         }
 
         //Change Image to tick or cross;

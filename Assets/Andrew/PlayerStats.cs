@@ -47,6 +47,9 @@ public class PlayerStats : MonoBehaviour
     public GenerationDishes.Generation currentGeneration;
     public List<GenerationDishes> generationDishes;
 
+    [Header("Reputation")]
+    public int currentReputation;
+
     [Header("Appliances")]
     public int potLevel = 1; public int grillLevel = 1; public int hotPlateLevel = 1; public int wokLevel = 1; public int steamerLevel = 1; public int panLevel = 1;
     private void Awake()
@@ -65,7 +68,31 @@ public class PlayerStats : MonoBehaviour
     }
     private void SetUp()
     {
+        currentMoney = 500;
 
+        porkCount = 0;
+        chickenCount = 0;
+        lambCount = 0;
+        beefCount = 0;
+        crabCount = 0;
+        eggCount = 0;
+        flourCount = 0;
+        riceCount = 0;
+        doughCount = 0;
+        chineseSpicesCount = 0;
+        indianSpicesCount = 0;
+        chilliSauceCount = 0;
+        currySauceCount = 0;
+        sataySauceCount = 0;
+
+        currentReputation = 0;
+
+        potLevel = 1;
+        grillLevel = 1;
+        hotPlateLevel = 1;
+        wokLevel = 1;
+        steamerLevel = 1;
+        panLevel = 1;
     }
 
     public enum PlayerMarketState
@@ -200,5 +227,15 @@ public class PlayerStats : MonoBehaviour
         }
 
         return null;
+    }
+
+    public void AddRep(int repToGain)
+    {
+        currentReputation += repToGain;
+    }
+
+    public void LoseRep(int repToLose)
+    {
+        currentReputation -= repToLose;
     }
 }
