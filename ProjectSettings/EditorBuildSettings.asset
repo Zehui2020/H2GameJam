@@ -27,6 +27,12 @@ EditorBuildSettings:
     path: Assets/Scenes/BuildScenes/CookingScenes/MordenScene.unity
     guid: d643de49ffdd82d46ad6e7e26d6bd668
   - enabled: 1
-    path: Assets/Scenes/BuildScenes/EndingScene.unity
+    path: Assets/Scenes/BuildScenes/GoodEndingScene.unity
     guid: 948fa9cf84f2cc5438f45c3b05ab3e94
+  - enabled: 1
+    path: Assets/Scenes/BuildScenes/BadEndingScene.unity
+    guid: 72b10f457486b0f498a54ca1ab049061
+  - enabled: 1
+    path: Assets/Scenes/BuildScenes/BankruptEndingScene.unity
+    guid: 0adc9f14aa74f5b4191a02e5ce08e0e1
   m_configObjects: {}
