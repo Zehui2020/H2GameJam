@@ -1,6 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7879272834177507116
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
+  m_Name: Global Volume Profile 1
+  m_EditorClassIdentifier: 
+  components:
+  - {fileID: 1336763670456262376}
+  - {fileID: 2924842042002549551}
+  - {fileID: 5415861673932963915}
+--- !u!114 &1336763670456262376
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14,33 +30,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   type:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 8
   intensity:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 1
   response:
-    m_OverrideState: 0
-    m_Value: 0.8
+    m_OverrideState: 1
+    m_Value: 1
   texture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
---- !u!114 &11400000
+--- !u!114 &2924842042002549551
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: OriginsVolume Profile
+  m_Script: {fileID: 11500000, guid: 81180773991d8724ab7f2d216912b564, type: 3}
+  m_Name: ChromaticAberration
   m_EditorClassIdentifier: 
-  components:
-  - {fileID: 698648593771459932}
-  - {fileID: -7879272834177507116}
---- !u!114 &698648593771459932
+  active: 1
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.312
+--- !u!114 &5415861673932963915
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,22 +72,22 @@ MonoBehaviour:
   active: 1
   _weight:
     m_OverrideState: 1
-    m_Value: 0.044
+    m_Value: 0.504
   _bleed:
     m_OverrideState: 1
-    m_Value: 10
+    m_Value: 0
   _rocking:
     m_OverrideState: 1
-    m_Value: 0.1
+    m_Value: 0
   _tape:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 1.187
   _noise:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.14
   _flickering:
     m_OverrideState: 1
     m_Value: 0
   _glitch:
     m_OverrideState: 1
-    m_Value: {r: 0.9859611, g: 1, b: 0, a: 1}
+    m_Value: {r: 0.3509434, g: 0.13932274, b: 0, a: 1}
