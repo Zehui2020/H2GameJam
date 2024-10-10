@@ -8,6 +8,13 @@ using static DialogueManager;
 
 public class BaseNPC : MonoBehaviour
 {
+    public enum NPCType
+    {
+        IngredientsNPC,
+        ApplianceNPC
+    }
+
+    public NPCType npcType;
     [SerializeField] private Animator dialogueUIAnimator;
     [SerializeField] private Animator interactButtonAnimator;
     [SerializeField] private DialogueManager dialogueManager;
@@ -16,6 +23,17 @@ public class BaseNPC : MonoBehaviour
 
     [SerializeField] private int dialogueIndex;
     [SerializeField] private List<Dialogue> dialogues;
+    [SerializeField] private bool isTutorial;
+
+    private void Start()
+    {
+        if (!isTutorial)
+        {
+            DialogueData dialogueData = PlayerStats.playerStatsInstance.GetDialogueData(npcType);
+            if (dialogueData != null)
+                dialogues = dialogueData.dialogues;
+        }
+    }
 
     public void OnEnterRange()
     {

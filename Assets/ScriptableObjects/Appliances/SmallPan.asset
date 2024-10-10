@@ -14,18 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopItemName: Frying Pan
   shopDescription: 
-  itemSprite: {fileID: 21300000, guid: 8927f5361de10cf42ad23f520b541466, type: 3}
+  itemSprite: {fileID: 21300000, guid: 07bc9708f006756479f8228abe3517e0, type: 3}
   maximumPurchases: 1
   cost: 50
   cookedDish: {fileID: 11400000, guid: af0e0ececdb0b6b4b95c6073cf7983a0, type: 2}
-  sprite: {fileID: 21300000, guid: 8927f5361de10cf42ad23f520b541466, type: 3}
-  cookedSprite: {fileID: 21300000, guid: fc6a422c5536b0d42bd47cf01ce44cc8, type: 3}
-  burntSprite: {fileID: 21300000, guid: b17f2271f9956ac4c9ea9d57958e09f9, type: 3}
+  baseSprite: {fileID: 21300000, guid: 360298bd96664ef41b7d719cc86911fa, type: 3}
+  burntSprite: {fileID: 21300000, guid: 07bc9708f006756479f8228abe3517e0, type: 3}
   applianceName: Frying Pan
   allowedIngredients: 010000000c000000030000000a000000
+  needToCheckSequence: 1
+  applianceAppearances:
+  - ingredientTypes: 03000000
+    applianceSprite: {fileID: 21300000, guid: fdb8809888a03d846bd9fcec195436eb, type: 3}
+  - ingredientTypes: 030000000a000000
+    applianceSprite: {fileID: 21300000, guid: 08bbda76643474d4c95439cae78f30a3, type: 3}
+  - ingredientTypes: 030000000a0000000c000000
+    applianceSprite: {fileID: 21300000, guid: c0f452cb9231c91419b710c244bbbeb1, type: 3}
   type: 5
   cookSpeed: 1
   cookDuration: 5
   burnDuration: 5
   burnGracePeriod: 2
-  maxIngredients: 2
+  maxIngredients: 3

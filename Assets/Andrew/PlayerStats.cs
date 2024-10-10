@@ -53,7 +53,8 @@ public class PlayerStats : MonoBehaviour
     public int dayCounter;
     public int daysPerGeneration;
 
-    [Header("Sprites")]
+    [Header("Dialogue")]
+    public List<DialogueData> allDialogueDatas;
     public List<Sprite> playerDialogueSprites;
 
     private void Awake()
@@ -265,5 +266,18 @@ public class PlayerStats : MonoBehaviour
             currentGeneration = allGenerations[generationIndex];
             SceneLoader.Instance.LoadScene("MarketPlace");
         }
+    }
+
+    public DialogueData GetDialogueData(BaseNPC.NPCType npcType)
+    {
+        foreach (DialogueData dialogueData in allDialogueDatas)
+        {
+            if (dialogueData.npcType == npcType &&
+                dialogueData.generation == currentGeneration.generation &&
+                dialogueData.dayNumber == dayCounter)
+                return dialogueData;
+        }
+
+        return null;
     }
 }
