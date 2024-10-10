@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b226c222a5a1594c91e6667a63954fc, type: 3}
   m_Name: MordenGeneration
   m_EditorClassIdentifier: 
-  generation: 2
+  generation: 3
   applaincesToUpgrade:
   - {fileID: 11400000, guid: 1edba126b10449b4290cac5ae93dfecc, type: 2}
   - {fileID: 11400000, guid: aecebe209249496499e3ae77810941fe, type: 2}

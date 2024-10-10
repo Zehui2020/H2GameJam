@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Pot
   m_EditorClassIdentifier: 
   shopItemName: Pot
-  shopDescription: 
+  shopDescription: A heavy clay pot. Father used to make his famous Bak Kut Teh recepie
+    in pots like these...
   itemSprite: {fileID: 21300000, guid: 3cfdae58ba76f2d43b0538ca41ba870a, type: 3}
-  maximumPurchases: 3
+  maximumPurchases: 1
   cost: 50
   cookedDish: {fileID: 11400000, guid: 65d231de138de7c46bf675fe9c107168, type: 2}
   sprite: {fileID: 21300000, guid: 3cfdae58ba76f2d43b0538ca41ba870a, type: 3}

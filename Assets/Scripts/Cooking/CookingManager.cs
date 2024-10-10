@@ -7,19 +7,24 @@ public class CookingManager : MonoBehaviour
 
     [SerializeField] private float timer;
     [SerializeField] private float maxTimer;
+    [SerializeField] private bool updateTimer = true;
 
     private void Start()
     {
         cookingUIManager = GetComponent<CookingUIManager>();
+        cookingUIManager.SetTimerSlider(0, 0);
     }
 
     private void Update()
     {
-        timer += Time.deltaTime;
-        cookingUIManager.SetTimerSlider(timer, maxTimer);
+        if (updateTimer)
+        {
+            timer += Time.deltaTime;
+            cookingUIManager.SetTimerSlider(timer, maxTimer);
 
-        if (timer >= maxTimer)
-            cookingUIManager.ShowFinishAlert();
+            if (timer >= maxTimer)
+                cookingUIManager.ShowFinishAlert();
+        }
     }
 
     public void GoToMarketPlace()

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b226c222a5a1594c91e6667a63954fc, type: 3}
   m_Name: OriginGeneration
   m_EditorClassIdentifier: 
-  generation: 0
+  generation: 1
   applaincesToUpgrade:
   - {fileID: 11400000, guid: d864476c6596c8347810dd0fa4b793be, type: 2}
   - {fileID: 11400000, guid: 392f6d3ca1fe669469e600ef7bc8a9c8, type: 2}

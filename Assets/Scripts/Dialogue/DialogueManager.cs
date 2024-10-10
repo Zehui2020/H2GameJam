@@ -119,6 +119,8 @@ public class DialogueManager : MonoBehaviour
 
         if (currentDialogue.breakAfterDialogue)
         {
+            PlayerStats.playerStatsInstance.playerMarketState = PlayerStats.PlayerMarketState.Walk;
+
             if (!currentDialogue.isLoopingDialogue)
                 currentNPC.IncrementIndex(1);
 

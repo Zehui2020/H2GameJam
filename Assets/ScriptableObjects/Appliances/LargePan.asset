@@ -15,7 +15,7 @@ MonoBehaviour:
   shopItemName: Biryani Pan
   shopDescription: The perfect cookware for a delicious plate of Biryani!
   itemSprite: {fileID: 21300000, guid: f72c0a11d62853a418862ee90be635de, type: 3}
-  maximumPurchases: 3
+  maximumPurchases: 1
   cost: 50
   cookedDish: {fileID: 11400000, guid: 8896e031d945fe04284091ef944ea9b2, type: 2}
   sprite: {fileID: 21300000, guid: f72c0a11d62853a418862ee90be635de, type: 3}

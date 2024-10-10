@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -29,9 +31,30 @@ public class BaseNPC : MonoBehaviour
         dialogueManager.SetTalkingNPC(this);
     }
 
+    public void OnInteract(int index)
+    {
+        StartCoroutine(DelayedInteract(index));
+    }
+
+    private IEnumerator DelayedInteract(int index)
+    {
+        yield return new WaitForSeconds(0.4f);
+
+        GetDialogueFromIndex(index);
+        InteractEvent?.Invoke();
+        PlayerStats.playerStatsInstance.playerMarketState = PlayerStats.PlayerMarketState.InMenu;
+        dialogueUIAnimator.SetBool("isTalking", true);
+        dialogueManager.SetTalkingNPC(this);
+    }
+
     public void GoToWork()
     {
         PlayerStats.playerStatsInstance.GoToCook();
+    }
+
+    public void GoToTutorialCooking()
+    {
+        SceneLoader.Instance.LoadScene("TutorialCookingScene");
     }
 
     public void OnLeaveRange()

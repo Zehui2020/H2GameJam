@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b637278d1970daa4c851e5c72a825ffe, type: 3}
+  m_Name: TutPork
+  m_EditorClassIdentifier: 
+  shopItemName: Pork
+  shopDescription: 'Lorem ipsum odor amet, consectetuer adipiscing elit. Fusce fusce
+    facilisi phasellus, semper ante lobortis. Augue natoque suscipit euismod curae
+    sit at lacus congue nullam. Scelerisque ornare interdum facilisis rhoncus purus
+    hendrerit quam cursus. Urna vulputate conubia facilisi imperdiet orci. Eu eleifend
+    cras phasellus potenti dolor. Sed sodales ultricies sociosqu viverra vulputate
+    feugiat pretium nullam ullamcorper. Mattis magnis at ullamcorper convallis ut
+    tristique tortor.
+
+
+
+    Torquent phasellus bibendum augue; gravida natoque phasellus
+    dictum. Etiam potenti sodales integer lorem pellentesque. Sed dapibus nullam
+    efficitur facilisis ultrices. Dis phasellus fusce praesent morbi inceptos adipiscing.
+    Duis penatibus cubilia posuere molestie nisl. Erat maximus pulvinar in arcu vivamus
+    phasellus lorem fusce quam. Vehicula magna habitant pellentesque eu risus leo
+    euismod? Nostra massa auctor porttitor ac vel non ridiculus pulvinar tincidunt.
+    Viverra tempus feugiat natoque ullamcorper ridiculus phasellus vestibulum.
+
+
+
+    Dictum
+    maximus congue; vel lobortis inceptos felis semper et. Class nostra vitae rhoncus,
+    vel scelerisque proin finibus amet dignissim. Laoreet orci consectetur sem pulvinar
+    magnis porta purus; cursus amet. Nibh consequat sociosqu libero volutpat tempor.
+    Netus amet magna pharetra enim senectus ullamcorper duis. Massa felis tempor
+    per egestas, a non facilisi.
+
+
+
+    Praesent pretium libero etiam accumsan porttitor
+    nibh platea. Neque potenti amet integer gravida habitant nibh egestas sociosqu.
+    Ex convallis hendrerit nisl facilisi; ipsum suspendisse aptent. Facilisis ullamcorper
+    amet cursus nisl ornare montes ornare. Donec sociosqu interdum vehicula varius
+    maximus. Sagittis feugiat blandit porta tristique varius non erat torquent purus.
+    Eget penatibus ornare amet per eleifend lobortis primis bibendum. Vehicula tellus
+    ac faucibus nostra urna, commodo ornare.
+
+
+
+    Etiam purus fermentum vehicula
+    nisl euismod libero blandit ut. Ex ultricies conubia montes felis, taciti commodo
+    finibus. Ante etiam primis sagittis; sodales hendrerit massa. Euismod senectus
+    proin commodo parturient rutrum volutpat. Vehicula aptent enim pellentesque nisl;
+    condimentum netus a. Tincidunt nostra rutrum porttitor vulputate iaculis scelerisque.
+    Ac morbi leo tellus; aliquet nec pellentesque facilisis aliquam. Pulvinar accumsan
+    urna aliquam donec nulla cras duis. Metus in porta egestas ullamcorper sem malesuada
+    vel dis.'
+  itemSprite: {fileID: 21300000, guid: 49c735a18dc92fe42b71bbeb297e50fa, type: 3}
+  maximumPurchases: 5
+  cost: 0
+  dishOnPlate: {fileID: 0}
+  ingredientType: 0
+  ingrendientSprite: {fileID: 21300000, guid: 49c735a18dc92fe42b71bbeb297e50fa, type: 3}

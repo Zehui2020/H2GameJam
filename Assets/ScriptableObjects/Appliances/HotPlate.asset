@@ -15,14 +15,13 @@ MonoBehaviour:
   shopItemName: Hot Plate
   shopDescription: 
   itemSprite: {fileID: 21300000, guid: 2879ee19ecc8a4b4ab647d57edbbb9d3, type: 3}
-  maximumPurchases: 3
+  maximumPurchases: 1
   cost: 50
   cookedDish: {fileID: 11400000, guid: d5fc7d792ec53e949a663dadae90b24c, type: 2}
   sprite: {fileID: 21300000, guid: 2879ee19ecc8a4b4ab647d57edbbb9d3, type: 3}
   cookedSprite: {fileID: 21300000, guid: 2879ee19ecc8a4b4ab647d57edbbb9d3, type: 3}
   burntSprite: {fileID: 21300000, guid: 2879ee19ecc8a4b4ab647d57edbbb9d3, type: 3}
   applianceName: Hot Plate
-  applianceDescription: 
   allowedIngredients: 040000000a000000
   type: 2
   cookSpeed: 1

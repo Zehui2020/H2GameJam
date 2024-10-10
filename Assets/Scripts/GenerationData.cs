@@ -6,6 +6,7 @@ public class GenerationData : ScriptableObject
 {
     public enum Generation
     {
+        Tutorial,
         Origins,
         Renaissance,
         Morden

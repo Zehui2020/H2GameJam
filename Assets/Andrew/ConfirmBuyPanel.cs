@@ -35,9 +35,16 @@ public class ConfirmBuyPanel : MonoBehaviour
         imageItemToBuy.sprite = itemToBuy.itemSprite;
         itemName.text = itemToBuy.shopItemName;
         itemDescription.text = itemToBuy.shopDescription;
-        itemCost.text = PlayerStats.playerStatsInstance.currentMoney + "/" + itemToBuy.GetCost() * sliderAmount.value;
 
-        int maxToBuy = Mathf.FloorToInt(PlayerStats.playerStatsInstance.currentMoney / itemToBuy.GetCost());
+        if (sliderAmount != null)
+            itemCost.text = PlayerStats.playerStatsInstance.currentMoney + "/" + itemToBuy.GetCost() * sliderAmount.value;
+        else
+            itemCost.text = PlayerStats.playerStatsInstance.currentMoney + "/" + itemToBuy.GetCost();
+
+        int maxToBuy = itemToBuy.maximumPurchases;
+        if (itemToBuy.GetCost() != 0)
+            maxToBuy = Mathf.FloorToInt(PlayerStats.playerStatsInstance.currentMoney / itemToBuy.GetCost());
+
         int maxPurchasable = Mathf.FloorToInt(boothButton.purchasesLeft * itemToBuy.GetCost());
 
         if (maxToBuy <= 0)
@@ -51,12 +58,15 @@ public class ConfirmBuyPanel : MonoBehaviour
         if (maxToBuy > itemToBuy.maximumPurchases)
             maxToBuy = itemToBuy.maximumPurchases;
 
-        sliderAmount.minValue = 1;
-        sliderAmount.value = 1;
-        sliderAmount.maxValue = maxToBuy;
+        if (sliderAmount != null)
+        {
+            sliderAmount.minValue = 1;
+            sliderAmount.value = 1;
+            sliderAmount.maxValue = maxToBuy;
 
-        purchaseAmountCount.text = sliderAmount.value.ToString();
-        maxPurchaseAmountCount.text = sliderAmount.maxValue.ToString();
+            purchaseAmountCount.text = sliderAmount.value.ToString();
+            maxPurchaseAmountCount.text = sliderAmount.maxValue.ToString();
+        }
 
         pannelAnimator.SetBool("isShowing", true);
 
@@ -72,12 +82,18 @@ public class ConfirmBuyPanel : MonoBehaviour
     public void Buy()
     {
         if (itemToBuy is Ingredient ingredient)
+        {
             PlayerStats.playerStatsInstance.AddToPlayerInventory(Mathf.CeilToInt(sliderAmount.value), ingredient);
+            PlayerStats.playerStatsInstance.currentMoney -= itemToBuy.GetCost() * (int)sliderAmount.value;
+            boothButton.UpdateButton((int)sliderAmount.value);
+        }
         else if (itemToBuy is ApplianceData appliance)
+        {
             PlayerStats.playerStatsInstance.UpgradeAppliances(appliance);
+            PlayerStats.playerStatsInstance.currentMoney -= itemToBuy.GetCost();
+            boothButton.UpdateButton(1);
+        }
 
-        PlayerStats.playerStatsInstance.currentMoney -= itemToBuy.GetCost() * (int)sliderAmount.value;
-        boothButton.UpdateButton((int)sliderAmount.value);
         Close();
     }
 

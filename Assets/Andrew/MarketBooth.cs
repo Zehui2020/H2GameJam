@@ -1,11 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MarketBooth : MonoBehaviour
 {
     [SerializeField] private Animator boothAnimator;
     [SerializeField] protected ConfirmBuyPanel confirmBuyPanel;
     [SerializeField] protected RectTransform buttonParent;
+
+    public UnityEvent OnExitShop;
 
     public virtual void InitBooth()
     {
@@ -16,6 +19,7 @@ public class MarketBooth : MonoBehaviour
     {
         boothAnimator.SetBool("isShopping", false);
         PlayerStats.playerStatsInstance.playerMarketState = PlayerStats.PlayerMarketState.Walk;
+        OnExitShop?.Invoke();
     }
 
     public void EnterShop()

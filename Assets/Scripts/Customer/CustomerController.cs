@@ -20,6 +20,8 @@ public class CustomerController : MonoBehaviour
     [SerializeField] private CookingManager cookingManager;
     [SerializeField] private List<CustomerScriptableObject> customerDatas;
     [SerializeField] private Sprite[] emojiSprites; //1. Very Happy 2. Happy 3. Upset 4. Agitated 5. Angry
+    [SerializeField] private float startTimerDelay = 0;
+    [SerializeField] private bool canSpawn = true;
 
     public enum CustomerEmotion
     {
@@ -55,7 +57,7 @@ public class CustomerController : MonoBehaviour
             customerEntities.Add(null);
         }
 
-        //spawnEntityCounter = 5f;
+        spawnEntityCounter = startTimerDelay;
         HandleSpawnTimer();
 
         storeClosed = false;
@@ -66,6 +68,9 @@ public class CustomerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!canSpawn)
+            return;
+
         if (spawnEntityCounter > 0)
             spawnEntityCounter -= Time.deltaTime;
 
@@ -107,7 +112,8 @@ public class CustomerController : MonoBehaviour
                     for (int foodNo = 0; foodNo < maxFoodNo; foodNo++)
                     {
                         //Random Dish
-                        Dish reqDish = PlayerStats.playerStatsInstance.GetDishesOfThisGeneration()[Random.Range(0,3)];
+                        List<Dish> dishes = PlayerStats.playerStatsInstance.GetDishesOfThisGeneration();
+                        Dish reqDish = dishes[Random.Range(0, dishes.Count)];
                         int reqCombinationIndex = Random.Range(0, reqDish.dishCombinations.Count);
                         Appliance.CookedDish reqCookedDish = new Appliance.CookedDish(reqDish, reqCombinationIndex);
                         //check if enough ingredients
@@ -120,9 +126,10 @@ public class CustomerController : MonoBehaviour
                             newFoodReq.sprite = GetDishImage(reqDish.dishType);
                             newFoodReq.GetComponent<RequestImageHandler>().Init(reqCookedDish);
 
-                            // Side dishes UI
+                            // Side dishes
                             foreach (Dish sideDish in reqDish.dishCombinations[reqCombinationIndex].sideDishes)
                             {
+                                Debug.Log(sideDish.dishType.ToString());
                                 Appliance.CookedDish cookedSideDish = new Appliance.CookedDish(sideDish, 0);
                                 cookedDishes.Add(cookedSideDish);
 
@@ -179,6 +186,11 @@ public class CustomerController : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void SetCanSpawn(bool canSpawn)
+    {
+        this.canSpawn = canSpawn;
     }
 
     public void CloseStore()

@@ -574,6 +574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 0
   maxTimer: 180
+  updateTimer: 1
 --- !u!114 &8870650550208092403
 MonoBehaviour:
   m_ObjectHideFlags: 0

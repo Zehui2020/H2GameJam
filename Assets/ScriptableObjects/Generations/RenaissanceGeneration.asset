@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b226c222a5a1594c91e6667a63954fc, type: 3}
   m_Name: RenaissanceGeneration
   m_EditorClassIdentifier: 
-  generation: 1
+  generation: 2
   applaincesToUpgrade:
   - {fileID: 11400000, guid: 1edba126b10449b4290cac5ae93dfecc, type: 2}
   - {fileID: 11400000, guid: c2c559dd2d386fc4eb4ab75151ab2f4e, type: 2}

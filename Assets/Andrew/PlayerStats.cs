@@ -78,6 +78,16 @@ public class PlayerStats : MonoBehaviour
 
         for (int i = 0; i < (int)ApplianceData.ApplianceType.TotalAppliances; i++)
             applianceLevelList.Add(new ApplianceLevel((ApplianceData.ApplianceType)i, 0));
+
+        // Set to -1 for tutorial!!!
+        foreach (ApplianceLevel appliance in applianceLevelList)
+        {
+            if (appliance.applianceType == ApplianceData.ApplianceType.Pot)
+            {
+                appliance.applianceLevel = -1;
+                break;
+            }
+        }
     }
 
     public enum PlayerMarketState
