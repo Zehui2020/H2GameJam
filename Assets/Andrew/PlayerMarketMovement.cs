@@ -45,7 +45,7 @@ public class PlayerMarketMovement : MonoBehaviour
 
     private void HandlePCInput()
     {
-        horizontalValue = Input.GetAxis("Horizontal");
+        horizontalValue = Input.GetAxisRaw("Horizontal");
         if (horizontalValue == 0)
             playerRB.velocity = Vector2.zero;
     }
