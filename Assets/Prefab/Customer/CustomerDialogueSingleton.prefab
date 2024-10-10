@@ -159,12 +159,6 @@ MonoBehaviour:
     bindToGen1: 1
     bindToGen2: 1
     bindToGen3: 0
-  - type: 5
-    text: You better watch out!
-    bindToGeneration: 1
-    bindToGen1: 1
-    bindToGen2: 1
-    bindToGen3: 0
   - type: 6
     text: Hey! This is not the item I order!
     bindToGeneration: 0
@@ -179,9 +173,9 @@ MonoBehaviour:
     bindToGen3: 0
   - type: 6
     text: Ay! You crossed eyed ah?!
-    bindToGeneration: 0
-    bindToGen1: 0
-    bindToGen2: 0
+    bindToGeneration: 1
+    bindToGen1: 1
+    bindToGen2: 1
     bindToGen3: 0
   - type: 7
     text: Hi
@@ -245,6 +239,18 @@ MonoBehaviour:
     bindToGen3: 0
   - type: 9
     text: Maybe I will try another store next time.
+    bindToGeneration: 0
+    bindToGen1: 0
+    bindToGen2: 0
+    bindToGen3: 0
+  - type: 6
+    text: Excuse me, this is not what I ordered.
+    bindToGeneration: 0
+    bindToGen1: 0
+    bindToGen2: 0
+    bindToGen3: 0
+  - type: 3
+    text: Why are you taking so long?
     bindToGeneration: 0
     bindToGen1: 0
     bindToGen2: 0
