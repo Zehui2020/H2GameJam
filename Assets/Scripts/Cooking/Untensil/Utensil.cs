@@ -12,7 +12,7 @@ public class Utensil : Draggable, IAbleToAddIngredient
     public UtensilType utensilType;
     [SerializeField] private float releaseRadius;
     [SerializeField] private LayerMask customerLayer;
-    [SerializeField] private Appliance.CookedDish dish;
+    [SerializeField] private Appliance.CookedDish dish = null;
 
     private void Start()
     {
@@ -26,7 +26,7 @@ public class Utensil : Draggable, IAbleToAddIngredient
 
     public bool AddIngredient(Ingredient ingredient)
     {
-        if (ingredient.dishOnPlate == null)
+        if (ingredient.dishOnPlate == null || dish != null)
             return false;
 
         dish = new Appliance.CookedDish(ingredient.dishOnPlate, 0);
@@ -42,16 +42,29 @@ public class Utensil : Draggable, IAbleToAddIngredient
     {
         base.OnEndDrag(eventData);
 
-        Collider2D col = Physics2D.OverlapCircle(transform.position, releaseRadius, customerLayer);
-        if (col == null)
-            return;
+        Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, releaseRadius, customerLayer);
 
-        CustomerEntity customer = col.GetComponent<CustomerEntity>();
-        if (customer == null)
-            return;
+        foreach (Collider2D col in cols)
+        {
+            // Check if collide with appliance & can serve
+            if (col.TryGetComponent<Appliance>(out Appliance appliance))
+            {
+                Appliance.CookedDish dish = appliance.GetCookedDish(this);
+                if (dish != null)
+                {
+                    SetDish(dish);
+                    return;
+                }
+            }
 
-        customer.PassFood(dish);
-        Destroy(gameObject);
+            // Check if collide with customer
+            CustomerEntity customer = col.GetComponent<CustomerEntity>();
+            if (customer == null || dish == null)
+                return;
+
+            customer.PassFood(dish);
+            Destroy(gameObject);
+        }
     }
 
     private void OnDrawGizmos()

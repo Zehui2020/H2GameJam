@@ -5,7 +5,7 @@ using UnityEngine;
 public class Appliance : MonoBehaviour, IAbleToAddIngredient
 {
     [System.Serializable]
-    public struct CookedDish
+    public class CookedDish
     {
         public Dish dish;
         public int combinationIndex;
@@ -14,30 +14,6 @@ public class Appliance : MonoBehaviour, IAbleToAddIngredient
         {
             this.dish = dish;
             combinationIndex = index;
-        }
-
-        public static bool operator ==(CookedDish a, CookedDish b)
-        {
-            return a.dish == b.dish && a.combinationIndex == b.combinationIndex;
-        }
-
-        public static bool operator !=(CookedDish a, CookedDish b)
-        {
-            return !(a == b);
-        }
-
-        public override bool Equals(object obj)
-        {
-            if (!(obj is CookedDish))
-                return false;
-
-            CookedDish other = (CookedDish)obj;
-            return this == other;
-        }
-
-        public override int GetHashCode()
-        {
-            return dish.GetHashCode() ^ combinationIndex.GetHashCode();
         }
     }
 
@@ -128,6 +104,21 @@ public class Appliance : MonoBehaviour, IAbleToAddIngredient
             return;
 
         DumpIngredients();
+    }
+
+    public CookedDish GetCookedDish(Utensil utensil)
+    {
+        if (!canServe)
+            return null;
+
+        if (utensil.utensilType != cookedDish.dish.utensil)
+        {
+            Debug.Log("INCORRECT UTENSIL!");
+            return null;
+        }
+
+        ServeFood();
+        return cookedDish;
     }
 
     public void DumpIngredients()

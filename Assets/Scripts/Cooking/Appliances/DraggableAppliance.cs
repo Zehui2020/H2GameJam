@@ -25,29 +25,11 @@ public class DraggableAppliance : Appliance
         if (col == null)
             return;
 
-        Debug.Log(col.name);
-
         if (col.CompareTag("Trash"))
         {
             StopCooking();
             DumpIngredients();
-            return;
         }
-
-        if (!col.TryGetComponent<Utensil>(out Utensil utensil))
-            return;
-
-        if (!canServe)
-            return;
-
-        if (utensil.utensilType != cookedDish.dish.utensil)
-        {
-            Debug.Log("INCORRECT UTENSIL!");
-            return;
-        }
-
-        ServeFood();
-        utensil.SetDish(cookedDish);
     }
 
     public void OnReachOriginalPos()
