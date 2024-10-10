@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 345186422}
   - component: {fileID: 345186424}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Particle Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

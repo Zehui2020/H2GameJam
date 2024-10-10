@@ -19,6 +19,16 @@ public class CustomerController : MonoBehaviour
     [SerializeField] private DishList dishList;
     [SerializeField] private CookingManager cookingManager;
     [SerializeField] private List<CustomerScriptableObject> customerDatas;
+    [SerializeField] private Sprite[] emojiSprites; //1. Very Happy 2. Happy 3. Upset 4. Agitated 5. Angry
+
+    public enum CustomerEmotion
+    {
+        VeryPositive,
+        Positive,
+        Upset,
+        Agitated,
+        Angry
+    }
 
     //store all customers
     private List<CustomerEntity> customerEntities;
@@ -141,6 +151,7 @@ public class CustomerController : MonoBehaviour
 
                         //add customer entity to list
                         customerEntities[i] = newCustomer;
+
                         //reset timer
                         //spawnEntityCounter = 6;
                         HandleSpawnTimer();
@@ -213,5 +224,10 @@ public class CustomerController : MonoBehaviour
     private bool CanCookDish(Appliance.CookedDish _reqDish)
     {
         return PlayerStats.playerStatsInstance.CheckEnoughIngredients(_reqDish);
+    }
+
+    public Sprite GetEmojiSprite(CustomerEmotion _emotion)
+    {
+        return emojiSprites[(int)_emotion];
     }
 }

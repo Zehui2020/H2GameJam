@@ -583,6 +583,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6454b8f197f04f748bf4a899c1e45c52, type: 2}
   - {fileID: 11400000, guid: 34e6da2d688300f4ea6f16debaa44a9d, type: 2}
   - {fileID: 11400000, guid: 26333468e34d22e44bc59ddcb9da3b7d, type: 2}
+  emojiSprites:
+  - {fileID: 21300000, guid: c548366097831134ab329fa9866727a0, type: 3}
+  - {fileID: 21300000, guid: d9ae0482f4164214097bdadee5902c49, type: 3}
+  - {fileID: 21300000, guid: fec118ead4dad3745a03d2f918861e40, type: 3}
+  - {fileID: 21300000, guid: c7e2a16e60f1af947b258a43e69f8a2c, type: 3}
+  - {fileID: 21300000, guid: 6188c7b0270c73245b131fd2b26ea0a9, type: 3}
 --- !u!4 &799906603
 Transform:
   m_ObjectHideFlags: 0
