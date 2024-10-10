@@ -7,7 +7,8 @@ public class IngredientPickup : PooledObject
 {
     public Ingredient ingredient;
 
-    [SerializeField] private SpriteRenderer ingredientSR;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private float detectRadius;
     private Camera mainCamera;
 
     private Vector3 startDragPos;
@@ -20,9 +21,9 @@ public class IngredientPickup : PooledObject
     {
         mainCamera = Camera.main;
         this.ingredient = ingredient;
-        ingredientSR.sprite = ingredient.ingrendientSprite;
         startDragPos = transform.position;
         this.ingredientSpawner = ingredientSpawner;
+        spriteRenderer.sprite = ingredient.ingrendientSprite;
     }
 
     private void Update()
@@ -55,7 +56,7 @@ public class IngredientPickup : PooledObject
     public void OnRelease()
     {
         isReleased = true;
-        Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, ingredientSR.size.x);
+        Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, detectRadius);
         foreach (Collider2D col in cols)
         {
             if (!col.TryGetComponent<IAbleToAddIngredient>(out IAbleToAddIngredient appliance))
@@ -81,5 +82,10 @@ public class IngredientPickup : PooledObject
 
         ingredientSpawner.AddIngredientBack();
         Destroy(gameObject);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, detectRadius);
     }
 }

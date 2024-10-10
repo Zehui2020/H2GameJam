@@ -25,6 +25,8 @@ public class DraggableAppliance : Appliance
         if (col == null)
             return;
 
+        Debug.Log(col.name);
+
         if (col.CompareTag("Trash"))
         {
             StopCooking();

@@ -18,12 +18,12 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public virtual void InitDraggable()
     {
         mainCamera = Camera.main;
+        startDragPos = transform.position;
     }
 
     public virtual void OnBeginDrag(PointerEventData eventData)
     {
         offset = transform.position - GetWorldPositionFromMouse(eventData);
-        startDragPos = transform.position;
         OnDragStart?.Invoke();
     }
 
@@ -50,7 +50,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     private IEnumerator OnDragEnd()
     {
-        while (Vector3.Distance(transform.position, startDragPos) > 0.1f)
+        while (Vector3.Distance(transform.position, startDragPos) > 0.01f)
         {
             transform.position = Vector3.MoveTowards(transform.position, startDragPos, Time.deltaTime * returnSpeed);
             yield return null;

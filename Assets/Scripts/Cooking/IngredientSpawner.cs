@@ -10,13 +10,13 @@ public class IngredientSpawner : MonoBehaviour, IPointerDownHandler
 
     private void Start()
     {
-        ingredientCount.text = PlayerStats.playerStatsInstance.GetIngredientCount(ingredientToSpawn.ingredientType).ToString();
+        ingredientCount.text = "x" + PlayerStats.playerStatsInstance.GetIngredientCount(ingredientToSpawn.ingredientType).ToString();
     }
 
     public void AddIngredientBack()
     {
         PlayerStats.playerStatsInstance.AddToPlayerInventory(1, ingredientToSpawn);
-        ingredientCount.text = PlayerStats.playerStatsInstance.GetIngredientCount(ingredientToSpawn.ingredientType).ToString();
+        ingredientCount.text = "x" + PlayerStats.playerStatsInstance.GetIngredientCount(ingredientToSpawn.ingredientType).ToString();
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -29,6 +29,6 @@ public class IngredientSpawner : MonoBehaviour, IPointerDownHandler
         ingredient.InitPickup(ingredientToSpawn, this);
 
         PlayerStats.playerStatsInstance.AddToPlayerInventory(-1, ingredientToSpawn);
-        ingredientCount.text = PlayerStats.playerStatsInstance.GetIngredientCount(ingredientToSpawn.ingredientType).ToString();
+        ingredientCount.text = "x" + PlayerStats.playerStatsInstance.GetIngredientCount(ingredientToSpawn.ingredientType).ToString();
     }
 }

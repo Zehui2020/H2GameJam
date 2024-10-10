@@ -207,7 +207,8 @@ public class Appliance : MonoBehaviour, IAbleToAddIngredient
     {
         cookingRoutine = null;
         applianceUIManager.StopBurning();
-        spriteRenderer.sprite = applianceData.burntSprite;
+        if (spriteRenderer != null)
+            spriteRenderer.sprite = applianceData.burntSprite;
         canServe = false;
     }
 

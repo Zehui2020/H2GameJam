@@ -108,7 +108,6 @@ public class CustomerEntity : MonoBehaviour
                     {
                         customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.NormalGreetingRemarks);
                     }
-                    
                 }
                 break;
 

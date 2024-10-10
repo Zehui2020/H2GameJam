@@ -12,7 +12,10 @@ public class UtensilSpawner : MonoBehaviour, IPointerClickHandler
         foreach (Transform spawnPoint in utensilSpawnPoint)
         {
             if (spawnPoint.childCount == 0)
+            {
                 Instantiate(utensilPrefab, spawnPoint);
+                break;
+            }
         }
     }
 }
