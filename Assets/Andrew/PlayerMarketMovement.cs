@@ -55,6 +55,7 @@ public class PlayerMarketMovement : MonoBehaviour
         if (Input.touchCount <= 0)
         {
             horizontalValue = 0;
+            playerRB.velocity = Vector2.zero;
             return;
         }
 
