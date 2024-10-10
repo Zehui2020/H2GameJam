@@ -69,7 +69,6 @@ public class PlayerMarketMovement : MonoBehaviour
     {
         Move(horizontalValue);
     }
-
     //move the player
     private void Move(float horizontalValue)
     {
@@ -84,7 +83,6 @@ public class PlayerMarketMovement : MonoBehaviour
             playerRB.velocity = playerRB.velocity.normalized * maxVelocity;
         }
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<MarketBooth>())
@@ -97,7 +95,6 @@ public class PlayerMarketMovement : MonoBehaviour
             PlayerStats.playerStatsInstance.shopMenuInRange = PlayerStats.ShopMenuInRange.Ingredient;
         }
     }
-
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<MarketBooth>())
