@@ -227,6 +227,14 @@ public class PlayerStats : MonoBehaviour
     {
         dayCounter++;
 
+        //check if bankrupt
+        if (PlayerStats.playerStatsInstance.currentMoney <= 0)
+        {
+            //go to bankrupt scene
+            SceneLoader.Instance.LoadScene("BankruptEndingScene");
+            return;
+        }
+
         if (dayCounter >= daysPerGeneration)
         {
             dayCounter = 0;
@@ -234,7 +242,15 @@ public class PlayerStats : MonoBehaviour
 
             if (generationIndex >= allGenerations.Count)
             {
-                SceneLoader.Instance.LoadScene("EndingScene");
+                if (PlayerStats.playerStatsInstance.currentReputation > 0)
+                {
+                    SceneLoader.Instance.LoadScene("GoodEndingScene");
+                }
+                else
+                {
+                    SceneLoader.Instance.LoadScene("BadEndingScene");
+                }
+                
                 return;
             }
 
