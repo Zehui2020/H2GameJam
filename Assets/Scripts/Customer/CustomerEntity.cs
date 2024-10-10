@@ -209,6 +209,9 @@ public class CustomerEntity : MonoBehaviour
 
     public void PassFood(CookedDish cookedDish)
     {
+        if (customerState != CustomerState.Waiting) 
+            return;
+
         foreach (CookedDish dish in requestedDishes)
         {
             if (CompareCookedDishes(dish, cookedDish))

@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b68a01177ec58f41bb2119c7a29c5ac, type: 3}
   m_Name: RiceBowl
   m_EditorClassIdentifier: 
+  doesCombinationIndexMatter: 0
   utensil: 1
   dishType: 8
   dishCombinations:
   - ingredients: 03000000
     requirementSprites: []
     sideDishes: []
-  dishSprite: {fileID: 21300000, guid: faaa61ba4c1c226429d940579b7c43ab, type: 3}
+  dishSprite: {fileID: 21300000, guid: d01fe5a12d3691a4ca3f6e3ceeac9f02, type: 3}
   dishCost: 0

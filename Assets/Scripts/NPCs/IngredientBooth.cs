@@ -6,6 +6,9 @@ public class IngredientBooth : MarketBooth
 {
     public override void InitBooth()
     {
+        if (buttonParent.childCount != 0)
+            return;
+
         base.InitBooth();
 
         List<Ingredient> ingredients = PlayerStats.playerStatsInstance.currentGeneration.ingredientsToSell;

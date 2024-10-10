@@ -13,6 +13,20 @@ MonoBehaviour:
   m_Name: MordenGeneration
   m_EditorClassIdentifier: 
   generation: 2
-  applaincesToUpgrade: []
-  ingredientsToSell: []
-  dishesToCook: []
+  applaincesToUpgrade:
+  - {fileID: 11400000, guid: 1edba126b10449b4290cac5ae93dfecc, type: 2}
+  - {fileID: 11400000, guid: aecebe209249496499e3ae77810941fe, type: 2}
+  - {fileID: 11400000, guid: 971800e9bd4c469489eb786e8a172790, type: 2}
+  ingredientsToSell:
+  - {fileID: 11400000, guid: 139a0b0c77781244f98e10c517b05f1b, type: 2}
+  - {fileID: 11400000, guid: ff34fa316d4ece34ebfab17d395fc1e7, type: 2}
+  - {fileID: 11400000, guid: a8960cf98b811e64eb22197cf024115b, type: 2}
+  - {fileID: 11400000, guid: 9f5fe6a9eaad8a740876e1e0f84c4397, type: 2}
+  - {fileID: 11400000, guid: cbdb7ed22b04bb248a36a7c1b1c674df, type: 2}
+  - {fileID: 11400000, guid: c6dad518aaa64c04c8331b9823f6fb4d, type: 2}
+  - {fileID: 11400000, guid: 482f9e8416e30fb4ea766da2116e4b99, type: 2}
+  - {fileID: 11400000, guid: c52c17f884e9e2043a70bcce42b563fb, type: 2}
+  dishesToCook:
+  - {fileID: 11400000, guid: 65d231de138de7c46bf675fe9c107168, type: 2}
+  - {fileID: 11400000, guid: af0e0ececdb0b6b4b95c6073cf7983a0, type: 2}
+  - {fileID: 11400000, guid: a62233160a90ca84baebe70ae3e3d4dc, type: 2}

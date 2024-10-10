@@ -6,6 +6,8 @@ using UnityEngine;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI instruction;
+    [SerializeField] private string nextScene;
+
     private bool isClicked = false;
     private bool canClick = false;
 
@@ -28,7 +30,7 @@ public class MainMenu : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) || Input.touches.Count() > 0)
         {
-            SceneLoader.Instance.LoadScene("MarketPlace");
+            SceneLoader.Instance.LoadScene(nextScene);
             isClicked = true;
         }
     }

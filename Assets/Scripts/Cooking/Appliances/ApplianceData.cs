@@ -12,6 +12,7 @@ public class ApplianceData : ShopItemData
         Wok,
         Steamer,
         Pan,
+        LargePan,
         TotalAppliances
     }
 
@@ -23,7 +24,6 @@ public class ApplianceData : ShopItemData
     public Sprite burntSprite;
 
     public string applianceName;
-    [TextArea(3, 10)] public string applianceDescription;
 
     public List<Ingredient.IngredientType> allowedIngredients = new();
     public ApplianceType type;

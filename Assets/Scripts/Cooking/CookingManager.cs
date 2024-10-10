@@ -24,8 +24,7 @@ public class CookingManager : MonoBehaviour
 
     public void GoToMarketPlace()
     {
-        PlayerStats.playerStatsInstance.dayCounter++;
-        SceneLoader.Instance.LoadScene("MarketPlace");
+        PlayerStats.playerStatsInstance.GoToShop();
     }
 
     public bool IsRushHour()

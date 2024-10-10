@@ -9,6 +9,7 @@ public class MarketBooth : MonoBehaviour
 
     public virtual void InitBooth()
     {
+
     }
 
     public void ExitShop()

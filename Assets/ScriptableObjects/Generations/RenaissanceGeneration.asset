@@ -13,6 +13,19 @@ MonoBehaviour:
   m_Name: RenaissanceGeneration
   m_EditorClassIdentifier: 
   generation: 1
-  applaincesToUpgrade: []
-  ingredientsToSell: []
-  dishesToCook: []
+  applaincesToUpgrade:
+  - {fileID: 11400000, guid: 1edba126b10449b4290cac5ae93dfecc, type: 2}
+  - {fileID: 11400000, guid: c2c559dd2d386fc4eb4ab75151ab2f4e, type: 2}
+  - {fileID: 11400000, guid: 76c3d21ead66e3346b0cba95f47f7036, type: 2}
+  ingredientsToSell:
+  - {fileID: 11400000, guid: 139a0b0c77781244f98e10c517b05f1b, type: 2}
+  - {fileID: 11400000, guid: a8960cf98b811e64eb22197cf024115b, type: 2}
+  - {fileID: 11400000, guid: cbdb7ed22b04bb248a36a7c1b1c674df, type: 2}
+  - {fileID: 11400000, guid: c6dad518aaa64c04c8331b9823f6fb4d, type: 2}
+  - {fileID: 11400000, guid: c52c17f884e9e2043a70bcce42b563fb, type: 2}
+  - {fileID: 11400000, guid: cb3f63bb43873a34682c8742cfb33392, type: 2}
+  - {fileID: 11400000, guid: 72ea37ba3fae43441b4e732ec5750bac, type: 2}
+  dishesToCook:
+  - {fileID: 11400000, guid: 65d231de138de7c46bf675fe9c107168, type: 2}
+  - {fileID: 11400000, guid: e34038f883e3fc04cac0d4c9294832d2, type: 2}
+  - {fileID: 11400000, guid: 395a32381fa89ce43ab170f0dea258d7, type: 2}

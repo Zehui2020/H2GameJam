@@ -22,5 +22,5 @@ MonoBehaviour:
   - ingredients: 01000000030000000a000000
     requirementSprites: []
     sideDishes: []
-  dishSprite: {fileID: 21300000, guid: e5c90c22a998b2f4b9bb90cf905d2dcc, type: 3}
+  dishSprite: {fileID: 21300000, guid: d01fe5a12d3691a4ca3f6e3ceeac9f02, type: 3}
   dishCost: 0

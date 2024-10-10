@@ -6,6 +6,9 @@ public class ApplianceBooth : MarketBooth
 {
     public override void InitBooth()
     {
+        if (buttonParent.childCount != 0)
+            return;
+
         base.InitBooth();
 
         List<ApplianceData> appliances = PlayerStats.playerStatsInstance.currentGeneration.applaincesToUpgrade;

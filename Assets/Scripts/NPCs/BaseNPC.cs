@@ -29,6 +29,11 @@ public class BaseNPC : MonoBehaviour
         dialogueManager.SetTalkingNPC(this);
     }
 
+    public void GoToWork()
+    {
+        PlayerStats.playerStatsInstance.GoToCook();
+    }
+
     public void OnLeaveRange()
     {
         interactButtonAnimator.SetBool("inRange", false);

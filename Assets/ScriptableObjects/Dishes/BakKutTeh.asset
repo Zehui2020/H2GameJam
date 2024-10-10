@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b68a01177ec58f41bb2119c7a29c5ac, type: 3}
   m_Name: BakKutTeh
   m_EditorClassIdentifier: 
+  doesCombinationIndexMatter: 0
   utensil: 1
   dishType: 0
   dishCombinations:
@@ -22,5 +23,5 @@ MonoBehaviour:
   - ingredients: 0000000005000000
     requirementSprites: []
     sideDishes: []
-  dishSprite: {fileID: 21300000, guid: 1380bd547305337448bb8badbafa9011, type: 3}
+  dishSprite: {fileID: 21300000, guid: fbaf92e4767718f4b9d531cff9cc5817, type: 3}
   dishCost: 0

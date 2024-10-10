@@ -57,8 +57,16 @@ public class IngredientPickup : PooledObject
     {
         isReleased = true;
         Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, detectRadius);
+
         foreach (Collider2D col in cols)
         {
+            if (col.TryGetComponent<CustomerEntity>(out CustomerEntity customer) && ingredient.dishOnPlate != null)
+            {
+                customer.PassFood(new Appliance.CookedDish(ingredient.dishOnPlate, 0));
+                Destroy(gameObject);
+                break;
+            }
+
             if (!col.TryGetComponent<IAbleToAddIngredient>(out IAbleToAddIngredient appliance))
                 continue;
 

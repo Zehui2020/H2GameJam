@@ -6,12 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/BuildScenes/MainMenu.unity
     guid: 8cf0332b460f76c4592643e9a8a90644
   - enabled: 1
-    path: Assets/Scenes/MarketPlace.unity
+    path: Assets/Scenes/BuildScenes/TutorialMarketScene.unity
+    guid: 0d17154cd7fe84648a1ab8354f8e331f
+  - enabled: 1
+    path: Assets/Scenes/BuildScenes/TutorialCookingScene.unity
+    guid: f327b2d3d85f20a48a18d8684d76657f
+  - enabled: 1
+    path: Assets/Scenes/BuildScenes/MarketPlace.unity
     guid: baf77e2d883863649ad8a0ead2462a8e
   - enabled: 1
-    path: Assets/Scenes/CookingScenes/OriginScene.unity
+    path: Assets/Scenes/BuildScenes/CookingScenes/OriginScene.unity
     guid: 693d6a40b5111db498dceeb54ed9917b
+  - enabled: 1
+    path: Assets/Scenes/BuildScenes/CookingScenes/RenaissanceScene.unity
+    guid: 76885b66621f4ad4fbac5e2e544d0cda
+  - enabled: 1
+    path: Assets/Scenes/BuildScenes/CookingScenes/MordenScene.unity
+    guid: d643de49ffdd82d46ad6e7e26d6bd668
+  - enabled: 1
+    path: Assets/Scenes/BuildScenes/EndingScene.unity
+    guid: 948fa9cf84f2cc5438f45c3b05ab3e94
   m_configObjects: {}

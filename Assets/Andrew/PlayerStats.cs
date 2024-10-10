@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
 using static Ingredient;
 /// <summary>
@@ -10,7 +8,7 @@ public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats playerStatsInstance;
 
-    public List<GenerationData> allGenerations;
+    public List<GenerationData> allGenerations = new();
 
     [System.Serializable]
     public class IngredientCount
@@ -42,6 +40,7 @@ public class PlayerStats : MonoBehaviour
 
     [Header("Current Generation")]
     public GenerationData currentGeneration;
+    public int generationIndex = 0;
 
     [Header("Money")]
     public int currentMoney;
@@ -50,7 +49,9 @@ public class PlayerStats : MonoBehaviour
     public int currentReputation;
 
     [Header("Day Counter")]
+    public List<string> cookingScenes = new();
     public int dayCounter;
+    public int daysPerGeneration;
 
     private void Awake()
     {
@@ -207,8 +208,28 @@ public class PlayerStats : MonoBehaviour
         currentReputation -= repToLose;
     }
 
-    public void IncrementDay()
+    public void GoToCook()
+    {
+        SceneLoader.Instance.LoadScene(cookingScenes[generationIndex]);
+    }
+
+    public void GoToShop()
     {
         dayCounter++;
+
+        if (dayCounter >= daysPerGeneration)
+        {
+            dayCounter = 0;
+            generationIndex++;
+
+            if (generationIndex >= allGenerations.Count)
+            {
+                SceneLoader.Instance.LoadScene("EndingScene");
+                return;
+            }
+
+            currentGeneration = allGenerations[generationIndex];
+            SceneLoader.Instance.LoadScene("MarketPlace");
+        }
     }
 }
