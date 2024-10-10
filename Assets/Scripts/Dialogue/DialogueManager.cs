@@ -92,6 +92,12 @@ public class DialogueManager : MonoBehaviour
         ShowDialogue(npc.GetCurrentDialogue());
     }
 
+    public void SetDialogueSprites(Sprite npcSprite)
+    {
+        playerPortrait.sprite = PlayerStats.playerStatsInstance.GetPlayerSprite();
+        npcPortrait.sprite = npcSprite;
+    }
+
     public void CheckShowChoices()
     {
         if (currentDialogue.playerChoices.Count == 0)
@@ -102,8 +108,8 @@ public class DialogueManager : MonoBehaviour
 
         // Show player choices
         ShowDialogueChoices(currentDialogue);
-        playerPortrait.color = showColor;
-        npcPortrait.color = hideColor;
+        playerPortrait.color = hideColor;
+        npcPortrait.color = showColor;
         canShowNextDialogue = false;
     }
 
@@ -146,8 +152,8 @@ public class DialogueManager : MonoBehaviour
 
         dialogueBox.SetActive(true);
         npcDialogue.ShowMessage(dialogue.speakerName, dialogue.dialogue);
-        playerPortrait.color = hideColor;
-        npcPortrait.color = showColor;
+        playerPortrait.color = showColor;
+        npcPortrait.color = hideColor;
     }
 
     public void ShowDialogueChoices(Dialogue dialogue)

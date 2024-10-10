@@ -415,8 +415,8 @@ MonoBehaviour:
   npcDialogue: {fileID: 8475406549590299636}
   playerPortrait: {fileID: 2163380119826199625}
   npcPortrait: {fileID: 5730095205307070009}
-  showColor: {r: 0.49019608, g: 0.49019608, b: 0.49019608, a: 0}
-  hideColor: {r: 1, g: 1, b: 1, a: 0}
+  showColor: {r: 0.49019608, g: 0.49019608, b: 0.49019608, a: 1}
+  hideColor: {r: 1, g: 1, b: 1, a: 1}
   dialogueCanvas: {fileID: 254864383301963560}
   dialogueChoiceParent: {fileID: 1720580194307112854}
   dialogueBox: {fileID: 3246524351931404281}

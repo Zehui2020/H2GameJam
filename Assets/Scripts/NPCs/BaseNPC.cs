@@ -29,6 +29,7 @@ public class BaseNPC : MonoBehaviour
         PlayerStats.playerStatsInstance.playerMarketState = PlayerStats.PlayerMarketState.InMenu;
         dialogueUIAnimator.SetBool("isTalking", true);
         dialogueManager.SetTalkingNPC(this);
+        dialogueManager.SetDialogueSprites(GetComponent<SpriteRenderer>().sprite);
     }
 
     public void OnInteract(int index)

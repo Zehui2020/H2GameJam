@@ -53,6 +53,9 @@ public class PlayerStats : MonoBehaviour
     public int dayCounter;
     public int daysPerGeneration;
 
+    [Header("Sprites")]
+    public List<Sprite> playerDialogueSprites;
+
     private void Awake()
     {
         if (playerStatsInstance == null)
@@ -216,6 +219,11 @@ public class PlayerStats : MonoBehaviour
     public void LoseRep(int repToLose)
     {
         currentReputation -= repToLose;
+    }
+
+    public Sprite GetPlayerSprite()
+    {
+        return playerDialogueSprites[generationIndex];
     }
 
     public void GoToCook()
