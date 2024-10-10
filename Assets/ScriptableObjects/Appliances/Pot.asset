@@ -29,4 +29,4 @@ MonoBehaviour:
   cookDuration: 5
   burnDuration: 5
   burnGracePeriod: 2
-  maxIngredients: 4
+  maxIngredients: 2

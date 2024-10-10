@@ -144,7 +144,7 @@ public class CustomerController : MonoBehaviour
                     }
 
                     //if have dishes to give this customer
-                    if (cookedDishes.Count == 0)
+                    if (cookedDishes.Count > 0)
                     {
                         //Give customer new placement position
                         newCustomer.Init(customerPlacementPos[i].position, customerEndPos.position, cookedDishes, customerDatas[Random.Range(0, customerDatas.Count)]);

@@ -149,7 +149,7 @@ public class PlayerStats : MonoBehaviour
 
             foreach (IngredientCount ingredient in ingredientCountList)
             {
-                if (i == ingredient.ingredient && total < ingredient.ingredientCount)
+                if (i == ingredient.ingredient && total >= ingredient.ingredientCount)
                     return false;
             }
         }
