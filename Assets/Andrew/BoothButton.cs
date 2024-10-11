@@ -24,13 +24,13 @@ public class BoothButton : PooledObject
         {
             Ingredient ingredient = (Ingredient)itemToStore;
             imageIcon.sprite = ingredient.ingrendientSprite;
-            cost.text = ingredient.GetCost().ToString();
+            cost.text = "$" + ingredient.GetCost().ToString();
         }
         else if (itemData is ApplianceData)
         {
             ApplianceData appliance = (ApplianceData)itemToStore;
             imageIcon.sprite = appliance.baseSprite;
-            cost.text = "Appliance cost here!";
+            cost.text = "$" + appliance.GetCost().ToString();
         }
 
         purchasesLeft = itemData.maximumPurchases;

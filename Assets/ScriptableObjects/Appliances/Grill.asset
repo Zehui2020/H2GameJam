@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Grill
   m_EditorClassIdentifier: 
   shopItemName: Grill
-  shopDescription: 
-  itemSprite: {fileID: 0}
+  shopDescription: The flamin' grill! Grill up some satays with your friends!
+  itemSprite: {fileID: 21300000, guid: 40775d1f2ec7d0941a80ee14956159fd, type: 3}
   maximumPurchases: 1
   cost: 50
   cookedDish: {fileID: 11400000, guid: a62233160a90ca84baebe70ae3e3d4dc, type: 2}
-  baseSprite: {fileID: 0}
+  baseSprite: {fileID: 21300000, guid: 40775d1f2ec7d0941a80ee14956159fd, type: 3}
   burntSprite: {fileID: 0}
   applianceName: Grill
   allowedIngredients: 01000000

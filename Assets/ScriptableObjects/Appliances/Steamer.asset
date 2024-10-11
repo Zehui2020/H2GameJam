@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Steamer
   m_EditorClassIdentifier: 
   shopItemName: Steamer
-  shopDescription: 
+  shopDescription: The steamer! Cooking dishes with steam will trap moisture & flavour
+    in the food!
   itemSprite: {fileID: 21300000, guid: 34fdacc4c0d7919438e162cdbc8d554b, type: 3}
   maximumPurchases: 1
   cost: 50
