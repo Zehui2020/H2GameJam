@@ -5,23 +5,15 @@ using UnityEngine;
 public class RecipeManager : MonoBehaviour
 {
     [SerializeField] private List<Animator> recipes;
-    
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  
 
     public void BtnGoUp(int index)
     {
-        recipes[index].SetBool("GoingDown", false);
+
+        foreach (Animator r in recipes)
+        {
+            r.SetBool("GoingDown", false);
+        }
     }
 
     public void BtnGoDown(int index)
