@@ -26,6 +26,7 @@ public class PlayerMarketMovement : MonoBehaviour
         playerRB ??= GetComponent<Rigidbody2D>();
         mainCamera = Camera.main;
     }
+
     public float horizontalValue;
 
     private void Update()
