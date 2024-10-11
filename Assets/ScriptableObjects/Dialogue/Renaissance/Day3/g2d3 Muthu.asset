@@ -79,8 +79,8 @@ MonoBehaviour:
       onDialogueDone:
         m_PersistentCalls:
           m_Calls: []
-    dialogue: " I think I will head to my uncle\u2019s prata shop across from here
-      to help him out there."
+    dialogue: " I think I will head to my uncle\u2019s prata shop to help him out
+      there."
     playerChoices: []
   - showOnce: 0
     isLoopingDialogue: 0

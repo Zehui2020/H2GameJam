@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/BuildScenes/TutorialMarketScene.unity
     guid: 0d17154cd7fe84648a1ab8354f8e331f
   - enabled: 1
-    path: Assets/Scenes/BuildScenes/CookingScenes/TutorialCookingScene.unity
+    path: Assets/Scenes/BuildScenes/TutorialCookingScene.unity
     guid: f327b2d3d85f20a48a18d8684d76657f
   - enabled: 1
     path: Assets/Scenes/BuildScenes/MarketPlace.unity

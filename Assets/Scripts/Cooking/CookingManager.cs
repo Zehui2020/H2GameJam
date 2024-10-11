@@ -7,12 +7,7 @@ public class CookingManager : MonoBehaviour
 
     [SerializeField] private float timer;
     [SerializeField] private float maxTimer;
-    public bool updateTimer = true;
-
-    public void SetUpdateTimer(bool update)
-    {
-        updateTimer = update;
-    }
+    [SerializeField] private bool updateTimer = true;
 
     private void Start()
     {
@@ -30,9 +25,6 @@ public class CookingManager : MonoBehaviour
             if (timer >= maxTimer)
                 cookingUIManager.ShowFinishAlert();
         }
-
-        cookingUIManager.UpdateReputation();
-        cookingUIManager.UpdateMoney();
     }
 
     public void GoToMarketPlace()
