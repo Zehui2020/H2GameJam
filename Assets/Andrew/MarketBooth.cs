@@ -28,4 +28,14 @@ public class MarketBooth : MonoBehaviour
         boothAnimator.SetBool("isShopping", true);
         PlayerStats.playerStatsInstance.playerMarketState = PlayerStats.PlayerMarketState.InMenu;
     }
+
+    public void OpenPannel()
+    {
+        boothAnimator.SetBool("isOpenPannel", true);
+    }
+
+    public void ClosePannel()
+    {
+        boothAnimator.SetBool("isOpenPannel", false);
+    }
 }

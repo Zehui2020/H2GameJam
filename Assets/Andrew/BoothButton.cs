@@ -9,8 +9,6 @@ public class BoothButton : PooledObject
 
     [SerializeField] private RectTransform buttonRect;
     [SerializeField] private Image imageIcon;
-    [SerializeField] private TextMeshProUGUI ingredientText;
-    [SerializeField] private TextMeshProUGUI numOfIngredientsText;
     [SerializeField] private TextMeshProUGUI cost;
     [SerializeField] private Animator buttonAnimator;
 
@@ -26,19 +24,16 @@ public class BoothButton : PooledObject
         {
             Ingredient ingredient = (Ingredient)itemToStore;
             imageIcon.sprite = ingredient.ingrendientSprite;
-            ingredientText.text = ingredient.ingredientType.ToString();
             cost.text = ingredient.GetCost().ToString();
         }
         else if (itemData is ApplianceData)
         {
             ApplianceData appliance = (ApplianceData)itemToStore;
             imageIcon.sprite = appliance.baseSprite;
-            ingredientText.text = appliance.applianceName;
             cost.text = "Appliance cost here!";
         }
 
         purchasesLeft = itemData.maximumPurchases;
-        numOfIngredientsText.text = "Limited x" + itemData.maximumPurchases.ToString();
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(buttonRect);
     }
@@ -59,7 +54,6 @@ public class BoothButton : PooledObject
     public void UpdateButton(int itemsToRemove)
     {
         purchasesLeft -= itemsToRemove;
-        numOfIngredientsText.text = "Limited x" + purchasesLeft.ToString();
 
         if (purchasesLeft <= 0)
             buttonAnimator.SetTrigger("soldOut");

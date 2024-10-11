@@ -170,6 +170,9 @@ public class AudioManager : MonoBehaviour
 
     private void ResetVolumeOfSound(Sound sound)
     {
+        if (sound == null)
+            return;
+
         if (sound.source == null)
             return;
 
