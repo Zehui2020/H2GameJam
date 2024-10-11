@@ -248,6 +248,7 @@ public class Appliance : MonoBehaviour, IAbleToAddIngredient
     {
         if (ingredients.Count >= applianceData.maxIngredients)
         {
+            AudioManager.Instance.PlayOneShot("IncorrectOrder");
             PlayerStats.playerStatsInstance.ShowPopup("Max Ingredient!", transform, NotificationPopup.PopupType.TextNotification);
             return false;
         }
@@ -266,6 +267,7 @@ public class Appliance : MonoBehaviour, IAbleToAddIngredient
 
         if (!applianceData.needToCheckSequence)
         {
+            AudioManager.Instance.PlayOneShot("IncorrectOrder");
             PlayerStats.playerStatsInstance.ShowPopup("Wrong Ingredient!", transform, NotificationPopup.PopupType.TextNotification);
             return false;
         }
@@ -276,7 +278,7 @@ public class Appliance : MonoBehaviour, IAbleToAddIngredient
             if (ingredientType == newIngredient.ingredientType)
                 return true;
         }
-
+        AudioManager.Instance.PlayOneShot("IncorrectOrder");
         PlayerStats.playerStatsInstance.ShowPopup("Wrong Sequence!", transform, NotificationPopup.PopupType.TextNotification);
         return false;
     }
