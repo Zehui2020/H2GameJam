@@ -52,7 +52,8 @@ public class TypewriterEffect : MonoBehaviour
             {
                 dialogueText.text += message[i];
             }
-
+            AudioManager.Instance.RandomiseAudioPitch("Dialogue", 0.6f, 0.8f);
+            AudioManager.Instance.PlayOneShot("Dialogue");
             if (leadingChar != "")
             {
                 dialogueText.text += leadingChar;
@@ -64,7 +65,7 @@ public class TypewriterEffect : MonoBehaviour
                 yield return new WaitForSeconds(timeBtwChars);
             }
         }
-
+        AudioManager.Instance.Stop("Dialogue");
         OnFinishTyping?.Invoke();
         TypeRoutine = null;
     }

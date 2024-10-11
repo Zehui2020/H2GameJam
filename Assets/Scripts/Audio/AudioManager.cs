@@ -186,6 +186,11 @@ public class AudioManager : MonoBehaviour
         s.source.pitch = newPitch;
     }
 
+    public void RandomiseAudioPitch(string sound, float minPitch, float maxPitch)
+    {
+        Sound s = FindSound(sound);
+        s.source.pitch = Random.Range(minPitch, maxPitch);
+    }
     private void OnApplicationQuit()
     {
         playerSettings.ResetVolume();
