@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generation: 3
   npcType: 1
-  dayNumber: 3
+  dayNumber: 2
   dialogues:
   - showOnce: 0
     isLoopingDialogue: 0

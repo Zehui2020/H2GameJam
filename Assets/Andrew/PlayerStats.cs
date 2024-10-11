@@ -61,6 +61,9 @@ public class PlayerStats : MonoBehaviour
     public List<DialogueData> allDialogueDatas;
     public List<Sprite> playerDialogueSprites;
 
+    [Header("Animations")]
+    public List<RuntimeAnimatorController> playerAnimators;
+
     private Queue<Vector2> popupQueue = new Queue<Vector2>();
     private Coroutine popupRoutine;
 
@@ -82,7 +85,7 @@ public class PlayerStats : MonoBehaviour
     {
         currentMoney = 500;
         currentReputation = 0;
-        dayCounter = 1;
+        dayCounter = 0;
 
         for (int i = 0; i < (int)Ingredient.IngredientType.TotalIngredients; i++)
             ingredientCountList.Add(new IngredientCount((Ingredient.IngredientType)i, 20));
@@ -288,7 +291,7 @@ public class PlayerStats : MonoBehaviour
 
         if (dayCounter >= daysPerGeneration)
         {
-            dayCounter = 0;
+            dayCounter = 1;
             generationIndex++;
 
             if (generationIndex >= allGenerations.Count)
@@ -326,5 +329,10 @@ public class PlayerStats : MonoBehaviour
     public float GetPlayerMoney()
     {
         return Mathf.Round(currentMoney * 100f) / 100f;
+    }
+
+    public RuntimeAnimatorController GetPlayerRuntimeController()
+    {
+        return playerAnimators[generationIndex];
     }
 }
