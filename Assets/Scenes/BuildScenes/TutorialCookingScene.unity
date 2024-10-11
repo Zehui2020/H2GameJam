@@ -3876,49 +3876,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2967295190546001985, guid: 65a84fbca15c091499eb178483ec418b, type: 3}
-      propertyPath: sounds.Array.size
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 2967295190546001985, guid: 65a84fbca15c091499eb178483ec418b, type: 3}
-      propertyPath: sounds.Array.data[22].clip
+      propertyPath: sounds.Array.data[11].clip
       value: 
-      objectReference: {fileID: 8300000, guid: e6037b6d48797d249b87f5f29d1c3295, type: 3}
-    - target: {fileID: 2967295190546001985, guid: 65a84fbca15c091499eb178483ec418b, type: 3}
-      propertyPath: sounds.Array.data[22].name
-      value: FinishedCooking
-      objectReference: {fileID: 0}
-    - target: {fileID: 2967295190546001985, guid: 65a84fbca15c091499eb178483ec418b, type: 3}
-      propertyPath: sounds.Array.data[23].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: b438ed565ee6aaa4989a728017cc9487, type: 3}
-    - target: {fileID: 2967295190546001985, guid: 65a84fbca15c091499eb178483ec418b, type: 3}
-      propertyPath: sounds.Array.data[23].name
-      value: Dialogue
-      objectReference: {fileID: 0}
-    - target: {fileID: 2967295190546001985, guid: 65a84fbca15c091499eb178483ec418b, type: 3}
-      propertyPath: sounds.Array.data[22].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2967295190546001985, guid: 65a84fbca15c091499eb178483ec418b, type: 3}
-      propertyPath: sounds.Array.data[23].pitch
-      value: 0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 2967295190546001985, guid: 65a84fbca15c091499eb178483ec418b, type: 3}
-      propertyPath: sounds.Array.data[23].volume
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2967295190546001985, guid: 65a84fbca15c091499eb178483ec418b, type: 3}
-      propertyPath: sounds.Array.data[23].mixerGroup
-      value: 
-      objectReference: {fileID: 6855146225594349479, guid: b714b66391f2c1e41b593415a3a8d0e6, type: 2}
-    - target: {fileID: 2967295190546001985, guid: 65a84fbca15c091499eb178483ec418b, type: 3}
-      propertyPath: sounds.Array.data[20].playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2967295190546001985, guid: 65a84fbca15c091499eb178483ec418b, type: 3}
-      propertyPath: sounds.Array.data[23].createSource
-      value: 1
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: 6f684853379bd7d4d93dc8d55bfa75c0, type: 3}
     - target: {fileID: 3580294099878066580, guid: 65a84fbca15c091499eb178483ec418b, type: 3}
       propertyPath: m_Name
       value: AudioManager
