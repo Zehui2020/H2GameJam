@@ -37,7 +37,7 @@ public class CookingManager : MonoBehaviour
 
     public void GoToMarketPlace()
     {
-        PlayerStats.playerStatsInstance.GoToShop();
+        PlayerStats.playerStatsInstance.GoFromTutorialToShop();
     }
 
     public bool IsRushHour()

@@ -313,6 +313,14 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    public void GoFromTutorialToShop()
+    {
+        dayCounter++;
+        generationIndex++;
+        currentGeneration = allGenerations[generationIndex];
+        SceneLoader.Instance.LoadScene("MarketPlace");
+    }
+
     public DialogueData GetDialogueData(BaseNPC.NPCType npcType)
     {
         foreach (DialogueData dialogueData in allDialogueDatas)

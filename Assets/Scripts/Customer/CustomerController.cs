@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class CustomerController : MonoBehaviour
 {
-    public static CustomerController Instance;  
+    public static CustomerController Instance;
 
     [SerializeField] private GameObject customerEntityPrefab;
     [SerializeField] private GameObject foodReqPrefab;
@@ -22,7 +22,9 @@ public class CustomerController : MonoBehaviour
     [SerializeField] private Sprite[] emojiSprites; //1. Very Happy 2. Happy 3. Upset 4. Agitated 5. Angry
     [SerializeField] private float startTimerDelay = 0;
     [SerializeField] private bool canSpawn = true;
-
+    [SerializeField] private List<Sprite> gen1Sprites;
+    [SerializeField] private List<Sprite> gen2Sprites;
+    [SerializeField] private List<Sprite> gen3Sprites;
     public enum CustomerEmotion
     {
         VeryPositive,
@@ -52,7 +54,7 @@ public class CustomerController : MonoBehaviour
         customerEntities = new List<CustomerEntity>();
 
         //create list of n number of customer entities
-        for (int i = 0; i< customerPlacementPos.Length; i++)
+        for (int i = 0; i < customerPlacementPos.Length; i++)
         {
             customerEntities.Add(null);
         }
@@ -153,8 +155,61 @@ public class CustomerController : MonoBehaviour
                     //if have dishes to give this customer
                     if (cookedDishes.Count > 0)
                     {
+                        //Select sprite
+                        Sprite _customerSprite = null;
+                        GenerationData.Generation gen = PlayerStats.playerStatsInstance.currentGeneration.generation;
+                        int currDay = PlayerStats.playerStatsInstance.dayCounter;
+                        //gen 1 
+                        switch (gen)
+                        {
+                            case GenerationData.Generation.Morden:
+                                {
+                                    if (currDay == 1)
+                                    {
+                                        //50% ren, 50% Modern
+                                        _customerSprite = (Random.Range(0, 2) == 0 ? gen3Sprites[Random.Range(0, gen3Sprites.Count)] : gen2Sprites[Random.Range(0, gen2Sprites.Count)]);
+                                        break;
+                                    }
+                                    //else 100 % Modern
+                                    _customerSprite = gen3Sprites[Random.Range(0, gen3Sprites.Count)];
+                                    break;
+                                }
+
+                            case GenerationData.Generation.Renaissance:
+                                {
+                                    if (currDay == 3)
+                                    {
+                                        //50% ren, 50% Modern
+                                        _customerSprite = (Random.Range(0, 2) == 0 ? gen3Sprites[Random.Range(0, gen3Sprites.Count)] : gen2Sprites[Random.Range(0, gen2Sprites.Count)]);
+                                        break;
+                                    }
+                                    else if (currDay == 1)
+                                    {
+                                        //50% ren, 50% Origin
+                                        _customerSprite = (Random.Range(0, 2) == 0 ? gen1Sprites[Random.Range(0, gen1Sprites.Count)] : gen2Sprites[Random.Range(0, gen2Sprites.Count)]);
+                                        break;
+                                    }
+                                    //else 100% Ren
+                                    _customerSprite = gen2Sprites[Random.Range(0, gen2Sprites.Count)];
+                                    break;
+                                }
+
+                            default:
+                                {
+                                    if (currDay == 3)
+                                    {
+                                        //50% ren, 50% Origin
+                                        _customerSprite = (Random.Range(0, 2) == 0 ? gen1Sprites[Random.Range(0, gen1Sprites.Count)] : gen2Sprites[Random.Range(0, gen2Sprites.Count)]);
+                                        break;
+                                    }
+                                    //100% gen 1
+                                    _customerSprite = gen1Sprites[Random.Range(0, gen1Sprites.Count)];
+                                    break;
+                                }
+                        }
+
                         //Give customer new placement position
-                        newCustomer.Init(customerPlacementPos[i].position, customerEndPos.position, cookedDishes, customerDatas[Random.Range(0, customerDatas.Count)]);
+                        newCustomer.Init(customerPlacementPos[i].position, customerEndPos.position, cookedDishes, customerDatas[Random.Range(0, customerDatas.Count)], _customerSprite);
 
                         //add customer entity to list
                         customerEntities[i] = newCustomer;
@@ -162,7 +217,7 @@ public class CustomerController : MonoBehaviour
                         //reset timer
                         //spawnEntityCounter = 6;
                         HandleSpawnTimer();
-                    } 
+                    }
                     else
                     {
                         //delete customer
@@ -171,13 +226,12 @@ public class CustomerController : MonoBehaviour
                 }
                 else
                     continue;
-                
             }
             else
             {
                 //update entity like normal
                 //check if customer reach the end position
-                if (! customerEntities[i].UpdateCustomer())
+                if (!customerEntities[i].UpdateCustomer())
                 {
                     //can remove customer
                     Destroy(customerEntities[i].gameObject);
@@ -200,7 +254,7 @@ public class CustomerController : MonoBehaviour
 
     private Sprite GetDishImage(Dish.DishType _type)
     {
-        foreach(Dish d in dishList.listOfDishes)
+        foreach (Dish d in dishList.listOfDishes)
         {
             if (d.dishType == _type)
             {
