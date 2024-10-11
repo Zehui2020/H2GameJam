@@ -41,21 +41,6 @@ public class Appliance : MonoBehaviour, IAbleToAddIngredient
     {
         applianceUIManager = GetComponent<ApplianceUIManager>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-
-        switch (PlayerStats.playerStatsInstance.GetApplianceLevel(applianceData))
-        {
-            case 1:
-                cookingSpeedModifier.AddModifier(0.15f);
-                break;
-                
-            case 2:
-                cookingSpeedModifier.AddModifier(0.25f);
-                break;
-
-            case 3:
-                cookingSpeedModifier.AddModifier(0.4f);
-                break;
-        }
     }
 
     public virtual bool AddIngredient(Ingredient ingredient)
@@ -263,7 +248,6 @@ public class Appliance : MonoBehaviour, IAbleToAddIngredient
     {
         if (ingredients.Count >= applianceData.maxIngredients)
         {
-            AudioManager.Instance.PlayOneShot("IncorrectOrder");
             PlayerStats.playerStatsInstance.ShowPopup("Max Ingredient!", transform, NotificationPopup.PopupType.TextNotification);
             return false;
         }
@@ -282,7 +266,6 @@ public class Appliance : MonoBehaviour, IAbleToAddIngredient
 
         if (!applianceData.needToCheckSequence)
         {
-            AudioManager.Instance.PlayOneShot("IncorrectOrder");
             PlayerStats.playerStatsInstance.ShowPopup("Wrong Ingredient!", transform, NotificationPopup.PopupType.TextNotification);
             return false;
         }
@@ -293,7 +276,7 @@ public class Appliance : MonoBehaviour, IAbleToAddIngredient
             if (ingredientType == newIngredient.ingredientType)
                 return true;
         }
-        AudioManager.Instance.PlayOneShot("IncorrectOrder");
+
         PlayerStats.playerStatsInstance.ShowPopup("Wrong Sequence!", transform, NotificationPopup.PopupType.TextNotification);
         return false;
     }
