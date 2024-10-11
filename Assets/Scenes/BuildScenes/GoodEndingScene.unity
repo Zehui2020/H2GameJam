@@ -833,10 +833,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49b013d9c57e224397f43a5a490b951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gen1End: {fileID: 0}
-  gen2End: {fileID: 0}
-  gen3End: {fileID: 0}
-  endSprite: {fileID: 0}
+  gen1End: {fileID: 21300000, guid: dbe3de87f83f1024cbe9270dadb6c100, type: 3}
+  gen2End: {fileID: 21300000, guid: dbe3de87f83f1024cbe9270dadb6c100, type: 3}
+  gen3End: {fileID: 21300000, guid: dbe3de87f83f1024cbe9270dadb6c100, type: 3}
+  endSprite: {fileID: 1024188015}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
