@@ -242,9 +242,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2806790187680611952}
-  - component: {fileID: 4903617967030972627}
-  - component: {fileID: 4941673841296461425}
-  - component: {fileID: 2289147931073317097}
+  - component: {fileID: 6249062486159692056}
   - component: {fileID: 6039741929305282053}
   m_Layer: 0
   m_Name: HotPlate
@@ -269,7 +267,7 @@ Transform:
   - {fileID: 2347656899407987115}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4903617967030972627
+--- !u!114 &6249062486159692056
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -278,7 +276,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4156902683459705599}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2df1054538d775846a7497a7392166c3, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a2dc5bcfbe02fa42b7f6c49cbf7ca5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   applianceData: {fileID: 11400000, guid: 392f6d3ca1fe669469e600ef7bc8a9c8, type: 2}
@@ -286,37 +284,9 @@ MonoBehaviour:
   cookingSpeedModifier:
     baseAmount: 0
     modifiers: []
---- !u!114 &4941673841296461425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4156902683459705599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d07b9e445a87154dac8cacdfd2bdace, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  returnSpeed: 10
---- !u!114 &2289147931073317097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4156902683459705599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7e345a32db8f8e4a80a5f4a79084aa4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cookingSliderAnimator: {fileID: 6784329412851969651}
-  cookingSlider: {fileID: 1737158157698433701}
-  ingredientUIParent: {fileID: 7971401525183286410}
-  addIngredientUI: {fileID: 5377161305120677662}
-  burnWarningAnimator: {fileID: 1212858879153684952}
-  cookedNotification: {fileID: 4679043877893095759}
+  foodSpawnPos: []
+  cookingIngredient: {fileID: 9210417971068851916, guid: 32f0b540ada6a164f8486a50a7c3ac48, type: 3}
+  cookedIngredientDish: {fileID: 11400000, guid: d5fc7d792ec53e949a663dadae90b24c, type: 2}
 --- !u!68 &6039741929305282053
 EdgeCollider2D:
   m_ObjectHideFlags: 0
