@@ -13,6 +13,7 @@ public class UtensilSpawner : MonoBehaviour, IPointerClickHandler
         {
             if (spawnPoint.childCount == 0)
             {
+                AudioManager.Instance.PlayOneShot("PlateClatter");
                 Instantiate(utensilPrefab, spawnPoint);
                 break;
             }
