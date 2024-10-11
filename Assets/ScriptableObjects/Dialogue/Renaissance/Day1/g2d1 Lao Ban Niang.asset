@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af80fcc250a325241aafdd08740068a5, type: 3}
+  m_Name: g2d1 Lao Ban Niang
+  m_EditorClassIdentifier: 
+  generation: 2
+  npcType: 0
+  dayNumber: 1
+  dialogues:
+  - showOnce: 1
+    isLoopingDialogue: 0
+    isShown: 0
+    speakerName: Lao Ban Niang
+    speakerIcon: {fileID: 0}
+    breakAfterDialogue: 0
+    onDialogueDone:
+      playOnce: 0
+      onDialogueDone:
+        m_PersistentCalls:
+          m_Calls: []
+    dialogue: Welcome!
+    playerChoices: []
+  - showOnce: 1
+    isLoopingDialogue: 0
+    isShown: 0
+    speakerName: Player
+    speakerIcon: {fileID: 0}
+    breakAfterDialogue: 0
+    onDialogueDone:
+      playOnce: 0
+      onDialogueDone:
+        m_PersistentCalls:
+          m_Calls: []
+    dialogue: '[Convincinh to come to eat at your store due to more competitors]'
+    playerChoices: []
+  - showOnce: 0
+    isLoopingDialogue: 1
+    isShown: 0
+    speakerName: Lao Ban Niang
+    speakerIcon: {fileID: 0}
+    breakAfterDialogue: 0
+    onDialogueDone:
+      playOnce: 0
+      onDialogueDone:
+        m_PersistentCalls:
+          m_Calls: []
+    dialogue: "Oh! Sure, I would love to try out the food at your store!\r"
+    playerChoices: []
+  - showOnce: 0
+    isLoopingDialogue: 1
+    isShown: 0
+    speakerName: Lao Ban Niang
+    speakerIcon: {fileID: 0}
+    breakAfterDialogue: 1
+    onDialogueDone:
+      playOnce: 0
+      onDialogueDone:
+        m_PersistentCalls:
+          m_Calls: []
+    dialogue: "Provided you buy something from here as well!\r"
+    playerChoices: []

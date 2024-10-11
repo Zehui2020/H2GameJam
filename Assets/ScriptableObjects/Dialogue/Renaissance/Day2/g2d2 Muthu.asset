@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af80fcc250a325241aafdd08740068a5, type: 3}
+  m_Name: g2d2 Muthu
+  m_EditorClassIdentifier: 
+  generation: 2
+  npcType: 1
+  dayNumber: 2
+  dialogues:
+  - showOnce: 1
+    isLoopingDialogue: 0
+    isShown: 0
+    speakerName: Muthu
+    speakerIcon: {fileID: 0}
+    breakAfterDialogue: 0
+    onDialogueDone:
+      playOnce: 0
+      onDialogueDone:
+        m_PersistentCalls:
+          m_Calls: []
+    dialogue: Hello again! Man, I really love what they have to the place.
+    playerChoices: []
+  - showOnce: 1
+    isLoopingDialogue: 0
+    isShown: 0
+    speakerName: Muthu
+    speakerIcon: {fileID: 0}
+    breakAfterDialogue: 0
+    onDialogueDone:
+      playOnce: 0
+      onDialogueDone:
+        m_PersistentCalls:
+          m_Calls: []
+    dialogue: "There aren\u2019t a lot of centres built like an Octagon, it gives
+      this place a distinct feel compared to the other hawker centres I have seen.\r"
+    playerChoices: []
+  - showOnce: 1
+    isLoopingDialogue: 0
+    isShown: 0
+    speakerName: Muthu
+    speakerIcon: {fileID: 0}
+    breakAfterDialogue: 0
+    onDialogueDone:
+      playOnce: 0
+      onDialogueDone:
+        m_PersistentCalls:
+          m_Calls: []
+    dialogue: "Also,  have you also seen the newest appliances being created? \r\n\r"
+    playerChoices: []
+  - showOnce: 1
+    isLoopingDialogue: 0
+    isShown: 0
+    speakerName: Muthu
+    speakerIcon: {fileID: 0}
+    breakAfterDialogue: 0
+    onDialogueDone:
+      playOnce: 0
+      onDialogueDone:
+        m_PersistentCalls:
+          m_Calls: []
+    dialogue: "Like, have you seen this new toaster oven? It makes toasted bread
+      without being burnt every time!\r"
+    playerChoices: []
+  - showOnce: 0
+    isLoopingDialogue: 1
+    isShown: 0
+    speakerName: Muthu
+    speakerIcon: {fileID: 0}
+    breakAfterDialogue: 1
+    onDialogueDone:
+      playOnce: 0
+      onDialogueDone:
+        m_PersistentCalls:
+          m_Calls: []
+    dialogue: 'We truly live in a golden time, my friend. Would you like to see some
+      of these new kitchenware created? '
+    playerChoices: []

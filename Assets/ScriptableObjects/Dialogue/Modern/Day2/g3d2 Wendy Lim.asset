@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af80fcc250a325241aafdd08740068a5, type: 3}
+  m_Name: g3d2 Wendy Lim
+  m_EditorClassIdentifier: 
+  generation: 3
+  npcType: 1
+  dayNumber: 3
+  dialogues:
+  - showOnce: 1
+    isLoopingDialogue: 0
+    isShown: 0
+    speakerName: Wendy Lim
+    speakerIcon: {fileID: 0}
+    breakAfterDialogue: 0
+    onDialogueDone:
+      playOnce: 0
+      onDialogueDone:
+        m_PersistentCalls:
+          m_Calls: []
+    dialogue: Hello...
+    playerChoices: []
+  - showOnce: 1
+    isLoopingDialogue: 0
+    isShown: 0
+    speakerName: Player
+    speakerIcon: {fileID: 0}
+    breakAfterDialogue: 0
+    onDialogueDone:
+      playOnce: 0
+      onDialogueDone:
+        m_PersistentCalls:
+          m_Calls: []
+    dialogue: '[Ask if everything is okay]'
+    playerChoices: []
+  - showOnce: 1
+    isLoopingDialogue: 0
+    isShown: 0
+    speakerName: Wendy Lim
+    speakerIcon: {fileID: 0}
+    breakAfterDialogue: 0
+    onDialogueDone:
+      playOnce: 0
+      onDialogueDone:
+        m_PersistentCalls:
+          m_Calls: []
+    dialogue: The recession hit my store hard, I might not be able to make it past
+      the next few weeks at this rate.
+    playerChoices: []
+  - showOnce: 1
+    isLoopingDialogue: 0
+    isShown: 0
+    speakerName: Wendy Lim
+    speakerIcon: {fileID: 0}
+    breakAfterDialogue: 0
+    onDialogueDone:
+      playOnce: 0
+      onDialogueDone:
+        m_PersistentCalls:
+          m_Calls: []
+    dialogue: " I spent a lot of money and the newest equipment, and with how much
+      people are willing to spend now, it is hard making any sales nowadays.\r"
+    playerChoices: []
+  - showOnce: 1
+    isLoopingDialogue: 0
+    isShown: 0
+    speakerName: Wendy Lim
+    speakerIcon: {fileID: 0}
+    breakAfterDialogue: 0
+    onDialogueDone:
+      playOnce: 0
+      onDialogueDone:
+        m_PersistentCalls:
+          m_Calls: []
+    dialogue: " I am barely holding on financially right now, and if this is going
+      to keep up, I might have to close.\r"
+    playerChoices: []
+  - showOnce: 0
+    isLoopingDialogue: 1
+    isShown: 0
+    speakerName: Wendy Lim
+    speakerIcon: {fileID: 0}
+    breakAfterDialogue: 1
+    onDialogueDone:
+      playOnce: 0
+      onDialogueDone:
+        m_PersistentCalls:
+          m_Calls: []
+    dialogue: "Wanna help a friend out and buy something for me, please?\r"
+    playerChoices: []
