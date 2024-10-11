@@ -3863,7 +3863,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2967295190546001985, guid: 65a84fbca15c091499eb178483ec418b, type: 3}
       propertyPath: sounds.Array.size
-      value: 20
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 2967295190546001985, guid: 65a84fbca15c091499eb178483ec418b, type: 3}
+      propertyPath: sounds.Array.data[9].name
+      value: Happy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2967295190546001985, guid: 65a84fbca15c091499eb178483ec418b, type: 3}
+      propertyPath: sounds.Array.data[10].name
+      value: VeryHappy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2967295190546001985, guid: 65a84fbca15c091499eb178483ec418b, type: 3}
+      propertyPath: sounds.Array.data[12].name
+      value: Upset
       objectReference: {fileID: 0}
     - target: {fileID: 2967295190546001985, guid: 65a84fbca15c091499eb178483ec418b, type: 3}
       propertyPath: sounds.Array.data[15].clip
@@ -3884,18 +3896,18 @@ PrefabInstance:
     - target: {fileID: 2967295190546001985, guid: 65a84fbca15c091499eb178483ec418b, type: 3}
       propertyPath: sounds.Array.data[17].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 8f44a611410b18546ad4f69eaaa2d966, type: 3}
+      objectReference: {fileID: 8300000, guid: 25d8f50ce06ff27449a710cdcfe46887, type: 3}
     - target: {fileID: 2967295190546001985, guid: 65a84fbca15c091499eb178483ec418b, type: 3}
       propertyPath: sounds.Array.data[17].name
-      value: VeryHappy
+      value: Agitated
       objectReference: {fileID: 0}
     - target: {fileID: 2967295190546001985, guid: 65a84fbca15c091499eb178483ec418b, type: 3}
       propertyPath: sounds.Array.data[18].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 8f44a611410b18546ad4f69eaaa2d966, type: 3}
+      objectReference: {fileID: 8300000, guid: dae9316674fc33247afab2f46a5dec9f, type: 3}
     - target: {fileID: 2967295190546001985, guid: 65a84fbca15c091499eb178483ec418b, type: 3}
       propertyPath: sounds.Array.data[18].name
-      value: Agitated
+      value: Angry
       objectReference: {fileID: 0}
     - target: {fileID: 2967295190546001985, guid: 65a84fbca15c091499eb178483ec418b, type: 3}
       propertyPath: sounds.Array.data[19].clip
@@ -3962,12 +3974,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6855146225594349479, guid: b714b66391f2c1e41b593415a3a8d0e6, type: 2}
     - target: {fileID: 2967295190546001985, guid: 65a84fbca15c091499eb178483ec418b, type: 3}
+      propertyPath: sounds.Array.data[14].playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2967295190546001985, guid: 65a84fbca15c091499eb178483ec418b, type: 3}
       propertyPath: sounds.Array.data[15].playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2967295190546001985, guid: 65a84fbca15c091499eb178483ec418b, type: 3}
       propertyPath: sounds.Array.data[16].playOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2967295190546001985, guid: 65a84fbca15c091499eb178483ec418b, type: 3}
+      propertyPath: sounds.Array.data[18].playOnAwake
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2967295190546001985, guid: 65a84fbca15c091499eb178483ec418b, type: 3}
       propertyPath: sounds.Array.data[15].createSource
