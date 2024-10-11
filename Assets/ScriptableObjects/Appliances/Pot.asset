@@ -15,15 +15,20 @@ MonoBehaviour:
   shopItemName: Pot
   shopDescription: A heavy clay pot. Father used to make his famous Bak Kut Teh recepie
     in pots like these...
-  itemSprite: {fileID: 21300000, guid: 3cfdae58ba76f2d43b0538ca41ba870a, type: 3}
+  itemSprite: {fileID: 21300000, guid: c4c4b1cd5e93d834fbc8ecb0744c7012, type: 3}
   maximumPurchases: 1
   cost: 50
   cookedDish: {fileID: 11400000, guid: 65d231de138de7c46bf675fe9c107168, type: 2}
-  sprite: {fileID: 21300000, guid: 3cfdae58ba76f2d43b0538ca41ba870a, type: 3}
-  cookedSprite: {fileID: 21300000, guid: 3cfdae58ba76f2d43b0538ca41ba870a, type: 3}
-  burntSprite: {fileID: 21300000, guid: 3cfdae58ba76f2d43b0538ca41ba870a, type: 3}
+  baseSprite: {fileID: 21300000, guid: c9178b11eb75dc449bf05f30babbfe63, type: 3}
+  burntSprite: {fileID: 21300000, guid: 859ff679c4346ad4b9150dc608177677, type: 3}
   applianceName: Pot
   allowedIngredients: 0000000005000000
+  needToCheckSequence: 1
+  applianceAppearances:
+  - ingredientTypes: 00000000
+    applianceSprite: {fileID: 21300000, guid: 64c791b9672620f448fef78d8d4c8a0f, type: 3}
+  - ingredientTypes: 05000000
+    applianceSprite: {fileID: 21300000, guid: 64c791b9672620f448fef78d8d4c8a0f, type: 3}
   type: 0
   cookSpeed: 1
   cookDuration: 5

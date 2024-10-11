@@ -14,15 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopItemName: Steamer
   shopDescription: 
-  itemSprite: {fileID: 21300000, guid: 8927f5361de10cf42ad23f520b541466, type: 3}
+  itemSprite: {fileID: 21300000, guid: 34fdacc4c0d7919438e162cdbc8d554b, type: 3}
   maximumPurchases: 1
   cost: 50
   cookedDish: {fileID: 11400000, guid: e34038f883e3fc04cac0d4c9294832d2, type: 2}
-  sprite: {fileID: 21300000, guid: 8927f5361de10cf42ad23f520b541466, type: 3}
-  cookedSprite: {fileID: 21300000, guid: fc6a422c5536b0d42bd47cf01ce44cc8, type: 3}
-  burntSprite: {fileID: 21300000, guid: b17f2271f9956ac4c9ea9d57958e09f9, type: 3}
+  baseSprite: {fileID: 21300000, guid: 34fdacc4c0d7919438e162cdbc8d554b, type: 3}
+  burntSprite: {fileID: 21300000, guid: 34fdacc4c0d7919438e162cdbc8d554b, type: 3}
   applianceName: Steamer
   allowedIngredients: 01000000030000000a000000
+  needToCheckSequence: 1
+  applianceAppearances:
+  - ingredientTypes: 03000000
+    applianceSprite: {fileID: 21300000, guid: b2dcf0e0dbf5b9644b298b0e8457e728, type: 3}
+  - ingredientTypes: 0100000003000000
+    applianceSprite: {fileID: 21300000, guid: dff5189bffd33394aa15a6fbb1da95dc, type: 3}
   type: 4
   cookSpeed: 1
   cookDuration: 5

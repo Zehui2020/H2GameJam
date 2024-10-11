@@ -53,7 +53,8 @@ public class PlayerStats : MonoBehaviour
     public int dayCounter;
     public int daysPerGeneration;
 
-    [Header("Sprites")]
+    [Header("Dialogue")]
+    public List<DialogueData> allDialogueDatas;
     public List<Sprite> playerDialogueSprites;
 
     private void Awake()
@@ -235,6 +236,14 @@ public class PlayerStats : MonoBehaviour
     {
         dayCounter++;
 
+        //check if bankrupt
+        if (PlayerStats.playerStatsInstance.currentMoney <= 0)
+        {
+            //go to bankrupt scene
+            SceneLoader.Instance.LoadScene("BankruptEndingScene");
+            return;
+        }
+
         if (dayCounter >= daysPerGeneration)
         {
             dayCounter = 0;
@@ -242,12 +251,33 @@ public class PlayerStats : MonoBehaviour
 
             if (generationIndex >= allGenerations.Count)
             {
-                SceneLoader.Instance.LoadScene("EndingScene");
+                if (PlayerStats.playerStatsInstance.currentReputation > 0)
+                {
+                    SceneLoader.Instance.LoadScene("GoodEndingScene");
+                }
+                else
+                {
+                    SceneLoader.Instance.LoadScene("BadEndingScene");
+                }
+                
                 return;
             }
 
             currentGeneration = allGenerations[generationIndex];
             SceneLoader.Instance.LoadScene("MarketPlace");
         }
+    }
+
+    public DialogueData GetDialogueData(BaseNPC.NPCType npcType)
+    {
+        foreach (DialogueData dialogueData in allDialogueDatas)
+        {
+            if (dialogueData.npcType == npcType &&
+                dialogueData.generation == currentGeneration.generation &&
+                dialogueData.dayNumber == dayCounter)
+                return dialogueData;
+        }
+
+        return null;
     }
 }

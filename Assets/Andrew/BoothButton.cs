@@ -32,7 +32,7 @@ public class BoothButton : PooledObject
         else if (itemData is ApplianceData)
         {
             ApplianceData appliance = (ApplianceData)itemToStore;
-            imageIcon.sprite = appliance.sprite;
+            imageIcon.sprite = appliance.baseSprite;
             ingredientText.text = appliance.applianceName;
             cost.text = "Appliance cost here!";
         }

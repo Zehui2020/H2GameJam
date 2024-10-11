@@ -14,15 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopItemName: Biryani Pan
   shopDescription: The perfect cookware for a delicious plate of Biryani!
-  itemSprite: {fileID: 21300000, guid: f72c0a11d62853a418862ee90be635de, type: 3}
+  itemSprite: {fileID: 21300000, guid: 7f46efdbe961c664e9b21d39a9a0a5e0, type: 3}
   maximumPurchases: 1
   cost: 50
   cookedDish: {fileID: 11400000, guid: 8896e031d945fe04284091ef944ea9b2, type: 2}
-  sprite: {fileID: 21300000, guid: f72c0a11d62853a418862ee90be635de, type: 3}
-  cookedSprite: {fileID: 21300000, guid: f72c0a11d62853a418862ee90be635de, type: 3}
-  burntSprite: {fileID: 21300000, guid: f72c0a11d62853a418862ee90be635de, type: 3}
+  baseSprite: {fileID: 21300000, guid: 7f46efdbe961c664e9b21d39a9a0a5e0, type: 3}
+  burntSprite: {fileID: 21300000, guid: ddd90f6e0f20b22459b47a3ebcad3502, type: 3}
   applianceName: Biryani Pan
   allowedIngredients: 020000000600000003000000
+  needToCheckSequence: 1
+  applianceAppearances:
+  - ingredientTypes: 03000000
+    applianceSprite: {fileID: 21300000, guid: 578ba74b8a01f044ba52eea10b16c384, type: 3}
+  - ingredientTypes: 0300000006000000
+    applianceSprite: {fileID: 21300000, guid: 7bb1cee0340e0074487206d61ad55311, type: 3}
+  - ingredientTypes: 030000000600000002000000
+    applianceSprite: {fileID: 21300000, guid: 7f3c1d9c420088545a27f9c949ec1336, type: 3}
   type: 6
   cookSpeed: 1
   cookDuration: 8

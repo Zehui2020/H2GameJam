@@ -4,6 +4,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ApplianceData")]
 public class ApplianceData : ShopItemData
 {
+    [System.Serializable]
+    public struct ApplianceAppearance
+    {
+        public List<Ingredient.IngredientType> ingredientTypes;
+        public Sprite applianceSprite;
+    }
+
     public enum ApplianceType
     {
         Pot,
@@ -19,13 +26,16 @@ public class ApplianceData : ShopItemData
     [Header("Appliance Stats")]
     public Dish cookedDish;
 
-    public Sprite sprite;
-    public Sprite cookedSprite;
+    public Sprite baseSprite;
     public Sprite burntSprite;
 
     public string applianceName;
 
     public List<Ingredient.IngredientType> allowedIngredients = new();
+
+    public bool needToCheckSequence;
+    public List<ApplianceAppearance> applianceAppearances = new();
+
     public ApplianceType type;
     public float cookSpeed;
     public float cookDuration;

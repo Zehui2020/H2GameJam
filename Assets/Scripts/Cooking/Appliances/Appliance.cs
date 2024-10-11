@@ -18,7 +18,7 @@ public class Appliance : MonoBehaviour, IAbleToAddIngredient
     }
 
     [Header("Appliance Stats")]
-    [SerializeField] private ApplianceData applianceData;
+    public ApplianceData applianceData;
     [SerializeField] protected List<Ingredient.IngredientType> ingredients;
     private ApplianceUIManager applianceUIManager;
     private SpriteRenderer spriteRenderer;
@@ -50,6 +50,7 @@ public class Appliance : MonoBehaviour, IAbleToAddIngredient
 
         ingredients.Add(ingredient.ingredientType);
         applianceUIManager.AddIngredientUI(ingredient);
+        SetSprite();
 
         if (burnRoutine != null)
         {
@@ -129,7 +130,7 @@ public class Appliance : MonoBehaviour, IAbleToAddIngredient
         ingredients.Clear();
         applianceUIManager.ClearIngredientUI();
         applianceUIManager.SetCookingSliderActive(false);
-        spriteRenderer.sprite = applianceData.sprite;
+        spriteRenderer.sprite = applianceData.baseSprite;
     }
 
     private IEnumerator StartCooking()
@@ -184,7 +185,7 @@ public class Appliance : MonoBehaviour, IAbleToAddIngredient
             if (!Utility.AreListsEqualContent(applianceData.cookedDish.dishCombinations[i].ingredients, ingredients))
                 continue;
 
-            spriteRenderer.sprite = applianceData.cookedSprite;
+            SetSprite();
             canServe = true;
             applianceUIManager.OnFoodCooked();
             cookedDish = new CookedDish(applianceData.cookedDish, i);
@@ -203,11 +204,42 @@ public class Appliance : MonoBehaviour, IAbleToAddIngredient
         canServe = false;
     }
 
-    private bool CanPutIngredient(Ingredient.IngredientType newIngredient)
+    protected void SetSprite()
     {
+        foreach (ApplianceData.ApplianceAppearance appearance in applianceData.applianceAppearances)
+        {
+            if (Utility.AreListsEqualContent(appearance.ingredientTypes, ingredients))
+            {
+                spriteRenderer.sprite = appearance.applianceSprite;
+                return;
+            }
+        }
+    }
+
+    protected bool CanPutIngredient(Ingredient.IngredientType newIngredient)
+    {
+        if (ingredients.Count >= applianceData.maxIngredients)
+            return false;
+
+        // Check for allowed ingredient type
         foreach (Ingredient.IngredientType ingredient in applianceData.allowedIngredients)
         {
             if (ingredient.Equals(newIngredient))
+            {
+                if (applianceData.needToCheckSequence)
+                    break;
+                else
+                    return true;
+            }
+        }
+
+        if (!applianceData.needToCheckSequence)
+            return false;
+
+        // Check for ingredient sequence
+        foreach (Ingredient.IngredientType ingredientType in applianceData.applianceAppearances[ingredients.Count].ingredientTypes)
+        {
+            if (ingredientType == newIngredient)
                 return true;
         }
 

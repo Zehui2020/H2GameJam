@@ -59,6 +59,8 @@ public class Fan : Draggable
     {
         base.OnEndDrag(eventData);
         startDragging = false;
+        if (targetGrill != null)
+            targetGrill.cookingSpeedModifier.RemoveModifier(cookingSpeedModifier);
     }
 
     private void OnDrawGizmos()

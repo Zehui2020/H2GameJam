@@ -16,17 +16,9 @@ MonoBehaviour:
   utensil: 0
   dishType: 1
   dishCombinations:
-  - ingredients: 0000000007000000
-    requirementSprites:
-    - {fileID: 21300000, guid: 49c735a18dc92fe42b71bbeb297e50fa, type: 3}
-    sideDishes: []
   - ingredients: 0100000007000000
     requirementSprites:
     - {fileID: 21300000, guid: f6f406b2af4f44f49be4b9ad5995beb7, type: 3}
-    sideDishes: []
-  - ingredients: 0200000007000000
-    requirementSprites:
-    - {fileID: 21300000, guid: fb75765184cf99b468ae74ca6f9ccaee, type: 3}
     sideDishes: []
   dishSprite: {fileID: 21300000, guid: 7caf7be80839fc745b97fd4724eff4e4, type: 3}
   dishCost: 0

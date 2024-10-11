@@ -61,6 +61,8 @@ MonoBehaviour:
   - MordenScene
   dayCounter: 0
   daysPerGeneration: 0
+  allDialogueDatas:
+  - {fileID: 11400000, guid: 6b78ae7a9996eea429de786277d49258, type: 2}
   playerDialogueSprites:
   - {fileID: 21300000, guid: 739c8a55e48b37242b9dca7b2a0bc672, type: 3}
   - {fileID: 21300000, guid: 739c8a55e48b37242b9dca7b2a0bc672, type: 3}

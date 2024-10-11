@@ -5816,6 +5816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45ab10056269e5b48983cfce581b9a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcType: 0
   dialogueUIAnimator: {fileID: 684740849}
   interactButtonAnimator: {fileID: 1072408388}
   dialogueManager: {fileID: 684740843}
@@ -5824,6 +5825,7 @@ MonoBehaviour:
       m_Calls: []
   dialogueIndex: 0
   dialogues: []
+  isTutorial: 0
 --- !u!50 &943631904
 Rigidbody2D:
   serializedVersion: 4
@@ -20925,6 +20927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45ab10056269e5b48983cfce581b9a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcType: 0
   dialogueUIAnimator: {fileID: 7524690931422197705}
   interactButtonAnimator: {fileID: 6042362467609231412}
   dialogueManager: {fileID: 8089576209876096202}
@@ -21095,6 +21098,7 @@ MonoBehaviour:
     dialogue: "Now head over to Uncle Ronan\u2019s store to get some cookware! He
       sells some of the highest quality ones around here!\r"
     playerChoices: []
+  isTutorial: 1
 --- !u!222 &7166992978666657945
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21350,6 +21354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45ab10056269e5b48983cfce581b9a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcType: 0
   dialogueUIAnimator: {fileID: 5419942777531487150}
   interactButtonAnimator: {fileID: 1445283594990395661}
   dialogueManager: {fileID: 5987923860055208109}
@@ -21478,7 +21483,7 @@ MonoBehaviour:
             m_MethodName: Show
             m_Mode: 2
             m_Arguments:
-              m_ObjectArgument: {fileID: 1387519009}
+              m_ObjectArgument: {fileID: 1857193767}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
               m_IntArgument: 0
               m_FloatArgument: 0
@@ -21499,6 +21504,7 @@ MonoBehaviour:
             m_CallState: 2
     dialogue: Now... the market's opening soon. You better get going!
     playerChoices: []
+  isTutorial: 1
 --- !u!222 &7296566299198351592
 CanvasRenderer:
   m_ObjectHideFlags: 0

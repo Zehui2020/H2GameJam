@@ -14,18 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopItemName: Grill
   shopDescription: 
-  itemSprite: {fileID: 21300000, guid: bdce277307fd96342b9618691264a2de, type: 3}
+  itemSprite: {fileID: 0}
   maximumPurchases: 1
   cost: 50
   cookedDish: {fileID: 11400000, guid: a62233160a90ca84baebe70ae3e3d4dc, type: 2}
-  sprite: {fileID: 21300000, guid: bdce277307fd96342b9618691264a2de, type: 3}
-  cookedSprite: {fileID: 21300000, guid: bdce277307fd96342b9618691264a2de, type: 3}
-  burntSprite: {fileID: 21300000, guid: bdce277307fd96342b9618691264a2de, type: 3}
+  baseSprite: {fileID: 0}
+  burntSprite: {fileID: 0}
   applianceName: Grill
-  allowedIngredients: 00000000010000000200000007000000
+  allowedIngredients: 01000000
+  needToCheckSequence: 0
+  applianceAppearances: []
   type: 1
   cookSpeed: 0.2
   cookDuration: 5
   burnDuration: 5
   burnGracePeriod: 2
-  maxIngredients: 2
+  maxIngredients: 3

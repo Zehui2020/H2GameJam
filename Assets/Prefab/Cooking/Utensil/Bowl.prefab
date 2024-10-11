@@ -107,6 +107,7 @@ MonoBehaviour:
   dish:
     dish: {fileID: 0}
     combinationIndex: 0
+  spriteRenderer: {fileID: 4684291420734685193}
 --- !u!61 &1520704309886745141
 BoxCollider2D:
   m_ObjectHideFlags: 0

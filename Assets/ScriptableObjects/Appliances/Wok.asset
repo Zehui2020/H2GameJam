@@ -14,18 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopItemName: Wok
   shopDescription: 
-  itemSprite: {fileID: 21300000, guid: 8927f5361de10cf42ad23f520b541466, type: 3}
+  itemSprite: {fileID: 21300000, guid: 35204462ef2ad1f4d84ed681a1156f88, type: 3}
   maximumPurchases: 1
   cost: 50
   cookedDish: {fileID: 11400000, guid: 395a32381fa89ce43ab170f0dea258d7, type: 2}
-  sprite: {fileID: 21300000, guid: 8927f5361de10cf42ad23f520b541466, type: 3}
-  cookedSprite: {fileID: 21300000, guid: fc6a422c5536b0d42bd47cf01ce44cc8, type: 3}
-  burntSprite: {fileID: 21300000, guid: b17f2271f9956ac4c9ea9d57958e09f9, type: 3}
+  baseSprite: {fileID: 21300000, guid: 35204462ef2ad1f4d84ed681a1156f88, type: 3}
+  burntSprite: {fileID: 21300000, guid: 7763d5e691f29ed49ad87eabdb2dcd12, type: 3}
   applianceName: Wok
   allowedIngredients: 0b000000090000000a000000
+  needToCheckSequence: 1
+  applianceAppearances:
+  - ingredientTypes: 0b000000
+    applianceSprite: {fileID: 21300000, guid: 704a1753454b1004ca023680c93f9d1d, type: 3}
+  - ingredientTypes: 0b00000009000000
+    applianceSprite: {fileID: 21300000, guid: 395ade8b63b865a44a78d22d4878df56, type: 3}
+  - ingredientTypes: 0b000000090000000a000000
+    applianceSprite: {fileID: 21300000, guid: 395ade8b63b865a44a78d22d4878df56, type: 3}
   type: 3
   cookSpeed: 1
   cookDuration: 5
   burnDuration: 5
   burnGracePeriod: 2
-  maxIngredients: 2
+  maxIngredients: 3

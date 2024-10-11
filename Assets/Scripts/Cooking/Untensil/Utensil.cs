@@ -13,6 +13,7 @@ public class Utensil : Draggable
     [SerializeField] private float releaseRadius;
     [SerializeField] private LayerMask customerLayer;
     [SerializeField] private Appliance.CookedDish dish = null;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     private void Start()
     {
@@ -22,6 +23,7 @@ public class Utensil : Draggable
     public void SetDish(Appliance.CookedDish cookedDish)
     {
         dish = cookedDish;
+        spriteRenderer.sprite = cookedDish.dish.dishSprite;
     }
 
     public override void OnBeginDrag(PointerEventData eventData)
@@ -41,6 +43,7 @@ public class Utensil : Draggable
             if (col.TryGetComponent<Appliance>(out Appliance appliance))
             {
                 Appliance.CookedDish dish = appliance.GetCookedDish(this);
+
                 if (dish != null)
                 {
                     SetDish(dish);
