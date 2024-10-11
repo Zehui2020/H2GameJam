@@ -270,6 +270,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChineseSpiceSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 3292004065320666484, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b618ee264b35e041bfe44f259177b3f, type: 2}
+    - target: {fileID: 3292004065320666484, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 1128910994858959856, guid: 0b618ee264b35e041bfe44f259177b3f, type: 2}
+    - target: {fileID: 3292004065320666484, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3392165089733480065, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
       propertyPath: m_SortingLayerID
       value: 208397703
@@ -1702,6 +1714,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoughSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 3292004065320666484, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b618ee264b35e041bfe44f259177b3f, type: 2}
+    - target: {fileID: 3292004065320666484, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 1128910994858959856, guid: 0b618ee264b35e041bfe44f259177b3f, type: 2}
+    - target: {fileID: 3292004065320666484, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3392165089733480065, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
       propertyPath: m_SortingLayerID
       value: 208397703
@@ -2066,6 +2090,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PorkSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 3292004065320666484, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b618ee264b35e041bfe44f259177b3f, type: 2}
+    - target: {fileID: 3292004065320666484, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 1128910994858959856, guid: 0b618ee264b35e041bfe44f259177b3f, type: 2}
+    - target: {fileID: 3292004065320666484, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3392165089733480065, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
       propertyPath: m_SortingLayerID
       value: 208397703
@@ -2199,6 +2235,18 @@ PrefabInstance:
     - target: {fileID: 2038922720347296225, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
       propertyPath: m_Name
       value: LambSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 3292004065320666484, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b618ee264b35e041bfe44f259177b3f, type: 2}
+    - target: {fileID: 3292004065320666484, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 1128910994858959856, guid: 0b618ee264b35e041bfe44f259177b3f, type: 2}
+    - target: {fileID: 3292004065320666484, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3392165089733480065, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
       propertyPath: m_SortingLayerID
@@ -3217,6 +3265,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: IndianSpiceSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 3292004065320666484, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b618ee264b35e041bfe44f259177b3f, type: 2}
+    - target: {fileID: 3292004065320666484, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 1128910994858959856, guid: 0b618ee264b35e041bfe44f259177b3f, type: 2}
+    - target: {fileID: 3292004065320666484, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3392165089733480065, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
       propertyPath: m_SortingLayerID
       value: 208397703
@@ -3419,6 +3479,18 @@ PrefabInstance:
     - target: {fileID: 2038922720347296225, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
       propertyPath: m_Name
       value: CurrySpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 3292004065320666484, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b618ee264b35e041bfe44f259177b3f, type: 2}
+    - target: {fileID: 3292004065320666484, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 1128910994858959856, guid: 0b618ee264b35e041bfe44f259177b3f, type: 2}
+    - target: {fileID: 3292004065320666484, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3392165089733480065, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
       propertyPath: m_SortingLayerID
@@ -3887,6 +3959,18 @@ PrefabInstance:
     - target: {fileID: 2038922720347296225, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
       propertyPath: m_Name
       value: RiceSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 3292004065320666484, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b618ee264b35e041bfe44f259177b3f, type: 2}
+    - target: {fileID: 3292004065320666484, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 1128910994858959856, guid: 0b618ee264b35e041bfe44f259177b3f, type: 2}
+    - target: {fileID: 3292004065320666484, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3392165089733480065, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
       propertyPath: m_SortingLayerID
@@ -4438,6 +4522,18 @@ PrefabInstance:
     - target: {fileID: 2038922720347296225, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
       propertyPath: m_Name
       value: EggSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 3292004065320666484, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b618ee264b35e041bfe44f259177b3f, type: 2}
+    - target: {fileID: 3292004065320666484, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 1128910994858959856, guid: 0b618ee264b35e041bfe44f259177b3f, type: 2}
+    - target: {fileID: 3292004065320666484, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3392165089733480065, guid: fe0c918f1a1bbde42915c3eb7dac45b3, type: 3}
       propertyPath: m_SortingLayerID
@@ -5709,6 +5805,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 710559081322372769, guid: 879cca601ae9ba341a12df07dd8d4e03, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 710559081322372769, guid: 879cca601ae9ba341a12df07dd8d4e03, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948228423942694096, guid: 879cca601ae9ba341a12df07dd8d4e03, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948228423942694096, guid: 879cca601ae9ba341a12df07dd8d4e03, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948228423942694096, guid: 879cca601ae9ba341a12df07dd8d4e03, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948228423942694096, guid: 879cca601ae9ba341a12df07dd8d4e03, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2733353866567903506, guid: 879cca601ae9ba341a12df07dd8d4e03, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3530169530528043671, guid: 879cca601ae9ba341a12df07dd8d4e03, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5757,9 +5881,69 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5186209864914793415, guid: 879cca601ae9ba341a12df07dd8d4e03, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5186209864914793415, guid: 879cca601ae9ba341a12df07dd8d4e03, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5186209864914793415, guid: 879cca601ae9ba341a12df07dd8d4e03, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 367.02582
+      objectReference: {fileID: 0}
+    - target: {fileID: 5186209864914793415, guid: 879cca601ae9ba341a12df07dd8d4e03, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 950.3745
+      objectReference: {fileID: 0}
+    - target: {fileID: 5186209864914793415, guid: 879cca601ae9ba341a12df07dd8d4e03, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -80
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634827667303845003, guid: 879cca601ae9ba341a12df07dd8d4e03, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634827667303845003, guid: 879cca601ae9ba341a12df07dd8d4e03, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634827667303845003, guid: 879cca601ae9ba341a12df07dd8d4e03, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 219.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634827667303845003, guid: 879cca601ae9ba341a12df07dd8d4e03, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634827667303845003, guid: 879cca601ae9ba341a12df07dd8d4e03, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 257.2808
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634827667303845003, guid: 879cca601ae9ba341a12df07dd8d4e03, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -65
+      objectReference: {fileID: 0}
     - target: {fileID: 6186411076079119406, guid: 879cca601ae9ba341a12df07dd8d4e03, type: 3}
       propertyPath: m_Name
       value: CookingManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8201859413794274996, guid: 879cca601ae9ba341a12df07dd8d4e03, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8201859413794274996, guid: 879cca601ae9ba341a12df07dd8d4e03, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8201859413794274996, guid: 879cca601ae9ba341a12df07dd8d4e03, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8201859413794274996, guid: 879cca601ae9ba341a12df07dd8d4e03, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
