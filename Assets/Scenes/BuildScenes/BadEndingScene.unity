@@ -788,9 +788,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49b013d9c57e224397f43a5a490b951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gen1End: {fileID: 21300000, guid: 9d215feb311dcb2418a4aa1d214fbb48, type: 3}
-  gen2End: {fileID: 21300000, guid: d28d54ebe2717384288f16493c227b70, type: 3}
-  gen3End: {fileID: 21300000, guid: 66ee36a8877840146ac3f799d3282a2c, type: 3}
+  gen1End: {fileID: 21300000, guid: f8df67e5df4bc79468f0c60e91eed3ca, type: 3}
+  gen2End: {fileID: 21300000, guid: f8df67e5df4bc79468f0c60e91eed3ca, type: 3}
+  gen3End: {fileID: 21300000, guid: f8df67e5df4bc79468f0c60e91eed3ca, type: 3}
   endSprite: {fileID: 485309325}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
