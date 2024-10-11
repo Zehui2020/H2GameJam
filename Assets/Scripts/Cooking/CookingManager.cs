@@ -30,6 +30,9 @@ public class CookingManager : MonoBehaviour
             if (timer >= maxTimer)
                 cookingUIManager.ShowFinishAlert();
         }
+
+        cookingUIManager.UpdateReputation();
+        cookingUIManager.UpdateMoney();
     }
 
     public void GoToMarketPlace()

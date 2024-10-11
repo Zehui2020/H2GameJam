@@ -11,6 +11,13 @@ public class CookingUIManager : MonoBehaviour
     [SerializeField] private Slider reputationSlider;
     [SerializeField] private TextMeshProUGUI moneyCounter;
 
+    private PlayerStats playerStats;
+
+    private void Start()
+    {
+        playerStats = PlayerStats.playerStatsInstance;
+    }
+
     public void ShowFinishAlert()
     {
         finishedAnimator.SetTrigger("finish");
@@ -22,9 +29,16 @@ public class CookingUIManager : MonoBehaviour
         timerSlider.maxValue = maxValue;
     }
 
-    public void SetReputationSlider(float currentValue, float maxValue)
+    public void UpdateReputation()
     {
-        reputationSlider.value = currentValue;
-        timerSlider.maxValue = maxValue;
+        reputationSlider.minValue = -100;
+        reputationSlider.maxValue = 100;
+
+        reputationSlider.value = playerStats.currentReputation;
+    }
+
+    public void UpdateMoney()
+    {
+        moneyCounter.text = "$" + playerStats.GetPlayerMoney().ToString();
     }
 }
