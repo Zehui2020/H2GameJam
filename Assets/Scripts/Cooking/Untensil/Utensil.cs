@@ -46,6 +46,12 @@ public class Utensil : Draggable
 
                 if (dish != null)
                 {
+                    switch (appliance.applianceData.type)
+                    {
+                        case ApplianceData.ApplianceType.Pot:
+                            AudioManager.Instance.Play("SoupPour");
+                            break;
+                    }
                     SetDish(dish);
                     return;
                 }

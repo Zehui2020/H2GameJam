@@ -77,7 +77,27 @@ public class IngredientPickup : PooledObject
                 {
                     switch (targetAppliance.applianceData.type)
                     {
+                        case ApplianceData.ApplianceType.Pot:
+                            AudioManager.Instance.RandomiseAudioPitch("PotSplash", 0.8f, 1.2f);
+                            AudioManager.Instance.PlayOneShot("PotSplash");
+                            break;
+                        case ApplianceData.ApplianceType.Grill:
+                            AudioManager.Instance.PlayOneShot("Grill");
+                            break;
+                        case ApplianceData.ApplianceType.HotPlate:
+                            AudioManager.Instance.PlayOneShot("HotPlate");
+                            break;
+                        case ApplianceData.ApplianceType.Wok:
+                            AudioManager.Instance.PlayOneShot("Grill");
+                            break;
+                        case ApplianceData.ApplianceType.Steamer:
+                            AudioManager.Instance.PlayOneShot("Steamer");
+                            break;
+                    }
 
+                    if (ingredient.ingredientType == Ingredient.IngredientType.Egg)
+                    {
+                        AudioManager.Instance.PlayOneShot("EggCrack");
                     }
                 }
                 Destroy(gameObject);

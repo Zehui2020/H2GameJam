@@ -94,7 +94,8 @@ public class AudioManager : MonoBehaviour
 
     public void Stop(string sound)
     {
-        FindSound(sound).source.Stop();
+        //FindSound(sound).source.Stop();
+        FadeSound(false, sound, 0.5f, 0);
     }
 
     public void StopAllSounds()

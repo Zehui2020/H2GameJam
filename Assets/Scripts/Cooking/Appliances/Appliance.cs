@@ -83,6 +83,32 @@ public class Appliance : MonoBehaviour, IAbleToAddIngredient
         if (cookingRoutine != null)
         {
             StopCoroutine(cookingRoutine);
+
+            switch (applianceData.type)
+            {
+                case ApplianceData.ApplianceType.Pot:
+                    AudioManager.Instance.Stop("PotBoil");
+                    break;
+                case ApplianceData.ApplianceType.Grill:
+                    AudioManager.Instance.Stop("Grill");
+                    break;
+                case ApplianceData.ApplianceType.HotPlate:
+                    AudioManager.Instance.Stop("HotPlate");
+                    break;
+                case ApplianceData.ApplianceType.Wok:
+                    AudioManager.Instance.Stop("Wok");
+                    break;
+                case ApplianceData.ApplianceType.Steamer:
+                    AudioManager.Instance.Stop("Steamer");
+                    break;
+                case ApplianceData.ApplianceType.Pan:
+                    AudioManager.Instance.Stop("PanSizzle");
+                    break;
+                case ApplianceData.ApplianceType.LargePan:
+                    AudioManager.Instance.Stop("PanSizzle");
+                    break;
+            }
+
             cookingRoutine = null;
         }
 
@@ -135,6 +161,7 @@ public class Appliance : MonoBehaviour, IAbleToAddIngredient
 
     private IEnumerator StartCooking()
     {
+
         while (true)
         {
             cookingTimer += Time.deltaTime * (applianceData.cookSpeed + cookingSpeedModifier.GetTotalModifier());
@@ -180,6 +207,7 @@ public class Appliance : MonoBehaviour, IAbleToAddIngredient
 
     public virtual bool CookFood()
     {
+        AudioManager.Instance.PlayOneShot("FinishedCooking");
         for (int i = 0; i < applianceData.cookedDish.dishCombinations.Count; i++)
         {
             if (!Utility.AreListsEqualContent(applianceData.cookedDish.dishCombinations[i].ingredients, ingredients))
