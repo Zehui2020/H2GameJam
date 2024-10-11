@@ -15,8 +15,6 @@ public class CustomerEntity : MonoBehaviour
     [SerializeField] private RectTransform requestContainer;
     [SerializeField] private CustomerDialogueHandler customerDialogueHandler;
     [SerializeField] private Animator emoterAnimator;
-    [SerializeField] private SpriteRenderer graphicsSprite;
-    [SerializeField] private Animator customerAnimator;
 
     public enum CustomerState
     {
@@ -42,7 +40,7 @@ public class CustomerEntity : MonoBehaviour
     //to change image correct and wrong
     private List<int> imageItemsIndexList;
 
-    public void Init(Vector3 _placementPos, Vector3 _exitPos, List<Appliance.CookedDish> _requestedDishes, CustomerScriptableObject _customerData, Sprite customerSprite)
+    public void Init(Vector3 _placementPos, Vector3 _exitPos, List<Appliance.CookedDish> _requestedDishes, CustomerScriptableObject _customerData)
     {
         //Set Positions
         placementPos = _placementPos;
@@ -66,9 +64,6 @@ public class CustomerEntity : MonoBehaviour
         maxPatience = 100;
         wrongFoodCounter = _customerData.wrongOrderLeeway;
 
-        //change sprite
-        graphicsSprite.sprite = customerSprite;
-
         //show emotion
         PingEmotion((_customerData.customerType == CustomerScriptableObject.CustomerType.Positive) ? CustomerController.CustomerEmotion.Positive :
             ((_customerData.customerType == CustomerScriptableObject.CustomerType.Negative) ? CustomerController.CustomerEmotion.Upset : 
@@ -81,7 +76,6 @@ public class CustomerEntity : MonoBehaviour
         switch (customerState)
         {
             case CustomerState.Entering:
-                customerAnimator.SetBool("IsWalking", true);
                 //move towards placement pos
                 transform.position = Vector3.MoveTowards(transform.position, placementPos, 3 * Time.deltaTime);
                 //reach  placement position
@@ -125,7 +119,6 @@ public class CustomerEntity : MonoBehaviour
                 break;
 
             case CustomerState.Waiting:
-                customerAnimator.SetBool("IsWalking", false);
                 //Patience Tick Down
                 patienceCounter -= Time.deltaTime;
 
@@ -181,7 +174,6 @@ public class CustomerEntity : MonoBehaviour
                 break;
 
             case CustomerState.Leaving:
-                customerAnimator.SetBool("IsWalking", true);
                 //move towards exit position
                 transform.position = Vector3.MoveTowards(transform.position, exitPos, 3 * Time.deltaTime);
                 //reach exit position
@@ -206,7 +198,7 @@ public class CustomerEntity : MonoBehaviour
         //2 when moving
         //3 when stationary
 
-        graphicsSprite.sortingOrder = layerNo;
+        GetComponent<SpriteRenderer>().sortingOrder = layerNo;
         orderUI.GetComponent<Canvas>().sortingOrder = layerNo;
     }
 

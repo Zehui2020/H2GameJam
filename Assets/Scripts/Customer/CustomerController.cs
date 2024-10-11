@@ -22,9 +22,7 @@ public class CustomerController : MonoBehaviour
     [SerializeField] private Sprite[] emojiSprites; //1. Very Happy 2. Happy 3. Upset 4. Agitated 5. Angry
     [SerializeField] private float startTimerDelay = 0;
     [SerializeField] private bool canSpawn = true;
-    [SerializeField] private List<Sprite> gen1Sprites;
-    [SerializeField] private List<Sprite> gen2Sprites;
-    [SerializeField] private List<Sprite> gen3Sprites;
+
     public enum CustomerEmotion
     {
         VeryPositive,
@@ -155,61 +153,8 @@ public class CustomerController : MonoBehaviour
                     //if have dishes to give this customer
                     if (cookedDishes.Count > 0)
                     {
-                        //Select sprite
-                        Sprite _customerSprite = null;
-                        GenerationData.Generation gen = PlayerStats.playerStatsInstance.currentGeneration.generation;
-                        int currDay = PlayerStats.playerStatsInstance.dayCounter;
-                        //gen 1 
-                        switch (gen)
-                        {
-                            case GenerationData.Generation.Morden:
-                                {
-                                    if (currDay == 1)
-                                    {
-                                        //50% ren, 50% Modern
-                                        _customerSprite = (Random.Range(0, 2) == 0 ? gen3Sprites[Random.Range(0, gen3Sprites.Count)] : gen2Sprites[Random.Range(0, gen2Sprites.Count)]);
-                                        break;
-                                    }
-                                    //else 100 % Modern
-                                    _customerSprite = gen3Sprites[Random.Range(0, gen3Sprites.Count)];
-                                    break;
-                                }
-
-                            case GenerationData.Generation.Renaissance:
-                                {
-                                    if (currDay == 3)
-                                    {
-                                        //50% ren, 50% Modern
-                                        _customerSprite = (Random.Range(0, 2) == 0 ? gen3Sprites[Random.Range(0, gen3Sprites.Count)] : gen2Sprites[Random.Range(0, gen2Sprites.Count)]);
-                                        break;
-                                    }
-                                    else if (currDay == 1)
-                                    {
-                                        //50% ren, 50% Origin
-                                        _customerSprite = (Random.Range(0, 2) == 0 ? gen1Sprites[Random.Range(0, gen1Sprites.Count)] : gen2Sprites[Random.Range(0, gen2Sprites.Count)]);
-                                        break;
-                                    }
-                                    //else 100% Ren
-                                    _customerSprite = gen2Sprites[Random.Range(0, gen2Sprites.Count)];
-                                    break;
-                                }
-
-                            default:
-                                {
-                                    if (currDay == 3)
-                                    {
-                                        //50% ren, 50% Origin
-                                        _customerSprite = (Random.Range(0, 2) == 0 ? gen1Sprites[Random.Range(0, gen1Sprites.Count)] : gen2Sprites[Random.Range(0, gen2Sprites.Count)]);
-                                        break;
-                                    }
-                                    //100% gen 1
-                                    _customerSprite = gen1Sprites[Random.Range(0, gen1Sprites.Count)];
-                                    break;
-                                }
-                        }
-
                         //Give customer new placement position
-                        newCustomer.Init(customerPlacementPos[i].position, customerEndPos.position, cookedDishes, customerDatas[Random.Range(0, customerDatas.Count)], _customerSprite);
+                        newCustomer.Init(customerPlacementPos[i].position, customerEndPos.position, cookedDishes, customerDatas[Random.Range(0, customerDatas.Count)]);
 
                         //add customer entity to list
                         customerEntities[i] = newCustomer;

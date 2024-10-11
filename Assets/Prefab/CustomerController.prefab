@@ -323,21 +323,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6188c7b0270c73245b131fd2b26ea0a9, type: 3}
   startTimerDelay: 0
   canSpawn: 1
-  gen1Sprites:
-  - {fileID: 21300000, guid: 0ceb853bf5dc74f42af72f2730d1d981, type: 3}
-  - {fileID: 21300000, guid: a56ec7ca5cfef2742a430e17666e5639, type: 3}
-  - {fileID: 21300000, guid: fe99d3b2097d80642aeb7a81730da229, type: 3}
-  - {fileID: 21300000, guid: 3717ff2ae11e854498c084d1a98939e6, type: 3}
-  gen2Sprites:
-  - {fileID: 21300000, guid: ba8c4d8c82ad9484491f933698b2a2b3, type: 3}
-  - {fileID: 21300000, guid: c34750f2f3907a746af0352c69013edf, type: 3}
-  - {fileID: 21300000, guid: 67eaed902af5d2f4e999d878829efb37, type: 3}
-  - {fileID: 21300000, guid: 4745a1e99bb661c409a80ccec971952a, type: 3}
-  gen3Sprites:
-  - {fileID: 21300000, guid: a754b940d516d5445a58b6b1ed97f35a, type: 3}
-  - {fileID: 21300000, guid: 8fdb8cceddf2dae42ba4382275db27e8, type: 3}
-  - {fileID: 21300000, guid: 1d126b7c017a7c4438d611d03c377f41, type: 3}
-  - {fileID: 21300000, guid: 69a7aebc3fe5cde419800bca0bc79fe2, type: 3}
 --- !u!1 &3163876509873602078
 GameObject:
   m_ObjectHideFlags: 0
