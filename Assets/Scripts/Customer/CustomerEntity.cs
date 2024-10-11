@@ -15,6 +15,7 @@ public class CustomerEntity : MonoBehaviour
     [SerializeField] private RectTransform requestContainer;
     [SerializeField] private CustomerDialogueHandler customerDialogueHandler;
     [SerializeField] private Animator emoterAnimator;
+    [SerializeField] private SpriteRenderer graphicsSprite;
 
     public enum CustomerState
     {
@@ -40,7 +41,7 @@ public class CustomerEntity : MonoBehaviour
     //to change image correct and wrong
     private List<int> imageItemsIndexList;
 
-    public void Init(Vector3 _placementPos, Vector3 _exitPos, List<Appliance.CookedDish> _requestedDishes, CustomerScriptableObject _customerData)
+    public void Init(Vector3 _placementPos, Vector3 _exitPos, List<Appliance.CookedDish> _requestedDishes, CustomerScriptableObject _customerData, Sprite customerSprite)
     {
         //Set Positions
         placementPos = _placementPos;
@@ -63,6 +64,9 @@ public class CustomerEntity : MonoBehaviour
         patienceCounter = _customerData.currentPatienceLevel;
         maxPatience = 100;
         wrongFoodCounter = _customerData.wrongOrderLeeway;
+
+        //change sprite
+        graphicsSprite.sprite = customerSprite;
 
         //show emotion
         PingEmotion((_customerData.customerType == CustomerScriptableObject.CustomerType.Positive) ? CustomerController.CustomerEmotion.Positive :
@@ -198,7 +202,7 @@ public class CustomerEntity : MonoBehaviour
         //2 when moving
         //3 when stationary
 
-        GetComponent<SpriteRenderer>().sortingOrder = layerNo;
+        graphicsSprite.sortingOrder = layerNo;
         orderUI.GetComponent<Canvas>().sortingOrder = layerNo;
     }
 
