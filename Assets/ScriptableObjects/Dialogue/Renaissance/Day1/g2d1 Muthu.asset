@@ -31,7 +31,7 @@ MonoBehaviour:
     playerChoices: []
   - showOnce: 0
     isLoopingDialogue: 0
-    isShown: 0
+    isShown: 1
     speakerName: Muthu
     speakerIcon: {fileID: 0}
     breakAfterDialogue: 0
@@ -40,7 +40,8 @@ MonoBehaviour:
       onDialogueDone:
         m_PersistentCalls:
           m_Calls: []
-    dialogue: ' [Convincing to come to eat at your store due to more competitors]'
+    dialogue: ' [You try convincing him to come to eat at your store due to more
+      competitors]'
     playerChoices: []
   - showOnce: 0
     isLoopingDialogue: 0
