@@ -16,6 +16,9 @@ public class EndScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (!PlayerStats.playerStatsInstance)
+            return;
+
         switch (PlayerStats.playerStatsInstance.currentGeneration.generation)
         {
             case GenerationData.Generation.Origins:
