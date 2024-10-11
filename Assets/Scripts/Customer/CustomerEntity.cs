@@ -16,6 +16,7 @@ public class CustomerEntity : MonoBehaviour
     [SerializeField] private CustomerDialogueHandler customerDialogueHandler;
     [SerializeField] private Animator emoterAnimator;
     [SerializeField] private SpriteRenderer graphicsSprite;
+    [SerializeField] private Animator customerAnimator;
 
     public enum CustomerState
     {
@@ -80,6 +81,7 @@ public class CustomerEntity : MonoBehaviour
         switch (customerState)
         {
             case CustomerState.Entering:
+                customerAnimator.SetBool("IsWalking", true);
                 //move towards placement pos
                 transform.position = Vector3.MoveTowards(transform.position, placementPos, 3 * Time.deltaTime);
                 //reach  placement position
@@ -123,6 +125,7 @@ public class CustomerEntity : MonoBehaviour
                 break;
 
             case CustomerState.Waiting:
+                customerAnimator.SetBool("IsWalking", false);
                 //Patience Tick Down
                 patienceCounter -= Time.deltaTime;
 
@@ -178,6 +181,7 @@ public class CustomerEntity : MonoBehaviour
                 break;
 
             case CustomerState.Leaving:
+                customerAnimator.SetBool("IsWalking", true);
                 //move towards exit position
                 transform.position = Vector3.MoveTowards(transform.position, exitPos, 3 * Time.deltaTime);
                 //reach exit position

@@ -414,6 +414,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3013872452079584946}
   - component: {fileID: 5042973605929123754}
+  - component: {fileID: 4091567389552475199}
   m_Layer: 7
   m_Name: Graphics
   m_TagString: Untagged
@@ -488,6 +489,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &4091567389552475199
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3509356447802210618}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 864d59013adc36a45be9d96aaac1ec59, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3576473752959295000
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,6 +565,7 @@ MonoBehaviour:
   customerDialogueHandler: {fileID: 7715698556333433696}
   emoterAnimator: {fileID: 8521194827291256207}
   graphicsSprite: {fileID: 5042973605929123754}
+  customerAnimator: {fileID: 4091567389552475199}
   requestedDishes: []
 --- !u!61 &8820160085466602305
 BoxCollider2D:
