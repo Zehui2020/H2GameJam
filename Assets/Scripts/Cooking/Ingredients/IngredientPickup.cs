@@ -71,7 +71,6 @@ public class IngredientPickup : PooledObject
             if (!col.TryGetComponent<IAbleToAddIngredient>(out IAbleToAddIngredient appliance))
                 continue;
 
-
             if (appliance.AddIngredient(ingredient))
             {
                 //if (appliance.appliance)

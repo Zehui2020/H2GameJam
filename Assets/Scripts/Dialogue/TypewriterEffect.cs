@@ -12,9 +12,7 @@ public class TypewriterEffect : MonoBehaviour
     [SerializeField] private TextMeshProUGUI speakerName;
 
     public UnityEvent OnFinishTyping;
-
     private Coroutine TypeRoutine;
-
     public void SetSpeakerName(string speaker)
     {
         if (speakerName == null)
@@ -69,7 +67,6 @@ public class TypewriterEffect : MonoBehaviour
         OnFinishTyping?.Invoke();
         TypeRoutine = null;
     }
-
     private string GetCompleteRichTextTag(ref int index, string message)
     {
         string completeTag = string.Empty;
