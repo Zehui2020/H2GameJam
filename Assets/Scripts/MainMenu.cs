@@ -15,10 +15,10 @@ public class MainMenu : MonoBehaviour
     private IEnumerator Start()
     {
         audioManager.Play("MainMenuBGM");
-        if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
-            instruction.text = "Press Anywhere To Begin!";
-        else
-            instruction.text = "Click Anywhere To Begin!";
+        //if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
+        //    instruction.text = "Press Anywhere To Begin!";
+        //else
+        //    instruction.text = "Click Anywhere To Begin!";
 
         yield return new WaitForSeconds(1f);
 

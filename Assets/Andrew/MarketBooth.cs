@@ -18,6 +18,7 @@ public class MarketBooth : MonoBehaviour
     {
         boothAnimator.SetBool("isShopping", false);
         PlayerStats.playerStatsInstance.playerMarketState = PlayerStats.PlayerMarketState.Walk;
+        AudioManager.Instance.PlayOneShot("ClickSuccess");
         OnExitShop?.Invoke();
     }
 
