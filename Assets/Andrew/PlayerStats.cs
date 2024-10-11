@@ -82,7 +82,7 @@ public class PlayerStats : MonoBehaviour
     {
         currentMoney = 500;
         currentReputation = 0;
-        dayCounter = 1;
+        dayCounter = 0;
 
         for (int i = 0; i < (int)Ingredient.IngredientType.TotalIngredients; i++)
             ingredientCountList.Add(new IngredientCount((Ingredient.IngredientType)i, 20));
@@ -288,7 +288,7 @@ public class PlayerStats : MonoBehaviour
 
         if (dayCounter >= daysPerGeneration)
         {
-            dayCounter = 0;
+            dayCounter = 1;
             generationIndex++;
 
             if (generationIndex >= allGenerations.Count)

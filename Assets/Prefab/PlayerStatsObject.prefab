@@ -60,7 +60,7 @@ MonoBehaviour:
   - RenaissanceScene
   - MordenScene
   dayCounter: 0
-  daysPerGeneration: 0
+  daysPerGeneration: 3
   allDialogueDatas:
   - {fileID: 11400000, guid: 1ab8026cc1e2b2945b677b3df74009d9, type: 2}
   - {fileID: 11400000, guid: 90e4280cb66dc794085e8e3904f59e54, type: 2}
