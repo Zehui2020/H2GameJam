@@ -130,6 +130,7 @@ public class CustomerEntity : MonoBehaviour
                 {
                     //green to yellow
                     patienceMeter.color = Color.Lerp(Color.green, Color.yellow, 1 - (patienceCounter - (maxPatience / 2)) / (maxPatience / 2));
+                    //AudioManager.Instance.PlayOneShot("")
                 }
                 else
                 {
@@ -137,7 +138,7 @@ public class CustomerEntity : MonoBehaviour
                     patienceMeter.color = Color.Lerp(Color.yellow, Color.red, 1 - patienceCounter / (maxPatience / 2));
                 }
 
-                //if below 25% max patience and have not said remark yet
+                //if below 25% max patience and have not said remark yet // Upset
                 if (!saidImpatientRemark && patienceCounter <= maxPatience * 0.25f)
                 {
                     saidImpatientRemark = true;
@@ -145,9 +146,11 @@ public class CustomerEntity : MonoBehaviour
                     customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.ImpatientRemarks);
 
                     PingEmotion(CustomerController.CustomerEmotion.Agitated);
+
+                    AudioManager.Instance.PlayOneShot("Agitated");
                 }
 
-                //Reach Patience Limit
+                //Reach Patience Limit //Angry
                 if (patienceCounter <= 0)
                 {
                     //Leave
@@ -164,6 +167,8 @@ public class CustomerEntity : MonoBehaviour
                     PlayerStats.playerStatsInstance.LoseRep(3, transform);
 
                     PingEmotion(CustomerController.CustomerEmotion.Angry);
+
+                    AudioManager.Instance.PlayOneShot("Angry");
                 }
 
                 break;
@@ -236,6 +241,7 @@ public class CustomerEntity : MonoBehaviour
         {
             PingEmotion(CustomerController.CustomerEmotion.Upset);
             customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.WrongItemRemarks);
+            AudioManager.Instance.PlayOneShot("Upset");
         }
     }
 
@@ -261,6 +267,8 @@ public class CustomerEntity : MonoBehaviour
                 customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.VeryPosReviewRemarks);
 
                 PingEmotion(CustomerController.CustomerEmotion.VeryPositive);
+
+                AudioManager.Instance.PlayOneShot("VeryHappy");
             }
             else if (patienceCounter >= maxPatience * 0.25f)
             {
@@ -268,12 +276,16 @@ public class CustomerEntity : MonoBehaviour
                 //thanks remark
                 customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.PosReviewRemarks);
                 PingEmotion(CustomerController.CustomerEmotion.Positive);
+
+                AudioManager.Instance.PlayOneShot("Happy");
             }
             else
             {
                 //took them long enough remark
                 customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.AgitatedReviewRemarks);
                 PingEmotion(CustomerController.CustomerEmotion.Upset);
+
+                AudioManager.Instance.PlayOneShot("Upset");
             }
         }
 

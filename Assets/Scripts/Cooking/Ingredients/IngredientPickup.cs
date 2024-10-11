@@ -73,7 +73,13 @@ public class IngredientPickup : PooledObject
 
             if (appliance.AddIngredient(ingredient))
             {
-                //if (appliance.appliance)
+                if (appliance is Appliance targetAppliance)
+                {
+                    switch (targetAppliance.applianceData.type)
+                    {
+
+                    }
+                }
                 Destroy(gameObject);
                 break;
             }
