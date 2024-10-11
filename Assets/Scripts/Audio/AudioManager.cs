@@ -36,7 +36,6 @@ public class AudioManager : MonoBehaviour
         {
             if (!s.createSource)
                 continue;
-
             s.source = gameObject.AddComponent<AudioSource>();
             InitAudioSource(s.source, s);
 
@@ -66,6 +65,7 @@ public class AudioManager : MonoBehaviour
 
     public void Play(string sound)
     {
+        Debug.Log(sound);
         Sound s = FindSound(sound);
         ResetVolumeOfSound(s);
         s.source.Play();

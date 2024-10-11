@@ -45,7 +45,7 @@ public class Appliance : MonoBehaviour, IAbleToAddIngredient
 
     public virtual bool AddIngredient(Ingredient ingredient)
     {
-        if (!CanPutIngredient(ingredient.ingredientType) || ingredients.Count >= applianceData.maxIngredients)
+        if (!CanPutIngredient(ingredient) || ingredients.Count >= applianceData.maxIngredients)
             return false;
 
         ingredients.Add(ingredient.ingredientType);
@@ -216,10 +216,13 @@ public class Appliance : MonoBehaviour, IAbleToAddIngredient
         }
     }
 
-    protected bool CanPutIngredient(Ingredient.IngredientType newIngredient)
+    protected bool CanPutIngredient(Ingredient newIngredient)
     {
         if (ingredients.Count >= applianceData.maxIngredients)
+        {
+            PlayerStats.playerStatsInstance.ShowPopup("Max Ingredient!", transform, NotificationPopup.PopupType.TextNotification);
             return false;
+        }
 
         // Check for allowed ingredient type
         foreach (Ingredient.IngredientType ingredient in applianceData.allowedIngredients)
@@ -234,15 +237,19 @@ public class Appliance : MonoBehaviour, IAbleToAddIngredient
         }
 
         if (!applianceData.needToCheckSequence)
+        {
+            PlayerStats.playerStatsInstance.ShowPopup("Wrong Ingredient!", transform, NotificationPopup.PopupType.TextNotification);
             return false;
+        }
 
         // Check for ingredient sequence
         foreach (Ingredient.IngredientType ingredientType in applianceData.applianceAppearances[ingredients.Count].ingredientTypes)
         {
-            if (ingredientType == newIngredient)
+            if (ingredientType == newIngredient.ingredientType)
                 return true;
         }
 
+        PlayerStats.playerStatsInstance.ShowPopup("Wrong Sequence!", transform, NotificationPopup.PopupType.TextNotification);
         return false;
     }
 }

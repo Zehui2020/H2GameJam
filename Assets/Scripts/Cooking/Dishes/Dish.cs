@@ -33,7 +33,7 @@ public class Dish : ScriptableObject
     public DishType dishType;
     public List<DishCombinations> dishCombinations = new();
     public Sprite dishSprite;
-    public int dishCost;
+    public float dishCost;
 
     public int GetDishCombinationIndex(Ingredient ingredient)
     {
@@ -44,5 +44,10 @@ public class Dish : ScriptableObject
         }
 
         return -1;
+    }
+
+    public float GetCost()
+    {
+        return Mathf.Round(dishCost * 100) / 100.0f;
     }
 }

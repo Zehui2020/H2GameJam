@@ -7,10 +7,10 @@ public class ShopItemData : ScriptableObject
     [TextArea(3, 10)] public string shopDescription;
     public Sprite itemSprite;
     public int maximumPurchases;
-    public int cost;
+    public float cost;
 
-    public int GetCost()
+    public float GetCost()
     {
-        return cost;
+        return Mathf.Round(cost * 100f) / 100f;
     }
 }

@@ -16,7 +16,7 @@ public class StaticAppliance : Appliance
 
     public override bool AddIngredient(Ingredient ingredient)
     {
-        if (!CanPutIngredient(ingredient.ingredientType))
+        if (!CanPutIngredient(ingredient))
             return false;
 
         foreach (Transform spawnPos in foodSpawnPos)

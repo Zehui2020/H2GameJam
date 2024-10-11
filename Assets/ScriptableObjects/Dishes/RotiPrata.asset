@@ -26,4 +26,4 @@ MonoBehaviour:
     sideDishes:
     - {fileID: 11400000, guid: 9f5b5d2de40c0d4489afea385b8a03a3, type: 2}
   dishSprite: {fileID: 21300000, guid: 1125e9683072695488534d3233f7cd85, type: 3}
-  dishCost: 0
+  dishCost: 3.5

@@ -1,3 +1,4 @@
+using DesignPatterns.ObjectPool;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -160,8 +161,7 @@ public class CustomerEntity : MonoBehaviour
                     customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.NegReviewRemarks);
 
                     //Reputation Decrease
-                    PlayerStats.playerStatsInstance.LoseRep(3);
-
+                    PlayerStats.playerStatsInstance.LoseRep(3, transform);
 
                     PingEmotion(CustomerController.CustomerEmotion.Angry);
                 }
@@ -227,7 +227,7 @@ public class CustomerEntity : MonoBehaviour
         //rep go down if go down twice
         if (wrongFoodCounter >= 2) 
         {
-            PlayerStats.playerStatsInstance.LoseRep(1);
+            PlayerStats.playerStatsInstance.LoseRep(1, transform);
         }
         //reply
         if (patienceCounter > 0)
@@ -241,6 +241,8 @@ public class CustomerEntity : MonoBehaviour
     {
         //Remove requested Dish
         requestedDishes.Remove(cookedDish);
+        // Give Money
+        PlayerStats.playerStatsInstance.AddMoney(cookedDish.dish.GetCost(), transform);
 
         //check if finish all dishes
         if (requestedDishes.Count == 0)
@@ -252,7 +254,7 @@ public class CustomerEntity : MonoBehaviour
             //super fast
             if (patienceCounter >= maxPatience * 0.75f)
             {
-                PlayerStats.playerStatsInstance.AddRep(2);
+                PlayerStats.playerStatsInstance.AddRep(2, transform);
                 //Fast remark
                 customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.VeryPosReviewRemarks);
 
@@ -260,7 +262,7 @@ public class CustomerEntity : MonoBehaviour
             }
             else if (patienceCounter >= maxPatience * 0.25f)
             {
-                PlayerStats.playerStatsInstance.AddRep(1);
+                PlayerStats.playerStatsInstance.AddRep(1, transform);
                 //thanks remark
                 customerDialogueHandler.InitNewDialogue(CustomerDialogueController.DialogueType.PosReviewRemarks);
                 PingEmotion(CustomerController.CustomerEmotion.Positive);
