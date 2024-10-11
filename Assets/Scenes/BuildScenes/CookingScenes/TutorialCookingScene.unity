@@ -1340,7 +1340,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1288604300}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3013,7 +3013,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5186209864914793415, guid: 879cca601ae9ba341a12df07dd8d4e03, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 367.02582
+      value: 387.02582
       objectReference: {fileID: 0}
     - target: {fileID: 5186209864914793415, guid: 879cca601ae9ba341a12df07dd8d4e03, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -3041,7 +3041,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5634827667303845003, guid: 879cca601ae9ba341a12df07dd8d4e03, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 257.2808
+      value: 277.2808
       objectReference: {fileID: 0}
     - target: {fileID: 5634827667303845003, guid: 879cca601ae9ba341a12df07dd8d4e03, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3249,3 +3249,4 @@ SceneRoots:
   - {fileID: 1885464043}
   - {fileID: 7018275524182173245}
   - {fileID: 978428048}
+  - {fileID: 818998352}
