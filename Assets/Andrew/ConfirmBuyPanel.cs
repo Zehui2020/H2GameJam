@@ -25,6 +25,7 @@ public class ConfirmBuyPanel : MonoBehaviour
     protected int numOfItemsToBuy;
     protected int itemCosts;
     protected bool isAffordable = false;
+    protected bool isSliderInit = false;
 
     public virtual void ShowPannel(BoothButton boothButton, ShopItemData itemToBuy)
     {
@@ -68,6 +69,7 @@ public class ConfirmBuyPanel : MonoBehaviour
             maxPurchaseAmountCount.text = sliderAmount.maxValue.ToString();
         }
 
+        isSliderInit = true;
         pannelAnimator.SetBool("isShowing", true);
 
         foreach (RectTransform rect in rebuildRects)
@@ -76,6 +78,7 @@ public class ConfirmBuyPanel : MonoBehaviour
 
     public void Close()
     {
+        AudioManager.Instance.Play("ClickSuccess");
         pannelAnimator.SetBool("isShowing", false);
     }
 
@@ -93,8 +96,8 @@ public class ConfirmBuyPanel : MonoBehaviour
             PlayerStats.playerStatsInstance.RemoveMoney(itemToBuy.GetCost(), null);
             boothButton.UpdateButton(1);
         }
-
-        Close();
+        AudioManager.Instance.PlayOneShot("Purchase");
+        pannelAnimator.SetBool("isShowing", false);
     }
 
     public void AddItemToBuy()
@@ -112,6 +115,11 @@ public class ConfirmBuyPanel : MonoBehaviour
         purchaseAmountCount.text = sliderAmount.value.ToString();
 
         float totalCost = itemToBuy.GetCost() * sliderAmount.value;
+
+        if (isSliderInit)
+        {
+            AudioManager.Instance.PlayOneShot("Slider");
+        }
         itemCost.text = PlayerStats.playerStatsInstance.GetPlayerMoney() + "/" + itemToBuy.GetCost() * sliderAmount.value;
 
         if (PlayerStats.playerStatsInstance.GetPlayerMoney() < totalCost)

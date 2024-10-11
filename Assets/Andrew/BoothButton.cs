@@ -46,8 +46,13 @@ public class BoothButton : PooledObject
     public void SelectButton()
     {
         if (purchasesLeft <= 0)
+        {
+            AudioManager.Instance.PlayOneShot("ClickFail");
             return;
+        }
 
+        //play sound button
+        AudioManager.Instance.PlayOneShot("ClickSuccess");
         OnSelectButton?.Invoke(itemToStore);
     }
 

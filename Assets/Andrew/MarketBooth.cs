@@ -14,7 +14,6 @@ public class MarketBooth : MonoBehaviour
     {
 
     }
-
     public void ExitShop()
     {
         boothAnimator.SetBool("isShopping", false);
