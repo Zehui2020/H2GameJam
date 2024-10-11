@@ -40,8 +40,9 @@ MonoBehaviour:
       onDialogueDone:
         m_PersistentCalls:
           m_Calls: []
-    dialogue: "There aren\u2019t a lot of centres built like an Octagon, it gives
-      this place a distinct feel compared to the other hawker centres I have seen.\r"
+    dialogue: "There aren\u2019t a lot of centres built like an Octagon since the
+      beginnning in 1825, it gives this place a distinct feel compared to the other
+      hawker centres I have seen.\r"
     playerChoices: []
   - showOnce: 0
     isLoopingDialogue: 0
