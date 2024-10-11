@@ -216,10 +216,12 @@ public class CustomerEntity : MonoBehaviour
         {
             if (CompareCookedDishes(dish, cookedDish))
             {
+                AudioManager.Instance.PlayOneShot("CorrectOrder");
                 ServeFood(dish);
                 return;
             }
         }
+        AudioManager.Instance.PlayOneShot("IncorrectOrder");
         //Serve wrong food
         wrongFoodCounter += 1;
         //Patience decreaase

@@ -60,6 +60,7 @@ public class IngredientPickup : PooledObject
 
         foreach (Collider2D col in cols)
         {
+            //if this is a customer to out && and there is an ingredient on the plate
             if (col.TryGetComponent<CustomerEntity>(out CustomerEntity customer) && ingredient.dishOnPlate != null)
             {
                 customer.PassFood(new Appliance.CookedDish(ingredient.dishOnPlate, 0));
@@ -70,8 +71,10 @@ public class IngredientPickup : PooledObject
             if (!col.TryGetComponent<IAbleToAddIngredient>(out IAbleToAddIngredient appliance))
                 continue;
 
+
             if (appliance.AddIngredient(ingredient))
             {
+                //if (appliance.appliance)
                 Destroy(gameObject);
                 break;
             }
