@@ -7,7 +7,12 @@ public class CookingManager : MonoBehaviour
 
     [SerializeField] private float timer;
     [SerializeField] private float maxTimer;
-    [SerializeField] private bool updateTimer = true;
+    public bool updateTimer = true;
+
+    public void SetUpdateTimer(bool update)
+    {
+        updateTimer = update;
+    }
 
     private void Start()
     {
