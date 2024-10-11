@@ -16,11 +16,11 @@ MonoBehaviour:
   utensil: 0
   dishType: 2
   dishCombinations:
-  - ingredients: 0400000008000000
+  - ingredients: 04000000
     requirementSprites: []
     sideDishes:
     - {fileID: 11400000, guid: 9f5b5d2de40c0d4489afea385b8a03a3, type: 2}
-  - ingredients: 040000000a00000008000000
+  - ingredients: 040000000a000000
     requirementSprites:
     - {fileID: 21300000, guid: 3681bd40c1a81a649ba98d68537c2be5, type: 3}
     sideDishes:

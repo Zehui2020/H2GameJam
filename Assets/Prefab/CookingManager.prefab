@@ -252,7 +252,7 @@ RectTransform:
   m_GameObject: {fileID: 1703556678058824329}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1222425187327231656}
@@ -260,11 +260,11 @@ RectTransform:
   - {fileID: 8491144083188017946}
   m_Father: {fileID: 7384456068316174039}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -53.3479, y: 209.74}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -280}
   m_SizeDelta: {x: 106.6958, y: 610}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &1590307832684188765
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -792,7 +792,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 950.3745, y: -80}
-  m_SizeDelta: {x: 367.02582, y: 130}
+  m_SizeDelta: {x: 0, y: 130}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &3584044051734834492
 CanvasRenderer:
@@ -1258,7 +1258,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 257.2808, y: -65}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 219.49, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5515070562782427557
 CanvasRenderer:
@@ -1584,6 +1584,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishedAnimator: {fileID: 2686091234930662003}
   timerSlider: {fileID: 3509333410244037507}
+  reputationSlider: {fileID: 1296437004421965906}
+  moneyCounter: {fileID: 3771998175735747151}
 --- !u!1 &6814260603847702831
 GameObject:
   m_ObjectHideFlags: 0
