@@ -5462,7 +5462,7 @@ MonoBehaviour:
       along with my <color=yellow>Finances</color> to purchase ingredients and upgrade
       my cookware."
     speakerName: You
-    speakerSprite: {fileID: 0}
+    speakerSprite: {fileID: 21300000, guid: 6f1d7a19c7813ac41a194045b321fe6c, type: 3}
     questDestination: {fileID: 0}
     goToNext: 1
     waitDuration: 3
@@ -5473,7 +5473,7 @@ MonoBehaviour:
       secret</color> broth, along with <color=red>Pork, Chinese Spices</color> and
       an <color=orange>Optional</color> side of <color=red>Rice</color>."
     speakerName: You
-    speakerSprite: {fileID: 0}
+    speakerSprite: {fileID: 21300000, guid: 6f1d7a19c7813ac41a194045b321fe6c, type: 3}
     questDestination: {fileID: 0}
     goToNext: 1
     waitDuration: 3
@@ -5483,7 +5483,7 @@ MonoBehaviour:
   - dialogue: "I\u2019ll have to <color=red>watch the heat carefully</color>, and
       serve the dish with a <color=red>Bowl</color> when it\u2019s done."
     speakerName: You
-    speakerSprite: {fileID: 0}
+    speakerSprite: {fileID: 21300000, guid: 6f1d7a19c7813ac41a194045b321fe6c, type: 3}
     questDestination: {fileID: 0}
     goToNext: 1
     waitDuration: 3
@@ -5492,7 +5492,7 @@ MonoBehaviour:
         m_Calls: []
   - dialogue: Ingredients... check. Pot... check. I'm ready.
     speakerName: You
-    speakerSprite: {fileID: 0}
+    speakerSprite: {fileID: 21300000, guid: 6f1d7a19c7813ac41a194045b321fe6c, type: 3}
     questDestination: {fileID: 0}
     goToNext: 1
     waitDuration: 3
@@ -5501,7 +5501,7 @@ MonoBehaviour:
         m_Calls: []
   - dialogue: Here comes my first customer!
     speakerName: You
-    speakerSprite: {fileID: 0}
+    speakerSprite: {fileID: 21300000, guid: 6f1d7a19c7813ac41a194045b321fe6c, type: 3}
     questDestination: {fileID: 0}
     goToNext: 0
     waitDuration: 0

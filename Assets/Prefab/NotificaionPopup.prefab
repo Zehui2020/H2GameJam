@@ -154,8 +154,8 @@ MonoBehaviour:
   icon: {fileID: 2006995127063915443}
   increaseColor: {r: 0.04705882, g: 1, b: 0, a: 1}
   decreaseColor: {r: 1, g: 0, b: 0, a: 1}
-  reputationSprite: {fileID: 21300000, guid: 6188c7b0270c73245b131fd2b26ea0a9, type: 3}
-  moneySprite: {fileID: 21300000, guid: b2c35062977bdf74b982ad03d8c183d4, type: 3}
+  reputationSprite: {fileID: -1437830121, guid: 6f79b35af2ae73945a7acab378e05f08, type: 3}
+  moneySprite: {fileID: 21300000, guid: 3eff05b5b26feae4ca236d00cd0b957a, type: 3}
 --- !u!114 &5050396057371427164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,7 +384,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d9ae0482f4164214097bdadee5902c49, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3eff05b5b26feae4ca236d00cd0b957a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

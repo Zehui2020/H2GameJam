@@ -3846,7 +3846,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1491784054}
         m_TargetAssemblyTypeName: BaseNPC, Assembly-CSharp
-        m_MethodName: GoToTutorialCooking
+        m_MethodName: GoToWork
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
