@@ -30,6 +30,8 @@ public class HistoryManager : MonoBehaviour
                 genDayText.text = "Current Gen: " + (data.gen == GenerationData.Generation.Tutorial ? "Tutorial(0) " : (data.gen == GenerationData.Generation.Origins ? "Origin(1) " : (data.gen == GenerationData.Generation.Renaissance ? "Renaissance(2) " : "Modern(3) ")))
                     + "| Day: " + data.day;
 
+                yearText.text = "Current Year: " + data.currentYear;
+
                 descText.text = data.desc;
                 return;
             }
