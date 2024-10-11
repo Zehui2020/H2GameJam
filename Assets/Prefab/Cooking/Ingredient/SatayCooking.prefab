@@ -755,7 +755,7 @@ MonoBehaviour:
   returnSpeed: 10
   appliance: {fileID: 0}
   ingredients: 
-  burntSprite: {fileID: 0}
+  burntSprite: {fileID: 21300000, guid: 5edbff23d07a7f34da33442f2da09145, type: 3}
   detectRadius: 1.41
   utensilLayer:
     serializedVersion: 2

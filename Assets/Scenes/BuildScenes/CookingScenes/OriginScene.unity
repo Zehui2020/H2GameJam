@@ -717,7 +717,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applianceData: {fileID: 11400000, guid: d864476c6596c8347810dd0fa4b793be, type: 2}
   ingredients: 
-  notificationSpawnPoint: {fileID: 0}
   cookingSpeedModifier:
     baseAmount: 0
     modifiers: []
@@ -1470,7 +1469,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applianceData: {fileID: 11400000, guid: 392f6d3ca1fe669469e600ef7bc8a9c8, type: 2}
   ingredients: 
-  notificationSpawnPoint: {fileID: 0}
   cookingSpeedModifier:
     baseAmount: 0
     modifiers: []
@@ -4972,7 +4970,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applianceData: {fileID: 11400000, guid: 1edba126b10449b4290cac5ae93dfecc, type: 2}
   ingredients: 
-  notificationSpawnPoint: {fileID: 0}
   cookingSpeedModifier:
     baseAmount: 0
     modifiers: []

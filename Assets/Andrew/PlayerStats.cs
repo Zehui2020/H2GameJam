@@ -61,6 +61,9 @@ public class PlayerStats : MonoBehaviour
     public List<DialogueData> allDialogueDatas;
     public List<Sprite> playerDialogueSprites;
 
+    [Header("Animations")]
+    public List<RuntimeAnimatorController> playerAnimators;
+
     private Queue<Vector2> popupQueue = new Queue<Vector2>();
     private Coroutine popupRoutine;
 
@@ -326,5 +329,10 @@ public class PlayerStats : MonoBehaviour
     public float GetPlayerMoney()
     {
         return Mathf.Round(currentMoney * 100f) / 100f;
+    }
+
+    public RuntimeAnimatorController GetPlayerRuntimeController()
+    {
+        return playerAnimators[generationIndex];
     }
 }

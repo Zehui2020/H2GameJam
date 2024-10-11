@@ -27,6 +27,11 @@ public class PlayerMarketMovement : MonoBehaviour
         mainCamera = Camera.main;
     }
 
+    private void Start()
+    {
+        playerAnim.runtimeAnimatorController = PlayerStats.playerStatsInstance.GetPlayerRuntimeController();
+    }
+
     public float horizontalValue;
 
     private void Update()
@@ -47,7 +52,12 @@ public class PlayerMarketMovement : MonoBehaviour
     private void HandlePCInput()
     {
         horizontalValue = Input.GetAxisRaw("Horizontal");
-        if (horizontalValue == 0)
+
+        if (horizontalValue < 0)
+            transform.localScale = new Vector3(1, 1, 1);
+        else if (horizontalValue > 0)
+            transform.localScale = new Vector3(-1, 1, 1);
+        else
             playerRB.velocity = Vector2.zero;
     }
 
@@ -62,9 +72,15 @@ public class PlayerMarketMovement : MonoBehaviour
 
         Touch touch = Input.touches[0];
         if (mainCamera.ScreenToWorldPoint(touch.position).x < transform.position.x)
+        {
             horizontalValue = -1;
+            transform.localScale = new Vector3(1, 1, 1);
+        }
         else
+        {
             horizontalValue = 1;
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
     }
 
     private void FixedUpdate()
@@ -75,9 +91,13 @@ public class PlayerMarketMovement : MonoBehaviour
     private void Move(float horizontalValue)
     {
         if (horizontalValue == 0 || PlayerStats.playerStatsInstance.playerMarketState == PlayerStats.PlayerMarketState.InMenu)
+        {
+            playerAnim.SetBool("isMoving", false);
             return;
+        }
 
         playerRB.AddForce(new Vector2(horizontalValue * playerSpeed, 0), ForceMode2D.Force);
+        playerAnim.SetBool("isMoving", true);
 
         //clamp the velocity of the player
         if (playerRB.velocity.magnitude > maxVelocity)

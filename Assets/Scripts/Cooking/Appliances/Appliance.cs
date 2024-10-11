@@ -227,7 +227,7 @@ public class Appliance : MonoBehaviour, IAbleToAddIngredient
         // Check for allowed ingredient type
         foreach (Ingredient.IngredientType ingredient in applianceData.allowedIngredients)
         {
-            if (ingredient.Equals(newIngredient))
+            if (ingredient == newIngredient.ingredientType)
             {
                 if (applianceData.needToCheckSequence)
                     break;
