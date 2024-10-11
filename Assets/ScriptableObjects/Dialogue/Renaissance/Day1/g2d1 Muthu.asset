@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af80fcc250a325241aafdd08740068a5, type: 3}
+  m_Name: g2d1 Muthu
+  m_EditorClassIdentifier: 
+  generation: 2
+  npcType: 1
+  dayNumber: 1
+  dialogues:
+  - showOnce: 0
+    isLoopingDialogue: 0
+    isShown: 0
+    speakerName: Muthu
+    speakerIcon: {fileID: 0}
+    breakAfterDialogue: 0
+    onDialogueDone:
+      playOnce: 0
+      onDialogueDone:
+        m_PersistentCalls:
+          m_Calls: []
+    dialogue: Hello, welcome to the store
+    playerChoices: []
+  - showOnce: 0
+    isLoopingDialogue: 0
+    isShown: 0
+    speakerName: Muthu
+    speakerIcon: {fileID: 0}
+    breakAfterDialogue: 0
+    onDialogueDone:
+      playOnce: 0
+      onDialogueDone:
+        m_PersistentCalls:
+          m_Calls: []
+    dialogue: ' [Convincing to come to eat at your store due to more competitors]'
+    playerChoices: []
+  - showOnce: 0
+    isLoopingDialogue: 0
+    isShown: 0
+    speakerName: Muthu
+    speakerIcon: {fileID: 0}
+    breakAfterDialogue: 0
+    onDialogueDone:
+      playOnce: 0
+      onDialogueDone:
+        m_PersistentCalls:
+          m_Calls: []
+    dialogue: "Hmmm\u2026"
+    playerChoices: []
+  - showOnce: 0
+    isLoopingDialogue: 0
+    isShown: 0
+    speakerName: Muthu
+    speakerIcon: {fileID: 0}
+    breakAfterDialogue: 0
+    onDialogueDone:
+      playOnce: 0
+      onDialogueDone:
+        m_PersistentCalls:
+          m_Calls: []
+    dialogue: Sure, I might check it out sometime!
+    playerChoices: []
+  - showOnce: 0
+    isLoopingDialogue: 1
+    isShown: 0
+    speakerName: Muthu
+    speakerIcon: {fileID: 0}
+    breakAfterDialogue: 1
+    onDialogueDone:
+      playOnce: 0
+      onDialogueDone:
+        m_PersistentCalls:
+          m_Calls: []
+    dialogue: Now, you better leave this store with something!
+    playerChoices: []

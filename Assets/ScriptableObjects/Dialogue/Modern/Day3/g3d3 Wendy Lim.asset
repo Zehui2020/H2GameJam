@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af80fcc250a325241aafdd08740068a5, type: 3}
+  m_Name: g3d3 Wendy Lim
+  m_EditorClassIdentifier: 
+  generation: 3
+  npcType: 1
+  dayNumber: 3
+  dialogues:
+  - showOnce: 0
+    isLoopingDialogue: 0
+    isShown: 0
+    speakerName: Wendy Lim
+    speakerIcon: {fileID: 0}
+    breakAfterDialogue: 0
+    onDialogueDone:
+      playOnce: 0
+      onDialogueDone:
+        m_PersistentCalls:
+          m_Calls: []
+    dialogue: Oh! Hello...
+    playerChoices: []
+  - showOnce: 0
+    isLoopingDialogue: 1
+    isShown: 0
+    speakerName: Wendy Lim
+    speakerIcon: {fileID: 0}
+    breakAfterDialogue: 0
+    onDialogueDone:
+      playOnce: 0
+      onDialogueDone:
+        m_PersistentCalls:
+          m_Calls: []
+    dialogue: "Just a heads up\r"
+    playerChoices: []
+  - showOnce: 0
+    isLoopingDialogue: 1
+    isShown: 0
+    speakerName: Wendy Lim
+    speakerIcon: {fileID: 0}
+    breakAfterDialogue: 0
+    onDialogueDone:
+      playOnce: 0
+      onDialogueDone:
+        m_PersistentCalls:
+          m_Calls: []
+    dialogue: "Because of the recession, I\u2019m thinking of cutting my losses and
+      moving to Malaysia.\r"
+    playerChoices: []
+  - showOnce: 0
+    isLoopingDialogue: 1
+    isShown: 0
+    speakerName: Wendy Lim
+    speakerIcon: {fileID: 0}
+    breakAfterDialogue: 1
+    onDialogueDone:
+      playOnce: 0
+      onDialogueDone:
+        m_PersistentCalls:
+          m_Calls: []
+    dialogue: "Hope it does not bring you any inconveniences in the future. Goodbye!\r"
+    playerChoices: []

@@ -62,7 +62,24 @@ MonoBehaviour:
   dayCounter: 0
   daysPerGeneration: 0
   allDialogueDatas:
-  - {fileID: 11400000, guid: 6b78ae7a9996eea429de786277d49258, type: 2}
+  - {fileID: 11400000, guid: 1ab8026cc1e2b2945b677b3df74009d9, type: 2}
+  - {fileID: 11400000, guid: 90e4280cb66dc794085e8e3904f59e54, type: 2}
+  - {fileID: 11400000, guid: af853bae02e1dbb47a52efbc75ec688b, type: 2}
+  - {fileID: 11400000, guid: ae6a254281d7a784eb0872739c502a02, type: 2}
+  - {fileID: 11400000, guid: d2dd0c169b5f70d4c962dc497c2c17a9, type: 2}
+  - {fileID: 11400000, guid: 9e51477b2f74fd24fb79d12b53a30354, type: 2}
+  - {fileID: 11400000, guid: e6246dedd7db91c4b900667919f4b91c, type: 2}
+  - {fileID: 11400000, guid: 7bfd1b631f12f2045b9850aaacaba57a, type: 2}
+  - {fileID: 11400000, guid: 8df9803eb7cafae409b9cb0c2043cd72, type: 2}
+  - {fileID: 11400000, guid: 7bde9afac2c110445af02a9e3ce26f4c, type: 2}
+  - {fileID: 11400000, guid: 410222427e3f6e64091dac98ea438c44, type: 2}
+  - {fileID: 11400000, guid: 984ebfc2b41c03541b72feeb13e19612, type: 2}
+  - {fileID: 11400000, guid: 122cdd1de816382469cd981d02cce078, type: 2}
+  - {fileID: 11400000, guid: df60dbb55733f474ea5a1cd622b50b20, type: 2}
+  - {fileID: 11400000, guid: 87e66af475a3f8545a02fc309c169c61, type: 2}
+  - {fileID: 11400000, guid: ecd45d7c149900e40afd0dfa7861ce7a, type: 2}
+  - {fileID: 11400000, guid: 33d995cf5b9e7464ead98f32d8d9b12b, type: 2}
+  - {fileID: 11400000, guid: 2c322b95baeff374fa8b44edd78b2e3e, type: 2}
   playerDialogueSprites:
   - {fileID: 21300000, guid: 739c8a55e48b37242b9dca7b2a0bc672, type: 3}
   - {fileID: 21300000, guid: 739c8a55e48b37242b9dca7b2a0bc672, type: 3}
