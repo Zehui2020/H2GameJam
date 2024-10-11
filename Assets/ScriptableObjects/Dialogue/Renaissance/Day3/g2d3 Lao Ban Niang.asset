@@ -16,7 +16,7 @@ MonoBehaviour:
   npcType: 0
   dayNumber: 3
   dialogues:
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Lao Ban Niang
@@ -29,10 +29,10 @@ MonoBehaviour:
           m_Calls: []
     dialogue: "Hello again. (Sigh)\r"
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
-    speakerName: Player
+    speakerName: Lao Ban Niang
     speakerIcon: {fileID: 0}
     breakAfterDialogue: 0
     onDialogueDone:
@@ -42,7 +42,7 @@ MonoBehaviour:
           m_Calls: []
     dialogue: What's wrong?
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Lao Ban Niang
@@ -56,7 +56,7 @@ MonoBehaviour:
     dialogue: "I am not doing too good, I\u2019ll be honest. Have you heard the news
       lately? "
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Lao Ban Niang
@@ -70,7 +70,7 @@ MonoBehaviour:
     dialogue: They are planning to close this place down because of the MRT tunnelling
       could affect the stability of this place!
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Lao Ban Niang
@@ -83,7 +83,7 @@ MonoBehaviour:
           m_Calls: []
     dialogue: Can you believe that?
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Lao Ban Niang
@@ -96,7 +96,7 @@ MonoBehaviour:
           m_Calls: []
     dialogue: "Not only that, my family is in a pretty tough position back in China.\r"
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Lao Ban Niang

@@ -16,7 +16,7 @@ MonoBehaviour:
   npcType: 1
   dayNumber: 1
   dialogues:
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Muthu
@@ -29,10 +29,10 @@ MonoBehaviour:
           m_Calls: []
     dialogue: Hello, welcome to the store
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
-    speakerName: Player
+    speakerName: Muthu
     speakerIcon: {fileID: 0}
     breakAfterDialogue: 0
     onDialogueDone:
@@ -42,7 +42,7 @@ MonoBehaviour:
           m_Calls: []
     dialogue: ' [Convincing to come to eat at your store due to more competitors]'
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Muthu
@@ -55,7 +55,7 @@ MonoBehaviour:
           m_Calls: []
     dialogue: "Hmmm\u2026"
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Muthu

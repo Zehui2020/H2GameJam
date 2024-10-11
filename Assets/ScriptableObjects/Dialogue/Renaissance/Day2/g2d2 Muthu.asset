@@ -16,7 +16,7 @@ MonoBehaviour:
   npcType: 1
   dayNumber: 2
   dialogues:
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Muthu
@@ -29,7 +29,7 @@ MonoBehaviour:
           m_Calls: []
     dialogue: Hello again! Man, I really love what they have to the place.
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Muthu
@@ -43,7 +43,7 @@ MonoBehaviour:
     dialogue: "There aren\u2019t a lot of centres built like an Octagon, it gives
       this place a distinct feel compared to the other hawker centres I have seen.\r"
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Muthu
@@ -56,7 +56,7 @@ MonoBehaviour:
           m_Calls: []
     dialogue: "Also,  have you also seen the newest appliances being created? \r\n\r"
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Muthu
@@ -69,6 +69,20 @@ MonoBehaviour:
           m_Calls: []
     dialogue: "Like, have you seen this new toaster oven? It makes toasted bread
       without being burnt every time!\r"
+    playerChoices: []
+  - showOnce: 0
+    isLoopingDialogue: 1
+    isShown: 0
+    speakerName: Muthu
+    speakerIcon: {fileID: 0}
+    breakAfterDialogue: 1
+    onDialogueDone:
+      playOnce: 0
+      onDialogueDone:
+        m_PersistentCalls:
+          m_Calls: []
+    dialogue: 'We truly live in a golden time, my friend. Would you like to see some
+      of these new kitchenware created? '
     playerChoices: []
   - showOnce: 0
     isLoopingDialogue: 1

@@ -17,7 +17,7 @@ MonoBehaviour:
   dayNumber: 1
   dialogues:
   - showOnce: 0
-    isLoopingDialogue: 1
+    isLoopingDialogue: 0
     isShown: 0
     speakerName: Wendy Lim
     speakerIcon: {fileID: 0}
@@ -30,7 +30,7 @@ MonoBehaviour:
     dialogue: "Hello there! Looking for some new equipment?\r"
     playerChoices: []
   - showOnce: 0
-    isLoopingDialogue: 1
+    isLoopingDialogue: 0
     isShown: 0
     speakerName: Wendy Lim
     speakerIcon: {fileID: 0}

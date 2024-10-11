@@ -16,7 +16,7 @@ MonoBehaviour:
   npcType: 0
   dayNumber: 2
   dialogues:
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Muthu
@@ -29,10 +29,10 @@ MonoBehaviour:
           m_Calls: []
     dialogue: "Hi\u2026"
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
-    speakerName: Player
+    speakerName: Muthu
     speakerIcon: {fileID: 0}
     breakAfterDialogue: 0
     onDialogueDone:
@@ -40,9 +40,9 @@ MonoBehaviour:
       onDialogueDone:
         m_PersistentCalls:
           m_Calls: []
-    dialogue: '[Asks if everything is okay]'
+    dialogue: '[You ask if everything is okay]'
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Muthu
@@ -55,7 +55,7 @@ MonoBehaviour:
           m_Calls: []
     dialogue: "No\u2026"
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Muthu
@@ -68,7 +68,7 @@ MonoBehaviour:
           m_Calls: []
     dialogue: "The recent recession has really impacted my uncle\u2019s business."
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Muthu
@@ -81,7 +81,7 @@ MonoBehaviour:
           m_Calls: []
     dialogue: "\u2026 I am a little concern for him."
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Muthu

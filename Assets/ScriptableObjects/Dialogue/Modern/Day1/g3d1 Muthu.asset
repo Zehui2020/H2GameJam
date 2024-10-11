@@ -16,7 +16,7 @@ MonoBehaviour:
   npcType: 0
   dayNumber: 1
   dialogues:
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Muthu
@@ -29,7 +29,7 @@ MonoBehaviour:
           m_Calls: []
     dialogue: "Oh! It\u2019s you!"
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Muthu
@@ -42,7 +42,7 @@ MonoBehaviour:
           m_Calls: []
     dialogue: "It\u2019s been such a long time!"
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Muthu
@@ -55,7 +55,7 @@ MonoBehaviour:
           m_Calls: []
     dialogue: How have you been?
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Muthu
@@ -68,7 +68,7 @@ MonoBehaviour:
           m_Calls: []
     dialogue: My uncle moved his prata shop here to Lau Pa Sat!
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Muthu

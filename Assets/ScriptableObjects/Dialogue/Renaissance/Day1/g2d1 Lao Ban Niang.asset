@@ -16,7 +16,7 @@ MonoBehaviour:
   npcType: 0
   dayNumber: 1
   dialogues:
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Lao Ban Niang
@@ -29,10 +29,10 @@ MonoBehaviour:
           m_Calls: []
     dialogue: Welcome!
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
-    speakerName: Player
+    speakerName: Lao Ban Niang
     speakerIcon: {fileID: 0}
     breakAfterDialogue: 0
     onDialogueDone:
@@ -40,7 +40,8 @@ MonoBehaviour:
       onDialogueDone:
         m_PersistentCalls:
           m_Calls: []
-    dialogue: '[Convincinh to come to eat at your store due to more competitors]'
+    dialogue: '[You try to convince her to come to eat at your store due to more
+      competitors]'
     playerChoices: []
   - showOnce: 0
     isLoopingDialogue: 1

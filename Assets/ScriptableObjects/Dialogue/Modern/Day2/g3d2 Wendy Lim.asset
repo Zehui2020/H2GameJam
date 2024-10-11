@@ -16,7 +16,7 @@ MonoBehaviour:
   npcType: 1
   dayNumber: 3
   dialogues:
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Wendy Lim
@@ -29,10 +29,10 @@ MonoBehaviour:
           m_Calls: []
     dialogue: Hello...
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
-    speakerName: Player
+    speakerName: Wendy Lim
     speakerIcon: {fileID: 0}
     breakAfterDialogue: 0
     onDialogueDone:
@@ -40,9 +40,9 @@ MonoBehaviour:
       onDialogueDone:
         m_PersistentCalls:
           m_Calls: []
-    dialogue: '[Ask if everything is okay]'
+    dialogue: '[You ask if everything is okay]'
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Wendy Lim
@@ -56,7 +56,7 @@ MonoBehaviour:
     dialogue: The recession hit my store hard, I might not be able to make it past
       the next few weeks at this rate.
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Wendy Lim
@@ -70,7 +70,7 @@ MonoBehaviour:
     dialogue: " I spent a lot of money and the newest equipment, and with how much
       people are willing to spend now, it is hard making any sales nowadays.\r"
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Wendy Lim

@@ -16,7 +16,7 @@ MonoBehaviour:
   npcType: 1
   dayNumber: 3
   dialogues:
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Muthu
@@ -29,7 +29,7 @@ MonoBehaviour:
           m_Calls: []
     dialogue: Hello again!
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Muthu
@@ -42,7 +42,7 @@ MonoBehaviour:
           m_Calls: []
     dialogue: "Just to let you know, I will be leaving this place next week.\r"
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Muthu
@@ -55,7 +55,7 @@ MonoBehaviour:
           m_Calls: []
     dialogue: "You\u2019ve heard about the construction of the new MRT line right?"
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Muthu
@@ -68,7 +68,7 @@ MonoBehaviour:
           m_Calls: []
     dialogue: This place is going to close for the time being.
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Muthu
@@ -82,7 +82,7 @@ MonoBehaviour:
     dialogue: " I think I will head to my uncle\u2019s prata shop to help him out
       there?"
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Muthu

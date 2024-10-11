@@ -16,7 +16,7 @@ MonoBehaviour:
   npcType: 0
   dayNumber: 3
   dialogues:
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Muthu
@@ -29,7 +29,7 @@ MonoBehaviour:
           m_Calls: []
     dialogue: Oh hey!
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Muthu
@@ -42,7 +42,7 @@ MonoBehaviour:
           m_Calls: []
     dialogue: "You heard about my uncle\u2019s business shutting down right ?\r"
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Muthu
@@ -55,7 +55,7 @@ MonoBehaviour:
           m_Calls: []
     dialogue: I am thinking of helping him!
     playerChoices: []
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Muthu

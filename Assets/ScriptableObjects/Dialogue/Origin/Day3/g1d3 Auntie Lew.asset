@@ -16,7 +16,7 @@ MonoBehaviour:
   npcType: 0
   dayNumber: 3
   dialogues:
-  - showOnce: 1
+  - showOnce: 0
     isLoopingDialogue: 0
     isShown: 0
     speakerName: Auntie Lew
