@@ -7,24 +7,30 @@ using UnityEngine.SceneManagement;
 
 public class EndScene : MonoBehaviour
 {
-    [SerializeField] public TextMeshProUGUI repText;
-    [SerializeField] public TextMeshProUGUI moneyText;
+    [SerializeField] private Sprite gen1End;
+    [SerializeField] private Sprite gen2End;
+    [SerializeField] private Sprite gen3End;
 
+    [SerializeField] private SpriteRenderer endSprite;
 
     // Start is called before the first frame update
     void Start()
     {
-        PlayerStats playerStats = PlayerStats.playerStatsInstance;
-        //set reputation and money
-        if (playerStats != null )
+        switch (PlayerStats.playerStatsInstance.currentGeneration.generation)
         {
-            repText.text = "Reputation: " + playerStats.currentReputation;
-            moneyText.text = "Money: " + playerStats.GetPlayerMoney();
+            case GenerationData.Generation.Origins:
+                endSprite.sprite = gen1End;
+                break;
+            case GenerationData.Generation.Renaissance:
+                endSprite.sprite = gen2End;
+                break;
+            case GenerationData.Generation.Morden:
+                endSprite.sprite = gen3End;
+                break;
+            default:
+                endSprite.sprite = gen1End;
+                break;
         }
-        else
-        {
-            repText.text = "Reputation: Null";
-            moneyText.text = "Money: Null";
-        }
+        
     }
 }
