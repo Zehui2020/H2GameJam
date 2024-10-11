@@ -8390,6 +8390,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9066872179010229204, guid: 4ee102956f26e9349b01d7bbedce88b3, type: 3}
+      propertyPath: dayCounter
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9066872179010229204, guid: 4ee102956f26e9349b01d7bbedce88b3, type: 3}
       propertyPath: currentGeneration
       value: 
       objectReference: {fileID: 11400000, guid: 3f1e4781de21f5846b23e8d39da94933, type: 2}

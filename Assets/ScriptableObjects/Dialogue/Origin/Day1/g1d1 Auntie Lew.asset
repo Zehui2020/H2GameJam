@@ -81,8 +81,8 @@ MonoBehaviour:
       onDialogueDone:
         m_PersistentCalls:
           m_Calls: []
-    dialogue: "A lot of people bought and sold fish in this area, and traded here
-      as well.\r\r\r"
+    dialogue: "A lot of people bought and sold fish in this area, and traded the
+      most unique of items here too!\r\r\r"
     playerChoices: []
   - showOnce: 0
     isLoopingDialogue: 0
@@ -95,8 +95,20 @@ MonoBehaviour:
       onDialogueDone:
         m_PersistentCalls:
           m_Calls: []
-    dialogue: "Now, we have this marketplace which not only holds one of the most
-      busy markets in Singapore, but also a hawker centre!\r\r\r"
+    dialogue: Things from all over the world!
+    playerChoices: []
+  - showOnce: 0
+    isLoopingDialogue: 0
+    isShown: 1
+    speakerName: Auntie Lew
+    speakerIcon: {fileID: 0}
+    breakAfterDialogue: 0
+    onDialogueDone:
+      playOnce: 0
+      onDialogueDone:
+        m_PersistentCalls:
+          m_Calls: []
+    dialogue: "\rAh, how time passes by. \r"
     playerChoices: []
   - showOnce: 0
     isLoopingDialogue: 1
@@ -109,6 +121,5 @@ MonoBehaviour:
       onDialogueDone:
         m_PersistentCalls:
           m_Calls: []
-    dialogue: "\rAh, how time passes by. Now enough reminiscing, would you like to
-      buy anything?\r"
+    dialogue: "\rNow enough reminiscing, would you like to buy anything?\r"
     playerChoices: []
