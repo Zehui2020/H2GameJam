@@ -20,4 +20,4 @@ MonoBehaviour:
     requirementSprites: []
     sideDishes: []
   dishSprite: {fileID: 21300000, guid: 33b85453fd24ef64bb91fe7dd063f4da, type: 3}
-  dishCost: 0
+  dishCost: 7.5

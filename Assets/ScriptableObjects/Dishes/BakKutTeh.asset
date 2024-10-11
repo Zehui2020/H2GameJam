@@ -18,10 +18,6 @@ MonoBehaviour:
   dishCombinations:
   - ingredients: 0000000005000000
     requirementSprites: []
-    sideDishes:
-    - {fileID: 11400000, guid: 4df9d86dd3eff814faf01c07363c7df0, type: 2}
-  - ingredients: 0000000005000000
-    requirementSprites: []
     sideDishes: []
-  dishSprite: {fileID: 21300000, guid: fbaf92e4767718f4b9d531cff9cc5817, type: 3}
-  dishCost: 0
+  dishSprite: {fileID: 21300000, guid: cc2b7bcef540f5a40b6f35f66e03db34, type: 3}
+  dishCost: 6

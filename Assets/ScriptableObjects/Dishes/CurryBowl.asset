@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b68a01177ec58f41bb2119c7a29c5ac, type: 3}
   m_Name: CurryBowl
   m_EditorClassIdentifier: 
+  doesCombinationIndexMatter: 0
   utensil: 1
   dishType: 7
   dishCombinations:
@@ -19,4 +20,4 @@ MonoBehaviour:
     requirementSprites: []
     sideDishes: []
   dishSprite: {fileID: 21300000, guid: 7c073df33aa8ccd4597d6709f96fab68, type: 3}
-  dishCost: 0
+  dishCost: 3

@@ -37,13 +37,13 @@ public class ConfirmBuyPanel : MonoBehaviour
         itemDescription.text = itemToBuy.shopDescription;
 
         if (sliderAmount != null)
-            itemCost.text = PlayerStats.playerStatsInstance.currentMoney + "/" + itemToBuy.GetCost() * sliderAmount.value;
+            itemCost.text = PlayerStats.playerStatsInstance.GetPlayerMoney() + "/" + itemToBuy.GetCost() * sliderAmount.value;
         else
-            itemCost.text = PlayerStats.playerStatsInstance.currentMoney + "/" + itemToBuy.GetCost();
+            itemCost.text = PlayerStats.playerStatsInstance.GetPlayerMoney() + "/" + itemToBuy.GetCost();
 
         int maxToBuy = itemToBuy.maximumPurchases;
         if (itemToBuy.GetCost() != 0)
-            maxToBuy = Mathf.FloorToInt(PlayerStats.playerStatsInstance.currentMoney / itemToBuy.GetCost());
+            maxToBuy = Mathf.FloorToInt(PlayerStats.playerStatsInstance.GetPlayerMoney() / itemToBuy.GetCost());
 
         int maxPurchasable = Mathf.FloorToInt(boothButton.purchasesLeft * itemToBuy.GetCost());
 
@@ -84,13 +84,13 @@ public class ConfirmBuyPanel : MonoBehaviour
         if (itemToBuy is Ingredient ingredient)
         {
             PlayerStats.playerStatsInstance.AddToPlayerInventory(Mathf.CeilToInt(sliderAmount.value), ingredient);
-            PlayerStats.playerStatsInstance.currentMoney -= itemToBuy.GetCost() * (int)sliderAmount.value;
+            PlayerStats.playerStatsInstance.RemoveMoney(itemToBuy.GetCost() * sliderAmount.value, null);
             boothButton.UpdateButton((int)sliderAmount.value);
         }
         else if (itemToBuy is ApplianceData appliance)
         {
             PlayerStats.playerStatsInstance.UpgradeAppliances(appliance);
-            PlayerStats.playerStatsInstance.currentMoney -= itemToBuy.GetCost();
+            PlayerStats.playerStatsInstance.RemoveMoney(itemToBuy.GetCost(), null);
             boothButton.UpdateButton(1);
         }
 
@@ -111,10 +111,10 @@ public class ConfirmBuyPanel : MonoBehaviour
     {
         purchaseAmountCount.text = sliderAmount.value.ToString();
 
-        int totalCost = itemToBuy.GetCost() * (int)sliderAmount.value;
-        itemCost.text = PlayerStats.playerStatsInstance.currentMoney + "/" + itemToBuy.GetCost() * sliderAmount.value;
+        float totalCost = itemToBuy.GetCost() * sliderAmount.value;
+        itemCost.text = PlayerStats.playerStatsInstance.GetPlayerMoney() + "/" + itemToBuy.GetCost() * sliderAmount.value;
 
-        if (PlayerStats.playerStatsInstance.currentMoney < totalCost)
+        if (PlayerStats.playerStatsInstance.GetPlayerMoney() < totalCost)
             purchaseButton.interactable = false;
         else
             purchaseButton.interactable = true;

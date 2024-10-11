@@ -19,7 +19,7 @@ public class EndScene : MonoBehaviour
         if (playerStats != null )
         {
             repText.text = "Reputation: " + playerStats.currentReputation;
-            moneyText.text = "Money: " + playerStats.currentMoney;
+            moneyText.text = "Money: " + playerStats.GetPlayerMoney();
         }
         else
         {

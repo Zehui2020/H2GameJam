@@ -717,6 +717,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applianceData: {fileID: 11400000, guid: d864476c6596c8347810dd0fa4b793be, type: 2}
   ingredients: 
+  notificationSpawnPoint: {fileID: 0}
   cookingSpeedModifier:
     baseAmount: 0
     modifiers: []
@@ -1469,6 +1470,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applianceData: {fileID: 11400000, guid: 392f6d3ca1fe669469e600ef7bc8a9c8, type: 2}
   ingredients: 
+  notificationSpawnPoint: {fileID: 0}
   cookingSpeedModifier:
     baseAmount: 0
     modifiers: []
@@ -3747,37 +3749,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1389435338
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1389435339}
-  m_Layer: 0
-  m_Name: NotificaionPopup
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1389435339
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1389435338}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.634447, y: -3.1692126, z: -0.062214464}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1398493278
 GameObject:
   m_ObjectHideFlags: 0
@@ -5001,6 +4972,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applianceData: {fileID: 11400000, guid: 1edba126b10449b4290cac5ae93dfecc, type: 2}
   ingredients: 
+  notificationSpawnPoint: {fileID: 0}
   cookingSpeedModifier:
     baseAmount: 0
     modifiers: []
@@ -5878,4 +5850,3 @@ SceneRoots:
   - {fileID: 927531427}
   - {fileID: 205543514}
   - {fileID: 682327139}
-  - {fileID: 1389435339}

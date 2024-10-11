@@ -144,7 +144,7 @@ public class CookingIngredient : Draggable, IAbleToAddIngredient
 
         if (utensil.utensilType != cookedDish.dish.utensil)
         {
-            Debug.Log("INCORRECT UTENSIL!");
+            PlayerStats.playerStatsInstance.ShowPopup("Wrong Utensil!", transform, NotificationPopup.PopupType.TextNotification);
             return null;
         }
 
@@ -224,6 +224,7 @@ public class CookingIngredient : Draggable, IAbleToAddIngredient
             return true;
         }
 
+        PlayerStats.playerStatsInstance.ShowPopup("Wrong Ingredient!", transform, NotificationPopup.PopupType.TextNotification);
         return false;
     }
 

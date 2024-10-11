@@ -62,7 +62,7 @@ MonoBehaviour:
     vel dis.'
   itemSprite: {fileID: 21300000, guid: af6ff4f066dcd3643be97750a2a0150a, type: 3}
   maximumPurchases: 30
-  cost: 5
+  cost: 0.1
   dishOnPlate: {fileID: 0}
   ingredientType: 4
   ingrendientSprite: {fileID: 21300000, guid: af6ff4f066dcd3643be97750a2a0150a, type: 3}

@@ -1,5 +1,9 @@
+using DesignPatterns.ObjectPool;
+using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 using static Ingredient;
 /// <summary>
 /// Script by Andrew
@@ -43,7 +47,7 @@ public class PlayerStats : MonoBehaviour
     public int generationIndex = 0;
 
     [Header("Money")]
-    public int currentMoney;
+    public float currentMoney;
 
     [Header("Reputation")]
     public int currentReputation;
@@ -56,6 +60,9 @@ public class PlayerStats : MonoBehaviour
     [Header("Dialogue")]
     public List<DialogueData> allDialogueDatas;
     public List<Sprite> playerDialogueSprites;
+
+    private Queue<Vector2> popupQueue = new Queue<Vector2>();
+    private Coroutine popupRoutine;
 
     private void Awake()
     {
@@ -198,13 +205,23 @@ public class PlayerStats : MonoBehaviour
 
         Debug.LogError("FAILED TO UPGRADE APPLIANCE LEVEL");
     }
-    public void AddMoney(int moneyToGain)
+    public void AddMoney(float moneyToGain, Transform position)
     {
         currentMoney += moneyToGain;
+
+        if (position == null)
+            return;
+
+        ShowPopup("+" + moneyToGain.ToString(), position, NotificationPopup.PopupType.MoneyIncrease);
     }
-    public void RemoveMoney(int moneyToLose)
+    public void RemoveMoney(float moneyToLose, Transform position)
     {
         currentMoney -= moneyToLose;
+
+        if (position == null)
+            return;
+
+        ShowPopup("-" + moneyToLose.ToString(), position, NotificationPopup.PopupType.MoneyDecrease);
     }
 
     public List<Dish> GetDishesOfThisGeneration()
@@ -212,14 +229,39 @@ public class PlayerStats : MonoBehaviour
         return currentGeneration.dishesToCook;
     }
 
-    public void AddRep(int repToGain)
+    public void AddRep(int repToGain, Transform position)
     {
         currentReputation += repToGain;
+        ShowPopup("+" + repToGain.ToString(), position, NotificationPopup.PopupType.ReputationIncrease);
     }
 
-    public void LoseRep(int repToLose)
+    public void LoseRep(int repToLose, Transform position)
     {
         currentReputation -= repToLose;
+        ShowPopup("-" + repToLose.ToString(), position, NotificationPopup.PopupType.ReputationDecrease);
+    }
+
+    public void ShowPopup(string notification, Transform position, NotificationPopup.PopupType notificationType)
+    {
+        popupQueue.Enqueue(position.position);
+        if (popupRoutine == null)
+            popupRoutine = StartCoroutine(ShowPopupRoutine(notification, notificationType));
+    }
+    private IEnumerator ShowPopupRoutine(string notification, NotificationPopup.PopupType notificationType)
+    {
+        while (popupQueue.Count > 0)
+        {
+            Vector2 spawnPos = popupQueue.Dequeue();
+
+            NotificationPopup notificationPopup = ObjectPool.Instance.GetPooledObject("NotificationPopup", true) as NotificationPopup;
+            notificationPopup.SetupPopup(notification, spawnPos, notificationType);
+
+            yield return new WaitForSeconds(0.5f);
+
+            yield return null;
+        }
+
+        popupRoutine = null;
     }
 
     public Sprite GetPlayerSprite()
@@ -237,7 +279,7 @@ public class PlayerStats : MonoBehaviour
         dayCounter++;
 
         //check if bankrupt
-        if (PlayerStats.playerStatsInstance.currentMoney <= 0)
+        if (PlayerStats.playerStatsInstance.GetPlayerMoney() <= 0)
         {
             //go to bankrupt scene
             SceneLoader.Instance.LoadScene("BankruptEndingScene");
@@ -279,5 +321,10 @@ public class PlayerStats : MonoBehaviour
         }
 
         return null;
+    }
+
+    public float GetPlayerMoney()
+    {
+        return Mathf.Round(currentMoney * 100f) / 100f;
     }
 }
