@@ -771,6 +771,7 @@ MonoBehaviour:
   cookingSliderAnimator: {fileID: 6160677126821099315}
   cookingSlider: {fileID: 199490495652164181}
   ingredientUIParent: {fileID: 1526494376955513039}
+  ingredientUIPrefab: {fileID: 7265545820102581776, guid: 3097d53645223b543a10e40710ada5d2, type: 3}
   addIngredientUI: {fileID: 4482795193252535776}
   burnWarningAnimator: {fileID: 8462884087939176307}
   cookedNotification: {fileID: 8318521773595488940}

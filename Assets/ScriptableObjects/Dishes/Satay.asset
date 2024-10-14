@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b68a01177ec58f41bb2119c7a29c5ac, type: 3}
   m_Name: Satay
   m_EditorClassIdentifier: 
-  doesCombinationIndexMatter: 1
+  doesCombinationIndexMatter: 0
   utensil: 0
   dishType: 1
   dishCombinations:

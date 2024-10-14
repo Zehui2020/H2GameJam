@@ -52,6 +52,9 @@ MonoBehaviour:
   cookingSpeedModifier:
     baseAmount: 0
     modifiers: []
+  cookedDish:
+    dish: {fileID: 0}
+    combinationIndex: 0
   foodSpawnPos:
   - {fileID: 918637396182251683}
   - {fileID: 8749388902001458241}
@@ -126,7 +129,7 @@ Transform:
   m_GameObject: {fileID: 4314235194115607586}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.13, y: -0.17, z: 0}
+  m_LocalPosition: {x: 1.269, y: -0.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -157,7 +160,7 @@ Transform:
   m_GameObject: {fileID: 4956177812877022012}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.46, y: -0.17, z: 0}
+  m_LocalPosition: {x: -0.238, y: -0.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

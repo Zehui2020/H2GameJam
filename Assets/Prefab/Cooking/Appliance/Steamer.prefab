@@ -777,6 +777,9 @@ MonoBehaviour:
   cookingSpeedModifier:
     baseAmount: 0
     modifiers: []
+  cookedDish:
+    dish: {fileID: 0}
+    combinationIndex: 0
   detectRadius: 1.32
   utensilLayer:
     serializedVersion: 2
@@ -809,6 +812,7 @@ MonoBehaviour:
   cookingSliderAnimator: {fileID: 1569958642886836621}
   cookingSlider: {fileID: 9147136553046589157}
   ingredientUIParent: {fileID: 3199717875977829337}
+  ingredientUIPrefab: {fileID: 7265545820102581776, guid: 3097d53645223b543a10e40710ada5d2, type: 3}
   addIngredientUI: {fileID: 991039574097519537}
   burnWarningAnimator: {fileID: 454116751534153661}
   cookedNotification: {fileID: 5386670409243853864}

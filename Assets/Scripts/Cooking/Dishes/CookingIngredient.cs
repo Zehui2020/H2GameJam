@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.Intrinsics;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -81,6 +82,15 @@ public class CookingIngredient : Draggable, IAbleToAddIngredient
     {
         if (!CanPutIngredient(ingredient.ingredientType) || ingredients.Count >= 1)
             return false;
+
+        for (int i = 0; i < cookedDish.dish.dishCombinations.Count; i++)
+        {
+            if (cookedDish.dish.dishCombinations[i].ingredients.Contains(ingredient.ingredientType))
+            {
+                cookedDish.combinationIndex = i;
+                break;
+            }
+        }
 
         ingredients.Add(ingredient.ingredientType);
         applianceUIManager.AddIngredientUI(ingredient);

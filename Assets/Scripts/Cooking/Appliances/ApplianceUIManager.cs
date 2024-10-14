@@ -11,6 +11,7 @@ public class ApplianceUIManager : MonoBehaviour
 
     [SerializeField] private RectTransform ingredientUIParent;
 
+    [SerializeField] private IngredientUI ingredientUIPrefab;
     [SerializeField] private IngredientUI addIngredientUI;
     private List<IngredientUI> ingredientUIs = new();
 
@@ -28,12 +29,13 @@ public class ApplianceUIManager : MonoBehaviour
         foreach (IngredientUI ingredientUI in ingredientUIs)
             ingredientUI.RemoveUI();
 
+        ingredientUIs.Clear();
         addIngredientUI.gameObject.SetActive(true);
     }
 
     public void AddIngredientUI(Ingredient ingredient)
     {
-        IngredientUI ingredientUI = ObjectPool.Instance.GetPooledObject("IngredientUI", false) as IngredientUI;
+        IngredientUI ingredientUI = Instantiate(ingredientUIPrefab);
         ingredientUI.InitIngredientUI(ingredient);
         ingredientUI.transform.SetParent(ingredientUIParent);
         ingredientUI.transform.localScale = Vector3.one;

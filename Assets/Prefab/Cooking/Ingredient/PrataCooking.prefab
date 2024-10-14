@@ -951,7 +951,7 @@ MonoBehaviour:
     dish: {fileID: 11400000, guid: d5fc7d792ec53e949a663dadae90b24c, type: 2}
     combinationIndex: 0
   allowedIngredientType: 10
-  alternateIngredientSprite: {fileID: 21300000, guid: 2ca0eecc98230da41a2948a255830b60, type: 3}
+  alternateIngredientSprite: {fileID: 21300000, guid: 32eeac6ba30736d4aaaf36dc5ce5235b, type: 3}
 --- !u!114 &610341714985366342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -967,6 +967,7 @@ MonoBehaviour:
   cookingSliderAnimator: {fileID: 5716229307946210072}
   cookingSlider: {fileID: 264061745630639643}
   ingredientUIParent: {fileID: 119222975077894075}
+  ingredientUIPrefab: {fileID: 7265545820102581776, guid: 3097d53645223b543a10e40710ada5d2, type: 3}
   addIngredientUI: {fileID: 3596862559190882104}
   burnWarningAnimator: {fileID: 6565512614134543311}
   cookedNotification: {fileID: 7743361544174318234}

@@ -13,7 +13,6 @@ public class IngredientUI : PooledObject
 
     public void RemoveUI()
     {
-        Release();
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }
