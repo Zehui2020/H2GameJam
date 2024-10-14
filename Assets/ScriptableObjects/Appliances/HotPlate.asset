@@ -21,7 +21,7 @@ MonoBehaviour:
   baseSprite: {fileID: 21300000, guid: 867db8d17e85f9a45956e6a2fbd03aa8, type: 3}
   burntSprite: {fileID: 21300000, guid: 2879ee19ecc8a4b4ab647d57edbbb9d3, type: 3}
   applianceName: Hot Plate
-  allowedIngredients: 040000000a000000
+  allowedIngredients: 04000000
   needToCheckSequence: 0
   applianceAppearances: []
   type: 2

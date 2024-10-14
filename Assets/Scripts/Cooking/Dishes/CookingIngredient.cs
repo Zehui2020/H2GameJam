@@ -11,6 +11,7 @@ public class CookingIngredient : Draggable, IAbleToAddIngredient
     [SerializeField] private Sprite burntSprite;
     [SerializeField] private float detectRadius;
     [SerializeField] private LayerMask utensilLayer;
+    [SerializeField] private Utensil.UtensilType acceptedUtensil;
 
     private ApplianceUIManager applianceUIManager;
     private SpriteRenderer spriteRenderer;
@@ -68,6 +69,9 @@ public class CookingIngredient : Draggable, IAbleToAddIngredient
 
         if (col.TryGetComponent<Utensil>(out Utensil utensil) && canServe)
         {
+            if (utensil.utensilType != acceptedUtensil)
+                return;
+
             utensil.SetDish(cookedDish);
             Destroy(gameObject);
         }
