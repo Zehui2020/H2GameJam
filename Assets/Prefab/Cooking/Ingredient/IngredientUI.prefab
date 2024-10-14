@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: IngredientUI
-  poolAmount: 200
+  poolAmount: 500
   ingredientIcon: {fileID: 8203131819827350061}
 --- !u!1 &5631721296159649844
 GameObject:
