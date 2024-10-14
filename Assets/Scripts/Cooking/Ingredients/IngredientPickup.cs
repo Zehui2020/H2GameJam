@@ -1,9 +1,8 @@
-using DesignPatterns.ObjectPool;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
 
-public class IngredientPickup : PooledObject
+public class IngredientPickup : MonoBehaviour
 {
     public Ingredient ingredient;
 
@@ -64,7 +63,7 @@ public class IngredientPickup : PooledObject
             if (col.TryGetComponent<CustomerEntity>(out CustomerEntity customer) && ingredient.dishOnPlate != null)
             {
                 customer.PassFood(new Appliance.CookedDish(ingredient.dishOnPlate, 0));
-                Destroy(gameObject);
+                ReleasePickup();
                 break;
             }
 
@@ -100,7 +99,7 @@ public class IngredientPickup : PooledObject
                         AudioManager.Instance.PlayOneShot("EggCrack");
                     }
                 }
-                Destroy(gameObject);
+                ReleasePickup();
                 break;
             }
         }
@@ -117,11 +116,16 @@ public class IngredientPickup : PooledObject
         }
 
         ingredientSpawner.AddIngredientBack();
-        Destroy(gameObject);
+        ReleasePickup();
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, detectRadius);
+    }
+
+    public void ReleasePickup()
+    {
+        Destroy(gameObject);
     }
 }
