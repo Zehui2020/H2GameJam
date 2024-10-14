@@ -907,7 +907,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Day 1 \nComplete!"
+  m_text: Day Complete!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0b618ee264b35e041bfe44f259177b3f, type: 2}
   m_sharedMaterial: {fileID: 1128910994858959856, guid: 0b618ee264b35e041bfe44f259177b3f, type: 2}

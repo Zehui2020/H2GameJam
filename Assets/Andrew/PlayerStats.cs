@@ -309,8 +309,9 @@ public class PlayerStats : MonoBehaviour
             }
 
             currentGeneration = allGenerations[generationIndex];
-            SceneLoader.Instance.LoadScene("MarketPlace");
         }
+
+        SceneLoader.Instance.LoadScene("MarketPlace");
     }
 
     public void GoFromTutorialToShop()
