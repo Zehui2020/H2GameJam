@@ -57,6 +57,7 @@ MonoBehaviour:
   currentReputation: 0
   cookingScenes:
   - OriginScene
+  - OriginScene
   - RenaissanceScene
   - MordenScene
   dayCounter: 0
