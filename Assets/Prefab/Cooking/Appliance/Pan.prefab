@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3134967313593333623}
   - component: {fileID: 8462884087939176307}
   - component: {fileID: 4341063990771010489}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: BurnWarning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 6407899306518365993}
   - component: {fileID: 3776964643028279219}
   - component: {fileID: 6288208120648687798}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1526494376955513039}
   - component: {fileID: 5282833504757282806}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Ingredients
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 1838503269432008475}
   - component: {fileID: 5098220679201194431}
   - component: {fileID: 4482795193252535776}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: AddIngredientUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 5870749646382940273}
   - component: {fileID: 8920140263472282310}
   - component: {fileID: 2283880463167538913}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: ApplianceCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -455,7 +455,7 @@ GameObject:
   - component: {fileID: 1871711233308513251}
   - component: {fileID: 199490495652164181}
   - component: {fileID: 6160677126821099315}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -566,7 +566,7 @@ GameObject:
   - component: {fileID: 876772730145169598}
   - component: {fileID: 6133473605830070049}
   - component: {fileID: 2390531268096185230}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -644,7 +644,7 @@ GameObject:
   - component: {fileID: 652623175448649061}
   - component: {fileID: 4764047661241457317}
   - component: {fileID: 2308781285700712393}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -736,6 +736,9 @@ MonoBehaviour:
   cookingSpeedModifier:
     baseAmount: 0
     modifiers: []
+  cookedDish:
+    dish: {fileID: 0}
+    combinationIndex: 0
   detectRadius: 1.32
   utensilLayer:
     serializedVersion: 2
@@ -827,7 +830,7 @@ GameObject:
   - component: {fileID: 8420845313313129236}
   - component: {fileID: 701755244699870440}
   - component: {fileID: 6702810228920533172}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -900,7 +903,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3056164885038776613}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -939,7 +942,7 @@ GameObject:
   - component: {fileID: 8686104924060980428}
   - component: {fileID: 2600826112567693097}
   - component: {fileID: 8318521773595488940}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: CookedNotification
   m_TagString: Untagged
   m_Icon: {fileID: 0}

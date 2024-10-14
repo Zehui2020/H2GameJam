@@ -30,7 +30,7 @@ public class Appliance : MonoBehaviour, IAbleToAddIngredient
     private Coroutine burnRoutine;
     protected bool canServe = false;
 
-    protected CookedDish cookedDish;
+    [SerializeField] protected CookedDish cookedDish;
 
     private void Start()
     {

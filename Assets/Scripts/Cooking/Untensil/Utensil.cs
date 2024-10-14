@@ -36,14 +36,12 @@ public class Utensil : Draggable
         base.OnEndDrag(eventData);
 
         Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, releaseRadius, customerLayer);
-
         foreach (Collider2D col in cols)
         {
             // Check if collide with appliance & can serve
             if (col.TryGetComponent<Appliance>(out Appliance appliance))
             {
                 Appliance.CookedDish dish = appliance.GetCookedDish(this);
-
                 if (dish != null)
                 {
                     switch (appliance.applianceData.type)
@@ -52,6 +50,8 @@ public class Utensil : Draggable
                             AudioManager.Instance.Play("SoupPour");
                             break;
                     }
+
+                    Debug.Log("CALLED");
                     SetDish(dish);
                     return;
                 }
