@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8772219001645703463}
   - component: {fileID: 1725234761373717424}
   - component: {fileID: 7029639288696164799}
+  - component: {fileID: 7390668232748500277}
   m_Layer: 0
   m_Name: Correct
   m_TagString: Untagged
@@ -33,9 +34,9 @@ RectTransform:
   m_Father: {fileID: 2648172760299352276}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.5, y: 0.5}
-  m_SizeDelta: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1725234761373717424
 CanvasRenderer:
@@ -65,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a8846f61da2e0fc4a9257186b0096717, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 355b3272eac59984a9834bbd4cfa49ce, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -75,6 +76,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!210 &7390668232748500277
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2277891476050252690}
+  m_Enabled: 1
+  m_SortingLayerID: 208397703
+  m_SortingLayer: 4
+  m_SortingOrder: 50
+  m_SortAtRoot: 0
 --- !u!1 &7960436559297784698
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,6 +189,7 @@ GameObject:
   - component: {fileID: 870077500146806920}
   - component: {fileID: 5432189206239604706}
   - component: {fileID: 4867902959723065402}
+  - component: {fileID: 2991754767557215040}
   m_Layer: 0
   m_Name: Wrong
   m_TagString: Untagged
@@ -198,9 +212,9 @@ RectTransform:
   m_Father: {fileID: 2648172760299352276}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.5, y: 0.5}
-  m_SizeDelta: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5432189206239604706
 CanvasRenderer:
@@ -230,7 +244,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b558a1ff8129525479c5934fbce7ddf3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7e647743a1596d448bcdf340906d0629, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -240,3 +254,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!210 &2991754767557215040
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9086790526359026759}
+  m_Enabled: 1
+  m_SortingLayerID: 208397703
+  m_SortingLayer: 4
+  m_SortingOrder: 50
+  m_SortAtRoot: 0
